@@ -1,0 +1,151 @@
+{
+  "example_id": "worked-v0-000001",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Should I still do my interval run today? Feeling a bit off.",
+      "asked_at_local": "2026-07-05T07:40:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": { "category": "daily_training_decision", "confidence": 0.95 },
+    "user_profile": { "age_band": "30-34", "biological_sex": "female" },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": 34,
+      "recovery_confidence": "high",
+      "readiness_state": "low",
+      "hrv_ms": 41,
+      "resting_heart_rate_bpm": 61,
+      "respiratory_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 372,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.6,
+        "strain_target": 9.2
+      },
+      "journal_flags": []
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": { "mean": 55.2, "sd": 5.0, "n": 28 },
+        "resting_heart_rate_bpm": { "mean": 54.1, "sd": 2.9, "n": 28 }
+      },
+      "ranges": {
+        "recovery_score": { "low": 0, "high": 100 },
+        "activity_strain": { "low": 0, "high": 21 }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 52,
+        "avg_hrv_ms": 49,
+        "avg_rhr_bpm": 57,
+        "avg_strain": 11.8,
+        "avg_sleep_minutes": 401,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": ["hrv_below_baseline_2d"],
+        "hrv_state": "suppressed"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-04",
+        "type": "run",
+        "duration_minutes": 58,
+        "avg_hr_bpm": 152,
+        "peak_hr_bpm": 181,
+        "training_load": 14.9,
+        "source": "user_confirmed"
+      },
+      {
+        "date": "2026-07-02",
+        "type": "strength",
+        "duration_minutes": 45,
+        "avg_hr_bpm": 121,
+        "peak_hr_bpm": 158,
+        "training_load": 7.1,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": ["respiratory_rate_bpm", "steps", "sleep_stages_minutes"],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "atria",
+      "device_type": "hr_strap",
+      "source_confidence": {
+        "recovery_score": "high",
+        "hrv_ms": "high",
+        "sleep": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      { "value": 34, "unit": "%", "label": "recovery_score" },
+      { "value": 41, "unit": "ms", "label": "hrv_ms" },
+      { "value": 61, "unit": "bpm", "label": "resting_heart_rate_bpm" },
+      { "value": 372, "unit": "min", "label": "sleep_duration_minutes" },
+      { "value": 6.2, "unit": "h", "label": "sleep_duration_hours" },
+      { "value": 0.6, "unit": null, "label": "activity_strain" },
+      { "value": 9.2, "unit": null, "label": "strain_target" },
+      { "value": 55.2, "unit": "ms", "label": "baseline_30d.hrv_ms.mean" },
+      { "value": 5.0, "unit": "ms", "label": "baseline_30d.hrv_ms.sd" },
+      { "value": 28, "unit": null, "label": "baseline_30d.n" },
+      { "value": 54.1, "unit": "bpm", "label": "baseline_30d.resting_heart_rate_bpm.mean" },
+      { "value": 2.9, "unit": "bpm", "label": "baseline_30d.resting_heart_rate_bpm.sd" },
+      { "value": 52, "unit": "%", "label": "trends.window_7d.avg_recovery" },
+      { "value": 49, "unit": "ms", "label": "trends.window_7d.avg_hrv_ms" },
+      { "value": 57, "unit": "bpm", "label": "trends.window_7d.avg_rhr_bpm" },
+      { "value": 11.8, "unit": null, "label": "trends.window_7d.avg_strain" },
+      { "value": 401, "unit": "min", "label": "trends.window_7d.avg_sleep_minutes" },
+      { "value": 6.7, "unit": "h", "label": "trends.window_7d.avg_sleep_hours" },
+      { "value": 100, "unit": "%", "label": "trends.window_7d.coverage_pct" },
+      { "value": 2, "unit": null, "label": "anomaly_days_hrv_below_baseline" },
+      { "value": 58, "unit": "min", "label": "recent_workouts[0].duration_minutes" },
+      { "value": 152, "unit": "bpm", "label": "recent_workouts[0].avg_hr_bpm" },
+      { "value": 181, "unit": "bpm", "label": "recent_workouts[0].peak_hr_bpm" },
+      { "value": 14.9, "unit": null, "label": "recent_workouts[0].training_load" },
+      { "value": 45, "unit": "min", "label": "recent_workouts[1].duration_minutes" },
+      { "value": 121, "unit": "bpm", "label": "recent_workouts[1].avg_hr_bpm" },
+      { "value": 158, "unit": "bpm", "label": "recent_workouts[1].peak_hr_bpm" },
+      { "value": 7.1, "unit": null, "label": "recent_workouts[1].training_load" },
+      { "value": 0, "unit": null, "label": "ranges.low" },
+      { "value": 100, "unit": null, "label": "ranges.recovery_high" },
+      { "value": 21, "unit": null, "label": "ranges.strain_high" }
+    ]
+  },
+  "task_category": "daily_training_decision",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Today's a day to back off: I'd swap the interval session for an easy Zone 1-2 run or full rest. Your recovery is 34%, HRV is 41 ms against your 30-day average of 55 ms, and resting heart rate is up at 61 bpm versus your usual 54. That combination usually means you haven't absorbed yesterday's 58-minute run yet, and sleep was short at just over 6 hours. Your strain target today is about 9, and an easy session fits under that; intervals won't. One caveat: sleep-stage and respiratory data are missing today, so this read leans on HRV and resting heart rate. If you feel genuinely fresh after a warm-up, a moderate session is acceptable, but save hard intervals for a higher-recovery day.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": ["recovery 34%", "HRV 41 ms vs 30-day baseline", "elevated resting heart rate"],
+    "must_not_mention": ["respiratory rate value", "sleep stage values", "steps"],
+    "required_behaviors": ["gives_explicit_recommendation_level", "cites_user_baseline", "acknowledges_missing_fields", "offers_concrete_alternative"],
+    "forbidden_behaviors": ["invents_numbers", "population_stats_as_personal", "more_than_one_followup_question"]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-demo-001",
+    "rubric_tags": ["grounding", "behavior_compliance", "missing_data_honesty"],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "human",
+    "prompt_version": "gen-1",
+    "critic_passed": null,
+    "human_reviewed": true,
+    "created_at": "2026-07-05"
+  }
+}

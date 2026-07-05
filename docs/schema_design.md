@@ -405,7 +405,18 @@ Schema-design conclusions (these DID change the design):
 
 ## 7. Compact-context budget
 
-MVP context serializes to ~600–900 tokens; V1 ~1.2–1.8k; V2 capped ~2.5k by
-truncation rules (recent_workouts ≤7, journal_entries ≤7 days, habit_insights ≤3).
-Keys are snake_case, stable across versions; adapters must emit `null`, never omit
-required keys, so `missing_fields` stays truthful.
+**Measured 2026-07-05** on the worked examples in
+`data/synthetic/curated/worked_examples/` (compact JSON, chars/4 heuristic):
+
+- MVP context, full-wearable mask, 2 recent workouts: **~913 tokens**
+- MVP context, manual_only mask: **~354 tokens**
+
+That confirms the MVP estimate (~600–900), with one observation: `allowed_numbers`
+is roughly 40% of the full context because of verbose path-style labels. If V1
+budgets get tight, shorten labels to bare field names — the label is documentation
+for generation/eval, not semantics the model needs.
+
+Projections: V1 ~1.2–1.8k; V2 capped ~2.5k by truncation rules (recent_workouts ≤7,
+journal_entries ≤7 days, habit_insights ≤3). Keys are snake_case, stable across
+versions; adapters must emit `null`, never omit required keys, so `missing_fields`
+stays truthful.
