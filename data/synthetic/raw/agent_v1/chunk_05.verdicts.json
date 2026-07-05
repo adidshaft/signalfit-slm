@@ -1,0 +1,128 @@
+{
+  "agen-v1-000120": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000121": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000122": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000123": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000124": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000125": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000126": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000127": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000128": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000129": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000130": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000131": {
+    "verdict": "accept",
+    "issues": [
+      "minor: confident 'exactly the recipe' framing on score drivers (score-input explanation, acceptable)"
+    ]
+  },
+  "agen-v1-000132": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000133": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000134": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000135": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000136": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000137": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000138": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000139": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000140": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000141": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000142": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000143": {
+    "verdict": "accept",
+    "issues": [
+      "minor: 'doing something measurable' borderline attribution, but grounded in duration math and hedged on lag"
+    ]
+  },
+  "agen-v1-000144": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000145": {
+    "verdict": "fixed",
+    "issues": [
+      "over-certain causal phrase 'fully accounted for' softened to correlational framing (rubric R2)"
+    ]
+  },
+  "agen-v1-000146": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000147": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000148": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000149": {
+    "verdict": "accept",
+    "issues": []
+  }
+}
