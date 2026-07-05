@@ -265,12 +265,17 @@
     "habit_insights": {
       "type": "array",
       "maxItems": 3,
+      "description": "Provider-computed behavior-vs-metric correlations. Providers should statistically gate these (reference: Atria requires >=5 tagged + >=5 comparison days in a 90d trailing window, min effect +/-3 recovery pts, Welch two-sided p<0.10). Always correlational: the model says 'linked with', never causal.",
       "items": {
         "type": "object",
         "required": ["text", "sample_days"],
+        "additionalProperties": false,
         "properties": {
           "text": { "type": "string" },
           "sample_days": { "type": "integer" },
+          "comparison_days": { "type": ["integer", "null"] },
+          "effect": { "type": ["number", "null"], "description": "signed effect size in the metric's own unit, e.g. -8 (% next-day recovery)" },
+          "metric": { "type": ["string", "null"], "description": "which metric the effect is on, e.g. recovery_score" },
           "confidence": { "enum": ["high", "medium", "low", null] }
         }
       }

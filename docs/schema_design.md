@@ -94,7 +94,8 @@ Source of truth files inspected:
 
 | Atria source | SignalFit generic name | Reliability | Version |
 |---|---|---|---|
-| `BehaviorCorrelationSummary`, `AtriaBehaviorImpact`, `AtriaJournalInsights` | `habit_insights[]` (precomputed correlation strings) | Medium — correlational, small n | V2 |
+| `AtriaBehaviorImpact.summaries` (90d trailing window; requires ≥5 tagged AND ≥5 comparison days; min effect ±3 recovery pts; Welch two-sided p<0.10, conservative normal approx; ranked by effect size) | `habit_insights[]` with `sample_days`, `comparison_days`, `effect` | **Medium-high — statistically gated by the provider, verified in AtriaBehaviorImpact.swift.** Still correlational: model must keep "linked with", never causal | V2 |
+| `BehaviorCorrelationSummary` (per-tag recovery/HRV deltas, "Learning" until computable), `AtriaJournalInsights` | feeds `habit_insights[].text` | Medium | V2 |
 | `AtriaInsight` (recovery/hrv), `AtriaHighlights`, weekly/monthly reports | `provider_insights[]` (optional metadata) | Medium | V2 |
 | `Coach.Guidance` strain target, `AtriaWeeklyPlan` | `plan_context` (today's target, weekly plan) | Medium-high | V1 (target), V2 (plan) |
 | `TrendSummary.anomalies` + `hrvState` | `trends.*.anomalies[]`, `hrv_state` | High (has sample-day counts) | V1 |
