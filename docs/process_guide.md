@@ -217,3 +217,11 @@ memory forces it.
   defined: fuse → 4-bit mlx_lm.convert → MLX Swift (MLXLLM) on-device; app
   integration contract documented (context building + on-device grounding
   check). Manual fine-tuning steps published above.
+- **2026-07-05 (phase 2, iteration 3):** Seed dataset grown 30 → 50 (5 phrasing
+  variants per category; new `ring_no_strain` provider mask). Splits now train
+  43 / valid 5 / eval 4, all gates green. Eval runner built:
+  `scripts/generate_answers.py` (model answers for a split, mlx-lm) +
+  `scripts/run_eval.py` (deterministic gates X1/X4/X5/X6 + a self-contained
+  judge bundle embedding the per-category rubric). Smoke-tested with gold
+  answers: 4/4 pass. **Post-training eval is now one command chain:**
+  generate_answers → run_eval → send judge_bundle.jsonl to a frontier model.
