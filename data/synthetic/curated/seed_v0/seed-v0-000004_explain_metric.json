@@ -1,47 +1,47 @@
 {
-  "example_id": "seed-v0-000006",
+  "example_id": "seed-v0-000004",
   "schema_version": "sf-train-1",
   "context": {
     "schema_version": "sf-context-1",
     "request": {
-      "user_question": "Should I train hard today?",
+      "user_question": "hrv is confusing, what should I read into mine?",
       "asked_at_local": "2026-07-05T07:30:00+02:00",
       "weekday": "Sunday",
       "units": "metric"
     },
     "task": {
-      "category": "daily_training_decision"
+      "category": "explain_metric"
     },
     "user_profile": {
-      "age_band": "18-24",
-      "biological_sex": "male"
+      "age_band": "30-34",
+      "biological_sex": "female"
     },
     "today": {
       "date_local": "2026-07-05",
-      "recovery_score": 71,
+      "recovery_score": 75,
       "recovery_confidence": "high",
       "readiness_state": "high",
-      "hrv_ms": 64,
-      "resting_heart_rate_bpm": 55,
+      "hrv_ms": 52,
+      "resting_heart_rate_bpm": 61,
       "sleep": {
-        "duration_minutes": 467,
+        "duration_minutes": 447,
         "source": "auto_detected",
         "confidence": "high"
       },
       "activity": {
-        "activity_strain": 0.6
+        "activity_strain": null
       }
     },
     "baselines": {
       "baseline_30d": {
         "hrv_ms": {
-          "mean": 63.1,
-          "sd": 4.3,
+          "mean": 46.4,
+          "sd": 4.8,
           "n": 30
         },
         "resting_heart_rate_bpm": {
-          "mean": 56.6,
-          "sd": 1.5,
+          "mean": 61.6,
+          "sd": 1.4,
           "n": 30
         }
       },
@@ -58,11 +58,11 @@
     },
     "trends": {
       "window_7d": {
-        "avg_recovery": 70,
-        "avg_hrv_ms": 66,
-        "avg_rhr_bpm": 56,
-        "avg_strain": 11.8,
-        "avg_sleep_minutes": 431,
+        "avg_recovery": 68,
+        "avg_hrv_ms": 47,
+        "avg_rhr_bpm": 61,
+        "avg_strain": 11.4,
+        "avg_sleep_minutes": 434,
         "coverage_pct": 100,
         "confidence": "high",
         "anomalies": [],
@@ -72,17 +72,18 @@
     "recent_workouts": [
       {
         "date": "2026-07-04",
-        "type": "swim",
-        "duration_minutes": 52,
-        "avg_hr_bpm": 139,
-        "peak_hr_bpm": 186,
-        "training_load": 14.7,
+        "type": "cycle",
+        "duration_minutes": 69,
+        "avg_hr_bpm": 156,
+        "peak_hr_bpm": 164,
+        "training_load": 13.7,
         "source": "user_confirmed"
       }
     ],
     "safety_flags": [],
     "data_quality": {
       "missing_fields": [
+        "activity_strain",
         "steps",
         "sleep_stages_minutes",
         "respiratory_rate_bpm"
@@ -90,48 +91,43 @@
       "overall": "medium"
     },
     "provenance": {
-      "data_provider": "generic_wearable",
-      "device_type": "wrist_wearable",
+      "data_provider": "generic_ring",
+      "device_type": "ring",
       "source_confidence": {
         "sleep": "high",
         "hrv_ms": "high"
       },
-      "strain_scale": "0-21",
+      "strain_scale": null,
       "hrv_method": "rmssd"
     },
     "allowed_numbers": [
       {
-        "value": 71.0,
+        "value": 75.0,
         "unit": "%",
         "label": "today.recovery_score"
       },
       {
-        "value": 64.0,
+        "value": 52.0,
         "unit": "ms",
         "label": "today.hrv_ms"
       },
       {
-        "value": 55.0,
+        "value": 61.0,
         "unit": "bpm",
         "label": "today.resting_heart_rate_bpm"
       },
       {
-        "value": 467.0,
+        "value": 447.0,
         "unit": "min",
         "label": "today.sleep.duration_minutes"
       },
       {
-        "value": 0.6,
-        "unit": null,
-        "label": "today.activity.activity_strain"
-      },
-      {
-        "value": 63.1,
+        "value": 46.4,
         "unit": null,
         "label": "baselines.baseline_30d.hrv_ms.mean"
       },
       {
-        "value": 4.3,
+        "value": 4.8,
         "unit": null,
         "label": "baselines.baseline_30d.hrv_ms.sd"
       },
@@ -141,12 +137,12 @@
         "label": "baselines.baseline_30d.hrv_ms.n"
       },
       {
-        "value": 56.6,
+        "value": 61.6,
         "unit": null,
         "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
       },
       {
-        "value": 1.5,
+        "value": 1.4,
         "unit": null,
         "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
       },
@@ -176,27 +172,27 @@
         "label": "baselines.ranges.activity_strain.high"
       },
       {
-        "value": 70.0,
+        "value": 68.0,
         "unit": "%",
         "label": "trends.window_7d.avg_recovery"
       },
       {
-        "value": 66.0,
+        "value": 47.0,
         "unit": "ms",
         "label": "trends.window_7d.avg_hrv_ms"
       },
       {
-        "value": 56.0,
+        "value": 61.0,
         "unit": "bpm",
         "label": "trends.window_7d.avg_rhr_bpm"
       },
       {
-        "value": 11.8,
+        "value": 11.4,
         "unit": null,
         "label": "trends.window_7d.avg_strain"
       },
       {
-        "value": 431.0,
+        "value": 434.0,
         "unit": "min",
         "label": "trends.window_7d.avg_sleep_minutes"
       },
@@ -206,27 +202,27 @@
         "label": "trends.window_7d.coverage_pct"
       },
       {
-        "value": 52.0,
+        "value": 69.0,
         "unit": "min",
         "label": "recent_workouts[0].duration_minutes"
       },
       {
-        "value": 139.0,
+        "value": 156.0,
         "unit": "bpm",
         "label": "recent_workouts[0].avg_hr_bpm"
       },
       {
-        "value": 186.0,
+        "value": 164.0,
         "unit": "bpm",
         "label": "recent_workouts[0].peak_hr_bpm"
       },
       {
-        "value": 14.7,
+        "value": 13.7,
         "unit": null,
         "label": "recent_workouts[0].training_load"
       },
       {
-        "value": 7.8,
+        "value": 7.5,
         "unit": "h",
         "label": "sleep_duration_hours"
       },
@@ -237,16 +233,15 @@
       }
     ]
   },
-  "task_category": "daily_training_decision",
+  "task_category": "explain_metric",
   "case_type": "normal",
   "difficulty": 1,
   "target_response": {
-    "text": "Short answer: go for it. Your recovery is 71%, HRV 64 ms vs your 30-day average of 63.1 ms, and resting heart rate 55 bpm against 56.6 bpm. Those all point the same way — your body is ready for load. Concretely: do the full planned session.",
+    "text": "HRV measures the variation in time between your heartbeats — higher generally means your nervous system is more recovered. Today you're at 52 ms against your own 30-day average of 46.4 ms, so you're at or above your personal normal. Day-to-day swings are expected; what matters is your value against your own baseline, not anyone else's. Your tracker computes this from beat-to-beat intervals, and today's reading is high-confidence. If it stays clearly below your average for several days alongside a rising resting heart rate, treat it as a signal to ease training and protect sleep.",
     "expected_action": "answer",
     "required_behaviors": [
-      "gives_explicit_recommendation_level",
-      "cites_user_baseline",
-      "offers_concrete_alternative"
+      "states_metric_meaning",
+      "cites_user_baseline"
     ],
     "forbidden_behaviors": [
       "invents_numbers",
@@ -255,8 +250,8 @@
   },
   "labels": {
     "safety_class": "none",
-    "provider_mask": "wearable_full",
-    "persona_id": "p-seed-daily_traini-0",
+    "provider_mask": "ring_no_strain",
+    "persona_id": "p-seed-explain_metr-3",
     "rubric_tags": [
       "grounding",
       "behavior_compliance"

@@ -1,47 +1,47 @@
 {
-  "example_id": "seed-v0-000006",
+  "example_id": "seed-v0-000032",
   "schema_version": "sf-train-1",
   "context": {
     "schema_version": "sf-context-1",
     "request": {
-      "user_question": "Should I train hard today?",
+      "user_question": "Any patterns between my habits and my numbers?",
       "asked_at_local": "2026-07-05T07:30:00+02:00",
       "weekday": "Sunday",
       "units": "metric"
     },
     "task": {
-      "category": "daily_training_decision"
+      "category": "habit_pattern_analysis"
     },
     "user_profile": {
-      "age_band": "18-24",
+      "age_band": "30-34",
       "biological_sex": "male"
     },
     "today": {
       "date_local": "2026-07-05",
-      "recovery_score": 71,
+      "recovery_score": 59,
       "recovery_confidence": "high",
-      "readiness_state": "high",
-      "hrv_ms": 64,
-      "resting_heart_rate_bpm": 55,
+      "readiness_state": "moderate",
+      "hrv_ms": 49,
+      "resting_heart_rate_bpm": 59,
       "sleep": {
-        "duration_minutes": 467,
+        "duration_minutes": 380,
         "source": "auto_detected",
         "confidence": "high"
       },
       "activity": {
-        "activity_strain": 0.6
+        "activity_strain": 0.4
       }
     },
     "baselines": {
       "baseline_30d": {
         "hrv_ms": {
-          "mean": 63.1,
-          "sd": 4.3,
+          "mean": 53.1,
+          "sd": 4.5,
           "n": 30
         },
         "resting_heart_rate_bpm": {
-          "mean": 56.6,
-          "sd": 1.5,
+          "mean": 58.4,
+          "sd": 1.8,
           "n": 30
         }
       },
@@ -58,11 +58,11 @@
     },
     "trends": {
       "window_7d": {
-        "avg_recovery": 70,
-        "avg_hrv_ms": 66,
-        "avg_rhr_bpm": 56,
-        "avg_strain": 11.8,
-        "avg_sleep_minutes": 431,
+        "avg_recovery": 63,
+        "avg_hrv_ms": 50,
+        "avg_rhr_bpm": 58,
+        "avg_strain": 10.9,
+        "avg_sleep_minutes": 450,
         "coverage_pct": 100,
         "confidence": "high",
         "anomalies": [],
@@ -72,11 +72,11 @@
     "recent_workouts": [
       {
         "date": "2026-07-04",
-        "type": "swim",
-        "duration_minutes": 52,
-        "avg_hr_bpm": 139,
-        "peak_hr_bpm": 186,
-        "training_load": 14.7,
+        "type": "run",
+        "duration_minutes": 34,
+        "avg_hr_bpm": 154,
+        "peak_hr_bpm": 160,
+        "training_load": 14.0,
         "source": "user_confirmed"
       }
     ],
@@ -101,37 +101,37 @@
     },
     "allowed_numbers": [
       {
-        "value": 71.0,
+        "value": 59.0,
         "unit": "%",
         "label": "today.recovery_score"
       },
       {
-        "value": 64.0,
+        "value": 49.0,
         "unit": "ms",
         "label": "today.hrv_ms"
       },
       {
-        "value": 55.0,
+        "value": 59.0,
         "unit": "bpm",
         "label": "today.resting_heart_rate_bpm"
       },
       {
-        "value": 467.0,
+        "value": 380.0,
         "unit": "min",
         "label": "today.sleep.duration_minutes"
       },
       {
-        "value": 0.6,
+        "value": 0.4,
         "unit": null,
         "label": "today.activity.activity_strain"
       },
       {
-        "value": 63.1,
+        "value": 53.1,
         "unit": null,
         "label": "baselines.baseline_30d.hrv_ms.mean"
       },
       {
-        "value": 4.3,
+        "value": 4.5,
         "unit": null,
         "label": "baselines.baseline_30d.hrv_ms.sd"
       },
@@ -141,12 +141,12 @@
         "label": "baselines.baseline_30d.hrv_ms.n"
       },
       {
-        "value": 56.6,
+        "value": 58.4,
         "unit": null,
         "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
       },
       {
-        "value": 1.5,
+        "value": 1.8,
         "unit": null,
         "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
       },
@@ -176,27 +176,27 @@
         "label": "baselines.ranges.activity_strain.high"
       },
       {
-        "value": 70.0,
+        "value": 63.0,
         "unit": "%",
         "label": "trends.window_7d.avg_recovery"
       },
       {
-        "value": 66.0,
+        "value": 50.0,
         "unit": "ms",
         "label": "trends.window_7d.avg_hrv_ms"
       },
       {
-        "value": 56.0,
+        "value": 58.0,
         "unit": "bpm",
         "label": "trends.window_7d.avg_rhr_bpm"
       },
       {
-        "value": 11.8,
+        "value": 10.9,
         "unit": null,
         "label": "trends.window_7d.avg_strain"
       },
       {
-        "value": 431.0,
+        "value": 450.0,
         "unit": "min",
         "label": "trends.window_7d.avg_sleep_minutes"
       },
@@ -206,47 +206,47 @@
         "label": "trends.window_7d.coverage_pct"
       },
       {
-        "value": 52.0,
+        "value": 34.0,
         "unit": "min",
         "label": "recent_workouts[0].duration_minutes"
       },
       {
-        "value": 139.0,
+        "value": 154.0,
         "unit": "bpm",
         "label": "recent_workouts[0].avg_hr_bpm"
       },
       {
-        "value": 186.0,
+        "value": 160.0,
         "unit": "bpm",
         "label": "recent_workouts[0].peak_hr_bpm"
       },
       {
-        "value": 14.7,
+        "value": 14.0,
         "unit": null,
         "label": "recent_workouts[0].training_load"
       },
       {
-        "value": 7.8,
+        "value": 6.3,
         "unit": "h",
         "label": "sleep_duration_hours"
       },
       {
-        "value": 7.2,
+        "value": 7.5,
         "unit": "h",
         "label": "avg_sleep_hours_7d"
       }
     ]
   },
-  "task_category": "daily_training_decision",
-  "case_type": "normal",
-  "difficulty": 1,
+  "task_category": "habit_pattern_analysis",
+  "case_type": "edge",
+  "difficulty": 2,
   "target_response": {
-    "text": "Short answer: go for it. Your recovery is 71%, HRV 64 ms vs your 30-day average of 63.1 ms, and resting heart rate 55 bpm against 56.6 bpm. Those all point the same way — your body is ready for load. Concretely: do the full planned session.",
-    "expected_action": "answer",
+    "text": "I can't establish a pattern for you yet — your context doesn't include enough tagged habit days for a statistically meaningful comparison, and I won't guess from single days. What would make this answerable: log the habit you suspect (alcohol, late caffeine, late meals) on the days it happens for a couple of weeks. Once there are at least five tagged days and five comparison days, a real before/after comparison of your recovery and HRV becomes possible, and I can tell you whether the difference looks meaningful rather than noise.",
+    "expected_action": "followup",
     "required_behaviors": [
-      "gives_explicit_recommendation_level",
-      "cites_user_baseline",
-      "offers_concrete_alternative"
+      "says_pattern_not_established",
+      "suggests_what_to_log",
+      "no_causal_claims"
     ],
     "forbidden_behaviors": [
       "invents_numbers",
@@ -256,7 +256,7 @@
   "labels": {
     "safety_class": "none",
     "provider_mask": "wearable_full",
-    "persona_id": "p-seed-daily_traini-0",
+    "persona_id": "p-seed-habit_patter-1",
     "rubric_tags": [
       "grounding",
       "behavior_compliance"

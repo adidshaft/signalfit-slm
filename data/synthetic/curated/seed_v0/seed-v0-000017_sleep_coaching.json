@@ -1,30 +1,30 @@
 {
-  "example_id": "seed-v0-000006",
+  "example_id": "seed-v0-000017",
   "schema_version": "sf-train-1",
   "context": {
     "schema_version": "sf-context-1",
     "request": {
-      "user_question": "Should I train hard today?",
+      "user_question": "my sleep feels off lately, tips?",
       "asked_at_local": "2026-07-05T07:30:00+02:00",
       "weekday": "Sunday",
       "units": "metric"
     },
     "task": {
-      "category": "daily_training_decision"
+      "category": "sleep_coaching"
     },
     "user_profile": {
       "age_band": "18-24",
-      "biological_sex": "male"
+      "biological_sex": "female"
     },
     "today": {
       "date_local": "2026-07-05",
-      "recovery_score": 71,
+      "recovery_score": 76,
       "recovery_confidence": "high",
       "readiness_state": "high",
-      "hrv_ms": 64,
-      "resting_heart_rate_bpm": 55,
+      "hrv_ms": 52,
+      "resting_heart_rate_bpm": 59,
       "sleep": {
-        "duration_minutes": 467,
+        "duration_minutes": 390,
         "source": "auto_detected",
         "confidence": "high"
       },
@@ -35,12 +35,12 @@
     "baselines": {
       "baseline_30d": {
         "hrv_ms": {
-          "mean": 63.1,
-          "sd": 4.3,
+          "mean": 49.7,
+          "sd": 4.4,
           "n": 30
         },
         "resting_heart_rate_bpm": {
-          "mean": 56.6,
+          "mean": 61.5,
           "sd": 1.5,
           "n": 30
         }
@@ -58,11 +58,11 @@
     },
     "trends": {
       "window_7d": {
-        "avg_recovery": 70,
-        "avg_hrv_ms": 66,
-        "avg_rhr_bpm": 56,
-        "avg_strain": 11.8,
-        "avg_sleep_minutes": 431,
+        "avg_recovery": 59,
+        "avg_hrv_ms": 48,
+        "avg_rhr_bpm": 63,
+        "avg_strain": 10.8,
+        "avg_sleep_minutes": 423,
         "coverage_pct": 100,
         "confidence": "high",
         "anomalies": [],
@@ -73,10 +73,10 @@
       {
         "date": "2026-07-04",
         "type": "swim",
-        "duration_minutes": 52,
-        "avg_hr_bpm": 139,
-        "peak_hr_bpm": 186,
-        "training_load": 14.7,
+        "duration_minutes": 30,
+        "avg_hr_bpm": 124,
+        "peak_hr_bpm": 176,
+        "training_load": 12.8,
         "source": "user_confirmed"
       }
     ],
@@ -101,22 +101,22 @@
     },
     "allowed_numbers": [
       {
-        "value": 71.0,
+        "value": 76.0,
         "unit": "%",
         "label": "today.recovery_score"
       },
       {
-        "value": 64.0,
+        "value": 52.0,
         "unit": "ms",
         "label": "today.hrv_ms"
       },
       {
-        "value": 55.0,
+        "value": 59.0,
         "unit": "bpm",
         "label": "today.resting_heart_rate_bpm"
       },
       {
-        "value": 467.0,
+        "value": 390.0,
         "unit": "min",
         "label": "today.sleep.duration_minutes"
       },
@@ -126,12 +126,12 @@
         "label": "today.activity.activity_strain"
       },
       {
-        "value": 63.1,
+        "value": 49.7,
         "unit": null,
         "label": "baselines.baseline_30d.hrv_ms.mean"
       },
       {
-        "value": 4.3,
+        "value": 4.4,
         "unit": null,
         "label": "baselines.baseline_30d.hrv_ms.sd"
       },
@@ -141,7 +141,7 @@
         "label": "baselines.baseline_30d.hrv_ms.n"
       },
       {
-        "value": 56.6,
+        "value": 61.5,
         "unit": null,
         "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
       },
@@ -176,27 +176,27 @@
         "label": "baselines.ranges.activity_strain.high"
       },
       {
-        "value": 70.0,
+        "value": 59.0,
         "unit": "%",
         "label": "trends.window_7d.avg_recovery"
       },
       {
-        "value": 66.0,
+        "value": 48.0,
         "unit": "ms",
         "label": "trends.window_7d.avg_hrv_ms"
       },
       {
-        "value": 56.0,
+        "value": 63.0,
         "unit": "bpm",
         "label": "trends.window_7d.avg_rhr_bpm"
       },
       {
-        "value": 11.8,
+        "value": 10.8,
         "unit": null,
         "label": "trends.window_7d.avg_strain"
       },
       {
-        "value": 431.0,
+        "value": 423.0,
         "unit": "min",
         "label": "trends.window_7d.avg_sleep_minutes"
       },
@@ -206,47 +206,47 @@
         "label": "trends.window_7d.coverage_pct"
       },
       {
-        "value": 52.0,
+        "value": 30.0,
         "unit": "min",
         "label": "recent_workouts[0].duration_minutes"
       },
       {
-        "value": 139.0,
+        "value": 124.0,
         "unit": "bpm",
         "label": "recent_workouts[0].avg_hr_bpm"
       },
       {
-        "value": 186.0,
+        "value": 176.0,
         "unit": "bpm",
         "label": "recent_workouts[0].peak_hr_bpm"
       },
       {
-        "value": 14.7,
+        "value": 12.8,
         "unit": null,
         "label": "recent_workouts[0].training_load"
       },
       {
-        "value": 7.8,
+        "value": 6.5,
         "unit": "h",
         "label": "sleep_duration_hours"
       },
       {
-        "value": 7.2,
+        "value": 7.0,
         "unit": "h",
         "label": "avg_sleep_hours_7d"
       }
     ]
   },
-  "task_category": "daily_training_decision",
+  "task_category": "sleep_coaching",
   "case_type": "normal",
   "difficulty": 1,
   "target_response": {
-    "text": "Short answer: go for it. Your recovery is 71%, HRV 64 ms vs your 30-day average of 63.1 ms, and resting heart rate 55 bpm against 56.6 bpm. Those all point the same way — your body is ready for load. Concretely: do the full planned session.",
-    "expected_action": "answer",
+    "text": "Start from your own pattern: last night was 6.5 hours and your 7-day average is 7.0 hours. Last night broke from your average, so the first fix is protecting a consistent window. Two specific moves: hold the same bedtime within about half an hour every night this week, and keep the hour before bed screen-light and dim. I don't have sleep-stage detail from your source, so I'm working from duration and timing only. If you add a consistent wake time, the rest usually follows within a week or two.",
+    "expected_action": "answer_with_caveat",
     "required_behaviors": [
-      "gives_explicit_recommendation_level",
-      "cites_user_baseline",
-      "offers_concrete_alternative"
+      "anchors_on_user_pattern",
+      "max_two_behaviors",
+      "acknowledges_missing_fields"
     ],
     "forbidden_behaviors": [
       "invents_numbers",
@@ -256,7 +256,7 @@
   "labels": {
     "safety_class": "none",
     "provider_mask": "wearable_full",
-    "persona_id": "p-seed-daily_traini-0",
+    "persona_id": "p-seed-sleep_coachi-1",
     "rubric_tags": [
       "grounding",
       "behavior_compliance"

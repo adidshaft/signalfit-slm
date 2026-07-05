@@ -1,30 +1,41 @@
 {
-  "example_id": "seed-v0-000006",
+  "example_id": "seed-v0-000026",
   "schema_version": "sf-train-1",
   "context": {
     "schema_version": "sf-context-1",
     "request": {
-      "user_question": "Should I train hard today?",
+      "user_question": "Am I making progress on my recovery goal?",
       "asked_at_local": "2026-07-05T07:30:00+02:00",
       "weekday": "Sunday",
       "units": "metric"
     },
     "task": {
-      "category": "daily_training_decision"
+      "category": "goal_coaching"
     },
     "user_profile": {
-      "age_band": "18-24",
+      "age_band": "25-29",
       "biological_sex": "male"
+    },
+    "goals": {
+      "primary_goal": "improve_recovery",
+      "target_metrics": [
+        {
+          "metric": "recovery_score",
+          "green_at": 67,
+          "direction": "higher_is_better",
+          "source": "research_default"
+        }
+      ]
     },
     "today": {
       "date_local": "2026-07-05",
-      "recovery_score": 71,
+      "recovery_score": 64,
       "recovery_confidence": "high",
-      "readiness_state": "high",
-      "hrv_ms": 64,
-      "resting_heart_rate_bpm": 55,
+      "readiness_state": "moderate",
+      "hrv_ms": 48,
+      "resting_heart_rate_bpm": 61,
       "sleep": {
-        "duration_minutes": 467,
+        "duration_minutes": 388,
         "source": "auto_detected",
         "confidence": "high"
       },
@@ -35,13 +46,13 @@
     "baselines": {
       "baseline_30d": {
         "hrv_ms": {
-          "mean": 63.1,
-          "sd": 4.3,
+          "mean": 49.0,
+          "sd": 3.5,
           "n": 30
         },
         "resting_heart_rate_bpm": {
-          "mean": 56.6,
-          "sd": 1.5,
+          "mean": 61.1,
+          "sd": 1.1,
           "n": 30
         }
       },
@@ -58,10 +69,10 @@
     },
     "trends": {
       "window_7d": {
-        "avg_recovery": 70,
-        "avg_hrv_ms": 66,
-        "avg_rhr_bpm": 56,
-        "avg_strain": 11.8,
+        "avg_recovery": 67,
+        "avg_hrv_ms": 50,
+        "avg_rhr_bpm": 61,
+        "avg_strain": 10.6,
         "avg_sleep_minutes": 431,
         "coverage_pct": 100,
         "confidence": "high",
@@ -72,11 +83,11 @@
     "recent_workouts": [
       {
         "date": "2026-07-04",
-        "type": "swim",
-        "duration_minutes": 52,
-        "avg_hr_bpm": 139,
-        "peak_hr_bpm": 186,
-        "training_load": 14.7,
+        "type": "strength",
+        "duration_minutes": 59,
+        "avg_hr_bpm": 129,
+        "peak_hr_bpm": 183,
+        "training_load": 7.0,
         "source": "user_confirmed"
       }
     ],
@@ -101,22 +112,27 @@
     },
     "allowed_numbers": [
       {
-        "value": 71.0,
+        "value": 67.0,
+        "unit": "%",
+        "label": "goals.target_metrics[0].green_at"
+      },
+      {
+        "value": 64.0,
         "unit": "%",
         "label": "today.recovery_score"
       },
       {
-        "value": 64.0,
+        "value": 48.0,
         "unit": "ms",
         "label": "today.hrv_ms"
       },
       {
-        "value": 55.0,
+        "value": 61.0,
         "unit": "bpm",
         "label": "today.resting_heart_rate_bpm"
       },
       {
-        "value": 467.0,
+        "value": 388.0,
         "unit": "min",
         "label": "today.sleep.duration_minutes"
       },
@@ -126,12 +142,12 @@
         "label": "today.activity.activity_strain"
       },
       {
-        "value": 63.1,
+        "value": 49.0,
         "unit": null,
         "label": "baselines.baseline_30d.hrv_ms.mean"
       },
       {
-        "value": 4.3,
+        "value": 3.5,
         "unit": null,
         "label": "baselines.baseline_30d.hrv_ms.sd"
       },
@@ -141,12 +157,12 @@
         "label": "baselines.baseline_30d.hrv_ms.n"
       },
       {
-        "value": 56.6,
+        "value": 61.1,
         "unit": null,
         "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
       },
       {
-        "value": 1.5,
+        "value": 1.1,
         "unit": null,
         "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
       },
@@ -176,22 +192,22 @@
         "label": "baselines.ranges.activity_strain.high"
       },
       {
-        "value": 70.0,
+        "value": 67.0,
         "unit": "%",
         "label": "trends.window_7d.avg_recovery"
       },
       {
-        "value": 66.0,
+        "value": 50.0,
         "unit": "ms",
         "label": "trends.window_7d.avg_hrv_ms"
       },
       {
-        "value": 56.0,
+        "value": 61.0,
         "unit": "bpm",
         "label": "trends.window_7d.avg_rhr_bpm"
       },
       {
-        "value": 11.8,
+        "value": 10.6,
         "unit": null,
         "label": "trends.window_7d.avg_strain"
       },
@@ -206,27 +222,27 @@
         "label": "trends.window_7d.coverage_pct"
       },
       {
-        "value": 52.0,
+        "value": 59.0,
         "unit": "min",
         "label": "recent_workouts[0].duration_minutes"
       },
       {
-        "value": 139.0,
+        "value": 129.0,
         "unit": "bpm",
         "label": "recent_workouts[0].avg_hr_bpm"
       },
       {
-        "value": 186.0,
+        "value": 183.0,
         "unit": "bpm",
         "label": "recent_workouts[0].peak_hr_bpm"
       },
       {
-        "value": 14.7,
+        "value": 7.0,
         "unit": null,
         "label": "recent_workouts[0].training_load"
       },
       {
-        "value": 7.8,
+        "value": 6.5,
         "unit": "h",
         "label": "sleep_duration_hours"
       },
@@ -237,16 +253,16 @@
       }
     ]
   },
-  "task_category": "daily_training_decision",
+  "task_category": "goal_coaching",
   "case_type": "normal",
   "difficulty": 1,
   "target_response": {
-    "text": "Short answer: go for it. Your recovery is 71%, HRV 64 ms vs your 30-day average of 63.1 ms, and resting heart rate 55 bpm against 56.6 bpm. Those all point the same way — your body is ready for load. Concretely: do the full planned session.",
+    "text": "You're tracking reasonably. Your 7-day average recovery is 67%, against the common green threshold of 67% — above it, so the goal is holding. Treat it like a direction, not a daily alarm: single low days are normal and don't erase the trend. The next milestone worth aiming at is stringing together a full week where sleep stays near your average and no more than one day dips low. Check back in two weeks; recovery goals move on that timescale, not day-to-day.",
     "expected_action": "answer",
     "required_behaviors": [
-      "gives_explicit_recommendation_level",
-      "cites_user_baseline",
-      "offers_concrete_alternative"
+      "progress_framing_not_alarm",
+      "next_milestone",
+      "user_own_targets"
     ],
     "forbidden_behaviors": [
       "invents_numbers",
@@ -256,7 +272,7 @@
   "labels": {
     "safety_class": "none",
     "provider_mask": "wearable_full",
-    "persona_id": "p-seed-daily_traini-0",
+    "persona_id": "p-seed-goal_coachin-0",
     "rubric_tags": [
       "grounding",
       "behavior_compliance"

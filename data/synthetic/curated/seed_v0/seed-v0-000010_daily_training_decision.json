@@ -1,10 +1,10 @@
 {
-  "example_id": "seed-v0-000006",
+  "example_id": "seed-v0-000010",
   "schema_version": "sf-train-1",
   "context": {
     "schema_version": "sf-context-1",
     "request": {
-      "user_question": "Should I train hard today?",
+      "user_question": "Green light for a heavy session?",
       "asked_at_local": "2026-07-05T07:30:00+02:00",
       "weekday": "Sunday",
       "units": "metric"
@@ -13,35 +13,35 @@
       "category": "daily_training_decision"
     },
     "user_profile": {
-      "age_band": "18-24",
-      "biological_sex": "male"
+      "age_band": "25-29",
+      "biological_sex": "female"
     },
     "today": {
       "date_local": "2026-07-05",
-      "recovery_score": 71,
+      "recovery_score": 64,
       "recovery_confidence": "high",
-      "readiness_state": "high",
-      "hrv_ms": 64,
-      "resting_heart_rate_bpm": 55,
+      "readiness_state": "moderate",
+      "hrv_ms": 53,
+      "resting_heart_rate_bpm": 59,
       "sleep": {
-        "duration_minutes": 467,
+        "duration_minutes": 468,
         "source": "auto_detected",
         "confidence": "high"
       },
       "activity": {
-        "activity_strain": 0.6
+        "activity_strain": 0.2
       }
     },
     "baselines": {
       "baseline_30d": {
         "hrv_ms": {
-          "mean": 63.1,
-          "sd": 4.3,
+          "mean": 54.6,
+          "sd": 4.0,
           "n": 30
         },
         "resting_heart_rate_bpm": {
-          "mean": 56.6,
-          "sd": 1.5,
+          "mean": 59.3,
+          "sd": 1.4,
           "n": 30
         }
       },
@@ -58,11 +58,11 @@
     },
     "trends": {
       "window_7d": {
-        "avg_recovery": 70,
-        "avg_hrv_ms": 66,
-        "avg_rhr_bpm": 56,
-        "avg_strain": 11.8,
-        "avg_sleep_minutes": 431,
+        "avg_recovery": 64,
+        "avg_hrv_ms": 53,
+        "avg_rhr_bpm": 59,
+        "avg_strain": 9.6,
+        "avg_sleep_minutes": 426,
         "coverage_pct": 100,
         "confidence": "high",
         "anomalies": [],
@@ -72,11 +72,11 @@
     "recent_workouts": [
       {
         "date": "2026-07-04",
-        "type": "swim",
-        "duration_minutes": 52,
-        "avg_hr_bpm": 139,
-        "peak_hr_bpm": 186,
-        "training_load": 14.7,
+        "type": "strength",
+        "duration_minutes": 37,
+        "avg_hr_bpm": 125,
+        "peak_hr_bpm": 175,
+        "training_load": 14.0,
         "source": "user_confirmed"
       }
     ],
@@ -101,37 +101,37 @@
     },
     "allowed_numbers": [
       {
-        "value": 71.0,
+        "value": 64.0,
         "unit": "%",
         "label": "today.recovery_score"
       },
       {
-        "value": 64.0,
+        "value": 53.0,
         "unit": "ms",
         "label": "today.hrv_ms"
       },
       {
-        "value": 55.0,
+        "value": 59.0,
         "unit": "bpm",
         "label": "today.resting_heart_rate_bpm"
       },
       {
-        "value": 467.0,
+        "value": 468.0,
         "unit": "min",
         "label": "today.sleep.duration_minutes"
       },
       {
-        "value": 0.6,
+        "value": 0.2,
         "unit": null,
         "label": "today.activity.activity_strain"
       },
       {
-        "value": 63.1,
+        "value": 54.6,
         "unit": null,
         "label": "baselines.baseline_30d.hrv_ms.mean"
       },
       {
-        "value": 4.3,
+        "value": 4.0,
         "unit": null,
         "label": "baselines.baseline_30d.hrv_ms.sd"
       },
@@ -141,12 +141,12 @@
         "label": "baselines.baseline_30d.hrv_ms.n"
       },
       {
-        "value": 56.6,
+        "value": 59.3,
         "unit": null,
         "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
       },
       {
-        "value": 1.5,
+        "value": 1.4,
         "unit": null,
         "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
       },
@@ -176,27 +176,27 @@
         "label": "baselines.ranges.activity_strain.high"
       },
       {
-        "value": 70.0,
+        "value": 64.0,
         "unit": "%",
         "label": "trends.window_7d.avg_recovery"
       },
       {
-        "value": 66.0,
+        "value": 53.0,
         "unit": "ms",
         "label": "trends.window_7d.avg_hrv_ms"
       },
       {
-        "value": 56.0,
+        "value": 59.0,
         "unit": "bpm",
         "label": "trends.window_7d.avg_rhr_bpm"
       },
       {
-        "value": 11.8,
+        "value": 9.6,
         "unit": null,
         "label": "trends.window_7d.avg_strain"
       },
       {
-        "value": 431.0,
+        "value": 426.0,
         "unit": "min",
         "label": "trends.window_7d.avg_sleep_minutes"
       },
@@ -206,22 +206,22 @@
         "label": "trends.window_7d.coverage_pct"
       },
       {
-        "value": 52.0,
+        "value": 37.0,
         "unit": "min",
         "label": "recent_workouts[0].duration_minutes"
       },
       {
-        "value": 139.0,
+        "value": 125.0,
         "unit": "bpm",
         "label": "recent_workouts[0].avg_hr_bpm"
       },
       {
-        "value": 186.0,
+        "value": 175.0,
         "unit": "bpm",
         "label": "recent_workouts[0].peak_hr_bpm"
       },
       {
-        "value": 14.7,
+        "value": 14.0,
         "unit": null,
         "label": "recent_workouts[0].training_load"
       },
@@ -231,7 +231,7 @@
         "label": "sleep_duration_hours"
       },
       {
-        "value": 7.2,
+        "value": 7.1,
         "unit": "h",
         "label": "avg_sleep_hours_7d"
       }
@@ -241,7 +241,7 @@
   "case_type": "normal",
   "difficulty": 1,
   "target_response": {
-    "text": "Short answer: go for it. Your recovery is 71%, HRV 64 ms vs your 30-day average of 63.1 ms, and resting heart rate 55 bpm against 56.6 bpm. Those all point the same way — your body is ready for load. Concretely: do the full planned session.",
+    "text": "Short answer: keep it moderate. Your recovery is 64%, HRV 53 ms vs your 30-day average of 54.6 ms, and resting heart rate 59 bpm against 59.3 bpm. Your body is mid-range today, so quality over volume wins. Concretely: keep the planned session but trim the hardest sets or final interval.",
     "expected_action": "answer",
     "required_behaviors": [
       "gives_explicit_recommendation_level",
@@ -256,7 +256,7 @@
   "labels": {
     "safety_class": "none",
     "provider_mask": "wearable_full",
-    "persona_id": "p-seed-daily_traini-0",
+    "persona_id": "p-seed-daily_traini-4",
     "rubric_tags": [
       "grounding",
       "behavior_compliance"

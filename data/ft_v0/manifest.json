@@ -2,22 +2,22 @@
   "seed": 17,
   "valid_frac": 0.1,
   "source": "data/ft_v0/all.jsonl",
-  "source_sha256": "61dfd340f9f6c75528a707efd23f6fc516ea97b1cce21316029924f8ce3807fb",
+  "source_sha256": "d216612b773e27e85c659fe6d45fa27bdd47654552f0cca6d7034d4087d0bba9",
   "splits": {
     "train": {
-      "count": 25,
-      "sha256": "0ae62c759add6ed28f51ee17b55515a4c931c1fa6efb2f3be40818ec15fcae0e",
+      "count": 43,
+      "sha256": "5fd4e41a673f640e989e866e11cd1995c7c61074d8b624c6e65ea98e1c0f6010",
       "by_category": {
         "daily_training_decision": 4,
-        "explain_metric": 3,
-        "goal_coaching": 3,
-        "habit_pattern_analysis": 3,
-        "insufficient_data_followup": 2,
-        "plan_adjustment": 3,
-        "recovery_explanation": 2,
-        "refusal_or_redirect": 1,
+        "explain_metric": 5,
+        "goal_coaching": 4,
+        "habit_pattern_analysis": 5,
+        "insufficient_data_followup": 4,
+        "plan_adjustment": 5,
+        "recovery_explanation": 5,
+        "refusal_or_redirect": 4,
         "safety_triage": 2,
-        "sleep_coaching": 2
+        "sleep_coaching": 5
       },
       "example_ids": [
         "seed-v0-000001",
@@ -25,10 +25,11 @@
         "seed-v0-000003",
         "seed-v0-000004",
         "seed-v0-000005",
-        "seed-v0-000008",
+        "seed-v0-000006",
+        "seed-v0-000007",
         "seed-v0-000009",
-        "seed-v0-000010",
         "seed-v0-000011",
+        "seed-v0-000012",
         "seed-v0-000013",
         "seed-v0-000014",
         "seed-v0-000015",
@@ -40,30 +41,49 @@
         "seed-v0-000021",
         "seed-v0-000022",
         "seed-v0-000023",
+        "seed-v0-000024",
         "seed-v0-000025",
         "seed-v0-000026",
         "seed-v0-000028",
-        "worked-v0-000001",
+        "seed-v0-000029",
+        "seed-v0-000030",
+        "seed-v0-000031",
+        "seed-v0-000032",
+        "seed-v0-000033",
+        "seed-v0-000034",
+        "seed-v0-000035",
+        "seed-v0-000036",
+        "seed-v0-000037",
+        "seed-v0-000041",
+        "seed-v0-000042",
+        "seed-v0-000044",
+        "seed-v0-000045",
+        "seed-v0-000046",
+        "seed-v0-000047",
+        "seed-v0-000049",
+        "seed-v0-000050",
         "worked-v0-000002"
       ]
     },
     "valid": {
-      "count": 3,
-      "sha256": "09d98be1247c235f1436e076ffae240e21d1cfa14b5f3232d72561d0a64d3b6c",
+      "count": 5,
+      "sha256": "5844f4434de4394a50db2fd67820a334c15c76eec3ca909d955cb83fe800e8fb",
       "by_category": {
-        "recovery_explanation": 1,
-        "refusal_or_redirect": 1,
-        "sleep_coaching": 1
+        "daily_training_decision": 2,
+        "goal_coaching": 1,
+        "safety_triage": 2
       },
       "example_ids": [
-        "seed-v0-000007",
-        "seed-v0-000012",
-        "seed-v0-000029"
+        "seed-v0-000039",
+        "seed-v0-000010",
+        "seed-v0-000027",
+        "worked-v0-000001",
+        "seed-v0-000040"
       ]
     },
     "eval": {
       "count": 4,
-      "sha256": "2addcbbe5413ba59750ffbb16f0ae9d58a961eb80f45ccfcbac08d8204021850",
+      "sha256": "d1464d9b7c4087d5f20f505e182cdae08fe7a28c244e393186821a7098bf1a8f",
       "by_category": {
         "daily_training_decision": 1,
         "insufficient_data_followup": 1,
@@ -71,10 +91,10 @@
         "safety_triage": 1
       },
       "example_ids": [
-        "seed-v0-000006",
-        "seed-v0-000024",
-        "seed-v0-000027",
-        "seed-v0-000030"
+        "seed-v0-000008",
+        "seed-v0-000038",
+        "seed-v0-000043",
+        "seed-v0-000048"
       ]
     }
   }
