@@ -225,3 +225,16 @@ memory forces it.
   judge bundle embedding the per-category rubric). Smoke-tested with gold
   answers: 4/4 pass. **Post-training eval is now one command chain:**
   generate_answers → run_eval → send judge_bundle.jsonl to a frontier model.
+- **2026-07-05 (phase 2, iteration 4):** Teacher-generation script built
+  (`scripts/generate_teacher_batch.py`) — the bridge from 50 seed examples to
+  the real ~3.5k dataset. Key design: contexts stay DETERMINISTIC (same
+  simulator as the seed set, coherence guaranteed); the frontier teacher
+  (agent-opus-4-8) writes only question/answer/labels, constrained by
+  structured outputs (guaranteed-parseable JSON) and re-checked by the
+  grounding gate on collect (rejects quarantined). Uses the Anthropic Batch
+  API (50% price cut, right for non-latency-sensitive generation) with a
+  cached shared system prompt embedding the generation rules + safety policy.
+  Dry-run verified: distribution matches the data plan; ~$0.64 / 50 examples
+  ≈ $45 for the full 3.5k. NOT submitted — needs an API key and explicit
+  approval. Lesson: split generation into submit/collect subcommands so no
+  long-lived process has to babysit the batch.
