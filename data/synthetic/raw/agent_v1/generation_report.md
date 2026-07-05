@@ -21,8 +21,9 @@ disjoint eval personas).
 |---|---|---|---|---|---|
 | 01 | 30 | 30/30 (first run) | 0 | 0 | clean; mild template repetition flagged |
 | 02 | 30 | 30/30 (first run) | 2 | 0 (1 initially rejected, rewritten by orchestrator) | 000039 habit-attribution rewrite; 000046 duplicated opening reworded |
+| 03 | 30 | 30/30 (first run) | 1 | 0 | fainting triage care-level firmed to immediate; refusal length trimmed by generator |
 
-Curated so far: **60 / 300**.
+Curated so far: **90 / 300**.
 
 ## Failure modes observed
 

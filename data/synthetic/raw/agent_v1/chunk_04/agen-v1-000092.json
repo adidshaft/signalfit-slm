@@ -1,0 +1,140 @@
+{
+  "example_id": "agen-v1-000092",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "my main goal is better recovery but i only log workouts and sleep by hand, no tracker. what should i actually focus on?",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "goal_coaching"
+    },
+    "user_profile": {
+      "age_band": "25-29",
+      "biological_sex": "male"
+    },
+    "goals": {
+      "primary_goal": "improve_recovery",
+      "target_metrics": [
+        {
+          "metric": "recovery_score",
+          "green_at": 67,
+          "direction": "higher_is_better",
+          "source": "research_default"
+        }
+      ]
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": null,
+      "recovery_confidence": null,
+      "readiness_state": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 522,
+        "source": "manual",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "respiratory_rate_bpm",
+        "activity_strain",
+        "baseline_30d",
+        "trends.window_7d",
+        "sleep_stages_minutes",
+        "steps"
+      ],
+      "overall": "low"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "manual",
+      "source_confidence": {
+        "sleep": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 67.0,
+        "unit": "%",
+        "label": "goals.target_metrics[0].green_at"
+      },
+      {
+        "value": 522.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 8.7,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      }
+    ]
+  },
+  "task_category": "goal_coaching",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Focus on the two levers you can already see: sleep regularity and spacing your hard sessions. Last night you logged 8.7 hours, which is a genuinely strong number if it's typical, though manual logs tend to overstate time actually asleep, so treat it as an estimate. Without heart-rate or recovery data I can't score your recovery against your 67% target directly, but behaviorally the biggest wins are keeping bed and wake times within the same window daily, leaving an easy day after your hardest workouts, and noting morning energy in your log so we can spot patterns over a few weeks. Start by logging a quick 1-to-5 energy rating each morning; that gives us a recovery signal to coach against even without a device.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "logged 8.7 hours sleep",
+      "manual data limits",
+      "67% recovery target"
+    ],
+    "must_not_mention": [
+      "HRV values",
+      "resting heart rate values",
+      "recovery score value"
+    ],
+    "required_behaviors": [
+      "acknowledges_missing_fields",
+      "hedges_on_manual_estimates",
+      "gives_concrete_next_action"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "invents_recovery_metrics"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "manual_only",
+    "persona_id": "p-agen-301-goal_coach-24",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agen-1",
+    "critic_passed": null,
+    "human_reviewed": false,
+    "created_at": "2026-07-06"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "example_id": "agen-v1-000085",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "keep hearing people talk about HRV like its the holy grail. what does it actually measure?",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "explain_metric"
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "male"
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": null,
+      "recovery_confidence": null,
+      "readiness_state": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 404,
+        "source": "manual",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "respiratory_rate_bpm",
+        "activity_strain",
+        "baseline_30d",
+        "trends.window_7d",
+        "sleep_stages_minutes",
+        "steps"
+      ],
+      "overall": "low"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "manual",
+      "source_confidence": {
+        "sleep": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 404.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 6.7,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      }
+    ]
+  },
+  "task_category": "explain_metric",
+  "case_type": "normal",
+  "difficulty": 1,
+  "target_response": {
+    "text": "HRV is heart rate variability — the tiny differences in timing between one heartbeat and the next. Counterintuitively, more variability is generally the good sign: when your nervous system is rested and balanced, beat-to-beat timing fluctuates freely, and when you're run down from hard training, poor sleep, illness, or stress, the rhythm gets more metronome-like and HRV drops. That's why trackers use it as a recovery signal. Two honest caveats: it's only meaningful against your own baseline, since normal values vary hugely between people, and single days are noisy — trends over weeks are what count. In your case there's no HRV to look at, because manual logging has no sensor measuring it overnight; your log currently shows sleep, like last night's 6.7 h. If you ever want the metric itself, that takes a wearable.",
+    "expected_action": "answer",
+    "must_mention": [
+      "beat-to-beat timing variation",
+      "meaningful only vs your own baseline",
+      "no HRV available from manual logging"
+    ],
+    "must_not_mention": [
+      "HRV value",
+      "resting heart rate value",
+      "recovery score value"
+    ],
+    "required_behaviors": [
+      "explains_metric_accurately",
+      "explains_data_limitation",
+      "avoids_fabricated_personal_values"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "fabricates_hrv"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "manual_only",
+    "persona_id": "p-agen-301-explain_me-26",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agen-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-06"
+  }
+}

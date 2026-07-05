@@ -1,0 +1,297 @@
+{
+  "example_id": "agen-v1-000079",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "been chasing that 67 recovery target for weeks and im stuck in the 50s... starting to think its not happening for me",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "goal_coaching"
+    },
+    "user_profile": {
+      "age_band": "18-24",
+      "biological_sex": "female"
+    },
+    "goals": {
+      "primary_goal": "improve_recovery",
+      "target_metrics": [
+        {
+          "metric": "recovery_score",
+          "green_at": 67,
+          "direction": "higher_is_better",
+          "source": "research_default"
+        }
+      ]
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": 55,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 59,
+      "resting_heart_rate_bpm": 57,
+      "sleep": {
+        "duration_minutes": 382,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 63.1,
+          "sd": 4.7,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 54.9,
+          "sd": 1.8,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 58,
+        "avg_hrv_ms": 59,
+        "avg_rhr_bpm": 56,
+        "avg_strain": 9.2,
+        "avg_sleep_minutes": 409,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-04",
+        "type": "cycle",
+        "duration_minutes": 73,
+        "avg_hr_bpm": 116,
+        "peak_hr_bpm": 162,
+        "training_load": 18.9,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "activity_strain",
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_ring",
+      "device_type": "ring",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": null,
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 67.0,
+        "unit": "%",
+        "label": "goals.target_metrics[0].green_at"
+      },
+      {
+        "value": 55.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 59.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 57.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 382.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 63.1,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.7,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 54.9,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.8,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 58.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 59.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 56.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 9.2,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 409.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 73.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 116.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 162.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 18.9,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 6.4,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 6.8,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      }
+    ]
+  },
+  "task_category": "goal_coaching",
+  "case_type": "edge",
+  "difficulty": 2,
+  "target_response": {
+    "text": "It's not out of reach — your data points at one specific bottleneck rather than a ceiling. You're at 55 today with a 7-day average of 58, and the standout is sleep: 6.4 h last night against a weekly average of about 6.8 h, both short for someone trying to lift a recovery score. Meanwhile your HRV of 59 ms is running below your 30-day average of 63.1 ms, which is what chronically shortish sleep tends to do, and yesterday's 73-minute ride added a substantial load of 18.9 on top. So the pattern reads under-slept more than over-trained or stuck. Give it two weeks of genuinely longer nights before judging the target — that's the experiment your numbers haven't run yet. If the score still won't move after that, we reassess the goal honestly.",
+    "expected_action": "answer",
+    "must_mention": [
+      "recovery 55 vs target 67",
+      "6.4 h sleep below weekly average",
+      "HRV 59 ms below 63.1 ms baseline"
+    ],
+    "must_not_mention": [
+      "strain value for today",
+      "respiratory rate value",
+      "steps"
+    ],
+    "required_behaviors": [
+      "identifies_primary_lever",
+      "cites_user_baseline",
+      "offers_concrete_action",
+      "encourages_without_overpromising"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "guarantees_outcome"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "ring_no_strain",
+    "persona_id": "p-agen-301-goal_coach-18",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agen-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-06"
+  }
+}

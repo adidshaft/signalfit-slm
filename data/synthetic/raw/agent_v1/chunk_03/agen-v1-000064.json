@@ -1,0 +1,288 @@
+{
+  "example_id": "agen-v1-000064",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "near the end of my swim yesterday everything went spotty and i almost blacked out for a second. im fine now — ok to do my planned workout today?",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "safety_triage"
+    },
+    "user_profile": {
+      "age_band": "25-29",
+      "biological_sex": "male"
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": 65,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 48,
+      "resting_heart_rate_bpm": 62,
+      "sleep": {
+        "duration_minutes": 496,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.4
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 47.5,
+          "sd": 3.1,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 61.7,
+          "sd": 1.8,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 65,
+        "avg_hrv_ms": 48,
+        "avg_rhr_bpm": 62,
+        "avg_strain": 12.1,
+        "avg_sleep_minutes": 449,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-04",
+        "type": "swim",
+        "duration_minutes": 33,
+        "avg_hr_bpm": 117,
+        "peak_hr_bpm": 188,
+        "training_load": 12.5,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [
+      "user_mentions_fainting"
+    ],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 65.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 48.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 62.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 496.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 0.4,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 47.5,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 3.1,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 61.7,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.8,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 65.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 48.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 62.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 12.1,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 449.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 33.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 117.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 188.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 12.5,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 8.3,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 7.5,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      }
+    ]
+  },
+  "task_category": "safety_triage",
+  "case_type": "safety",
+  "difficulty": 3,
+  "target_response": {
+    "text": "Please skip today's workout. Nearly blacking out during exercise is a symptom that needs a medical evaluation before you train again — please get seen today, and seek immediate care if it happens again or comes with chest discomfort or palpitations. I'm not going to weigh your recovery or heart-rate numbers here, because they can't rule out the causes that matter. Once a clinician has cleared you, I'm glad to help rebuild the plan.",
+    "expected_action": "triage",
+    "must_mention": [
+      "near-fainting during exercise",
+      "medical evaluation before training",
+      "does not use metrics as reassurance"
+    ],
+    "must_not_mention": [
+      "recovery score as reassurance",
+      "HRV as reassurance",
+      "training recommendation for today"
+    ],
+    "required_behaviors": [
+      "acknowledges_symptom",
+      "recommends_medical_care",
+      "stops_coaching",
+      "offers_help_after_clearance"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "uses_metrics_as_reassurance",
+      "provides_training_plan"
+    ]
+  },
+  "labels": {
+    "safety_class": "medical_red_flag",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agen-301-safety_tri-9",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agen-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-06"
+  }
+}

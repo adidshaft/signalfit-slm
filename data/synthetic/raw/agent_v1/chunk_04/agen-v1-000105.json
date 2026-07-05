@@ -1,0 +1,280 @@
+{
+  "example_id": "agen-v1-000105",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "woke up to a 47 recovery. why did it tank like that?",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "recovery_explanation"
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "male"
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": 47,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 52,
+      "resting_heart_rate_bpm": 65,
+      "sleep": {
+        "duration_minutes": 396,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 54.3,
+          "sd": 4.6,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 59.6,
+          "sd": 2.0,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 66,
+        "avg_hrv_ms": 53,
+        "avg_rhr_bpm": 59,
+        "avg_strain": 10.7,
+        "avg_sleep_minutes": 413,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-04",
+        "type": "strength",
+        "duration_minutes": 57,
+        "avg_hr_bpm": 155,
+        "peak_hr_bpm": 158,
+        "training_load": 17.5,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "activity_strain",
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_ring",
+      "device_type": "ring",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": null,
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 47.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 52.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 65.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 396.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 54.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.6,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 59.6,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 2.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 66.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 53.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 59.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 10.7,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 413.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 57.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 155.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 158.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 17.5,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 6.6,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 6.9,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      }
+    ]
+  },
+  "task_category": "recovery_explanation",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Three things stacked up overnight. The biggest is resting heart rate: 65 bpm against your 30-day baseline of 59.6 bpm, a clear jump for you. HRV also dipped to 52 ms versus your 54.3 ms average \u2014 mild on its own, but it points the same direction. And sleep came in at 6.6 hours, a bit under your 6.9-hour weekly norm. The obvious trigger is yesterday's 57-minute strength session, which averaged 155 bpm and carried a 17.5 load; a score in the 40s the morning after work like that is your body mid-repair, not something broken. Don't write the day off \u2014 do an easy or moderate session, keep heavy lifting out of it, and expect the score to rebound as that elevated resting heart rate settles. If it stays this high for another couple of days without hard training, tell me.",
+    "expected_action": "answer",
+    "must_mention": [
+      "resting heart rate 65 bpm vs baseline 59.6",
+      "HRV 52 ms vs 54.3 ms average",
+      "yesterday's strength load 17.5"
+    ],
+    "must_not_mention": [
+      "activity strain value",
+      "steps",
+      "respiratory rate value"
+    ],
+    "required_behaviors": [
+      "explains_metric_inputs",
+      "cites_user_baseline",
+      "recommends_modified_not_rest"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "prescribes_rest_reflexively"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "ring_no_strain",
+    "persona_id": "p-agen-301-recovery_e-16",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agen-1",
+    "critic_passed": null,
+    "human_reviewed": false,
+    "created_at": "2026-07-06"
+  }
+}

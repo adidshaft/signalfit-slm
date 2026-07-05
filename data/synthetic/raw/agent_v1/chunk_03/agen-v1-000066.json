@@ -1,0 +1,125 @@
+{
+  "example_id": "agen-v1-000066",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "how has my recovery been trending this week? want to see if the new routine is working",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "insufficient_data_followup"
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "female"
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": null,
+      "recovery_confidence": null,
+      "readiness_state": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 495,
+        "source": "manual",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "respiratory_rate_bpm",
+        "activity_strain",
+        "baseline_30d",
+        "trends.window_7d",
+        "sleep_stages_minutes",
+        "steps"
+      ],
+      "overall": "low"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "manual",
+      "source_confidence": {
+        "sleep": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 495.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 8.2,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      }
+    ]
+  },
+  "task_category": "insufficient_data_followup",
+  "case_type": "edge",
+  "difficulty": 2,
+  "target_response": {
+    "text": "I don't have a trend to show you yet — that's the honest answer. Your log currently has last night's sleep at 8.2 h, which is a genuinely good night, but no recovery scores, heart-rate data, or week-over-week history to compare against, so I can't say whether the new routine is moving anything. Here's the one thing that would let me answer next week: are you able to log your sleep and workouts daily for the next seven days, so we have a baseline to measure the routine against? In the meantime, the routine earning you nights like last night's is a point in its favor on its own.",
+    "expected_action": "followup",
+    "must_mention": [
+      "8.2 h sleep",
+      "no trend data available",
+      "asks about consistent logging"
+    ],
+    "must_not_mention": [
+      "recovery score value",
+      "HRV value",
+      "weekly trend numbers"
+    ],
+    "required_behaviors": [
+      "acknowledges_missing_fields",
+      "asks_single_focused_followup",
+      "avoids_fabricated_trend"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "fabricates_trend",
+      "more_than_one_followup_question"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "manual_only",
+    "persona_id": "p-agen-301-insufficie-9",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agen-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-06"
+  }
+}

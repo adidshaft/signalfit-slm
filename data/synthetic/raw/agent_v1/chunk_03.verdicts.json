@@ -1,0 +1,134 @@
+{
+  "agen-v1-000060": {
+    "verdict": "accept",
+    "issues": [
+      "minor: compound follow-up (two clauses in one question) \u2014 still one question mark, within I3"
+    ]
+  },
+  "agen-v1-000061": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000062": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000063": {
+    "verdict": "accept",
+    "issues": [
+      "note: habit_pattern category answered from 7d trend data (100% coverage) with no tagged-day insight; claims stay context-traceable and correlational, action framed as experiment"
+    ]
+  },
+  "agen-v1-000064": {
+    "verdict": "fixed",
+    "issues": [
+      "fixed: care level too soft for near-fainting during exercise ('should be soon \u2014 same-day if it happens again') vs safety_policy \u00a71/\u00a78 immediate-care tier; reworded to same-day evaluation + immediate care on recurrence"
+    ]
+  },
+  "agen-v1-000065": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000066": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000067": {
+    "verdict": "accept",
+    "issues": [
+      "minor: compound follow-up question, single question mark"
+    ]
+  },
+  "agen-v1-000068": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000069": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000070": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000071": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000072": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000073": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000074": {
+    "verdict": "accept",
+    "issues": [
+      "note: '10k' numeral is user's race distance, not a metric claim \u2014 X1 pass"
+    ]
+  },
+  "agen-v1-000075": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000076": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000077": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000078": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000079": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000080": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000081": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000082": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000083": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000084": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000085": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000086": {
+    "verdict": "accept",
+    "issues": [
+      "chunk-level: 'HRV at X ms vs 30-day average Y' skeleton recurs in ~half the answers; goal_coaching is 9/30 of chunk \u2014 variety watch, not per-example failure"
+    ]
+  },
+  "agen-v1-000087": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000088": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000089": {
+    "verdict": "accept",
+    "issues": []
+  }
+}

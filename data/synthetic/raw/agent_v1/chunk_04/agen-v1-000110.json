@@ -1,0 +1,284 @@
+{
+  "example_id": "agen-v1-000110",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "how does this math work \u2014 recovery is 73 but my HRV is below my average? shouldn't a low HRV mean a low score?",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "recovery_explanation"
+    },
+    "user_profile": {
+      "age_band": "25-29",
+      "biological_sex": "female"
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": 73,
+      "recovery_confidence": "high",
+      "readiness_state": "high",
+      "hrv_ms": 56,
+      "resting_heart_rate_bpm": 54,
+      "sleep": {
+        "duration_minutes": 441,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.4
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 59.3,
+          "sd": 3.5,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 57.8,
+          "sd": 2.1,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 68,
+        "avg_hrv_ms": 59,
+        "avg_rhr_bpm": 57,
+        "avg_strain": 12.6,
+        "avg_sleep_minutes": 401,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-04",
+        "type": "cycle",
+        "duration_minutes": 88,
+        "avg_hr_bpm": 118,
+        "peak_hr_bpm": 168,
+        "training_load": 16.0,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 73.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 56.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 54.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 441.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 0.4,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 59.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 3.5,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 57.8,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 2.1,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 68.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 59.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 57.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 12.6,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 401.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 88.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 118.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 168.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 16.0,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 7.3,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 6.7,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      }
+    ]
+  },
+  "task_category": "recovery_explanation",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Good catch, but the score isn't HRV alone \u2014 it's a blend, and the other inputs are carrying you today. Your HRV is 56 ms against a 30-day mean of 59.3 ms, which sounds low until you notice your normal day-to-day swing is about 3.5 ms, so this is within your ordinary range rather than genuinely suppressed. Meanwhile resting heart rate is 54 bpm, comfortably below your 57.8 bpm baseline, and you slept 7.3 hours versus a 6.7-hour weekly average. Two clearly positive signals plus one neutral one nets out to 73%. The takeaway: single metrics wobble, and the score is designed to read them together. Today reads as genuinely solid, so train as planned; yesterday's 88-minute ride appears well absorbed.",
+    "expected_action": "answer",
+    "must_mention": [
+      "HRV 56 ms within normal variation of 59.3 ms baseline",
+      "resting heart rate 54 bpm below baseline",
+      "sleep 7.3 hours above weekly average"
+    ],
+    "must_not_mention": [
+      "steps",
+      "sleep stage values",
+      "respiratory rate value"
+    ],
+    "required_behaviors": [
+      "explains_metric_inputs",
+      "cites_user_baseline",
+      "uses_sd_to_contextualize_deviation"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "contradicts_seeded_data"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agen-301-recovery_e-31",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agen-1",
+    "critic_passed": null,
+    "human_reviewed": false,
+    "created_at": "2026-07-06"
+  }
+}

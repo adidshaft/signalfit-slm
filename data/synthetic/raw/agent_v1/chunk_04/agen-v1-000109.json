@@ -1,0 +1,124 @@
+{
+  "example_id": "agen-v1-000109",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "The app keeps mentioning HRV in the tips section. I don't wear a tracker \u2014 what is it, and does it even matter for someone like me?",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "explain_metric"
+    },
+    "user_profile": {
+      "age_band": "60-64",
+      "biological_sex": "female"
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": null,
+      "recovery_confidence": null,
+      "readiness_state": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 436,
+        "source": "manual",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "respiratory_rate_bpm",
+        "activity_strain",
+        "baseline_30d",
+        "trends.window_7d",
+        "sleep_stages_minutes",
+        "steps"
+      ],
+      "overall": "low"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "manual",
+      "source_confidence": {
+        "sleep": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 436.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 7.3,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      }
+    ]
+  },
+  "task_category": "explain_metric",
+  "case_type": "normal",
+  "difficulty": 1,
+  "target_response": {
+    "text": "HRV stands for heart rate variability: the small changes in timing from one heartbeat to the next. When you're rested and relaxed the gaps vary more; when you're run down, stressed, or fighting something off, the rhythm gets more metronome-like. Trackers use it as a rough gauge of how ready your body is for effort. Since you log by hand, I don't have an HRV reading for you, and honestly you don't need one to train well. Your own signals do a similar job: morning energy, how quickly you recover between sessions, and sleep, like the 7.3 hours you logged last night. If you're curious someday, a device can add detail, but a simple morning energy note in your log gives us most of the same coaching value.",
+    "expected_action": "answer",
+    "must_mention": [
+      "HRV explained qualitatively",
+      "no HRV data without a tracker",
+      "subjective signals as alternative"
+    ],
+    "must_not_mention": [
+      "HRV values",
+      "resting heart rate values",
+      "recovery score value"
+    ],
+    "required_behaviors": [
+      "explains_metric_plainly",
+      "acknowledges_missing_fields",
+      "offers_device_free_alternative"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "invents_recovery_metrics"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "manual_only",
+    "persona_id": "p-agen-301-explain_me-21",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agen-1",
+    "critic_passed": null,
+    "human_reviewed": false,
+    "created_at": "2026-07-06"
+  }
+}

@@ -1,0 +1,280 @@
+{
+  "example_id": "agen-v1-000114",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My resting heart rate showed 51 this morning. What is that actually telling me about my health?",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "explain_metric"
+    },
+    "user_profile": {
+      "age_band": "60-64",
+      "biological_sex": "female"
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": 77,
+      "recovery_confidence": "high",
+      "readiness_state": "high",
+      "hrv_ms": 77,
+      "resting_heart_rate_bpm": 51,
+      "sleep": {
+        "duration_minutes": 397,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 70.2,
+          "sd": 6.1,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 52.7,
+          "sd": 1.7,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 75,
+        "avg_hrv_ms": 75,
+        "avg_rhr_bpm": 51,
+        "avg_strain": 12.4,
+        "avg_sleep_minutes": 417,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-04",
+        "type": "hike",
+        "duration_minutes": 45,
+        "avg_hr_bpm": 128,
+        "peak_hr_bpm": 173,
+        "training_load": 17.0,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "activity_strain",
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_ring",
+      "device_type": "ring",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": null,
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 77.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 77.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 51.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 397.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 70.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 6.1,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 52.7,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.7,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 75.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 75.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 51.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 12.4,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 417.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 45.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 128.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 173.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 17.0,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 6.6,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 6.9,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      }
+    ]
+  },
+  "task_category": "explain_metric",
+  "case_type": "normal",
+  "difficulty": 1,
+  "target_response": {
+    "text": "It's telling you your recovery machinery is working well. Resting heart rate is how hard your heart works at complete rest, and lower generally means better aerobic fitness and less accumulated stress \u2014 within your own normal range. Yours is 51 bpm this morning against a 30-day average of 52.7 bpm, so you're right at your healthy norm, and the rest of the picture agrees: HRV is 77 ms, well above your 70.2 ms baseline, and recovery is 77%. For someone training consistently, a steady low-50s resting rate is a genuinely good sign. The useful habit isn't chasing a lower number but watching for sustained jumps of several beats above your baseline, which usually flag incoming illness or under-recovery. Today, everything says you're well recovered from yesterday's 45-minute hike and clear to train properly.",
+    "expected_action": "answer",
+    "must_mention": [
+      "resting heart rate 51 bpm vs 52.7 average",
+      "HRV 77 ms above baseline",
+      "watch for sustained jumps above baseline"
+    ],
+    "must_not_mention": [
+      "activity strain value",
+      "steps",
+      "respiratory rate value"
+    ],
+    "required_behaviors": [
+      "explains_metric_plainly",
+      "cites_user_baseline",
+      "frames_against_own_history_not_population"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "claims_clinical_accuracy"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "ring_no_strain",
+    "persona_id": "p-agen-301-explain_me-18",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agen-1",
+    "critic_passed": null,
+    "human_reviewed": false,
+    "created_at": "2026-07-06"
+  }
+}
