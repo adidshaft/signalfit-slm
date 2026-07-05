@@ -35,6 +35,19 @@ to pre-fetch: `.venv/bin/huggingface-cli download Qwen/Qwen2.5-1.5B-Instruct`.
   --save-path models/fused/ft_v0_qwen2.5-1.5b
 ```
 
+## Export for on-device iOS use (after fuse)
+
+```bash
+.venv/bin/mlx_lm.convert --hf-path models/fused/ft_v0_qwen2.5-1.5b \
+  -q --q-bits 4 --q-group-size 64 \
+  --mlx-path models/export/ft_v0_qwen2.5-1.5b-4bit
+```
+
+The quantized folder loads directly in **MLX Swift** (`MLXLLM` from
+mlx-swift-examples) on Apple Silicon iPhones — same ecosystem end to end, no
+Core ML conversion. Full integration contract (chat shape, context building,
+on-device grounding check): docs/process_guide.md §8.
+
 Rules: `data/ft_v0/eval.jsonl` never enters training; every run is logged in
 `models/README.md` with the dataset manifest hash; ft_v0 is a **pipeline smoke
 run** — expect memorization, not quality (25 train examples).
