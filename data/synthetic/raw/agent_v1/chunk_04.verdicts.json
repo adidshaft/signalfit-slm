@@ -1,0 +1,134 @@
+{
+  "agen-v1-000090": {
+    "verdict": "fixed",
+    "issues": [
+      "habit claim certified month-long pattern without gated insight/tagged days (H1/H3); added week-of-data caveat"
+    ]
+  },
+  "agen-v1-000091": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000092": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000093": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000094": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000095": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000096": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000097": {
+    "verdict": "accept",
+    "issues": [
+      "minor: six-day frequency taken from user report, not context data; attribution hedged ('reads like') so acceptable"
+    ]
+  },
+  "agen-v1-000098": {
+    "verdict": "fixed",
+    "issues": [
+      "breathing-difficulty triage gave 'prompt' care level; upgraded to immediate care"
+    ]
+  },
+  "agen-v1-000099": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000100": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000101": {
+    "verdict": "fixed",
+    "issues": [
+      "breathing-difficulty triage said 'checked today'; upgraded to immediate care"
+    ]
+  },
+  "agen-v1-000102": {
+    "verdict": "fixed",
+    "issues": [
+      "breathing-difficulty triage said 'promptly'; upgraded to immediate care"
+    ]
+  },
+  "agen-v1-000103": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000104": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000105": {
+    "verdict": "fixed",
+    "issues": [
+      "'obvious trigger' too causal for recovery_explanation (R2); softened to 'likely trigger'"
+    ]
+  },
+  "agen-v1-000106": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000107": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000108": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000109": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000110": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000111": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000112": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000113": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000114": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000115": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000116": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000117": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000118": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000119": {
+    "verdict": "accept",
+    "issues": []
+  }
+}
