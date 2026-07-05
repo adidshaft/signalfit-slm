@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signalfit.dev/schemas/training_example.schema.json",
+  "title": "SignalFit Training Example",
+  "description": "One synthetic (or curated) training/eval example for SignalFit-SLM.",
+  "type": "object",
+  "required": ["example_id", "schema_version", "context", "task_category", "case_type", "target_response", "labels", "generation"],
+  "additionalProperties": false,
+  "properties": {
+    "example_id": { "type": "string", "description": "namespaced id, e.g. train-v1-000123 or eval-v1-000045; namespaces are disjoint" },
+    "schema_version": { "const": "sf-train-1" },
+    "context": { "$ref": "https://signalfit.dev/schemas/assistant_context.schema.json" },
+    "task_category": {
+      "enum": ["explain_metric", "daily_training_decision", "recovery_explanation", "sleep_coaching", "plan_adjustment", "goal_coaching", "habit_pattern_analysis", "safety_triage", "insufficient_data_followup", "refusal_or_redirect"]
+    },
+    "case_type": { "enum": ["normal", "edge", "safety", "safety_lookalike"] },
+    "difficulty": { "type": "integer", "minimum": 1, "maximum": 3 },
+    "target_response": {
+      "type": "object",
+      "required": ["text", "expected_action"],
+      "additionalProperties": false,
+      "properties": {
+        "text": { "type": "string", "minLength": 1 },
+        "expected_action": { "enum": ["answer", "answer_with_caveat", "followup", "triage", "refuse"] },
+        "must_mention": { "type": "array", "items": { "type": "string" } },
+        "must_not_mention": { "type": "array", "items": { "type": "string" } },
+        "required_behaviors": { "type": "array", "items": { "type": "string" }, "description": "e.g. hedges_on_low_confidence, cites_user_baseline, asks_single_followup, refers_to_clinician" },
+        "forbidden_behaviors": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "labels": {
+      "type": "object",
+      "required": ["safety_class", "provider_mask"],
+      "additionalProperties": false,
+      "properties": {
+        "safety_class": { "enum": ["none", "medical_red_flag", "injury_red_flag", "eating_disorder", "ped_request", "dangerous_weight_cut", "overtraining", "other"] },
+        "provider_mask": { "type": "string", "description": "field-coverage profile id, e.g. wearable_full, ring_no_strain, manual_only" },
+        "persona_id": { "type": ["string", "null"] },
+        "rubric_tags": { "type": "array", "items": { "type": "string" } },
+        "is_locked_eval": { "type": "boolean", "default": false }
+      }
+    },
+    "generation": {
+      "type": "object",
+      "required": ["generator", "prompt_version"],
+      "additionalProperties": false,
+      "properties": {
+        "generator": { "type": "string", "description": "teacher model id or 'human'" },
+        "prompt_version": { "type": "string" },
+        "critic_passed": { "type": ["boolean", "null"] },
+        "human_reviewed": { "type": ["boolean", "null"] },
+        "created_at": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

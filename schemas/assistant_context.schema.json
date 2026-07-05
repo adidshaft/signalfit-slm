@@ -1,0 +1,373 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signalfit.dev/schemas/assistant_context.schema.json",
+  "title": "SignalFit Assistant Context",
+  "description": "Universal, provider-agnostic wearable-fitness context consumed by SignalFit-SLM. Required set = MVP; optional fields cover V1/V2. Adapters must emit null (not omit) for unavailable required leaves and list them in data_quality.missing_fields.",
+  "type": "object",
+  "required": ["schema_version", "request", "task", "user_profile", "today", "baselines", "trends", "recent_workouts", "safety_flags", "data_quality", "provenance", "allowed_numbers"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "sf-context-1" },
+    "request": {
+      "type": "object",
+      "required": ["user_question", "asked_at_local"],
+      "additionalProperties": false,
+      "properties": {
+        "user_question": { "type": "string", "minLength": 1 },
+        "asked_at_local": { "type": "string", "description": "ISO-8601 local datetime with offset" },
+        "weekday": { "type": ["string", "null"] },
+        "units": { "enum": ["metric", "imperial", null] }
+      }
+    },
+    "task": {
+      "type": "object",
+      "required": ["category"],
+      "additionalProperties": false,
+      "properties": {
+        "category": { "enum": ["explain_metric", "daily_training_decision", "recovery_explanation", "sleep_coaching", "plan_adjustment", "goal_coaching", "habit_pattern_analysis", "safety_triage", "insufficient_data_followup", "refusal_or_redirect"] },
+        "confidence": { "type": ["number", "null"], "minimum": 0, "maximum": 1 }
+      }
+    },
+    "user_profile": {
+      "type": "object",
+      "required": ["age_band", "biological_sex"],
+      "additionalProperties": false,
+      "properties": {
+        "age_band": { "type": ["string", "null"], "description": "5-year band, e.g. '30-34', or 'unknown'" },
+        "biological_sex": { "enum": ["male", "female", "other", "unspecified", null] },
+        "height_cm": { "type": ["number", "null"] },
+        "weight_kg": { "type": ["number", "null"] },
+        "max_hr_bpm": { "type": ["integer", "null"] },
+        "max_hr_source": { "enum": ["age_estimate", "measured", null] },
+        "training_experience": { "enum": ["beginner", "intermediate", "advanced", null] }
+      }
+    },
+    "goals": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "primary_goal": { "type": ["string", "null"] },
+        "target_metrics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["metric"],
+            "properties": {
+              "metric": { "type": "string" },
+              "green_at": { "type": ["number", "null"] },
+              "goal": { "type": ["number", "null"] },
+              "direction": { "enum": ["higher_is_better", "lower_is_better", "target_band", null] },
+              "source": { "enum": ["research_default", "personal_baseline", "user_edited", null] }
+            }
+          }
+        },
+        "preferences": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "today": {
+      "type": "object",
+      "required": ["date_local", "recovery_score", "hrv_ms", "resting_heart_rate_bpm", "sleep", "activity"],
+      "additionalProperties": false,
+      "properties": {
+        "date_local": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "recovery_score": { "type": ["integer", "null"], "minimum": 0, "maximum": 100 },
+        "recovery_confidence": { "enum": ["high", "medium", "low", "learning", null], "description": "Adapters map provider ladders, e.g. Atria: validated→high, personal baseline→medium, unverified→low, learning→learning" },
+        "readiness_state": { "enum": ["low", "moderate", "high", null] },
+        "recovery_contributors": {
+          "type": ["array", "null"],
+          "description": "Optional provider-computed factor breakdown of today's recovery/readiness; grounds recovery_explanation answers",
+          "items": {
+            "type": "object",
+            "required": ["factor"],
+            "additionalProperties": false,
+            "properties": {
+              "factor": { "enum": ["hrv", "resting_heart_rate", "sleep", "respiration", "other"] },
+              "z_score": { "type": ["number", "null"] },
+              "weight": { "type": ["number", "null"] },
+              "direction": { "enum": [-1, 0, 1, null] }
+            }
+          }
+        },
+        "hrv_ms": { "type": ["integer", "null"], "minimum": 0 },
+        "resting_heart_rate_bpm": { "type": ["integer", "null"], "minimum": 0 },
+        "respiratory_rate_bpm": { "type": ["number", "null"] },
+        "stress_level": { "enum": ["calm", "low", "medium", "high", null] },
+        "sleep": {
+          "type": "object",
+          "required": ["duration_minutes"],
+          "additionalProperties": false,
+          "properties": {
+            "duration_minutes": { "type": ["integer", "null"], "minimum": 0 },
+            "need_minutes": { "type": ["integer", "null"] },
+            "debt_minutes": { "type": ["integer", "null"] },
+            "performance_pct": { "type": ["integer", "null"], "minimum": 0, "maximum": 100 },
+            "efficiency_pct": { "type": ["integer", "null"], "minimum": 0, "maximum": 100 },
+            "consistency_pct": { "type": ["integer", "null"], "minimum": 0, "maximum": 100 },
+            "bedtime_local": { "type": ["string", "null"] },
+            "waketime_local": { "type": ["string", "null"] },
+            "stages_minutes": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "awake": { "type": ["integer", "null"] },
+                "light": { "type": ["integer", "null"] },
+                "rem": { "type": ["integer", "null"] },
+                "deep": { "type": ["integer", "null"] }
+              }
+            },
+            "stage_evidence": { "enum": ["none", "manual_estimate", "sensor_estimate", "validated", null] },
+            "source": { "type": ["string", "null"] },
+            "confidence": { "enum": ["high", "medium", "low", "unknown", null] },
+            "naps": {
+              "type": "array",
+              "items": { "type": "object", "properties": { "duration_minutes": { "type": "integer" } } }
+            }
+          }
+        },
+        "activity": {
+          "type": "object",
+          "required": ["activity_strain"],
+          "additionalProperties": false,
+          "properties": {
+            "activity_strain": { "type": ["number", "null"], "description": "Cardiovascular load on the scale named in provenance.strain_scale (default 0-21)" },
+            "strain_target": { "type": ["number", "null"] },
+            "hr_zone_minutes": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "rest": { "type": ["integer", "null"] },
+                "warmup": { "type": ["integer", "null"] },
+                "fat_burn": { "type": ["integer", "null"] },
+                "aerobic": { "type": ["integer", "null"] },
+                "anaerobic": { "type": ["integer", "null"] },
+                "max": { "type": ["integer", "null"] }
+              }
+            },
+            "active_calories_kcal": { "type": ["number", "null"] },
+            "active_calories_confidence": { "enum": ["estimate", "measured", null] },
+            "steps": { "type": ["integer", "null"] }
+          }
+        },
+        "subjective": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "mood_1to5": { "type": ["integer", "null"], "minimum": 1, "maximum": 5 },
+            "stress_1to5": { "type": ["integer", "null"], "minimum": 1, "maximum": 5 },
+            "energy_1to5": { "type": ["integer", "null"], "minimum": 1, "maximum": 5 },
+            "soreness_1to5": { "type": ["integer", "null"], "minimum": 1, "maximum": 5 }
+          }
+        },
+        "nutrition": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "kcal": { "type": ["number", "null"] },
+            "protein_g": { "type": ["number", "null"] },
+            "carbs_g": { "type": ["number", "null"] },
+            "fat_g": { "type": ["number", "null"] },
+            "water_ml": { "type": ["number", "null"] },
+            "caffeine_mg": { "type": ["number", "null"] },
+            "last_caffeine_local_hour": { "type": ["integer", "null"], "minimum": 0, "maximum": 23 },
+            "alcohol_drinks": { "type": ["number", "null"] }
+          }
+        },
+        "journal_flags": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "baselines": {
+      "type": "object",
+      "required": ["baseline_30d", "ranges"],
+      "additionalProperties": false,
+      "properties": {
+        "baseline_7d": { "$ref": "#/$defs/baselineWindow" },
+        "baseline_30d": { "$ref": "#/$defs/baselineWindow" },
+        "ranges": {
+          "type": "object",
+          "description": "Valid scale per metric, e.g. recovery_score 0-100; scale guard for the model",
+          "additionalProperties": {
+            "type": "object",
+            "properties": { "low": { "type": ["number", "null"] }, "high": { "type": ["number", "null"] } }
+          }
+        }
+      }
+    },
+    "trends": {
+      "type": "object",
+      "required": ["window_7d"],
+      "additionalProperties": false,
+      "properties": {
+        "window_7d": { "$ref": "#/$defs/trendWindow" },
+        "window_30d": { "$ref": "#/$defs/trendWindow" }
+      }
+    },
+    "training_load": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "acute_load_7d": { "type": ["number", "null"] },
+        "chronic_load_28d": { "type": ["number", "null"] },
+        "acwr": { "type": ["number", "null"] },
+        "monotony": { "type": ["number", "null"] },
+        "acwr_signal": { "enum": ["good", "watch", "bad", "learning", null] },
+        "monotony_signal": { "enum": ["good", "watch", "bad", "learning", null] },
+        "confidence": { "enum": ["high", "medium", "low", "learning", null] }
+      }
+    },
+    "recent_workouts": {
+      "type": "array",
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "required": ["date", "type", "duration_minutes"],
+        "additionalProperties": false,
+        "properties": {
+          "date": { "type": "string" },
+          "type": { "type": "string", "description": "generic activity label, e.g. run/cycle/strength" },
+          "duration_minutes": { "type": "integer" },
+          "avg_hr_bpm": { "type": ["integer", "null"] },
+          "peak_hr_bpm": { "type": ["integer", "null"] },
+          "training_load": { "type": ["number", "null"] },
+          "active_calories_kcal": { "type": ["number", "null"] },
+          "source": { "enum": ["user_confirmed", "auto_detected", "manual", null] },
+          "sets": { "type": ["array", "null"], "items": { "type": "object" } },
+          "rpe_1to10": { "type": ["integer", "null"], "minimum": 1, "maximum": 10 }
+        }
+      }
+    },
+    "journal_entries": {
+      "type": "array",
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "required": ["date"],
+        "additionalProperties": false,
+        "properties": {
+          "date": { "type": "string" },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "alcohol_drinks": { "type": ["number", "null"] },
+          "last_caffeine_local_minutes": { "type": ["integer", "null"] },
+          "mood_1to5": { "type": ["integer", "null"] },
+          "stress_1to5": { "type": ["integer", "null"] }
+        }
+      }
+    },
+    "cycle": {
+      "type": ["object", "null"],
+      "description": "Opt-in only; always an estimate, never presented as fact",
+      "additionalProperties": false,
+      "properties": {
+        "phase_estimate": { "enum": ["menstrual", "follicular", "ovulatory", "luteal", null] },
+        "day_of_cycle": { "type": ["integer", "null"] },
+        "confidence": { "enum": ["estimating", "personalized", null] }
+      }
+    },
+    "habit_insights": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["text", "sample_days"],
+        "properties": {
+          "text": { "type": "string" },
+          "sample_days": { "type": "integer" },
+          "confidence": { "enum": ["high", "medium", "low", null] }
+        }
+      }
+    },
+    "safety_flags": {
+      "type": "array",
+      "items": {
+        "enum": ["user_mentions_chest_pain", "user_mentions_fainting", "user_mentions_breathing_difficulty", "injury_mention", "pain_mention", "possible_illness_pattern", "rhr_spike_vs_baseline", "hrv_suppressed_multi_day", "overtraining_pattern", "extreme_weight_loss_request", "eating_disorder_signal", "ped_request", "dangerous_weight_cut_request", "pregnancy_mention", "medical_condition_mention", "underage_user_suspected", "other_red_flag"]
+      }
+    },
+    "data_quality": {
+      "type": "object",
+      "required": ["missing_fields", "overall"],
+      "additionalProperties": false,
+      "properties": {
+        "missing_fields": { "type": "array", "items": { "type": "string" } },
+        "degraded_fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["field", "reason"],
+            "properties": { "field": { "type": "string" }, "reason": { "type": "string" } }
+          }
+        },
+        "overall": { "enum": ["high", "medium", "low"] }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["data_provider", "source_confidence"],
+      "additionalProperties": false,
+      "properties": {
+        "data_provider": { "type": "string", "description": "e.g. whoop|apple_health|garmin|oura|fitbit|ultrahuman|manual|atria|other" },
+        "device_type": { "enum": ["wrist_wearable", "ring", "hr_strap", "phone_only", "manual", "mixed", null] },
+        "source_confidence": {
+          "type": "object",
+          "description": "per-field-or-block confidence grade",
+          "additionalProperties": { "enum": ["high", "medium", "low"] }
+        },
+        "strain_scale": { "type": ["string", "null"], "default": "0-21" },
+        "hrv_method": { "enum": ["rmssd", "sdnn", "unknown", null], "description": "HRV computation method; adapters must not mix methods between hrv_ms and its baselines (e.g. Apple Health exports SDNN, most wearables RMSSD)" },
+        "provider_metadata": { "type": ["object", "null"], "description": "ONLY place provider/device-specific fields may appear" }
+      }
+    },
+    "allowed_numbers": {
+      "type": "array",
+      "description": "Fabrication guard: every number the model may state. Answers citing numbers outside this list (±1.0) fail eval.",
+      "items": {
+        "type": "object",
+        "required": ["value", "label"],
+        "additionalProperties": false,
+        "properties": {
+          "value": { "type": "number" },
+          "unit": { "type": ["string", "null"] },
+          "label": { "type": "string" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "stat": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "mean": { "type": "number" },
+        "sd": { "type": ["number", "null"] },
+        "n": { "type": ["integer", "null"] }
+      },
+      "required": ["mean"]
+    },
+    "baselineWindow": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "hrv_ms": { "$ref": "#/$defs/stat" },
+        "resting_heart_rate_bpm": { "$ref": "#/$defs/stat" },
+        "respiratory_rate_bpm": { "$ref": "#/$defs/stat" },
+        "sleep_duration_minutes": { "$ref": "#/$defs/stat" },
+        "activity_strain": { "$ref": "#/$defs/stat" },
+        "recovery_score": { "$ref": "#/$defs/stat" }
+      }
+    },
+    "trendWindow": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "avg_recovery": { "type": ["integer", "null"] },
+        "avg_hrv_ms": { "type": ["integer", "null"] },
+        "avg_rhr_bpm": { "type": ["integer", "null"] },
+        "avg_strain": { "type": ["number", "null"] },
+        "avg_sleep_minutes": { "type": ["integer", "null"] },
+        "avg_respiratory_rate_bpm": { "type": ["number", "null"] },
+        "coverage_pct": { "type": ["integer", "null"], "minimum": 0, "maximum": 100 },
+        "confidence": { "enum": ["high", "medium", "low", "learning", null] },
+        "anomalies": { "type": "array", "items": { "type": "string" } },
+        "hrv_state": { "type": ["string", "null"] }
+      }
+    }
+  }
+}
