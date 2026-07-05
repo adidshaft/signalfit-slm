@@ -1,0 +1,31 @@
+# MLX LoRA fine-tune config — SignalFit-SLM run ft_v0 (DO NOT RUN until confirmed)
+# Usage (from repo root, after `pip install mlx-lm` in .venv):
+#   .venv/bin/mlx_lm.lora --config training/configs/mlx_lora_qwen2.5-1.5b-instruct.yaml
+
+model: "Qwen/Qwen2.5-1.5B-Instruct"   # Apache-2.0; downloads from Hugging Face on first use
+train: true
+data: "data/ft_v0"                     # expects train.jsonl / valid.jsonl (chat "messages" format)
+seed: 17
+
+# LoRA
+fine_tune_type: lora
+num_layers: 16                         # adapt top 16 transformer layers
+lora_parameters:
+  rank: 16
+  scale: 20.0
+  dropout: 0.05
+
+# Optimization — sized for the 25-example ft_v0 smoke run; revisit for the full dataset
+batch_size: 1
+iters: 200
+learning_rate: 1.0e-5
+max_seq_length: 3072                   # V1 contexts ~1.2-1.8k tokens + answer headroom
+
+# Reporting / checkpoints
+steps_per_report: 10
+steps_per_eval: 50
+save_every: 100
+adapter_path: "models/adapters/ft_v0_qwen2.5-1.5b"
+
+# Eval on the locked set happens OUTSIDE training via docs/eval_rubrics.md —
+# data/ft_v0/eval.jsonl is never passed to mlx_lm.lora.

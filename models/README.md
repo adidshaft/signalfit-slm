@@ -1,11 +1,18 @@
 # Models
 
-No model artifacts yet — design phase.
+No model artifacts yet — training awaits explicit go-ahead.
 
-## Planned
+## Base model selection (2026-07-05)
 
-- Base: a 1–8B open-weights instruct model suitable for on-device inference
-  (candidates to be benchmarked; selection criteria in `docs/eval_plan.md`).
+- **Primary: `Qwen/Qwen2.5-1.5B-Instruct`** — Apache-2.0, strong instruction
+  following at 1.5B, comfortable LoRA fine-tune + inference on Apple Silicon via
+  MLX. Config: `training/configs/mlx_lora_qwen2.5-1.5b-instruct.yaml`.
+- **Benchmark fallback: `Qwen/Qwen2.5-3B-Instruct`** — better quality ceiling,
+  BUT note the **license difference: 3B ships under the Qwen Research License
+  (non-commercial), not Apache-2.0**. Fine for benchmarking; not for shipping.
+- If the 1.5B underperforms and 3B licensing blocks shipping, evaluate
+  **Qwen3-1.7B / Qwen3-4B (Apache-2.0)** or Llama-3.2-3B (Llama license) before
+  committing. Verify current licenses on the model cards at selection time.
 - Fine-tune: SFT on `data/synthetic/curated/` via `training/mlx/` (Apple Silicon)
   or `training/unsloth/` (CUDA), configs in `training/configs/`.
 - Every run directory here must include: base model id + revision, dataset manifest
