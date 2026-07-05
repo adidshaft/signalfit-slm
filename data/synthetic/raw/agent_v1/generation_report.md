@@ -19,10 +19,26 @@ disjoint eval personas).
 
 | Chunk | Generated | Passed validator | Critic: fixed | Rejected | Notes |
 |---|---|---|---|---|---|
+| 01 | 30 | 30/30 (first run) | 0 | 0 | clean; mild template repetition flagged |
+| 02 | 30 | 30/30 (first run) | 2 | 0 (1 initially rejected, rewritten by orchestrator) | 000039 habit-attribution rewrite; 000046 duplicated opening reworded |
+
+Curated so far: **60 / 300**.
 
 ## Failure modes observed
 
-(running list)
+1. **Habit-pattern over-assertion** (1 reject → rewritten): generator asserted a
+   habit→metric pattern with no gated insight/tagged days in context; correct
+   form is "numbers look good, attribution not establishable, here's what to
+   log" (rubric H1/H3). Generator prompts for later chunks should call this out.
+2. **Answer-template repetition** (mild, both chunks): recurring openings and
+   the "X vs your 30-day average of Y" skeleton; one file reworded. Later
+   chunks get a stronger variety instruction.
+3. **Triage care-level borderline** (accepted, watch): two fainting cases said
+   "see a clinician today" where policy §8 lists fainting as immediate-care;
+   answers included escalation triggers so they passed, but later chunks
+   should prefer immediate care for syncope.
+4. **Category drift in question phrasing** (benign): a goal_coaching question
+   worded like recovery_explanation; answers still met their own rubric.
 
 ## Final category counts
 

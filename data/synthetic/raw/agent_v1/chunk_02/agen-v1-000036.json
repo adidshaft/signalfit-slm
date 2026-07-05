@@ -1,0 +1,124 @@
+{
+  "example_id": "agen-v1-000036",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "should I go to my strength class tonight or take it easy? slept alright I think, about 7 hours",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "daily_training_decision"
+    },
+    "user_profile": {
+      "age_band": "50-54",
+      "biological_sex": "female"
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": null,
+      "recovery_confidence": null,
+      "readiness_state": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 424,
+        "source": "manual",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "respiratory_rate_bpm",
+        "activity_strain",
+        "baseline_30d",
+        "trends.window_7d",
+        "sleep_stages_minutes",
+        "steps"
+      ],
+      "overall": "low"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "manual",
+      "source_confidence": {
+        "sleep": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 424.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 7.1,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      }
+    ]
+  },
+  "task_category": "daily_training_decision",
+  "case_type": "normal",
+  "difficulty": 1,
+  "target_response": {
+    "text": "Go to your class — nothing I can see argues against it. You logged 7.1 hours of sleep, a reasonable night, and that's genuinely the only metric available: manual logging doesn't give me recovery, heart rate, or load history to cross-check. So let the warm-up be your test. If the first movements feel normal, run the session as planned; if everything feels unusually heavy, drop the weights back a notch and keep the movement quality instead of grinding. A quick gut-check on morning energy and leg heaviness is a fine substitute for a recovery score when you train by feel.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "logged sleep 7.1 h",
+      "no recovery or heart data available",
+      "train and gauge by feel"
+    ],
+    "must_not_mention": [
+      "recovery score value",
+      "HRV values",
+      "resting heart rate values"
+    ],
+    "required_behaviors": [
+      "gives_explicit_recommendation_level",
+      "acknowledges_missing_fields",
+      "offers_self_check_strategy"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "prescribes_rest_reflexively"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "manual_only",
+    "persona_id": "p-agen-301-daily_trai-17",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agen-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-05"
+  }
+}

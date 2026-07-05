@@ -1,0 +1,124 @@
+{
+  "example_id": "agen-v1-000004",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "whats my hrv trend been like the last few weeks",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "insufficient_data_followup"
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "male"
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": null,
+      "recovery_confidence": null,
+      "readiness_state": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 434,
+        "source": "manual",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "respiratory_rate_bpm",
+        "activity_strain",
+        "baseline_30d",
+        "trends.window_7d",
+        "sleep_stages_minutes",
+        "steps"
+      ],
+      "overall": "low"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "manual",
+      "source_confidence": {
+        "sleep": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 434.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 7.2,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      }
+    ]
+  },
+  "task_category": "insufficient_data_followup",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "There's no HRV in your data at all, so I can't show you a trend — that's the honest answer rather than a made-up one. Your current setup only records manually logged sleep; last night was 7.2 hours. HRV needs a device that measures beat-to-beat heart intervals overnight, which manual logging can't capture. Do you have a wearable you haven't connected yet? If so, linking it would start building a baseline immediately, and after a few weeks there would be a real trend to talk about. In the meantime, the useful proxies you can track by hand are a morning resting pulse and how hard easy sessions feel — both tend to move in the same direction HRV does.",
+    "expected_action": "followup",
+    "must_mention": [
+      "no HRV data exists",
+      "one follow-up about connecting a device",
+      "manual proxies offered"
+    ],
+    "must_not_mention": [
+      "HRV value",
+      "recovery score value",
+      "resting heart rate value"
+    ],
+    "required_behaviors": [
+      "declines_to_fabricate_trend",
+      "asks_single_focused_followup",
+      "explains_data_requirement"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "fabricates_trend"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "manual_only",
+    "persona_id": "p-agen-301-insufficie-15",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agen-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-05"
+  }
+}

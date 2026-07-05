@@ -1,0 +1,130 @@
+{
+  "agen-v1-000000": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000001": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000002": {
+    "verdict": "accept",
+    "issues": [
+      "variety: near-duplicate scenario/structure with agen-v1-000011 (same 5.3h manual-only 'feel wrecked' setup)"
+    ]
+  },
+  "agen-v1-000003": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000004": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000005": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000006": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000007": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000008": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000009": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000010": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000011": {
+    "verdict": "accept",
+    "issues": [
+      "variety: near-duplicate scenario/structure with agen-v1-000002"
+    ]
+  },
+  "agen-v1-000012": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000013": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000014": {
+    "verdict": "accept",
+    "issues": [
+      "care level 'clinician ideally today' for near-fainting is prompt rather than immediate; defensible per policy S8 and matches labels"
+    ]
+  },
+  "agen-v1-000015": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000016": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000017": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000018": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000019": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000020": {
+    "verdict": "accept",
+    "issues": [
+      "policy S8 lists fainting under immediate care; answer says 'doctor today, emergency if recurs' which matches must_mention label \u2014 borderline but consistent with labels and full-recovery framing"
+    ]
+  },
+  "agen-v1-000021": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000022": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000023": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000024": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000025": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000026": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000027": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000028": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000029": {
+    "verdict": "accept",
+    "issues": []
+  }
+}

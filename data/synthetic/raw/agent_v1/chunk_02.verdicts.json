@@ -1,0 +1,138 @@
+{
+  "agen-v1-000030": {
+    "verdict": "accept",
+    "issues": [
+      "goal_coaching question reads close to recovery_explanation, but answer frames against green target correctly"
+    ]
+  },
+  "agen-v1-000031": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000032": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000033": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000034": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000035": {
+    "verdict": "accept",
+    "issues": [
+      "safety_lookalike correctly coached normally; DOMS acknowledged without triage"
+    ]
+  },
+  "agen-v1-000036": {
+    "verdict": "accept",
+    "issues": [
+      "opening template shared with 000046 (fixed on 000046 side)"
+    ]
+  },
+  "agen-v1-000037": {
+    "verdict": "accept",
+    "issues": [
+      "'treat the opening stretch as a test' self-test template recurs across manual_only decisions (035/036/037/046/056) \u2014 borderline variety"
+    ]
+  },
+  "agen-v1-000038": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000039": {
+    "verdict": "fixed",
+    "issues": [
+      "rewritten by orchestrator: pattern attribution reframed as not-established (H1/H3), numbers kept, logging suggested"
+    ]
+  },
+  "agen-v1-000040": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000041": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000042": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000043": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000044": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000045": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000046": {
+    "verdict": "fixed",
+    "issues": [
+      "opening near-identical to 000036 ('nothing I can see argues against') \u2014 reworded for variety; validator re-passed 30/0"
+    ]
+  },
+  "agen-v1-000047": {
+    "verdict": "accept",
+    "issues": [
+      "habit pattern grounded in suppressed hrv trend flag; sample framing via 'two straight weeks' acceptable"
+    ]
+  },
+  "agen-v1-000048": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000049": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000050": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000051": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000052": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000053": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000054": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000055": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000056": {
+    "verdict": "accept",
+    "issues": [
+      "self-test closing sentence template shared with other training decisions \u2014 minor variety note"
+    ]
+  },
+  "agen-v1-000057": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000058": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000059": {
+    "verdict": "accept",
+    "issues": []
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "example_id": "agen-v1-000042",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "what's my resting heart rate been this week? my daughter says I should keep an eye on it at my age",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "insufficient_data_followup"
+    },
+    "user_profile": {
+      "age_band": "60-64",
+      "biological_sex": "female"
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": null,
+      "recovery_confidence": null,
+      "readiness_state": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 406,
+        "source": "manual",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "respiratory_rate_bpm",
+        "activity_strain",
+        "baseline_30d",
+        "trends.window_7d",
+        "sleep_stages_minutes",
+        "steps"
+      ],
+      "overall": "low"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "manual",
+      "source_confidence": {
+        "sleep": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 406.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 6.8,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      }
+    ]
+  },
+  "task_category": "insufficient_data_followup",
+  "case_type": "normal",
+  "difficulty": 1,
+  "target_response": {
+    "text": "There's no resting heart rate in your log this week for me to report — manual entries cover sleep and workouts, and heart data needs either a sensor or a hand count. What I can see is last night's 6.8 hours of sleep. Your daughter's suggestion is workable without any gadget, though: counting your pulse for a full minute before getting out of bed, at roughly the same time each morning, gives a usable number, and logging it daily would let me track the weekly pattern for you. Would you like to start with this morning's reading?",
+    "expected_action": "followup",
+    "must_mention": [
+      "no resting heart rate data on manual logging",
+      "logged sleep 6.8 h",
+      "manual pulse-count option"
+    ],
+    "must_not_mention": [
+      "resting heart rate values",
+      "HRV values",
+      "recovery score value"
+    ],
+    "required_behaviors": [
+      "acknowledges_missing_fields",
+      "asks_single_followup",
+      "offers_practical_workaround"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "more_than_one_followup_question"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "manual_only",
+    "persona_id": "p-agen-301-insufficie-11",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agen-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-05"
+  }
+}

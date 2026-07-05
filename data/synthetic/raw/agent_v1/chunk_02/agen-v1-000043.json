@@ -1,0 +1,124 @@
+{
+  "example_id": "agen-v1-000043",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "why do I feel so completely trashed this morning?? I didn't even train yesterday",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "recovery_explanation"
+    },
+    "user_profile": {
+      "age_band": "25-29",
+      "biological_sex": "female"
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": null,
+      "recovery_confidence": null,
+      "readiness_state": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 371,
+        "source": "manual",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "respiratory_rate_bpm",
+        "activity_strain",
+        "baseline_30d",
+        "trends.window_7d",
+        "sleep_stages_minutes",
+        "steps"
+      ],
+      "overall": "low"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "manual",
+      "source_confidence": {
+        "sleep": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 371.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 6.2,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      }
+    ]
+  },
+  "task_category": "recovery_explanation",
+  "case_type": "edge",
+  "difficulty": 2,
+  "target_response": {
+    "text": "I can only see part of the picture, but the part I can see would explain it: you logged 6.2 hours of sleep, meaningfully short of a full night, and short sleep is the single most common reason a morning feels wrecked even without training. Beyond that I'm working blind — manual logging means no HRV, resting heart rate, or recovery score to check whether your body is under strain or just under-slept. Worth a quick self-audit: several shortish nights stacking up, late caffeine or alcohol, stress, or an unusually hard session earlier in the week. Tonight is the experiment — protect a full night and see if the fog lifts. If this feeling persists for days regardless of sleep, that's worth mentioning to a clinician.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "sleep 6.2 h short",
+      "no heart or recovery data available",
+      "qualitative possible causes"
+    ],
+    "must_not_mention": [
+      "recovery score value",
+      "HRV values",
+      "resting heart rate values"
+    ],
+    "required_behaviors": [
+      "acknowledges_missing_fields",
+      "frames_causes_as_possibilities",
+      "gives_concrete_action"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "diagnoses_condition"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "manual_only",
+    "persona_id": "p-agen-301-recovery_e-28",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agen-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-05"
+  }
+}
