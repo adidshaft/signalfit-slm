@@ -81,8 +81,9 @@
             "required": ["factor"],
             "additionalProperties": false,
             "properties": {
-              "factor": { "enum": ["hrv", "resting_heart_rate", "sleep", "respiration", "other"] },
-              "z_score": { "type": ["number", "null"] },
+              "factor": { "enum": ["hrv", "resting_heart_rate", "sleep", "respiration", "body_temperature", "prior_activity", "other"] },
+              "z_score": { "type": ["number", "null"], "description": "for providers exposing z-score contributors (e.g. Atria)" },
+              "score_0to100": { "type": ["integer", "null"], "minimum": 0, "maximum": 100, "description": "for providers exposing 0-100 contributor scores (e.g. Oura readiness contributors)" },
               "weight": { "type": ["number", "null"] },
               "direction": { "enum": [-1, 0, 1, null] }
             }

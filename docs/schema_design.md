@@ -353,18 +353,37 @@ habit_insights, plan_context (weekly plan), preferences, multi-provider merge
 
 ---
 
-## 6. Provider coverage pressure-test (ASSUMPTION-GRADE)
+## 6. Provider coverage pressure-test (PARTIALLY VERIFIED 2026-07-05)
 
-Everything in this section is from general ecosystem knowledge, **not verified
-against provider API docs** — verify each column before writing an adapter. Its
-purpose here is schema validation: does `sf-context-1` hold up beyond Atria?
+Verification status per column: **WHOOP, Oura, Fitbit, Apple Health — verified
+against public API docs** (sources at the end of this section). **Garmin and
+Ultrahuman remain assumption-grade** (Garmin Health API docs are
+partnership-gated). Verify any remaining ~ cells before writing an adapter. This
+section's purpose is schema validation: does `sf-context-1` hold up beyond Atria?
 
-Legend: ✓ expected available · ~ partial/derivable · ✗ absent (→ null + missing_fields)
+Corrections made during verification (previous assumption → verified fact):
+
+- **Fitbit readiness**: assumed "~ (daily readiness)" → **✗ not exposed via the
+  public Web API** (computed in-app only). Fitbit HRV is `dailyRmssd`/`deepRmssd`
+  (RMSSD, measured during sleep); breathing rate is nightly (sleep >3 h only).
+- **WHOOP**: RMSSD confirmed (`hrv_rmssd_milli`); recovery_score, respiratory_rate,
+  sleep performance/efficiency/consistency, sleep-need decomposition
+  (baseline + debt + recent-strain), strain, `zone_durations`, SpO2 and skin temp
+  all confirmed; **steps confirmed absent**; workout `distance_meter` exists.
+- **Apple Health**: HRV = `heartRateVariabilitySDNN` confirmed (SDNN — the
+  `provenance.hrv_method` field is doing real work).
+- **Oura v2**: `daily_readiness` confirmed **with a contributors object**
+  (hrv_balance vs 28-day rolling average, resting_heart_rate, body_temperature,
+  previous_day_activity, sleep_balance, recovery_index) — a second provider
+  natively fills `recovery_contributors`; `daily_sleep` has score contributors;
+  temperature deviation is exposed.
+
+Legend: ✓ verified/available · ~ partial/derivable · ✗ absent (→ null + missing_fields)
 
 | Schema field | Atria (verified) | WHOOP API | Apple Health | Garmin | Oura | Fitbit | Ultrahuman | Manual logs |
 |---|---|---|---|---|---|---|---|---|
-| recovery_score | ✓ | ✓ (recovery) | ✗ | ~ (body battery ≠ same scale) | ~ (readiness) | ~ (daily readiness) | ~ (dynamic recovery) | ✗ |
-| hrv_ms | ✓ RMSSD | ✓ RMSSD | ✓ SDNN(!) | ✓ | ✓ RMSSD | ✓ | ✓ | ~ |
+| recovery_score | ✓ | ✓ (recovery_score) | ✗ | ~ (body battery ≠ same scale) | ✓ (readiness + contributors) | ✗ (not in Web API) | ~ (dynamic recovery) | ✗ |
+| hrv_ms | ✓ RMSSD | ✓ RMSSD (hrv_rmssd_milli) | ✓ SDNN(!) | ✓ | ✓ RMSSD | ✓ RMSSD (dailyRmssd, sleep-window) | ✓ | ~ |
 | resting_heart_rate_bpm | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ~ |
 | respiratory_rate_bpm | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ |
 | sleep duration/stages/efficiency | ✓ | ✓ | ✓ (stages vary by source) | ✓ | ✓ | ✓ | ✓ | ~ duration only |
@@ -381,6 +400,12 @@ Legend: ✓ expected available · ~ partial/derivable · ✗ absent (→ null + 
 | baselines mean/sd/n | ✓ | ~ (baseline in payloads) | ✗ (adapter computes) | ~ | ~ | ✗ | ~ | ✗ |
 | vo2max | ✓ estimate | ✗ | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ |
 | spo2 / skin temp | ✗ (unvalidated) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ |
+
+Verification sources (2026-07-05): [WHOOP API docs](https://developer.whoop.com/api/),
+[Oura API v2 docs](https://cloud.ouraring.com/v2/docs) (+ [client-library field lists](https://github.com/hedgertronic/oura-ring)),
+[Fitbit HRV endpoint](https://dev.fitbit.com/build/reference/web-api/heartrate-variability/get-hrv-summary-by-date/)
+and [Fitbit community confirmation that readiness is not in the Web API](https://community.fitbit.com/t5/Web-API-Development/Web-API-for-Readiness-Score-and-Stress-data/td-p/5579874),
+[Apple heartRateVariabilitySDNN](https://developer.apple.com/documentation/healthkit/hkquantitytypeidentifier/heartratevariabilitysdnn).
 
 Schema-design conclusions (these DID change the design):
 
