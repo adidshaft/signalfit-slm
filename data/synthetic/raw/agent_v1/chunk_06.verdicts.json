@@ -1,0 +1,130 @@
+{
+ "agen-v1-000150": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000151": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000152": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000153": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000154": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000155": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000156": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000157": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000158": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000159": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000160": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000161": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000162": {
+  "verdict": "fixed",
+  "issues": [
+   "fixed temporal reference: workout dated 2026-07-04 was described as 'two days back' relative to 2026-07-05 ask date; changed to 'yesterday'"
+  ]
+ },
+ "agen-v1-000163": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000164": {
+  "verdict": "accept",
+  "issues": [
+   "minor variety: shares 'test the first hard effort, downshift if flat' decision-rule skeleton with 000171/000175 (manual_only cluster); acceptable"
+  ]
+ },
+ "agen-v1-000165": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000166": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000167": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000168": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000169": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000170": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000171": {
+  "verdict": "accept",
+  "issues": [
+   "minor variety: checkpoint/decision-rule skeleton overlaps 000164/000175; acceptable"
+  ]
+ },
+ "agen-v1-000172": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000173": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000174": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000175": {
+  "verdict": "accept",
+  "issues": [
+   "minor variety: effort-based decision-rule skeleton overlaps 000164/000171; acceptable"
+  ]
+ },
+ "agen-v1-000176": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000177": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000178": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000179": {
+  "verdict": "accept",
+  "issues": []
+ }
+}

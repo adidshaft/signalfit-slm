@@ -1,0 +1,276 @@
+{
+ "example_id": "agen-v1-000170",
+ "schema_version": "sf-train-1",
+ "context": {
+  "schema_version": "sf-context-1",
+  "request": {
+   "user_question": "Is today a good day to go hard? Feel pretty rested.",
+   "asked_at_local": "2026-07-05T07:30:00+02:00",
+   "weekday": "Sunday",
+   "units": "metric"
+  },
+  "task": {
+   "category": "daily_training_decision"
+  },
+  "user_profile": {
+   "age_band": "18-24",
+   "biological_sex": "male"
+  },
+  "today": {
+   "date_local": "2026-07-05",
+   "recovery_score": null,
+   "recovery_confidence": null,
+   "readiness_state": null,
+   "hrv_ms": 57,
+   "resting_heart_rate_bpm": 57,
+   "sleep": {
+    "duration_minutes": 491,
+    "source": "auto_detected",
+    "confidence": "high"
+   },
+   "activity": {
+    "activity_strain": 0.1
+   }
+  },
+  "baselines": {
+   "baseline_30d": {
+    "hrv_ms": {
+     "mean": 58.9,
+     "sd": 3.6,
+     "n": 30
+    },
+    "resting_heart_rate_bpm": {
+     "mean": 56.6,
+     "sd": 1.2,
+     "n": 30
+    }
+   },
+   "ranges": {
+    "recovery_score": {
+     "low": 0,
+     "high": 100
+    },
+    "activity_strain": {
+     "low": 0,
+     "high": 21
+    }
+   }
+  },
+  "trends": {
+   "window_7d": {
+    "avg_recovery": null,
+    "avg_hrv_ms": 58,
+    "avg_rhr_bpm": 56,
+    "avg_strain": 10.3,
+    "avg_sleep_minutes": 434,
+    "coverage_pct": 100,
+    "confidence": "high",
+    "anomalies": [],
+    "hrv_state": "typical"
+   }
+  },
+  "recent_workouts": [
+   {
+    "date": "2026-07-04",
+    "type": "row",
+    "duration_minutes": 89,
+    "avg_hr_bpm": 146,
+    "peak_hr_bpm": 186,
+    "training_load": 14.4,
+    "source": "user_confirmed"
+   }
+  ],
+  "safety_flags": [],
+  "data_quality": {
+   "missing_fields": [
+    "recovery_score",
+    "steps",
+    "sleep_stages_minutes",
+    "respiratory_rate_bpm"
+   ],
+   "overall": "medium"
+  },
+  "provenance": {
+   "data_provider": "health_platform",
+   "device_type": "mixed",
+   "source_confidence": {
+    "sleep": "high",
+    "hrv_ms": "high"
+   },
+   "strain_scale": "0-21",
+   "hrv_method": "sdnn"
+  },
+  "allowed_numbers": [
+   {
+    "value": 57.0,
+    "unit": "ms",
+    "label": "today.hrv_ms"
+   },
+   {
+    "value": 57.0,
+    "unit": "bpm",
+    "label": "today.resting_heart_rate_bpm"
+   },
+   {
+    "value": 491.0,
+    "unit": "min",
+    "label": "today.sleep.duration_minutes"
+   },
+   {
+    "value": 0.1,
+    "unit": null,
+    "label": "today.activity.activity_strain"
+   },
+   {
+    "value": 58.9,
+    "unit": null,
+    "label": "baselines.baseline_30d.hrv_ms.mean"
+   },
+   {
+    "value": 3.6,
+    "unit": null,
+    "label": "baselines.baseline_30d.hrv_ms.sd"
+   },
+   {
+    "value": 30.0,
+    "unit": null,
+    "label": "baselines.baseline_30d.hrv_ms.n"
+   },
+   {
+    "value": 56.6,
+    "unit": null,
+    "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+   },
+   {
+    "value": 1.2,
+    "unit": null,
+    "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+   },
+   {
+    "value": 30.0,
+    "unit": null,
+    "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+   },
+   {
+    "value": 0.0,
+    "unit": null,
+    "label": "baselines.ranges.recovery_score.low"
+   },
+   {
+    "value": 100.0,
+    "unit": null,
+    "label": "baselines.ranges.recovery_score.high"
+   },
+   {
+    "value": 0.0,
+    "unit": null,
+    "label": "baselines.ranges.activity_strain.low"
+   },
+   {
+    "value": 21.0,
+    "unit": null,
+    "label": "baselines.ranges.activity_strain.high"
+   },
+   {
+    "value": 58.0,
+    "unit": "ms",
+    "label": "trends.window_7d.avg_hrv_ms"
+   },
+   {
+    "value": 56.0,
+    "unit": "bpm",
+    "label": "trends.window_7d.avg_rhr_bpm"
+   },
+   {
+    "value": 10.3,
+    "unit": null,
+    "label": "trends.window_7d.avg_strain"
+   },
+   {
+    "value": 434.0,
+    "unit": "min",
+    "label": "trends.window_7d.avg_sleep_minutes"
+   },
+   {
+    "value": 100.0,
+    "unit": "%",
+    "label": "trends.window_7d.coverage_pct"
+   },
+   {
+    "value": 89.0,
+    "unit": "min",
+    "label": "recent_workouts[0].duration_minutes"
+   },
+   {
+    "value": 146.0,
+    "unit": "bpm",
+    "label": "recent_workouts[0].avg_hr_bpm"
+   },
+   {
+    "value": 186.0,
+    "unit": "bpm",
+    "label": "recent_workouts[0].peak_hr_bpm"
+   },
+   {
+    "value": 14.4,
+    "unit": null,
+    "label": "recent_workouts[0].training_load"
+   },
+   {
+    "value": 8.2,
+    "unit": "h",
+    "label": "sleep_duration_hours"
+   },
+   {
+    "value": 7.2,
+    "unit": "h",
+    "label": "avg_sleep_hours_7d"
+   }
+  ]
+ },
+ "task_category": "daily_training_decision",
+ "case_type": "normal",
+ "difficulty": 1,
+ "target_response": {
+  "text": "Yes — go for it. You slept 8.2 hours, above your 7.2-hour weekly average, HRV is 57 ms right around your 59 ms norm, and resting heart rate at 57 bpm is typical for you. One note on how I'm reading this: your setup doesn't produce a recovery score, so this comes from the raw signals, but they all point the same direction. Yesterday's 89-minute row was solid work and you've clearly absorbed it. Do the hard session as planned, fuel it properly, and pencil in something easier tomorrow so the effort gets banked.",
+  "expected_action": "answer",
+  "must_mention": [
+   "8.2 hours sleep",
+   "HRV 57 ms near norm",
+   "no recovery score on this setup"
+  ],
+  "must_not_mention": [
+   "recovery score value",
+   "respiratory rate",
+   "steps"
+  ],
+  "required_behaviors": [
+   "endorses_hard_training_when_data_supports",
+   "acknowledges_missing_fields",
+   "cites_user_baseline"
+  ],
+  "forbidden_behaviors": [
+   "invents_numbers",
+   "population_stats_as_personal",
+   "fabricates_recovery_score",
+   "unwarranted_caution"
+  ]
+ },
+ "labels": {
+  "safety_class": "none",
+  "provider_mask": "platform_aggregate",
+  "persona_id": "p-agen-301-daily_trai-30",
+  "rubric_tags": [
+   "grounding",
+   "behavior_compliance"
+  ],
+  "is_locked_eval": false
+ },
+ "generation": {
+  "generator": "agent-fable-5-agent",
+  "prompt_version": "agen-2",
+  "critic_passed": true,
+  "human_reviewed": false,
+  "created_at": "2026-07-06"
+ }
+}

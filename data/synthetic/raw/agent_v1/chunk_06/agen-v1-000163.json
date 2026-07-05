@@ -1,0 +1,283 @@
+{
+ "example_id": "agen-v1-000163",
+ "schema_version": "sf-train-1",
+ "context": {
+  "schema_version": "sf-context-1",
+  "request": {
+   "user_question": "Explain this to me: I slept 5.4 hours and my recovery is still 68 and \"high\"?? Is the score broken?",
+   "asked_at_local": "2026-07-05T07:30:00+02:00",
+   "weekday": "Sunday",
+   "units": "metric"
+  },
+  "task": {
+   "category": "explain_metric"
+  },
+  "user_profile": {
+   "age_band": "60-64",
+   "biological_sex": "male"
+  },
+  "today": {
+   "date_local": "2026-07-05",
+   "recovery_score": 68,
+   "recovery_confidence": "high",
+   "readiness_state": "high",
+   "hrv_ms": 62,
+   "resting_heart_rate_bpm": 55,
+   "sleep": {
+    "duration_minutes": 322,
+    "source": "auto_detected",
+    "confidence": "high"
+   },
+   "activity": {
+    "activity_strain": 0.4
+   }
+  },
+  "baselines": {
+   "baseline_30d": {
+    "hrv_ms": {
+     "mean": 63.9,
+     "sd": 4.6,
+     "n": 30
+    },
+    "resting_heart_rate_bpm": {
+     "mean": 56.4,
+     "sd": 1.6,
+     "n": 30
+    }
+   },
+   "ranges": {
+    "recovery_score": {
+     "low": 0,
+     "high": 100
+    },
+    "activity_strain": {
+     "low": 0,
+     "high": 21
+    }
+   }
+  },
+  "trends": {
+   "window_7d": {
+    "avg_recovery": 65,
+    "avg_hrv_ms": 65,
+    "avg_rhr_bpm": 57,
+    "avg_strain": 12.1,
+    "avg_sleep_minutes": 421,
+    "coverage_pct": 100,
+    "confidence": "high",
+    "anomalies": [],
+    "hrv_state": "typical"
+   }
+  },
+  "recent_workouts": [
+   {
+    "date": "2026-07-04",
+    "type": "run",
+    "duration_minutes": 32,
+    "avg_hr_bpm": 159,
+    "peak_hr_bpm": 167,
+    "training_load": 12.0,
+    "source": "user_confirmed"
+   }
+  ],
+  "safety_flags": [],
+  "data_quality": {
+   "missing_fields": [
+    "steps",
+    "sleep_stages_minutes",
+    "respiratory_rate_bpm"
+   ],
+   "overall": "medium"
+  },
+  "provenance": {
+   "data_provider": "generic_wearable",
+   "device_type": "wrist_wearable",
+   "source_confidence": {
+    "sleep": "high",
+    "hrv_ms": "high"
+   },
+   "strain_scale": "0-21",
+   "hrv_method": "rmssd"
+  },
+  "allowed_numbers": [
+   {
+    "value": 68.0,
+    "unit": "%",
+    "label": "today.recovery_score"
+   },
+   {
+    "value": 62.0,
+    "unit": "ms",
+    "label": "today.hrv_ms"
+   },
+   {
+    "value": 55.0,
+    "unit": "bpm",
+    "label": "today.resting_heart_rate_bpm"
+   },
+   {
+    "value": 322.0,
+    "unit": "min",
+    "label": "today.sleep.duration_minutes"
+   },
+   {
+    "value": 0.4,
+    "unit": null,
+    "label": "today.activity.activity_strain"
+   },
+   {
+    "value": 63.9,
+    "unit": null,
+    "label": "baselines.baseline_30d.hrv_ms.mean"
+   },
+   {
+    "value": 4.6,
+    "unit": null,
+    "label": "baselines.baseline_30d.hrv_ms.sd"
+   },
+   {
+    "value": 30.0,
+    "unit": null,
+    "label": "baselines.baseline_30d.hrv_ms.n"
+   },
+   {
+    "value": 56.4,
+    "unit": null,
+    "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+   },
+   {
+    "value": 1.6,
+    "unit": null,
+    "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+   },
+   {
+    "value": 30.0,
+    "unit": null,
+    "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+   },
+   {
+    "value": 0.0,
+    "unit": null,
+    "label": "baselines.ranges.recovery_score.low"
+   },
+   {
+    "value": 100.0,
+    "unit": null,
+    "label": "baselines.ranges.recovery_score.high"
+   },
+   {
+    "value": 0.0,
+    "unit": null,
+    "label": "baselines.ranges.activity_strain.low"
+   },
+   {
+    "value": 21.0,
+    "unit": null,
+    "label": "baselines.ranges.activity_strain.high"
+   },
+   {
+    "value": 65.0,
+    "unit": "%",
+    "label": "trends.window_7d.avg_recovery"
+   },
+   {
+    "value": 65.0,
+    "unit": "ms",
+    "label": "trends.window_7d.avg_hrv_ms"
+   },
+   {
+    "value": 57.0,
+    "unit": "bpm",
+    "label": "trends.window_7d.avg_rhr_bpm"
+   },
+   {
+    "value": 12.1,
+    "unit": null,
+    "label": "trends.window_7d.avg_strain"
+   },
+   {
+    "value": 421.0,
+    "unit": "min",
+    "label": "trends.window_7d.avg_sleep_minutes"
+   },
+   {
+    "value": 100.0,
+    "unit": "%",
+    "label": "trends.window_7d.coverage_pct"
+   },
+   {
+    "value": 32.0,
+    "unit": "min",
+    "label": "recent_workouts[0].duration_minutes"
+   },
+   {
+    "value": 159.0,
+    "unit": "bpm",
+    "label": "recent_workouts[0].avg_hr_bpm"
+   },
+   {
+    "value": 167.0,
+    "unit": "bpm",
+    "label": "recent_workouts[0].peak_hr_bpm"
+   },
+   {
+    "value": 12.0,
+    "unit": null,
+    "label": "recent_workouts[0].training_load"
+   },
+   {
+    "value": 5.4,
+    "unit": "h",
+    "label": "sleep_duration_hours"
+   },
+   {
+    "value": 7.0,
+    "unit": "h",
+    "label": "avg_sleep_hours_7d"
+   }
+  ]
+ },
+ "task_category": "explain_metric",
+ "case_type": "edge",
+ "difficulty": 3,
+ "target_response": {
+  "text": "Not broken — the score just weighs your overnight physiology more than sleep duration, and yours held up. HRV came in at 62 ms, close to your 64 ms average, and resting heart rate at 55 bpm is actually under your usual 56, so your nervous system absorbed the night better than the 5.4 hours suggests. The short sleep is still real and the score does discount it, which is partly why you're at 68% instead of higher. Treat today as usable but fragile: train as planned at normal intensity, but don't stack a second short night on top, because HRV usually gives back that grace only once.",
+  "expected_action": "answer",
+  "must_mention": [
+   "HRV 62 ms near baseline",
+   "5.4 hours sleep",
+   "recovery 68%"
+  ],
+  "must_not_mention": [
+   "respiratory rate",
+   "sleep stages"
+  ],
+  "required_behaviors": [
+   "explains_metric_weighting",
+   "cites_user_baseline",
+   "warns_without_overriding_data"
+  ],
+  "forbidden_behaviors": [
+   "invents_numbers",
+   "population_stats_as_personal",
+   "reflexive_rest_recommendation"
+  ]
+ },
+ "labels": {
+  "safety_class": "none",
+  "provider_mask": "wearable_full",
+  "persona_id": "p-agen-301-explain_me-30",
+  "rubric_tags": [
+   "grounding",
+   "behavior_compliance"
+  ],
+  "is_locked_eval": false
+ },
+ "generation": {
+  "generator": "agent-fable-5-agent",
+  "prompt_version": "agen-2",
+  "critic_passed": true,
+  "human_reviewed": false,
+  "created_at": "2026-07-06"
+ }
+}

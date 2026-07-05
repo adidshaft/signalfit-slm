@@ -23,8 +23,9 @@ disjoint eval personas).
 | 02 | 30 | 30/30 (first run) | 2 | 0 (1 initially rejected, rewritten by orchestrator) | 000039 habit-attribution rewrite; 000046 duplicated opening reworded |
 | 03 | 30 | 30/30 (first run) | 1 | 0 | fainting triage care-level firmed to immediate; refusal length trimmed by generator |
 | 04 | 30 | 30/30 (first run) | 5 | 0 | 3x breathing-difficulty triage upgraded to immediate care; 1 habit caveat added; 1 causal phrasing softened |
+| 06 | 30 | 30/30 (first run) | 1 | 0 | agen-2 prompt: safety/habit rules held; one temporal-reference slip fixed |
 
-Curated so far: **120 / 300**.
+Curated so far: **150 / 300** (chunk 05 pending critic).
 
 ## Failure modes observed
 

@@ -1,0 +1,284 @@
+{
+ "example_id": "agen-v1-000174",
+ "schema_version": "sf-train-1",
+ "context": {
+  "schema_version": "sf-context-1",
+  "request": {
+   "user_question": "my score says high readiness but I woke up feeling wrecked?? which one do I believe",
+   "asked_at_local": "2026-07-05T07:30:00+02:00",
+   "weekday": "Sunday",
+   "units": "metric"
+  },
+  "task": {
+   "category": "daily_training_decision"
+  },
+  "user_profile": {
+   "age_band": "30-34",
+   "biological_sex": "female"
+  },
+  "today": {
+   "date_local": "2026-07-05",
+   "recovery_score": 72,
+   "recovery_confidence": "high",
+   "readiness_state": "high",
+   "hrv_ms": 58,
+   "resting_heart_rate_bpm": 58,
+   "sleep": {
+    "duration_minutes": 398,
+    "source": "auto_detected",
+    "confidence": "high"
+   },
+   "activity": {
+    "activity_strain": 0.4
+   }
+  },
+  "baselines": {
+   "baseline_30d": {
+    "hrv_ms": {
+     "mean": 54.1,
+     "sd": 3.3,
+     "n": 30
+    },
+    "resting_heart_rate_bpm": {
+     "mean": 58.5,
+     "sd": 1.7,
+     "n": 30
+    }
+   },
+   "ranges": {
+    "recovery_score": {
+     "low": 0,
+     "high": 100
+    },
+    "activity_strain": {
+     "low": 0,
+     "high": 21
+    }
+   }
+  },
+  "trends": {
+   "window_7d": {
+    "avg_recovery": 69,
+    "avg_hrv_ms": 56,
+    "avg_rhr_bpm": 58,
+    "avg_strain": 10.9,
+    "avg_sleep_minutes": 439,
+    "coverage_pct": 100,
+    "confidence": "high",
+    "anomalies": [],
+    "hrv_state": "typical"
+   }
+  },
+  "recent_workouts": [
+   {
+    "date": "2026-07-04",
+    "type": "hike",
+    "duration_minutes": 75,
+    "avg_hr_bpm": 145,
+    "peak_hr_bpm": 165,
+    "training_load": 15.4,
+    "source": "user_confirmed"
+   }
+  ],
+  "safety_flags": [],
+  "data_quality": {
+   "missing_fields": [
+    "steps",
+    "sleep_stages_minutes",
+    "respiratory_rate_bpm"
+   ],
+   "overall": "medium"
+  },
+  "provenance": {
+   "data_provider": "generic_wearable",
+   "device_type": "wrist_wearable",
+   "source_confidence": {
+    "sleep": "high",
+    "hrv_ms": "high"
+   },
+   "strain_scale": "0-21",
+   "hrv_method": "rmssd"
+  },
+  "allowed_numbers": [
+   {
+    "value": 72.0,
+    "unit": "%",
+    "label": "today.recovery_score"
+   },
+   {
+    "value": 58.0,
+    "unit": "ms",
+    "label": "today.hrv_ms"
+   },
+   {
+    "value": 58.0,
+    "unit": "bpm",
+    "label": "today.resting_heart_rate_bpm"
+   },
+   {
+    "value": 398.0,
+    "unit": "min",
+    "label": "today.sleep.duration_minutes"
+   },
+   {
+    "value": 0.4,
+    "unit": null,
+    "label": "today.activity.activity_strain"
+   },
+   {
+    "value": 54.1,
+    "unit": null,
+    "label": "baselines.baseline_30d.hrv_ms.mean"
+   },
+   {
+    "value": 3.3,
+    "unit": null,
+    "label": "baselines.baseline_30d.hrv_ms.sd"
+   },
+   {
+    "value": 30.0,
+    "unit": null,
+    "label": "baselines.baseline_30d.hrv_ms.n"
+   },
+   {
+    "value": 58.5,
+    "unit": null,
+    "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+   },
+   {
+    "value": 1.7,
+    "unit": null,
+    "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+   },
+   {
+    "value": 30.0,
+    "unit": null,
+    "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+   },
+   {
+    "value": 0.0,
+    "unit": null,
+    "label": "baselines.ranges.recovery_score.low"
+   },
+   {
+    "value": 100.0,
+    "unit": null,
+    "label": "baselines.ranges.recovery_score.high"
+   },
+   {
+    "value": 0.0,
+    "unit": null,
+    "label": "baselines.ranges.activity_strain.low"
+   },
+   {
+    "value": 21.0,
+    "unit": null,
+    "label": "baselines.ranges.activity_strain.high"
+   },
+   {
+    "value": 69.0,
+    "unit": "%",
+    "label": "trends.window_7d.avg_recovery"
+   },
+   {
+    "value": 56.0,
+    "unit": "ms",
+    "label": "trends.window_7d.avg_hrv_ms"
+   },
+   {
+    "value": 58.0,
+    "unit": "bpm",
+    "label": "trends.window_7d.avg_rhr_bpm"
+   },
+   {
+    "value": 10.9,
+    "unit": null,
+    "label": "trends.window_7d.avg_strain"
+   },
+   {
+    "value": 439.0,
+    "unit": "min",
+    "label": "trends.window_7d.avg_sleep_minutes"
+   },
+   {
+    "value": 100.0,
+    "unit": "%",
+    "label": "trends.window_7d.coverage_pct"
+   },
+   {
+    "value": 75.0,
+    "unit": "min",
+    "label": "recent_workouts[0].duration_minutes"
+   },
+   {
+    "value": 145.0,
+    "unit": "bpm",
+    "label": "recent_workouts[0].avg_hr_bpm"
+   },
+   {
+    "value": 165.0,
+    "unit": "bpm",
+    "label": "recent_workouts[0].peak_hr_bpm"
+   },
+   {
+    "value": 15.4,
+    "unit": null,
+    "label": "recent_workouts[0].training_load"
+   },
+   {
+    "value": 6.6,
+    "unit": "h",
+    "label": "sleep_duration_hours"
+   },
+   {
+    "value": 7.3,
+    "unit": "h",
+    "label": "avg_sleep_hours_7d"
+   }
+  ]
+ },
+ "task_category": "daily_training_decision",
+ "case_type": "edge",
+ "difficulty": 3,
+ "target_response": {
+  "text": "Believe the score for capacity and the grogginess for pacing. Physiologically you look ready: recovery is 72%, HRV at 58 ms is above your 54 ms average, and resting heart rate is steady at 58 bpm. The likeliest source of feeling wrecked is last night's 6.6 hours against your usual 7.3 — that's sleepiness, which fades with movement, rather than lack of recovery, which doesn't. So start the planned session with a longer warm-up and let it be the tiebreaker: if you come alive ten minutes in, as usually happens on days like this, do the full workout; if you're still flat after the warm-up, downgrade to moderate and take the early night.",
+  "expected_action": "answer",
+  "must_mention": [
+   "recovery 72%",
+   "6.6 hours sleep vs usual",
+   "warm-up as tiebreaker"
+  ],
+  "must_not_mention": [
+   "respiratory rate",
+   "steps"
+  ],
+  "required_behaviors": [
+   "weighs_conflicting_signals",
+   "gives_decision_rule",
+   "cites_user_baseline"
+  ],
+  "forbidden_behaviors": [
+   "invents_numbers",
+   "population_stats_as_personal",
+   "reflexive_rest_recommendation",
+   "dismisses_subjective_report"
+  ]
+ },
+ "labels": {
+  "safety_class": "none",
+  "provider_mask": "wearable_full",
+  "persona_id": "p-agen-301-daily_trai-35",
+  "rubric_tags": [
+   "grounding",
+   "behavior_compliance"
+  ],
+  "is_locked_eval": false
+ },
+ "generation": {
+  "generator": "agent-fable-5-agent",
+  "prompt_version": "agen-2",
+  "critic_passed": true,
+  "human_reviewed": false,
+  "created_at": "2026-07-06"
+ }
+}

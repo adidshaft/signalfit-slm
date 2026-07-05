@@ -1,0 +1,275 @@
+{
+ "example_id": "agen-v1-000157",
+ "schema_version": "sf-train-1",
+ "context": {
+  "schema_version": "sf-context-1",
+  "request": {
+   "user_question": "my hrv reading looks way lower than normal today and my app doesn't even give me a recovery score. what's going on?",
+   "asked_at_local": "2026-07-05T07:30:00+02:00",
+   "weekday": "Sunday",
+   "units": "metric"
+  },
+  "task": {
+   "category": "explain_metric"
+  },
+  "user_profile": {
+   "age_band": "18-24",
+   "biological_sex": "male"
+  },
+  "today": {
+   "date_local": "2026-07-05",
+   "recovery_score": null,
+   "recovery_confidence": null,
+   "readiness_state": null,
+   "hrv_ms": 53,
+   "resting_heart_rate_bpm": 56,
+   "sleep": {
+    "duration_minutes": 412,
+    "source": "auto_detected",
+    "confidence": "high"
+   },
+   "activity": {
+    "activity_strain": 0.7
+   }
+  },
+  "baselines": {
+   "baseline_30d": {
+    "hrv_ms": {
+     "mean": 66.4,
+     "sd": 4.7,
+     "n": 30
+    },
+    "resting_heart_rate_bpm": {
+     "mean": 55.3,
+     "sd": 1.5,
+     "n": 30
+    }
+   },
+   "ranges": {
+    "recovery_score": {
+     "low": 0,
+     "high": 100
+    },
+    "activity_strain": {
+     "low": 0,
+     "high": 21
+    }
+   }
+  },
+  "trends": {
+   "window_7d": {
+    "avg_recovery": null,
+    "avg_hrv_ms": 63,
+    "avg_rhr_bpm": 56,
+    "avg_strain": 11.0,
+    "avg_sleep_minutes": 426,
+    "coverage_pct": 100,
+    "confidence": "high",
+    "anomalies": [],
+    "hrv_state": "suppressed"
+   }
+  },
+  "recent_workouts": [
+   {
+    "date": "2026-07-04",
+    "type": "cycle",
+    "duration_minutes": 37,
+    "avg_hr_bpm": 119,
+    "peak_hr_bpm": 165,
+    "training_load": 15.5,
+    "source": "user_confirmed"
+   }
+  ],
+  "safety_flags": [],
+  "data_quality": {
+   "missing_fields": [
+    "recovery_score",
+    "steps",
+    "sleep_stages_minutes",
+    "respiratory_rate_bpm"
+   ],
+   "overall": "medium"
+  },
+  "provenance": {
+   "data_provider": "health_platform",
+   "device_type": "mixed",
+   "source_confidence": {
+    "sleep": "high",
+    "hrv_ms": "high"
+   },
+   "strain_scale": "0-21",
+   "hrv_method": "sdnn"
+  },
+  "allowed_numbers": [
+   {
+    "value": 53.0,
+    "unit": "ms",
+    "label": "today.hrv_ms"
+   },
+   {
+    "value": 56.0,
+    "unit": "bpm",
+    "label": "today.resting_heart_rate_bpm"
+   },
+   {
+    "value": 412.0,
+    "unit": "min",
+    "label": "today.sleep.duration_minutes"
+   },
+   {
+    "value": 0.7,
+    "unit": null,
+    "label": "today.activity.activity_strain"
+   },
+   {
+    "value": 66.4,
+    "unit": null,
+    "label": "baselines.baseline_30d.hrv_ms.mean"
+   },
+   {
+    "value": 4.7,
+    "unit": null,
+    "label": "baselines.baseline_30d.hrv_ms.sd"
+   },
+   {
+    "value": 30.0,
+    "unit": null,
+    "label": "baselines.baseline_30d.hrv_ms.n"
+   },
+   {
+    "value": 55.3,
+    "unit": null,
+    "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+   },
+   {
+    "value": 1.5,
+    "unit": null,
+    "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+   },
+   {
+    "value": 30.0,
+    "unit": null,
+    "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+   },
+   {
+    "value": 0.0,
+    "unit": null,
+    "label": "baselines.ranges.recovery_score.low"
+   },
+   {
+    "value": 100.0,
+    "unit": null,
+    "label": "baselines.ranges.recovery_score.high"
+   },
+   {
+    "value": 0.0,
+    "unit": null,
+    "label": "baselines.ranges.activity_strain.low"
+   },
+   {
+    "value": 21.0,
+    "unit": null,
+    "label": "baselines.ranges.activity_strain.high"
+   },
+   {
+    "value": 63.0,
+    "unit": "ms",
+    "label": "trends.window_7d.avg_hrv_ms"
+   },
+   {
+    "value": 56.0,
+    "unit": "bpm",
+    "label": "trends.window_7d.avg_rhr_bpm"
+   },
+   {
+    "value": 11.0,
+    "unit": null,
+    "label": "trends.window_7d.avg_strain"
+   },
+   {
+    "value": 426.0,
+    "unit": "min",
+    "label": "trends.window_7d.avg_sleep_minutes"
+   },
+   {
+    "value": 100.0,
+    "unit": "%",
+    "label": "trends.window_7d.coverage_pct"
+   },
+   {
+    "value": 37.0,
+    "unit": "min",
+    "label": "recent_workouts[0].duration_minutes"
+   },
+   {
+    "value": 119.0,
+    "unit": "bpm",
+    "label": "recent_workouts[0].avg_hr_bpm"
+   },
+   {
+    "value": 165.0,
+    "unit": "bpm",
+    "label": "recent_workouts[0].peak_hr_bpm"
+   },
+   {
+    "value": 15.5,
+    "unit": null,
+    "label": "recent_workouts[0].training_load"
+   },
+   {
+    "value": 6.9,
+    "unit": "h",
+    "label": "sleep_duration_hours"
+   },
+   {
+    "value": 7.1,
+    "unit": "h",
+    "label": "avg_sleep_hours_7d"
+   }
+  ]
+ },
+ "task_category": "explain_metric",
+ "case_type": "edge",
+ "difficulty": 2,
+ "target_response": {
+  "text": "Your HRV really is down: 53 ms today against your 30-day norm of 66 ms, and even your 7-day average of 63 ms sits below that, so the app is right to call the trend suppressed. The most likely driver is recent load — yesterday's 37-minute ride carried a hefty load of 15.5 on top of a demanding week. Two things to keep in mind: your setup doesn't compute a recovery score, so HRV and resting heart rate are the signals to watch, and it measures HRV with the SDNN method, so only compare against your own history, never other people's numbers. If it stays this low for several more days, lighten the load.",
+  "expected_action": "answer_with_caveat",
+  "must_mention": [
+   "HRV 53 ms vs 66 ms norm",
+   "suppressed trend",
+   "no recovery score on this setup"
+  ],
+  "must_not_mention": [
+   "recovery score value",
+   "respiratory rate",
+   "steps"
+  ],
+  "required_behaviors": [
+   "cites_user_baseline",
+   "acknowledges_missing_fields",
+   "notes_hrv_method_comparability"
+  ],
+  "forbidden_behaviors": [
+   "invents_numbers",
+   "population_stats_as_personal",
+   "fabricates_recovery_score"
+  ]
+ },
+ "labels": {
+  "safety_class": "none",
+  "provider_mask": "platform_aggregate",
+  "persona_id": "p-agen-301-explain_me-5",
+  "rubric_tags": [
+   "grounding",
+   "behavior_compliance"
+  ],
+  "is_locked_eval": false
+ },
+ "generation": {
+  "generator": "agent-fable-5-agent",
+  "prompt_version": "agen-2",
+  "critic_passed": true,
+  "human_reviewed": false,
+  "created_at": "2026-07-06"
+ }
+}

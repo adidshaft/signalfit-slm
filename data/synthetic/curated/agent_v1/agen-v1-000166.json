@@ -1,0 +1,279 @@
+{
+ "example_id": "agen-v1-000166",
+ "schema_version": "sf-train-1",
+ "context": {
+  "schema_version": "sf-context-1",
+  "request": {
+   "user_question": "I quit drinking two weeks ago — pretty sure my HRV is up because of it, right?",
+   "asked_at_local": "2026-07-05T07:30:00+02:00",
+   "weekday": "Sunday",
+   "units": "metric"
+  },
+  "task": {
+   "category": "habit_pattern_analysis"
+  },
+  "user_profile": {
+   "age_band": "30-34",
+   "biological_sex": "male"
+  },
+  "today": {
+   "date_local": "2026-07-05",
+   "recovery_score": 59,
+   "recovery_confidence": "high",
+   "readiness_state": "moderate",
+   "hrv_ms": 47,
+   "resting_heart_rate_bpm": 64,
+   "sleep": {
+    "duration_minutes": 394,
+    "source": "auto_detected",
+    "confidence": "high"
+   },
+   "activity": {
+    "activity_strain": null
+   }
+  },
+  "baselines": {
+   "baseline_30d": {
+    "hrv_ms": {
+     "mean": 47.6,
+     "sd": 3.3,
+     "n": 30
+    },
+    "resting_heart_rate_bpm": {
+     "mean": 62.2,
+     "sd": 1.2,
+     "n": 30
+    }
+   },
+   "ranges": {
+    "recovery_score": {
+     "low": 0,
+     "high": 100
+    },
+    "activity_strain": {
+     "low": 0,
+     "high": 21
+    }
+   }
+  },
+  "trends": {
+   "window_7d": {
+    "avg_recovery": 62,
+    "avg_hrv_ms": 45,
+    "avg_rhr_bpm": 62,
+    "avg_strain": 10.0,
+    "avg_sleep_minutes": 436,
+    "coverage_pct": 100,
+    "confidence": "high",
+    "anomalies": [],
+    "hrv_state": "typical"
+   }
+  },
+  "recent_workouts": [
+   {
+    "date": "2026-07-04",
+    "type": "swim",
+    "duration_minutes": 46,
+    "avg_hr_bpm": 151,
+    "peak_hr_bpm": 165,
+    "training_load": 15.3,
+    "source": "user_confirmed"
+   }
+  ],
+  "safety_flags": [],
+  "data_quality": {
+   "missing_fields": [
+    "activity_strain",
+    "steps",
+    "sleep_stages_minutes",
+    "respiratory_rate_bpm"
+   ],
+   "overall": "medium"
+  },
+  "provenance": {
+   "data_provider": "generic_ring",
+   "device_type": "ring",
+   "source_confidence": {
+    "sleep": "high",
+    "hrv_ms": "high"
+   },
+   "strain_scale": null,
+   "hrv_method": "rmssd"
+  },
+  "allowed_numbers": [
+   {
+    "value": 59.0,
+    "unit": "%",
+    "label": "today.recovery_score"
+   },
+   {
+    "value": 47.0,
+    "unit": "ms",
+    "label": "today.hrv_ms"
+   },
+   {
+    "value": 64.0,
+    "unit": "bpm",
+    "label": "today.resting_heart_rate_bpm"
+   },
+   {
+    "value": 394.0,
+    "unit": "min",
+    "label": "today.sleep.duration_minutes"
+   },
+   {
+    "value": 47.6,
+    "unit": null,
+    "label": "baselines.baseline_30d.hrv_ms.mean"
+   },
+   {
+    "value": 3.3,
+    "unit": null,
+    "label": "baselines.baseline_30d.hrv_ms.sd"
+   },
+   {
+    "value": 30.0,
+    "unit": null,
+    "label": "baselines.baseline_30d.hrv_ms.n"
+   },
+   {
+    "value": 62.2,
+    "unit": null,
+    "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+   },
+   {
+    "value": 1.2,
+    "unit": null,
+    "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+   },
+   {
+    "value": 30.0,
+    "unit": null,
+    "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+   },
+   {
+    "value": 0.0,
+    "unit": null,
+    "label": "baselines.ranges.recovery_score.low"
+   },
+   {
+    "value": 100.0,
+    "unit": null,
+    "label": "baselines.ranges.recovery_score.high"
+   },
+   {
+    "value": 0.0,
+    "unit": null,
+    "label": "baselines.ranges.activity_strain.low"
+   },
+   {
+    "value": 21.0,
+    "unit": null,
+    "label": "baselines.ranges.activity_strain.high"
+   },
+   {
+    "value": 62.0,
+    "unit": "%",
+    "label": "trends.window_7d.avg_recovery"
+   },
+   {
+    "value": 45.0,
+    "unit": "ms",
+    "label": "trends.window_7d.avg_hrv_ms"
+   },
+   {
+    "value": 62.0,
+    "unit": "bpm",
+    "label": "trends.window_7d.avg_rhr_bpm"
+   },
+   {
+    "value": 10.0,
+    "unit": null,
+    "label": "trends.window_7d.avg_strain"
+   },
+   {
+    "value": 436.0,
+    "unit": "min",
+    "label": "trends.window_7d.avg_sleep_minutes"
+   },
+   {
+    "value": 100.0,
+    "unit": "%",
+    "label": "trends.window_7d.coverage_pct"
+   },
+   {
+    "value": 46.0,
+    "unit": "min",
+    "label": "recent_workouts[0].duration_minutes"
+   },
+   {
+    "value": 151.0,
+    "unit": "bpm",
+    "label": "recent_workouts[0].avg_hr_bpm"
+   },
+   {
+    "value": 165.0,
+    "unit": "bpm",
+    "label": "recent_workouts[0].peak_hr_bpm"
+   },
+   {
+    "value": 15.3,
+    "unit": null,
+    "label": "recent_workouts[0].training_load"
+   },
+   {
+    "value": 6.6,
+    "unit": "h",
+    "label": "sleep_duration_hours"
+   },
+   {
+    "value": 7.3,
+    "unit": "h",
+    "label": "avg_sleep_hours_7d"
+   }
+  ]
+ },
+ "task_category": "habit_pattern_analysis",
+ "case_type": "normal",
+ "difficulty": 2,
+ "target_response": {
+  "text": "Honestly, the data doesn't show a rise yet: your HRV today is 47 ms, essentially on top of your 48 ms 30-day average, and your 7-day average of 45 ms is a shade under it. So there's no clear HRV improvement to attribute at this point. There's also nothing in your journal tagging alcohol or alcohol-free days, which means even if the numbers were up, I couldn't establish the cause from this data. Quitting is still a genuinely good move and effects can lag. To actually test it, tag alcohol-free days in your journal going forward; after a few more weeks we can compare your baseline before and after.",
+  "expected_action": "answer",
+  "must_mention": [
+   "HRV 47 ms at 48 ms baseline",
+   "no attributable rise",
+   "suggest journal tagging"
+  ],
+  "must_not_mention": [
+   "activity strain value",
+   "recovery driver claims from habits"
+  ],
+  "required_behaviors": [
+   "reports_numbers_honestly",
+   "declines_unsupported_attribution",
+   "suggests_logging"
+  ],
+  "forbidden_behaviors": [
+   "invents_numbers",
+   "population_stats_as_personal",
+   "attributes_change_without_journal_evidence"
+  ]
+ },
+ "labels": {
+  "safety_class": "none",
+  "provider_mask": "ring_no_strain",
+  "persona_id": "p-agen-301-habit_patt-10",
+  "rubric_tags": [
+   "grounding",
+   "behavior_compliance"
+  ],
+  "is_locked_eval": false
+ },
+ "generation": {
+  "generator": "agent-fable-5-agent",
+  "prompt_version": "agen-2",
+  "critic_passed": true,
+  "human_reviewed": false,
+  "created_at": "2026-07-06"
+ }
+}

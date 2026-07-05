@@ -1,0 +1,124 @@
+{
+ "example_id": "agen-v1-000154",
+ "schema_version": "sf-train-1",
+ "context": {
+  "schema_version": "sf-context-1",
+  "request": {
+   "user_question": "so what's my recovery looking like today?",
+   "asked_at_local": "2026-07-05T07:30:00+02:00",
+   "weekday": "Sunday",
+   "units": "metric"
+  },
+  "task": {
+   "category": "recovery_explanation"
+  },
+  "user_profile": {
+   "age_band": "25-29",
+   "biological_sex": "male"
+  },
+  "today": {
+   "date_local": "2026-07-05",
+   "recovery_score": null,
+   "recovery_confidence": null,
+   "readiness_state": null,
+   "hrv_ms": null,
+   "resting_heart_rate_bpm": null,
+   "sleep": {
+    "duration_minutes": 463,
+    "source": "manual",
+    "confidence": "medium"
+   },
+   "activity": {
+    "activity_strain": null
+   }
+  },
+  "baselines": {
+   "baseline_30d": null,
+   "ranges": {}
+  },
+  "trends": {
+   "window_7d": null
+  },
+  "recent_workouts": [],
+  "safety_flags": [],
+  "data_quality": {
+   "missing_fields": [
+    "recovery_score",
+    "hrv_ms",
+    "resting_heart_rate_bpm",
+    "respiratory_rate_bpm",
+    "activity_strain",
+    "baseline_30d",
+    "trends.window_7d",
+    "sleep_stages_minutes",
+    "steps"
+   ],
+   "overall": "low"
+  },
+  "provenance": {
+   "data_provider": "manual",
+   "device_type": "manual",
+   "source_confidence": {
+    "sleep": "medium"
+   },
+   "strain_scale": null,
+   "hrv_method": null
+  },
+  "allowed_numbers": [
+   {
+    "value": 463.0,
+    "unit": "min",
+    "label": "today.sleep.duration_minutes"
+   },
+   {
+    "value": 7.7,
+    "unit": "h",
+    "label": "sleep_duration_hours"
+   }
+  ]
+ },
+ "task_category": "recovery_explanation",
+ "case_type": "normal",
+ "difficulty": 1,
+ "target_response": {
+  "text": "There's no recovery score to give you today — a recovery estimate needs overnight physiology like HRV and resting heart rate, and your setup only has manually logged sleep. What I can see is encouraging: you logged 7.7 hours last night, which is a solid foundation, though as a manual entry it's approximate. Without heart data I won't guess at a number. A useful stand-in is a quick morning self-check: rate your energy, muscle soreness, and mood each day and log it alongside sleep. If you later connect a tracker, HRV and resting heart rate would let me give you a proper recovery read.",
+  "expected_action": "answer_with_caveat",
+  "must_mention": [
+   "no recovery score available",
+   "7.7 hours sleep logged",
+   "manual data limits"
+  ],
+  "must_not_mention": [
+   "HRV values",
+   "resting heart rate values",
+   "recovery score value"
+  ],
+  "required_behaviors": [
+   "acknowledges_missing_fields",
+   "declines_to_fabricate_score",
+   "offers_concrete_action"
+  ],
+  "forbidden_behaviors": [
+   "invents_numbers",
+   "population_stats_as_personal",
+   "fabricates_recovery_score"
+  ]
+ },
+ "labels": {
+  "safety_class": "none",
+  "provider_mask": "manual_only",
+  "persona_id": "p-agen-301-recovery_e-10",
+  "rubric_tags": [
+   "grounding",
+   "behavior_compliance"
+  ],
+  "is_locked_eval": false
+ },
+ "generation": {
+  "generator": "agent-fable-5-agent",
+  "prompt_version": "agen-2",
+  "critic_passed": true,
+  "human_reviewed": false,
+  "created_at": "2026-07-06"
+ }
+}

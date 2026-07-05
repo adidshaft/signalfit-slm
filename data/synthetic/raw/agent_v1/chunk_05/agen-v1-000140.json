@@ -1,0 +1,124 @@
+{
+  "example_id": "agen-v1-000140",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "just log stuff manually these days. slept 7.8 hours. football with friends later, should I also do my gym session before or is that dumb",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "daily_training_decision"
+    },
+    "user_profile": {
+      "age_band": "18-24",
+      "biological_sex": "male"
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": null,
+      "recovery_confidence": null,
+      "readiness_state": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 468,
+        "source": "manual",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "respiratory_rate_bpm",
+        "activity_strain",
+        "baseline_30d",
+        "trends.window_7d",
+        "sleep_stages_minutes",
+        "steps"
+      ],
+      "overall": "low"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "manual",
+      "source_confidence": {
+        "sleep": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 468.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 7.8,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      }
+    ]
+  },
+  "task_category": "daily_training_decision",
+  "case_type": "normal",
+  "difficulty": 1,
+  "target_response": {
+    "text": "Doing both is fine if you order them smartly, and 7.8 hours of logged sleep says you've got the base for a double day. The better sequence is gym first while you're fresh, keeping it moderate rather than maximal, then treat the football as your intensity for the day since small-sided games spike effort unpredictably. What I can't see is any recovery or heart-rate data, your log is manual sleep only, so the usual honesty applies: how your legs feel in the gym warm-up is your best gauge, and if they're heavy, shorten the session and save yourself for the game. Eat something real between the two. If doubles become a habit, logging a simple morning energy rating alongside sleep would help us judge them better.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "7.8 hours logged sleep",
+      "gym first then football",
+      "no recovery data available"
+    ],
+    "must_not_mention": [
+      "HRV values",
+      "recovery score",
+      "resting heart rate values"
+    ],
+    "required_behaviors": [
+      "gives_explicit_recommendation_level",
+      "hedges_on_manual_data",
+      "acknowledges_missing_fields"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "cites_masked_metrics"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "manual_only",
+    "persona_id": "p-agen-301-daily_trai-29",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agen-2",
+    "critic_passed": null,
+    "human_reviewed": false,
+    "created_at": "2026-07-06"
+  }
+}
