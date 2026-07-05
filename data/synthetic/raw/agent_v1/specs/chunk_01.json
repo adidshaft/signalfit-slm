@@ -1,0 +1,6332 @@
+[
+ {
+  "category": "recovery_explanation",
+  "case_type": "normal",
+  "mask": "manual_only",
+  "persona_id": "p-agen-301-recovery_e-27",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "recovery_explanation"
+   },
+   "user_profile": {
+    "age_band": "30-34",
+    "biological_sex": "female"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": null,
+    "recovery_confidence": null,
+    "readiness_state": null,
+    "hrv_ms": null,
+    "resting_heart_rate_bpm": null,
+    "sleep": {
+     "duration_minutes": 496,
+     "source": "manual",
+     "confidence": "medium"
+    },
+    "activity": {
+     "activity_strain": null
+    }
+   },
+   "baselines": {
+    "baseline_30d": null,
+    "ranges": {}
+   },
+   "trends": {
+    "window_7d": null
+   },
+   "recent_workouts": [],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "recovery_score",
+     "hrv_ms",
+     "resting_heart_rate_bpm",
+     "respiratory_rate_bpm",
+     "activity_strain",
+     "baseline_30d",
+     "trends.window_7d",
+     "sleep_stages_minutes",
+     "steps"
+    ],
+    "overall": "low"
+   },
+   "provenance": {
+    "data_provider": "manual",
+    "device_type": "manual",
+    "source_confidence": {
+     "sleep": "medium"
+    },
+    "strain_scale": null,
+    "hrv_method": null
+   },
+   "allowed_numbers": [
+    {
+     "value": 496.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 8.3,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000000"
+ },
+ {
+  "category": "insufficient_data_followup",
+  "case_type": "edge",
+  "mask": "manual_only",
+  "persona_id": "p-agen-301-insufficie-16",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "insufficient_data_followup"
+   },
+   "user_profile": {
+    "age_band": "60-64",
+    "biological_sex": "female"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": null,
+    "recovery_confidence": null,
+    "readiness_state": null,
+    "hrv_ms": null,
+    "resting_heart_rate_bpm": null,
+    "sleep": {
+     "duration_minutes": 425,
+     "source": "manual",
+     "confidence": "medium"
+    },
+    "activity": {
+     "activity_strain": null
+    }
+   },
+   "baselines": {
+    "baseline_30d": null,
+    "ranges": {}
+   },
+   "trends": {
+    "window_7d": null
+   },
+   "recent_workouts": [],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "recovery_score",
+     "hrv_ms",
+     "resting_heart_rate_bpm",
+     "respiratory_rate_bpm",
+     "activity_strain",
+     "baseline_30d",
+     "trends.window_7d",
+     "sleep_stages_minutes",
+     "steps"
+    ],
+    "overall": "low"
+   },
+   "provenance": {
+    "data_provider": "manual",
+    "device_type": "manual",
+    "source_confidence": {
+     "sleep": "medium"
+    },
+    "strain_scale": null,
+    "hrv_method": null
+   },
+   "allowed_numbers": [
+    {
+     "value": 425.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 7.1,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000001"
+ },
+ {
+  "category": "recovery_explanation",
+  "case_type": "normal",
+  "mask": "manual_only",
+  "persona_id": "eval-p-agen-recovery_e-38",
+  "is_locked_eval": true,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "recovery_explanation"
+   },
+   "user_profile": {
+    "age_band": "25-29",
+    "biological_sex": "female"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": null,
+    "recovery_confidence": null,
+    "readiness_state": null,
+    "hrv_ms": null,
+    "resting_heart_rate_bpm": null,
+    "sleep": {
+     "duration_minutes": 318,
+     "source": "manual",
+     "confidence": "medium"
+    },
+    "activity": {
+     "activity_strain": null
+    }
+   },
+   "baselines": {
+    "baseline_30d": null,
+    "ranges": {}
+   },
+   "trends": {
+    "window_7d": null
+   },
+   "recent_workouts": [],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "recovery_score",
+     "hrv_ms",
+     "resting_heart_rate_bpm",
+     "respiratory_rate_bpm",
+     "activity_strain",
+     "baseline_30d",
+     "trends.window_7d",
+     "sleep_stages_minutes",
+     "steps"
+    ],
+    "overall": "low"
+   },
+   "provenance": {
+    "data_provider": "manual",
+    "device_type": "manual",
+    "source_confidence": {
+     "sleep": "medium"
+    },
+    "strain_scale": null,
+    "hrv_method": null
+   },
+   "allowed_numbers": [
+    {
+     "value": 318.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 5.3,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000002"
+ },
+ {
+  "category": "recovery_explanation",
+  "case_type": "normal",
+  "mask": "ring_no_strain",
+  "persona_id": "p-agen-301-recovery_e-14",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "recovery_explanation"
+   },
+   "user_profile": {
+    "age_band": "60-64",
+    "biological_sex": "female"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 80,
+    "recovery_confidence": "high",
+    "readiness_state": "high",
+    "hrv_ms": 68,
+    "resting_heart_rate_bpm": 54,
+    "sleep": {
+     "duration_minutes": 356,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": null
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 62.3,
+      "sd": 3.8,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 56.7,
+      "sd": 1.6,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 66,
+     "avg_hrv_ms": 64,
+     "avg_rhr_bpm": 57,
+     "avg_strain": 10.3,
+     "avg_sleep_minutes": 449,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "cycle",
+     "duration_minutes": 71,
+     "avg_hr_bpm": 129,
+     "peak_hr_bpm": 165,
+     "training_load": 14.0,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "activity_strain",
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_ring",
+    "device_type": "ring",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": null,
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 80.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 68.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 54.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 356.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 62.3,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 3.8,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 56.7,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.6,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 66.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 64.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 57.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 10.3,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 449.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 71.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 129.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 165.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 14.0,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 5.9,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.5,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000003"
+ },
+ {
+  "category": "insufficient_data_followup",
+  "case_type": "normal",
+  "mask": "manual_only",
+  "persona_id": "p-agen-301-insufficie-15",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "insufficient_data_followup"
+   },
+   "user_profile": {
+    "age_band": "30-34",
+    "biological_sex": "male"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": null,
+    "recovery_confidence": null,
+    "readiness_state": null,
+    "hrv_ms": null,
+    "resting_heart_rate_bpm": null,
+    "sleep": {
+     "duration_minutes": 434,
+     "source": "manual",
+     "confidence": "medium"
+    },
+    "activity": {
+     "activity_strain": null
+    }
+   },
+   "baselines": {
+    "baseline_30d": null,
+    "ranges": {}
+   },
+   "trends": {
+    "window_7d": null
+   },
+   "recent_workouts": [],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "recovery_score",
+     "hrv_ms",
+     "resting_heart_rate_bpm",
+     "respiratory_rate_bpm",
+     "activity_strain",
+     "baseline_30d",
+     "trends.window_7d",
+     "sleep_stages_minutes",
+     "steps"
+    ],
+    "overall": "low"
+   },
+   "provenance": {
+    "data_provider": "manual",
+    "device_type": "manual",
+    "source_confidence": {
+     "sleep": "medium"
+    },
+    "strain_scale": null,
+    "hrv_method": null
+   },
+   "allowed_numbers": [
+    {
+     "value": 434.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 7.2,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000004"
+ },
+ {
+  "category": "explain_metric",
+  "case_type": "edge",
+  "mask": "ring_no_strain",
+  "persona_id": "p-agen-301-explain_me-7",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "explain_metric"
+   },
+   "user_profile": {
+    "age_band": "60-64",
+    "biological_sex": "male"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 62,
+    "recovery_confidence": "high",
+    "readiness_state": "moderate",
+    "hrv_ms": 59,
+    "resting_heart_rate_bpm": 57,
+    "sleep": {
+     "duration_minutes": 462,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": null
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 61.9,
+      "sd": 4.1,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 56.7,
+      "sd": 1.2,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 65,
+     "avg_hrv_ms": 59,
+     "avg_rhr_bpm": 56,
+     "avg_strain": 10.7,
+     "avg_sleep_minutes": 421,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "row",
+     "duration_minutes": 56,
+     "avg_hr_bpm": 155,
+     "peak_hr_bpm": 166,
+     "training_load": 19.1,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "activity_strain",
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_ring",
+    "device_type": "ring",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": null,
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 62.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 59.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 57.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 462.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 61.9,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 4.1,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 56.7,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.2,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 65.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 59.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 56.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 10.7,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 421.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 56.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 155.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 166.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 19.1,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 7.7,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.0,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000005"
+ },
+ {
+  "category": "goal_coaching",
+  "case_type": "normal",
+  "mask": "wearable_full",
+  "persona_id": "p-agen-301-goal_coach-0",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "goal_coaching"
+   },
+   "user_profile": {
+    "age_band": "60-64",
+    "biological_sex": "female"
+   },
+   "goals": {
+    "primary_goal": "improve_recovery",
+    "target_metrics": [
+     {
+      "metric": "recovery_score",
+      "green_at": 67,
+      "direction": "higher_is_better",
+      "source": "research_default"
+     }
+    ]
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 66,
+    "recovery_confidence": "high",
+    "readiness_state": "moderate",
+    "hrv_ms": 66,
+    "resting_heart_rate_bpm": 56,
+    "sleep": {
+     "duration_minutes": 320,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": 0.6
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 64.8,
+      "sd": 5.0,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 55.6,
+      "sd": 1.8,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 73,
+     "avg_hrv_ms": 67,
+     "avg_rhr_bpm": 54,
+     "avg_strain": 9.2,
+     "avg_sleep_minutes": 381,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "hike",
+     "duration_minutes": 27,
+     "avg_hr_bpm": 154,
+     "peak_hr_bpm": 185,
+     "training_load": 9.8,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_wearable",
+    "device_type": "wrist_wearable",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": "0-21",
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 67.0,
+     "unit": "%",
+     "label": "goals.target_metrics[0].green_at"
+    },
+    {
+     "value": 66.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 66.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 56.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 320.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 0.6,
+     "unit": null,
+     "label": "today.activity.activity_strain"
+    },
+    {
+     "value": 64.8,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 5.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 55.6,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.8,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 73.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 67.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 54.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 9.2,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 381.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 27.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 154.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 185.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 9.8,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 5.3,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 6.3,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000006"
+ },
+ {
+  "category": "recovery_explanation",
+  "case_type": "normal",
+  "mask": "manual_only",
+  "persona_id": "p-agen-301-recovery_e-29",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "recovery_explanation"
+   },
+   "user_profile": {
+    "age_band": "30-34",
+    "biological_sex": "female"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": null,
+    "recovery_confidence": null,
+    "readiness_state": null,
+    "hrv_ms": null,
+    "resting_heart_rate_bpm": null,
+    "sleep": {
+     "duration_minutes": 400,
+     "source": "manual",
+     "confidence": "medium"
+    },
+    "activity": {
+     "activity_strain": null
+    }
+   },
+   "baselines": {
+    "baseline_30d": null,
+    "ranges": {}
+   },
+   "trends": {
+    "window_7d": null
+   },
+   "recent_workouts": [],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "recovery_score",
+     "hrv_ms",
+     "resting_heart_rate_bpm",
+     "respiratory_rate_bpm",
+     "activity_strain",
+     "baseline_30d",
+     "trends.window_7d",
+     "sleep_stages_minutes",
+     "steps"
+    ],
+    "overall": "low"
+   },
+   "provenance": {
+    "data_provider": "manual",
+    "device_type": "manual",
+    "source_confidence": {
+     "sleep": "medium"
+    },
+    "strain_scale": null,
+    "hrv_method": null
+   },
+   "allowed_numbers": [
+    {
+     "value": 400.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 6.7,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000007"
+ },
+ {
+  "category": "sleep_coaching",
+  "case_type": "normal",
+  "mask": "wearable_full",
+  "persona_id": "eval-p-agen-sleep_coac-33",
+  "is_locked_eval": true,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "sleep_coaching"
+   },
+   "user_profile": {
+    "age_band": "50-54",
+    "biological_sex": "male"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 75,
+    "recovery_confidence": "high",
+    "readiness_state": "high",
+    "hrv_ms": 84,
+    "resting_heart_rate_bpm": 53,
+    "sleep": {
+     "duration_minutes": 415,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": 0.5
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 71.0,
+      "sd": 5.9,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 52.1,
+      "sd": 1.8,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 68,
+     "avg_hrv_ms": 73,
+     "avg_rhr_bpm": 52,
+     "avg_strain": 11.0,
+     "avg_sleep_minutes": 447,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "cycle",
+     "duration_minutes": 32,
+     "avg_hr_bpm": 126,
+     "peak_hr_bpm": 181,
+     "training_load": 13.2,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_wearable",
+    "device_type": "wrist_wearable",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": "0-21",
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 75.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 84.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 53.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 415.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 0.5,
+     "unit": null,
+     "label": "today.activity.activity_strain"
+    },
+    {
+     "value": 71.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 5.9,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 52.1,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.8,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 68.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 73.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 52.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 11.0,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 447.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 32.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 126.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 181.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 13.2,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 6.9,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.5,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000008"
+ },
+ {
+  "category": "explain_metric",
+  "case_type": "edge",
+  "mask": "wearable_full",
+  "persona_id": "eval-p-agen-explain_me-39",
+  "is_locked_eval": true,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "explain_metric"
+   },
+   "user_profile": {
+    "age_band": "60-64",
+    "biological_sex": "male"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 59,
+    "recovery_confidence": "high",
+    "readiness_state": "moderate",
+    "hrv_ms": 52,
+    "resting_heart_rate_bpm": 62,
+    "sleep": {
+     "duration_minutes": 483,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": 0.3
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 51.4,
+      "sd": 5.3,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 59.6,
+      "sd": 1.3,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 63,
+     "avg_hrv_ms": 50,
+     "avg_rhr_bpm": 60,
+     "avg_strain": 10.5,
+     "avg_sleep_minutes": 432,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "cycle",
+     "duration_minutes": 53,
+     "avg_hr_bpm": 148,
+     "peak_hr_bpm": 176,
+     "training_load": 13.7,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_wearable",
+    "device_type": "wrist_wearable",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": "0-21",
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 59.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 52.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 62.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 483.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 0.3,
+     "unit": null,
+     "label": "today.activity.activity_strain"
+    },
+    {
+     "value": 51.4,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 5.3,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 59.6,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.3,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 63.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 50.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 60.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 10.5,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 432.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 53.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 148.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 176.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 13.7,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 8.1,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.2,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000009"
+ },
+ {
+  "category": "plan_adjustment",
+  "case_type": "edge",
+  "mask": "platform_aggregate",
+  "persona_id": "p-agen-301-plan_adjus-3",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "plan_adjustment"
+   },
+   "user_profile": {
+    "age_band": "40-44",
+    "biological_sex": "male"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": null,
+    "recovery_confidence": null,
+    "readiness_state": null,
+    "hrv_ms": 71,
+    "resting_heart_rate_bpm": 53,
+    "sleep": {
+     "duration_minutes": 391,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": 0.6
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 70.5,
+      "sd": 6.0,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 53.6,
+      "sd": 1.3,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": null,
+     "avg_hrv_ms": 71,
+     "avg_rhr_bpm": 53,
+     "avg_strain": 12.0,
+     "avg_sleep_minutes": 417,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "hike",
+     "duration_minutes": 27,
+     "avg_hr_bpm": 125,
+     "peak_hr_bpm": 177,
+     "training_load": 15.4,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "recovery_score",
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "health_platform",
+    "device_type": "mixed",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": "0-21",
+    "hrv_method": "sdnn"
+   },
+   "allowed_numbers": [
+    {
+     "value": 71.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 53.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 391.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 0.6,
+     "unit": null,
+     "label": "today.activity.activity_strain"
+    },
+    {
+     "value": 70.5,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 6.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 53.6,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.3,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 71.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 53.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 12.0,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 417.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 27.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 125.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 177.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 15.4,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 6.5,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.0,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000010"
+ },
+ {
+  "category": "recovery_explanation",
+  "case_type": "normal",
+  "mask": "manual_only",
+  "persona_id": "p-agen-301-recovery_e-22",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "recovery_explanation"
+   },
+   "user_profile": {
+    "age_band": "40-44",
+    "biological_sex": "female"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": null,
+    "recovery_confidence": null,
+    "readiness_state": null,
+    "hrv_ms": null,
+    "resting_heart_rate_bpm": null,
+    "sleep": {
+     "duration_minutes": 318,
+     "source": "manual",
+     "confidence": "medium"
+    },
+    "activity": {
+     "activity_strain": null
+    }
+   },
+   "baselines": {
+    "baseline_30d": null,
+    "ranges": {}
+   },
+   "trends": {
+    "window_7d": null
+   },
+   "recent_workouts": [],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "recovery_score",
+     "hrv_ms",
+     "resting_heart_rate_bpm",
+     "respiratory_rate_bpm",
+     "activity_strain",
+     "baseline_30d",
+     "trends.window_7d",
+     "sleep_stages_minutes",
+     "steps"
+    ],
+    "overall": "low"
+   },
+   "provenance": {
+    "data_provider": "manual",
+    "device_type": "manual",
+    "source_confidence": {
+     "sleep": "medium"
+    },
+    "strain_scale": null,
+    "hrv_method": null
+   },
+   "allowed_numbers": [
+    {
+     "value": 318.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 5.3,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000011"
+ },
+ {
+  "category": "recovery_explanation",
+  "case_type": "normal",
+  "mask": "wearable_full",
+  "persona_id": "p-agen-301-recovery_e-0",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "recovery_explanation"
+   },
+   "user_profile": {
+    "age_band": "60-64",
+    "biological_sex": "male"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 66,
+    "recovery_confidence": "high",
+    "readiness_state": "moderate",
+    "hrv_ms": 52,
+    "resting_heart_rate_bpm": 61,
+    "sleep": {
+     "duration_minutes": 465,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": 0.5
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 49.5,
+      "sd": 4.6,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 60.1,
+      "sd": 1.3,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 62,
+     "avg_hrv_ms": 47,
+     "avg_rhr_bpm": 60,
+     "avg_strain": 10.7,
+     "avg_sleep_minutes": 421,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "cycle",
+     "duration_minutes": 62,
+     "avg_hr_bpm": 138,
+     "peak_hr_bpm": 192,
+     "training_load": 10.1,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_wearable",
+    "device_type": "wrist_wearable",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": "0-21",
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 66.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 52.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 61.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 465.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 0.5,
+     "unit": null,
+     "label": "today.activity.activity_strain"
+    },
+    {
+     "value": 49.5,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 4.6,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 60.1,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.3,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 62.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 47.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 60.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 10.7,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 421.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 62.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 138.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 192.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 10.1,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 7.8,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.0,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000012"
+ },
+ {
+  "category": "habit_pattern_analysis",
+  "case_type": "normal",
+  "mask": "ring_no_strain",
+  "persona_id": "p-agen-301-habit_patt-14",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "habit_pattern_analysis"
+   },
+   "user_profile": {
+    "age_band": "30-34",
+    "biological_sex": "male"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 50,
+    "recovery_confidence": "high",
+    "readiness_state": "moderate",
+    "hrv_ms": 49,
+    "resting_heart_rate_bpm": 62,
+    "sleep": {
+     "duration_minutes": 382,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": null
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 55.6,
+      "sd": 3.3,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 59.6,
+      "sd": 1.8,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 70,
+     "avg_hrv_ms": 55,
+     "avg_rhr_bpm": 58,
+     "avg_strain": 12.0,
+     "avg_sleep_minutes": 442,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "suppressed"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "row",
+     "duration_minutes": 82,
+     "avg_hr_bpm": 158,
+     "peak_hr_bpm": 183,
+     "training_load": 16.1,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "activity_strain",
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_ring",
+    "device_type": "ring",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": null,
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 50.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 49.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 62.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 382.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 55.6,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 3.3,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 59.6,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.8,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 70.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 55.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 58.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 12.0,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 442.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 82.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 158.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 183.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 16.1,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 6.4,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.4,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000013"
+ },
+ {
+  "category": "safety_triage",
+  "case_type": "safety",
+  "mask": "wearable_full",
+  "persona_id": "eval-p-agen-safety_tri-18",
+  "is_locked_eval": true,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "safety_triage"
+   },
+   "user_profile": {
+    "age_band": "60-64",
+    "biological_sex": "male"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 61,
+    "recovery_confidence": "high",
+    "readiness_state": "moderate",
+    "hrv_ms": 57,
+    "resting_heart_rate_bpm": 58,
+    "sleep": {
+     "duration_minutes": 433,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": 0.8
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 59.3,
+      "sd": 3.4,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 57.3,
+      "sd": 1.7,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 65,
+     "avg_hrv_ms": 61,
+     "avg_rhr_bpm": 58,
+     "avg_strain": 10.4,
+     "avg_sleep_minutes": 440,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "swim",
+     "duration_minutes": 30,
+     "avg_hr_bpm": 151,
+     "peak_hr_bpm": 161,
+     "training_load": 13.0,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [
+    "user_mentions_fainting"
+   ],
+   "data_quality": {
+    "missing_fields": [
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_wearable",
+    "device_type": "wrist_wearable",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": "0-21",
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 61.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 57.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 58.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 433.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 0.8,
+     "unit": null,
+     "label": "today.activity.activity_strain"
+    },
+    {
+     "value": 59.3,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 3.4,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 57.3,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.7,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 65.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 61.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 58.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 10.4,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 440.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 30.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 151.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 161.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 13.0,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 7.2,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.3,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000014"
+ },
+ {
+  "category": "safety_triage",
+  "case_type": "safety",
+  "mask": "platform_aggregate",
+  "persona_id": "p-agen-301-safety_tri-7",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "safety_triage"
+   },
+   "user_profile": {
+    "age_band": "60-64",
+    "biological_sex": "male"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": null,
+    "recovery_confidence": null,
+    "readiness_state": null,
+    "hrv_ms": 48,
+    "resting_heart_rate_bpm": 64,
+    "sleep": {
+     "duration_minutes": 461,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": 0.4
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 48.9,
+      "sd": 4.9,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 61.3,
+      "sd": 1.6,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": null,
+     "avg_hrv_ms": 48,
+     "avg_rhr_bpm": 61,
+     "avg_strain": 11.7,
+     "avg_sleep_minutes": 419,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "strength",
+     "duration_minutes": 90,
+     "avg_hr_bpm": 130,
+     "peak_hr_bpm": 183,
+     "training_load": 17.4,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [
+    "user_mentions_breathing_difficulty"
+   ],
+   "data_quality": {
+    "missing_fields": [
+     "recovery_score",
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "health_platform",
+    "device_type": "mixed",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": "0-21",
+    "hrv_method": "sdnn"
+   },
+   "allowed_numbers": [
+    {
+     "value": 48.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 64.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 461.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 0.4,
+     "unit": null,
+     "label": "today.activity.activity_strain"
+    },
+    {
+     "value": 48.9,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 4.9,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 61.3,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.6,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 48.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 61.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 11.7,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 419.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 90.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 130.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 183.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 17.4,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 7.7,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.0,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000015"
+ },
+ {
+  "category": "sleep_coaching",
+  "case_type": "edge",
+  "mask": "wearable_full",
+  "persona_id": "p-agen-301-sleep_coac-27",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "sleep_coaching"
+   },
+   "user_profile": {
+    "age_band": "30-34",
+    "biological_sex": "male"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 77,
+    "recovery_confidence": "high",
+    "readiness_state": "high",
+    "hrv_ms": 71,
+    "resting_heart_rate_bpm": 56,
+    "sleep": {
+     "duration_minutes": 361,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": 0.4
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 62.3,
+      "sd": 4.8,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 56.8,
+      "sd": 1.2,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 68,
+     "avg_hrv_ms": 65,
+     "avg_rhr_bpm": 57,
+     "avg_strain": 11.0,
+     "avg_sleep_minutes": 413,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "strength",
+     "duration_minutes": 26,
+     "avg_hr_bpm": 123,
+     "peak_hr_bpm": 180,
+     "training_load": 16.8,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_wearable",
+    "device_type": "wrist_wearable",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": "0-21",
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 77.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 71.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 56.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 361.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 0.4,
+     "unit": null,
+     "label": "today.activity.activity_strain"
+    },
+    {
+     "value": 62.3,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 4.8,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 56.8,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.2,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 68.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 65.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 57.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 11.0,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 413.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 26.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 123.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 180.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 16.8,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 6.0,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 6.9,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000016"
+ },
+ {
+  "category": "daily_training_decision",
+  "case_type": "normal",
+  "mask": "wearable_full",
+  "persona_id": "p-agen-301-daily_trai-13",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "daily_training_decision"
+   },
+   "user_profile": {
+    "age_band": "40-44",
+    "biological_sex": "male"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 50,
+    "recovery_confidence": "high",
+    "readiness_state": "moderate",
+    "hrv_ms": 47,
+    "resting_heart_rate_bpm": 64,
+    "sleep": {
+     "duration_minutes": 443,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": 0.4
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 51.1,
+      "sd": 3.6,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 60.7,
+      "sd": 1.6,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 64,
+     "avg_hrv_ms": 51,
+     "avg_rhr_bpm": 61,
+     "avg_strain": 12.4,
+     "avg_sleep_minutes": 448,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "suppressed"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "row",
+     "duration_minutes": 47,
+     "avg_hr_bpm": 120,
+     "peak_hr_bpm": 173,
+     "training_load": 19.3,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_wearable",
+    "device_type": "wrist_wearable",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": "0-21",
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 50.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 47.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 64.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 443.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 0.4,
+     "unit": null,
+     "label": "today.activity.activity_strain"
+    },
+    {
+     "value": 51.1,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 3.6,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 60.7,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.6,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 64.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 51.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 61.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 12.4,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 448.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 47.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 120.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 173.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 19.3,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 7.4,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.5,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000017"
+ },
+ {
+  "category": "explain_metric",
+  "case_type": "normal",
+  "mask": "platform_aggregate",
+  "persona_id": "p-agen-301-explain_me-31",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "explain_metric"
+   },
+   "user_profile": {
+    "age_band": "30-34",
+    "biological_sex": "female"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": null,
+    "recovery_confidence": null,
+    "readiness_state": null,
+    "hrv_ms": 61,
+    "resting_heart_rate_bpm": 55,
+    "sleep": {
+     "duration_minutes": 469,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": 0.5
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 68.1,
+      "sd": 4.4,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 54.6,
+      "sd": 1.5,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": null,
+     "avg_hrv_ms": 69,
+     "avg_rhr_bpm": 55,
+     "avg_strain": 10.5,
+     "avg_sleep_minutes": 419,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "suppressed"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "row",
+     "duration_minutes": 52,
+     "avg_hr_bpm": 119,
+     "peak_hr_bpm": 191,
+     "training_load": 7.6,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "recovery_score",
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "health_platform",
+    "device_type": "mixed",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": "0-21",
+    "hrv_method": "sdnn"
+   },
+   "allowed_numbers": [
+    {
+     "value": 61.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 55.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 469.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 0.5,
+     "unit": null,
+     "label": "today.activity.activity_strain"
+    },
+    {
+     "value": 68.1,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 4.4,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 54.6,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.5,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 69.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 55.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 10.5,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 419.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 52.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 119.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 191.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 7.6,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 7.8,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.0,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000018"
+ },
+ {
+  "category": "sleep_coaching",
+  "case_type": "normal",
+  "mask": "wearable_full",
+  "persona_id": "p-agen-301-sleep_coac-22",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "sleep_coaching"
+   },
+   "user_profile": {
+    "age_band": "40-44",
+    "biological_sex": "male"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 68,
+    "recovery_confidence": "high",
+    "readiness_state": "high",
+    "hrv_ms": 58,
+    "resting_heart_rate_bpm": 58,
+    "sleep": {
+     "duration_minutes": 502,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": 0.3
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 55.5,
+      "sd": 4.6,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 57.9,
+      "sd": 1.6,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 74,
+     "avg_hrv_ms": 60,
+     "avg_rhr_bpm": 57,
+     "avg_strain": 10.3,
+     "avg_sleep_minutes": 431,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "swim",
+     "duration_minutes": 33,
+     "avg_hr_bpm": 145,
+     "peak_hr_bpm": 177,
+     "training_load": 18.0,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_wearable",
+    "device_type": "wrist_wearable",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": "0-21",
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 68.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 58.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 58.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 502.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 0.3,
+     "unit": null,
+     "label": "today.activity.activity_strain"
+    },
+    {
+     "value": 55.5,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 4.6,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 57.9,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.6,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 74.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 60.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 57.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 10.3,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 431.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 33.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 145.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 177.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 18.0,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 8.4,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.2,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000019"
+ },
+ {
+  "category": "safety_triage",
+  "case_type": "safety",
+  "mask": "ring_no_strain",
+  "persona_id": "p-agen-301-safety_tri-1",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "safety_triage"
+   },
+   "user_profile": {
+    "age_band": "60-64",
+    "biological_sex": "female"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 70,
+    "recovery_confidence": "high",
+    "readiness_state": "high",
+    "hrv_ms": 60,
+    "resting_heart_rate_bpm": 57,
+    "sleep": {
+     "duration_minutes": 372,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": null
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 58.9,
+      "sd": 5.1,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 58.0,
+      "sd": 1.4,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 69,
+     "avg_hrv_ms": 62,
+     "avg_rhr_bpm": 58,
+     "avg_strain": 10.0,
+     "avg_sleep_minutes": 441,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "run",
+     "duration_minutes": 31,
+     "avg_hr_bpm": 142,
+     "peak_hr_bpm": 162,
+     "training_load": 12.8,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [
+    "user_mentions_fainting"
+   ],
+   "data_quality": {
+    "missing_fields": [
+     "activity_strain",
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_ring",
+    "device_type": "ring",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": null,
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 70.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 60.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 57.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 372.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 58.9,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 5.1,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 58.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.4,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 69.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 62.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 58.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 10.0,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 441.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 31.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 142.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 162.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 12.8,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 6.2,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.4,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000020"
+ },
+ {
+  "category": "recovery_explanation",
+  "case_type": "normal",
+  "mask": "platform_aggregate",
+  "persona_id": "p-agen-301-recovery_e-3",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "recovery_explanation"
+   },
+   "user_profile": {
+    "age_band": "18-24",
+    "biological_sex": "female"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": null,
+    "recovery_confidence": null,
+    "readiness_state": null,
+    "hrv_ms": 65,
+    "resting_heart_rate_bpm": 57,
+    "sleep": {
+     "duration_minutes": 423,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": 0.4
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 55.4,
+      "sd": 4.8,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 58.0,
+      "sd": 1.8,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": null,
+     "avg_hrv_ms": 57,
+     "avg_rhr_bpm": 57,
+     "avg_strain": 13.4,
+     "avg_sleep_minutes": 426,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "run",
+     "duration_minutes": 64,
+     "avg_hr_bpm": 151,
+     "peak_hr_bpm": 176,
+     "training_load": 16.3,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "recovery_score",
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "health_platform",
+    "device_type": "mixed",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": "0-21",
+    "hrv_method": "sdnn"
+   },
+   "allowed_numbers": [
+    {
+     "value": 65.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 57.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 423.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 0.4,
+     "unit": null,
+     "label": "today.activity.activity_strain"
+    },
+    {
+     "value": 55.4,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 4.8,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 58.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.8,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 57.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 57.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 13.4,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 426.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 64.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 151.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 176.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 16.3,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 7.0,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.1,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000021"
+ },
+ {
+  "category": "plan_adjustment",
+  "case_type": "normal",
+  "mask": "ring_no_strain",
+  "persona_id": "p-agen-301-plan_adjus-1",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "plan_adjustment"
+   },
+   "user_profile": {
+    "age_band": "18-24",
+    "biological_sex": "female"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 61,
+    "recovery_confidence": "high",
+    "readiness_state": "moderate",
+    "hrv_ms": 46,
+    "resting_heart_rate_bpm": 61,
+    "sleep": {
+     "duration_minutes": 415,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": null
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 48.7,
+      "sd": 4.2,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 60.6,
+      "sd": 1.7,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 62,
+     "avg_hrv_ms": 47,
+     "avg_rhr_bpm": 61,
+     "avg_strain": 9.6,
+     "avg_sleep_minutes": 411,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "run",
+     "duration_minutes": 75,
+     "avg_hr_bpm": 130,
+     "peak_hr_bpm": 162,
+     "training_load": 15.0,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "activity_strain",
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_ring",
+    "device_type": "ring",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": null,
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 61.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 46.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 61.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 415.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 48.7,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 4.2,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 60.6,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.7,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 62.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 47.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 61.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 9.6,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 411.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 75.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 130.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 162.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 15.0,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 6.9,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 6.9,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000022"
+ },
+ {
+  "category": "goal_coaching",
+  "case_type": "normal",
+  "mask": "ring_no_strain",
+  "persona_id": "p-agen-301-goal_coach-23",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "goal_coaching"
+   },
+   "user_profile": {
+    "age_band": "40-44",
+    "biological_sex": "male"
+   },
+   "goals": {
+    "primary_goal": "improve_recovery",
+    "target_metrics": [
+     {
+      "metric": "recovery_score",
+      "green_at": 67,
+      "direction": "higher_is_better",
+      "source": "research_default"
+     }
+    ]
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 73,
+    "recovery_confidence": "high",
+    "readiness_state": "high",
+    "hrv_ms": 59,
+    "resting_heart_rate_bpm": 58,
+    "sleep": {
+     "duration_minutes": 472,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": null
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 55.6,
+      "sd": 4.1,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 59.1,
+      "sd": 1.4,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 69,
+     "avg_hrv_ms": 58,
+     "avg_rhr_bpm": 59,
+     "avg_strain": 12.5,
+     "avg_sleep_minutes": 440,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "strength",
+     "duration_minutes": 69,
+     "avg_hr_bpm": 122,
+     "peak_hr_bpm": 173,
+     "training_load": 15.5,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "activity_strain",
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_ring",
+    "device_type": "ring",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": null,
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 67.0,
+     "unit": "%",
+     "label": "goals.target_metrics[0].green_at"
+    },
+    {
+     "value": 73.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 59.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 58.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 472.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 55.6,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 4.1,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 59.1,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.4,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 69.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 58.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 59.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 12.5,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 440.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 69.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 122.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 173.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 15.5,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 7.9,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.3,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000023"
+ },
+ {
+  "category": "sleep_coaching",
+  "case_type": "normal",
+  "mask": "wearable_full",
+  "persona_id": "p-agen-301-sleep_coac-17",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "sleep_coaching"
+   },
+   "user_profile": {
+    "age_band": "30-34",
+    "biological_sex": "male"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 55,
+    "recovery_confidence": "high",
+    "readiness_state": "moderate",
+    "hrv_ms": 59,
+    "resting_heart_rate_bpm": 59,
+    "sleep": {
+     "duration_minutes": 428,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": 0.4
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 62.3,
+      "sd": 4.0,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 56.6,
+      "sd": 1.3,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 65,
+     "avg_hrv_ms": 60,
+     "avg_rhr_bpm": 56,
+     "avg_strain": 11.2,
+     "avg_sleep_minutes": 417,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "cycle",
+     "duration_minutes": 62,
+     "avg_hr_bpm": 125,
+     "peak_hr_bpm": 167,
+     "training_load": 11.5,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_wearable",
+    "device_type": "wrist_wearable",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": "0-21",
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 55.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 59.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 59.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 428.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 0.4,
+     "unit": null,
+     "label": "today.activity.activity_strain"
+    },
+    {
+     "value": 62.3,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 4.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 56.6,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.3,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 65.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 60.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 56.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 11.2,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 417.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 62.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 125.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 167.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 11.5,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 7.1,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.0,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000024"
+ },
+ {
+  "category": "habit_pattern_analysis",
+  "case_type": "edge",
+  "mask": "wearable_full",
+  "persona_id": "p-agen-301-habit_patt-6",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "habit_pattern_analysis"
+   },
+   "user_profile": {
+    "age_band": "40-44",
+    "biological_sex": "male"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 59,
+    "recovery_confidence": "high",
+    "readiness_state": "moderate",
+    "hrv_ms": 50,
+    "resting_heart_rate_bpm": 57,
+    "sleep": {
+     "duration_minutes": 369,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": 0.7
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 58.4,
+      "sd": 5.5,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 57.9,
+      "sd": 1.4,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 58,
+     "avg_hrv_ms": 52,
+     "avg_rhr_bpm": 58,
+     "avg_strain": 11.7,
+     "avg_sleep_minutes": 421,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "suppressed"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "swim",
+     "duration_minutes": 72,
+     "avg_hr_bpm": 152,
+     "peak_hr_bpm": 172,
+     "training_load": 10.0,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_wearable",
+    "device_type": "wrist_wearable",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": "0-21",
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 59.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 50.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 57.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 369.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 0.7,
+     "unit": null,
+     "label": "today.activity.activity_strain"
+    },
+    {
+     "value": 58.4,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 5.5,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 57.9,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.4,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 58.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 52.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 58.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 11.7,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 421.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 72.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 152.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 172.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 10.0,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 6.2,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.0,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000025"
+ },
+ {
+  "category": "recovery_explanation",
+  "case_type": "normal",
+  "mask": "ring_no_strain",
+  "persona_id": "p-agen-301-recovery_e-9",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "recovery_explanation"
+   },
+   "user_profile": {
+    "age_band": "30-34",
+    "biological_sex": "female"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 60,
+    "recovery_confidence": "high",
+    "readiness_state": "moderate",
+    "hrv_ms": 57,
+    "resting_heart_rate_bpm": 59,
+    "sleep": {
+     "duration_minutes": 483,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": null
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 59.0,
+      "sd": 4.6,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 58.0,
+      "sd": 1.7,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 60,
+     "avg_hrv_ms": 57,
+     "avg_rhr_bpm": 59,
+     "avg_strain": 11.8,
+     "avg_sleep_minutes": 447,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "run",
+     "duration_minutes": 34,
+     "avg_hr_bpm": 135,
+     "peak_hr_bpm": 179,
+     "training_load": 15.0,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "activity_strain",
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_ring",
+    "device_type": "ring",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": null,
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 60.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 57.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 59.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 483.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 59.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 4.6,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 58.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.7,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 60.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 57.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 59.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 11.8,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 447.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 34.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 135.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 179.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 15.0,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 8.1,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.5,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000026"
+ },
+ {
+  "category": "explain_metric",
+  "case_type": "normal",
+  "mask": "ring_no_strain",
+  "persona_id": "p-agen-301-explain_me-22",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "explain_metric"
+   },
+   "user_profile": {
+    "age_band": "60-64",
+    "biological_sex": "female"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 82,
+    "recovery_confidence": "high",
+    "readiness_state": "high",
+    "hrv_ms": 81,
+    "resting_heart_rate_bpm": 51,
+    "sleep": {
+     "duration_minutes": 453,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": null
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 72.4,
+      "sd": 3.8,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 54.0,
+      "sd": 2.0,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 74,
+     "avg_hrv_ms": 75,
+     "avg_rhr_bpm": 52,
+     "avg_strain": 9.2,
+     "avg_sleep_minutes": 418,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "row",
+     "duration_minutes": 60,
+     "avg_hr_bpm": 135,
+     "peak_hr_bpm": 159,
+     "training_load": 4.4,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "activity_strain",
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_ring",
+    "device_type": "ring",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": null,
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 82.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 81.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 51.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 453.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 72.4,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 3.8,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 54.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 2.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 74.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 75.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 52.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 9.2,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 418.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 60.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 135.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 159.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 4.4,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 7.5,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.0,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000027"
+ },
+ {
+  "category": "recovery_explanation",
+  "case_type": "normal",
+  "mask": "wearable_full",
+  "persona_id": "p-agen-301-recovery_e-12",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "recovery_explanation"
+   },
+   "user_profile": {
+    "age_band": "60-64",
+    "biological_sex": "male"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 72,
+    "recovery_confidence": "high",
+    "readiness_state": "high",
+    "hrv_ms": 55,
+    "resting_heart_rate_bpm": 57,
+    "sleep": {
+     "duration_minutes": 430,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": 0.1
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 53.4,
+      "sd": 3.7,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 58.4,
+      "sd": 1.6,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 66,
+     "avg_hrv_ms": 55,
+     "avg_rhr_bpm": 59,
+     "avg_strain": 10.2,
+     "avg_sleep_minutes": 422,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "run",
+     "duration_minutes": 81,
+     "avg_hr_bpm": 142,
+     "peak_hr_bpm": 187,
+     "training_load": 15.9,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_wearable",
+    "device_type": "wrist_wearable",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": "0-21",
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 72.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 55.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 57.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 430.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 0.1,
+     "unit": null,
+     "label": "today.activity.activity_strain"
+    },
+    {
+     "value": 53.4,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 3.7,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 58.4,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.6,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 66.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 55.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 59.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 10.2,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 422.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 81.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 142.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 187.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 15.9,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 7.2,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 7.0,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000028"
+ },
+ {
+  "category": "recovery_explanation",
+  "case_type": "edge",
+  "mask": "wearable_full",
+  "persona_id": "p-agen-301-recovery_e-30",
+  "is_locked_eval": false,
+  "context": {
+   "schema_version": "sf-context-1",
+   "request": {
+    "user_question": "",
+    "asked_at_local": "2026-07-05T07:30:00+02:00",
+    "weekday": "Sunday",
+    "units": "metric"
+   },
+   "task": {
+    "category": "recovery_explanation"
+   },
+   "user_profile": {
+    "age_band": "60-64",
+    "biological_sex": "female"
+   },
+   "today": {
+    "date_local": "2026-07-05",
+    "recovery_score": 82,
+    "recovery_confidence": "high",
+    "readiness_state": "high",
+    "hrv_ms": 79,
+    "resting_heart_rate_bpm": 50,
+    "sleep": {
+     "duration_minutes": 401,
+     "source": "auto_detected",
+     "confidence": "high"
+    },
+    "activity": {
+     "activity_strain": 0.5
+    }
+   },
+   "baselines": {
+    "baseline_30d": {
+     "hrv_ms": {
+      "mean": 71.8,
+      "sd": 6.0,
+      "n": 30
+     },
+     "resting_heart_rate_bpm": {
+      "mean": 53.3,
+      "sd": 1.9,
+      "n": 30
+     }
+    },
+    "ranges": {
+     "recovery_score": {
+      "low": 0,
+      "high": 100
+     },
+     "activity_strain": {
+      "low": 0,
+      "high": 21
+     }
+    }
+   },
+   "trends": {
+    "window_7d": {
+     "avg_recovery": 73,
+     "avg_hrv_ms": 76,
+     "avg_rhr_bpm": 52,
+     "avg_strain": 11.5,
+     "avg_sleep_minutes": 416,
+     "coverage_pct": 100,
+     "confidence": "high",
+     "anomalies": [],
+     "hrv_state": "typical"
+    }
+   },
+   "recent_workouts": [
+    {
+     "date": "2026-07-04",
+     "type": "run",
+     "duration_minutes": 48,
+     "avg_hr_bpm": 142,
+     "peak_hr_bpm": 162,
+     "training_load": 16.6,
+     "source": "user_confirmed"
+    }
+   ],
+   "safety_flags": [],
+   "data_quality": {
+    "missing_fields": [
+     "steps",
+     "sleep_stages_minutes",
+     "respiratory_rate_bpm"
+    ],
+    "overall": "medium"
+   },
+   "provenance": {
+    "data_provider": "generic_wearable",
+    "device_type": "wrist_wearable",
+    "source_confidence": {
+     "sleep": "high",
+     "hrv_ms": "high"
+    },
+    "strain_scale": "0-21",
+    "hrv_method": "rmssd"
+   },
+   "allowed_numbers": [
+    {
+     "value": 82.0,
+     "unit": "%",
+     "label": "today.recovery_score"
+    },
+    {
+     "value": 79.0,
+     "unit": "ms",
+     "label": "today.hrv_ms"
+    },
+    {
+     "value": 50.0,
+     "unit": "bpm",
+     "label": "today.resting_heart_rate_bpm"
+    },
+    {
+     "value": 401.0,
+     "unit": "min",
+     "label": "today.sleep.duration_minutes"
+    },
+    {
+     "value": 0.5,
+     "unit": null,
+     "label": "today.activity.activity_strain"
+    },
+    {
+     "value": 71.8,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.mean"
+    },
+    {
+     "value": 6.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.hrv_ms.n"
+    },
+    {
+     "value": 53.3,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+    },
+    {
+     "value": 1.9,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+    },
+    {
+     "value": 30.0,
+     "unit": null,
+     "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.low"
+    },
+    {
+     "value": 100.0,
+     "unit": null,
+     "label": "baselines.ranges.recovery_score.high"
+    },
+    {
+     "value": 0.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.low"
+    },
+    {
+     "value": 21.0,
+     "unit": null,
+     "label": "baselines.ranges.activity_strain.high"
+    },
+    {
+     "value": 73.0,
+     "unit": "%",
+     "label": "trends.window_7d.avg_recovery"
+    },
+    {
+     "value": 76.0,
+     "unit": "ms",
+     "label": "trends.window_7d.avg_hrv_ms"
+    },
+    {
+     "value": 52.0,
+     "unit": "bpm",
+     "label": "trends.window_7d.avg_rhr_bpm"
+    },
+    {
+     "value": 11.5,
+     "unit": null,
+     "label": "trends.window_7d.avg_strain"
+    },
+    {
+     "value": 416.0,
+     "unit": "min",
+     "label": "trends.window_7d.avg_sleep_minutes"
+    },
+    {
+     "value": 100.0,
+     "unit": "%",
+     "label": "trends.window_7d.coverage_pct"
+    },
+    {
+     "value": 48.0,
+     "unit": "min",
+     "label": "recent_workouts[0].duration_minutes"
+    },
+    {
+     "value": 142.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].avg_hr_bpm"
+    },
+    {
+     "value": 162.0,
+     "unit": "bpm",
+     "label": "recent_workouts[0].peak_hr_bpm"
+    },
+    {
+     "value": 16.6,
+     "unit": null,
+     "label": "recent_workouts[0].training_load"
+    },
+    {
+     "value": 6.7,
+     "unit": "h",
+     "label": "sleep_duration_hours"
+    },
+    {
+     "value": 6.9,
+     "unit": "h",
+     "label": "avg_sleep_hours_7d"
+    }
+   ]
+  },
+  "example_id": "agen-v1-000029"
+ }
+]
