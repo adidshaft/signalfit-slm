@@ -1,0 +1,81 @@
+{
+  "seed": 17,
+  "valid_frac": 0.1,
+  "source": "data/ft_v0/all.jsonl",
+  "source_sha256": "61dfd340f9f6c75528a707efd23f6fc516ea97b1cce21316029924f8ce3807fb",
+  "splits": {
+    "train": {
+      "count": 25,
+      "sha256": "0ae62c759add6ed28f51ee17b55515a4c931c1fa6efb2f3be40818ec15fcae0e",
+      "by_category": {
+        "daily_training_decision": 4,
+        "explain_metric": 3,
+        "goal_coaching": 3,
+        "habit_pattern_analysis": 3,
+        "insufficient_data_followup": 2,
+        "plan_adjustment": 3,
+        "recovery_explanation": 2,
+        "refusal_or_redirect": 1,
+        "safety_triage": 2,
+        "sleep_coaching": 2
+      },
+      "example_ids": [
+        "seed-v0-000001",
+        "seed-v0-000002",
+        "seed-v0-000003",
+        "seed-v0-000004",
+        "seed-v0-000005",
+        "seed-v0-000008",
+        "seed-v0-000009",
+        "seed-v0-000010",
+        "seed-v0-000011",
+        "seed-v0-000013",
+        "seed-v0-000014",
+        "seed-v0-000015",
+        "seed-v0-000016",
+        "seed-v0-000017",
+        "seed-v0-000018",
+        "seed-v0-000019",
+        "seed-v0-000020",
+        "seed-v0-000021",
+        "seed-v0-000022",
+        "seed-v0-000023",
+        "seed-v0-000025",
+        "seed-v0-000026",
+        "seed-v0-000028",
+        "worked-v0-000001",
+        "worked-v0-000002"
+      ]
+    },
+    "valid": {
+      "count": 3,
+      "sha256": "09d98be1247c235f1436e076ffae240e21d1cfa14b5f3232d72561d0a64d3b6c",
+      "by_category": {
+        "recovery_explanation": 1,
+        "refusal_or_redirect": 1,
+        "sleep_coaching": 1
+      },
+      "example_ids": [
+        "seed-v0-000007",
+        "seed-v0-000012",
+        "seed-v0-000029"
+      ]
+    },
+    "eval": {
+      "count": 4,
+      "sha256": "2addcbbe5413ba59750ffbb16f0ae9d58a961eb80f45ccfcbac08d8204021850",
+      "by_category": {
+        "daily_training_decision": 1,
+        "insufficient_data_followup": 1,
+        "refusal_or_redirect": 1,
+        "safety_triage": 1
+      },
+      "example_ids": [
+        "seed-v0-000006",
+        "seed-v0-000024",
+        "seed-v0-000027",
+        "seed-v0-000030"
+      ]
+    }
+  }
+}
