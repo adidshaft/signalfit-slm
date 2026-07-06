@@ -26,8 +26,9 @@ disjoint eval personas).
 | 05 | 30 | 30/30 (first run) | 1 | 0 | one causal-certainty phrase softened to correlational (R2) |
 | 06 | 30 | 30/30 (first run) | 1 | 0 | agen-2 prompt: safety/habit rules held; one temporal-reference slip fixed |
 | 07 | 30 | 30/30 (first run) | 0 | 0 | fully clean; generator self-trimmed 6 triage/refusal lengths |
+| 08 | 30 | 30/30 (first run) | 1 | 0 | near-fainting care level firmed to immediate |
 
-Curated so far: **210 / 300**.
+Curated so far: **240 / 300**.
 
 ## Failure modes observed
 
