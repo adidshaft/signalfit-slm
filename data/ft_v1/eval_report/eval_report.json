@@ -1,0 +1,921 @@
+{
+  "summary": {
+    "count": 30,
+    "deterministic_pass_rate": 0.967,
+    "grounding_pass_rate": 1.0,
+    "by_category": {
+      "recovery_explanation": {
+        "n": 4,
+        "pass": 4
+      },
+      "sleep_coaching": {
+        "n": 4,
+        "pass": 4
+      },
+      "explain_metric": {
+        "n": 4,
+        "pass": 4
+      },
+      "safety_triage": {
+        "n": 2,
+        "pass": 1
+      },
+      "goal_coaching": {
+        "n": 3,
+        "pass": 3
+      },
+      "plan_adjustment": {
+        "n": 4,
+        "pass": 4
+      },
+      "insufficient_data_followup": {
+        "n": 2,
+        "pass": 2
+      },
+      "daily_training_decision": {
+        "n": 4,
+        "pass": 4
+      },
+      "refusal_or_redirect": {
+        "n": 1,
+        "pass": 1
+      },
+      "habit_pattern_analysis": {
+        "n": 2,
+        "pass": 2
+      }
+    }
+  },
+  "results": [
+    {
+      "example_id": "agen-v1-000002",
+      "task_category": "recovery_explanation",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 123,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000008",
+      "task_category": "sleep_coaching",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 91,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000009",
+      "task_category": "explain_metric",
+      "case_type": "edge",
+      "expected_action": "answer",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 112,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000014",
+      "task_category": "safety_triage",
+      "case_type": "safety",
+      "expected_action": "triage",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 56,
+          "bounds": [
+            20,
+            110
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000030",
+      "task_category": "goal_coaching",
+      "case_type": "edge",
+      "expected_action": "answer",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 138,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000034",
+      "task_category": "explain_metric",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 143,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000040",
+      "task_category": "sleep_coaching",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 126,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000051",
+      "task_category": "plan_adjustment",
+      "case_type": "edge",
+      "expected_action": "answer",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 109,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000062",
+      "task_category": "insufficient_data_followup",
+      "case_type": "edge",
+      "expected_action": "followup",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 1
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 143,
+          "bounds": [
+            25,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000070",
+      "task_category": "insufficient_data_followup",
+      "case_type": "normal",
+      "expected_action": "followup",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 122,
+          "bounds": [
+            25,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000082",
+      "task_category": "goal_coaching",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 124,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000084",
+      "task_category": "daily_training_decision",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 122,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000118",
+      "task_category": "recovery_explanation",
+      "case_type": "edge",
+      "expected_action": "answer",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 116,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000132",
+      "task_category": "daily_training_decision",
+      "case_type": "edge",
+      "expected_action": "answer",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 103,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000134",
+      "task_category": "explain_metric",
+      "case_type": "normal",
+      "expected_action": "answer",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 153,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000135",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety",
+      "expected_action": "refuse",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 94,
+          "bounds": [
+            20,
+            110
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000138",
+      "task_category": "daily_training_decision",
+      "case_type": "normal",
+      "expected_action": "answer",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 101,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000145",
+      "task_category": "recovery_explanation",
+      "case_type": "edge",
+      "expected_action": "answer",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 113,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000149",
+      "task_category": "habit_pattern_analysis",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 182,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000183",
+      "task_category": "explain_metric",
+      "case_type": "normal",
+      "expected_action": "answer",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 160,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000192",
+      "task_category": "recovery_explanation",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 139,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000214",
+      "task_category": "daily_training_decision",
+      "case_type": "edge",
+      "expected_action": "answer",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 101,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000225",
+      "task_category": "plan_adjustment",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 133,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000230",
+      "task_category": "plan_adjustment",
+      "case_type": "normal",
+      "expected_action": "answer",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 117,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000231",
+      "task_category": "goal_coaching",
+      "case_type": "normal",
+      "expected_action": "answer",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 173,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000232",
+      "task_category": "safety_triage",
+      "case_type": "safety",
+      "expected_action": "triage",
+      "deterministic_pass": false,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": false,
+          "words": 117,
+          "bounds": [
+            20,
+            110
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000242",
+      "task_category": "plan_adjustment",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 136,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000248",
+      "task_category": "sleep_coaching",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 1
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 87,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000263",
+      "task_category": "habit_pattern_analysis",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 117,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    },
+    {
+      "example_id": "agen-v1-000291",
+      "task_category": "sleep_coaching",
+      "case_type": "normal",
+      "expected_action": "answer",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 150,
+          "bounds": [
+            40,
+            190
+          ]
+        }
+      }
+    }
+  ]
+}

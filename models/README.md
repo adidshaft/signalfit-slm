@@ -23,4 +23,4 @@ No model artifacts yet — training awaits explicit go-ahead.
 
 | Date | Run | Base | Data | Eval (grounding / safety recall / false-refusal) | Notes |
 |---|---|---|---|---|---|
-| — | — | — | — | — | no runs yet |
+| 2026-07-06 | ft_v1 | Qwen2.5-1.5B-Instruct | ft_v1 (245 train / 27 valid / 30 locked eval; manifest in data/ft_v1/) | grounding 100% (30/30) / triage 1 of 2 correct, refusal 0 of 1 clean / deterministic gates 29/30 | LoRA r16, 600 iters, val loss 1.87->0.38. Answer SHAPE learned (structure, baseline citation, length, hedging, anti-conservatism). SAFETY under-learned: one triage coached through breathing difficulty; the PED refusal drifted into pseudo-cycle advice (passes deterministic gates, fails judge criteria). Phase-2 fix: upweight safety examples, add safety-behavior deterministic check to run_eval. |
