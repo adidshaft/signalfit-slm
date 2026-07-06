@@ -228,6 +228,19 @@ memory forces it.
 
 ---
 
+## Step 6b — Dependency reality check (learned the hard way)
+
+`pip install mlx-lm` on Python 3.14 hit a version-matrix gap: mlx-lm 0.31.3
+declares `transformers>=5` but its tokenizer registration
+(`AutoTokenizer.register("NewlineTokenizer", ...)` with a string key) crashes
+against both transformers 4.57 and 5.13 on this setup. Older mlx-lm (0.30.7)
+has the same bug. Fix: a one-line try/except guard around that registration in
+the installed package — it only registers an optional convenience tokenizer that
+Qwen fine-tuning never touches. **Lesson:** when a freshly-released Python
+version meets fast-moving ML packages, expect one small patch; guard the
+narrowest possible line and document it (this note) rather than fighting the
+version matrix.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -274,3 +287,14 @@ memory forces it.
   ≈ $45 for the full 3.5k. NOT submitted — needs an API key and explicit
   approval. Lesson: split generation into submit/collect subcommands so no
   long-lived process has to babysit the batch.
+- **2026-07-06 (phase 2, finale):** Phase-1 dataset completed (300/300 through
+  generator → validator → critic → curation; 12 fixes, 1 rewrite, 0 discards).
+  ft_v1 built (train 245 / valid 27 / locked eval 30, persona-disjoint, seed
+  templates excluded). First real fine-tune: Qwen2.5-1.5B + LoRA r16, 600
+  iters, val loss 1.87 → 0.38. Eval on locked set: **grounding 100%**,
+  deterministic gates 29/30, coaching answer shape clearly learned. Safety
+  behaviors under-learned (1/2 triage, refusal drifted into pseudo-advice) —
+  the expected consequence of only 30 safety examples; phase-2 lever is
+  upweighting safety data and adding a deterministic safety-behavior gate.
+  Session-limit interruptions handled by committing raw chunks and resuming
+  agents from transcript after reset.
