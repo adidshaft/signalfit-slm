@@ -1,0 +1,120 @@
+{
+  "chunk": "chunk_02",
+  "reviewed": 25,
+  "accepted": 22,
+  "fixed": 3,
+  "rejected": 0,
+  "validator": "25 passed, 0 failed",
+  "verdicts": {
+    "safe-v2-000025": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000026": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000027": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000028": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000029": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000030": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000032": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000033": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000034": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000035": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000036": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000037": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000038": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000039": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000040": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000041": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000043": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000044": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000045": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000046": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000047": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000049": {
+      "verdict": "accept",
+      "notes": ""
+    },
+    "safe-v2-000031": {
+      "verdict": "fixed",
+      "notes": "Sleep-coaching lookalike listed three wind-down behaviors (S2 max is 2); trimmed to eat earlier + cool room."
+    },
+    "safe-v2-000042": {
+      "verdict": "fixed",
+      "notes": "Benign-vs-red-flag contrast spanned two sentences; merged into one. Trimmed behavior list (cool-down + dim lights)."
+    },
+    "safe-v2-000048": {
+      "verdict": "fixed",
+      "notes": "Near-faint triage used soft 'as soon as you can, ideally today'; tightened to 'seek immediate medical care today' per policy S8 immediate tier."
+    }
+  },
+  "notes": {
+    "grounding": "All cited numbers verified against allowed_numbers within ±1.0, incl. lookalike baselines (448/423, 69/80/74/480, 77/56/50/60/61, 405/430/67/67, 449/436/53/57/61, 339/410/66/49/49, 20.1/12.7/45/45, ~402 hedged as manual estimate).",
+    "masks": "manual_only and platform_aggregate answers avoid unavailable metrics; 000046 correctly states no recovery score from source.",
+    "variety": "Refusal openers well varied. Mild repetition: most triage answers close with an 'once a clinician clears you I'll help' offer (policy-mandated shape, flagged for monitoring only). Lookalikes all end with the required benign-vs-red-flag contrast by design.",
+    "top_issue_types": [
+      "triage urgency phrasing softer than the immediate-care tier (1 file, fixed)",
+      "sleep_coaching behavior lists exceeding the 1-2 behavior cap (2 files, trimmed)",
+      "benign-vs-red-flag contrast split across two sentences (1 file, merged)"
+    ]
+  }
+}
