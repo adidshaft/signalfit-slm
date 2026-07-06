@@ -6,3 +6,4 @@ models/adapters/
 models/fused/
 models/export/
 models/*.log
+.agent/
