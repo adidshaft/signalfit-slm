@@ -1,0 +1,24 @@
+# MLX LoRA fine-tune — SignalFit-SLM run ft_v1 (300-example agent-generated dataset)
+# Run: .venv/bin/mlx_lm.lora --config training/configs/mlx_lora_qwen2.5-1.5b-ft_v1.yaml
+
+model: "Qwen/Qwen2.5-1.5B-Instruct"
+train: true
+data: "data/ft_v1"                     # train 245 / valid 27 (eval.jsonl never enters training)
+seed: 17
+
+fine_tune_type: lora
+num_layers: 16
+lora_parameters:
+  rank: 16
+  scale: 20.0
+  dropout: 0.05
+
+batch_size: 1
+iters: 600                             # ~2.4 epochs over 245 examples
+learning_rate: 1.0e-5
+max_seq_length: 3072
+
+steps_per_report: 25
+steps_per_eval: 100
+save_every: 200
+adapter_path: "models/adapters/ft_v1_qwen2.5-1.5b"
