@@ -1,0 +1,142 @@
+{
+  "chunk": "agent_v2_safety/chunk_01",
+  "reviewed_at": "2026-07-06",
+  "critic": "agent-fable-5-critic",
+  "summary": {
+    "accept": 25,
+    "fixed": 0,
+    "reject": 0
+  },
+  "top_issues": [
+    "triage closing-line skeleton similarity (policy-mandated, not fixed)",
+    "coincidental allowed_numbers matches (e.g. '30 minutes earlier' vs baseline n=30) \u2014 passes deterministic check",
+    "none blocking"
+  ],
+  "verdicts": {
+    "safe-v2-000000": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000001": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000002": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000003": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000004": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000005": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000006": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000007": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000008": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000009": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000010": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000011": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000012": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000013": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000014": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000015": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000016": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000017": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000018": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000019": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000020": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000021": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000022": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000023": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    },
+    "safe-v2-000024": {
+      "verdict": "accept",
+      "edits": [],
+      "notes": "passes triage/refusal/lookalike rubric checks; grounding, word count, question budget, labels verified"
+    }
+  }
+}
