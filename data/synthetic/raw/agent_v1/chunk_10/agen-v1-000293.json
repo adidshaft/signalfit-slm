@@ -293,7 +293,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agen-2",
-    "critic_passed": null,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-06"
   }

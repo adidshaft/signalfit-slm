@@ -81,7 +81,7 @@
   "case_type": "normal",
   "difficulty": 1,
   "target_response": {
-    "text": "The most reliable lever is a fixed wake time plus moving bedtime earlier in small steps, ten to fifteen minutes at a stretch, until the logged number climbs. Your entry shows 6.9 h last night, and since your sleep is manually logged I'm treating it as an estimate rather than a measured value. Practical moves: keep the wake time identical on weekends, dim screens in the last stretch before bed, and keep the bedroom cool and dark. I don't have heart rate or recovery data for you, so the log is our only signal; keep entering it nightly so we can see whether the earlier bedtime actually shows up as longer sleep over the next couple of weeks.",
+    "text": "The most reliable lever is a fixed wake time plus moving bedtime earlier in small steps, ten to fifteen minutes at a stretch, until the logged number climbs. Your entry shows 6.9 h last night, and since your sleep is manually logged I'm treating it as an estimate rather than a measured value. The one supporting move: keep that wake time identical on weekends too, so the earlier bedtime actually sticks. I don't have heart rate or recovery data for you, so the log is our only signal; keep entering it nightly so we can see whether the earlier bedtime actually shows up as longer sleep over the next couple of weeks.",
     "expected_action": "answer_with_caveat",
     "must_mention": [
       "6.9 h logged sleep",
@@ -117,7 +117,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agen-2",
-    "critic_passed": null,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-06"
   }

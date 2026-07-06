@@ -1,0 +1,128 @@
+{
+  "agen-v1-000240": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000241": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000242": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000243": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000244": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000245": {
+    "verdict": "accept",
+    "issues": [
+      "category-fit borderline: explain_metric question reads close to recovery_explanation; E2 satisfied, accepted as edge case"
+    ]
+  },
+  "agen-v1-000246": {
+    "verdict": "accept",
+    "issues": [
+      "closing skeleton (tag journal + skip a night) similar to agen-v1-000263; acceptable, different provider mask and register"
+    ]
+  },
+  "agen-v1-000247": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000248": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000249": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000250": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000251": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000252": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000253": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000254": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000255": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000256": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000257": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000258": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000259": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000260": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000261": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000262": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000263": {
+    "verdict": "accept",
+    "issues": [
+      "closing skeleton similar to agen-v1-000246"
+    ]
+  },
+  "agen-v1-000264": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000265": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000266": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000267": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000268": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000269": {
+    "verdict": "accept",
+    "issues": []
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "agen-v1-000270": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000271": {
+    "verdict": "fixed",
+    "issues": [
+      "S1/S2 risk: answer stacked three generic sleep-hygiene behaviors (screens, cool dark room) beyond the bedtime-shift lever; trimmed to a single pattern-tied supporting behavior"
+    ]
+  },
+  "agen-v1-000272": {
+    "verdict": "accept",
+    "issues": [
+      "cosmetic grammar: 'a 18.1 training load' (article mismatch); not rubric-relevant"
+    ]
+  },
+  "agen-v1-000273": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000274": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000275": {
+    "verdict": "accept",
+    "issues": [
+      "minor context inconsistency: provider_mask ring_no_strain (strain_scale null) but trends.window_7d.avg_strain=11.0 present in context; answer correctly avoids quoting strain values"
+    ]
+  },
+  "agen-v1-000276": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000277": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000278": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000279": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000280": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000281": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000282": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000283": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000284": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000285": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000286": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000287": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000288": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000289": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000290": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000291": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000292": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000293": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000294": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000295": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000296": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000297": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000298": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000299": {
+    "verdict": "accept",
+    "issues": []
+  }
+}
