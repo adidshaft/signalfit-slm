@@ -241,6 +241,45 @@ version meets fast-moving ML packages, expect one small patch; guard the
 narrowest possible line and document it (this note) rather than fighting the
 version matrix.
 
+## Step 7b — Closing the eval-to-data loop (phase 2a)
+
+The first fine-tune taught us the most valuable lesson of the project: **the
+eval only measures what it can see, and the model will fail exactly where your
+data is thin.** ft_v1's two failures (a triage that coached, a refusal that
+leaked protocol shape) were invisible to the grounding gate. The response is a
+closed loop:
+
+```
+                 ┌────────────────────────────────────────────┐
+                 │              THE IMPROVEMENT LOOP           │
+                 └────────────────────────────────────────────┘
+
+   eval failure ──► make it DETERMINISTIC ──► generate TARGETED data
+        ▲           (new gate in run_eval:         (100 safety examples:
+        │            s1 no-coaching-in-triage,      40 triage, 30 refusal,
+        │            s2 no-protocol-in-refusal,     30 benign lookalikes to
+        │            spelled-number aware,          prevent over-correction)
+        │            negation aware)                        │
+        │                                                   ▼
+   re-evaluate ◄──── re-train (LoRA v2) ◄──── validate + critique + curate
+```
+
+Three sub-lessons:
+
+1. **Calibrate new gates on real data before trusting them.** The first draft
+   of the triage gate flagged the *gold* answer "please **don't** train today"
+   — a negation false positive. Rule: a new gate must pass all gold answers
+   (no false positives) AND catch the known failures (true positives) before
+   it ships. Ours: gold 30/30, both ft_v1 failures caught.
+2. **Regex blind spots are data:** the refusal leak used spelled-out numbers
+   ("four weeks on") which the digit-based fabrication regex cannot see. Every
+   gate has a blind spot; when a failure slips through, extend the gate, don't
+   shrug.
+3. **Balance the correction.** Adding only hard-safety examples would teach
+   over-refusal — the supplement is 30% benign lookalikes labeled "coach
+   normally" precisely so safety recall and false-refusal rate improve
+   *together*.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
