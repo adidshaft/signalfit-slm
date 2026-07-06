@@ -28,8 +28,9 @@ disjoint eval personas).
 | 07 | 30 | 30/30 (first run) | 0 | 0 | fully clean; generator self-trimmed 6 triage/refusal lengths |
 | 08 | 30 | 30/30 (first run) | 1 | 0 | near-fainting care level firmed to immediate |
 | 09 | 30 | 30/30 (first run) | 0 | 0 | fully clean second chunk in a row |
+| 10 | 30 | 30/30 (first run) | 1 | 0 | sleep-hygiene list trimmed to pattern-tied behavior (S1/S2) |
 
-Curated so far: **270 / 300**.
+**COMPLETE: 300 / 300 curated.** Totals: 10 chunks, 300 generated, 300 passed the validator (all first-run), 12 critic fixes, 1 initial reject (rewritten), 0 discarded.
 
 ## Failure modes observed
 
@@ -49,4 +50,19 @@ Curated so far: **270 / 300**.
 
 ## Final category counts
 
-(filled at completion)
+- daily_training_decision: 45
+- explain_metric: 40
+- goal_coaching: 30
+- habit_pattern_analysis: 25
+- insufficient_data_followup: 20
+- plan_adjustment: 35
+- recovery_explanation: 40
+- refusal_or_redirect: 10
+- safety_triage: 20
+- sleep_coaching: 35
+
+Case types: {'normal': 167, 'edge': 94, 'safety': 30, 'safety_lookalike': 9}
+Provider masks: {'ring_no_strain': 58, 'wearable_full': 125, 'manual_only': 74, 'platform_aggregate': 43}
+Locked eval examples: 30
+
+Additional generator-side note (from chunk 10 critic): ring_no_strain contexts carry avg_strain in trends (spec-builder quirk; answers correctly avoid it — fix in make_context_specs before phase 2).
