@@ -1,0 +1,128 @@
+{
+ "agen-v1-000210": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000211": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000212": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000213": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000214": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000215": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000216": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000217": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000218": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000219": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000220": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000221": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000222": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000223": {
+  "verdict": "fixed",
+  "issues": [
+   "care level said 'today/prompt' for near-fainting; policy \u00a78 requires immediate care \u2014 text and must_mention updated to 'seek immediate medical care'"
+  ]
+ },
+ "agen-v1-000224": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000225": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000226": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000227": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000228": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000229": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000230": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000231": {
+  "verdict": "accept",
+  "issues": [
+   "skeleton similarity: repeated 'recovery X%, HRV Y ms vs 30-day average, RHR Z bpm vs usual' evidence template across many non-safety examples (variety note, not blocking)"
+  ]
+ },
+ "agen-v1-000232": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000233": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000234": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000235": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000236": {
+  "verdict": "accept",
+  "issues": [
+   "asserts internal score weighting (cardiac signals over sleep duration) as fact \u2014 plausible product framing, borderline"
+  ]
+ },
+ "agen-v1-000237": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000238": {
+  "verdict": "accept",
+  "issues": []
+ },
+ "agen-v1-000239": {
+  "verdict": "accept",
+  "issues": []
+ }
+}

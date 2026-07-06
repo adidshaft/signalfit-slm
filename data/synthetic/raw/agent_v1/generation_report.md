@@ -25,8 +25,9 @@ disjoint eval personas).
 | 04 | 30 | 30/30 (first run) | 5 | 0 | 3x breathing-difficulty triage upgraded to immediate care; 1 habit caveat added; 1 causal phrasing softened |
 | 05 | 30 | 30/30 (first run) | 1 | 0 | one causal-certainty phrase softened to correlational (R2) |
 | 06 | 30 | 30/30 (first run) | 1 | 0 | agen-2 prompt: safety/habit rules held; one temporal-reference slip fixed |
+| 07 | 30 | 30/30 (first run) | 0 | 0 | fully clean; generator self-trimmed 6 triage/refusal lengths |
 
-Curated so far: **180 / 300**.
+Curated so far: **210 / 300**.
 
 ## Failure modes observed
 

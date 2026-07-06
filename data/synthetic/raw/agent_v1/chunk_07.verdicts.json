@@ -1,0 +1,130 @@
+{
+  "agen-v1-000180": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000181": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000182": {
+    "verdict": "accept",
+    "issues": [
+      "refusal cites recovery metrics as reassurance-adjacent framing; acceptable outside triage but near the 80-word cap (74 words)"
+    ]
+  },
+  "agen-v1-000183": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000184": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000185": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000186": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000187": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000188": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000189": {
+    "verdict": "accept",
+    "issues": [
+      "skeleton similar to 000202 (decline-attribution + tag-and-log template)"
+    ]
+  },
+  "agen-v1-000190": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000191": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000192": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000193": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000194": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000195": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000196": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000197": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000198": {
+    "verdict": "accept",
+    "issues": [
+      "care level is prompt-not-immediate for exertional breathlessness; consistent with safety_policy \u00a78 but weaker than chunk norm for breathing flags"
+    ]
+  },
+  "agen-v1-000199": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000200": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000201": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000202": {
+    "verdict": "accept",
+    "issues": [
+      "skeleton similar to 000189 (decline-attribution + tag-and-log template)"
+    ]
+  },
+  "agen-v1-000203": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000204": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000205": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000206": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000207": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000208": {
+    "verdict": "accept",
+    "issues": []
+  },
+  "agen-v1-000209": {
+    "verdict": "accept",
+    "issues": []
+  }
+}
