@@ -1,0 +1,275 @@
+{
+  "example_id": "agen-v1-000299",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "I quit caffeine after lunch this week and my HRV seems up. That's the caffeine change working, right?",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "habit_pattern_analysis"
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "male"
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": null,
+      "recovery_confidence": null,
+      "readiness_state": null,
+      "hrv_ms": 57,
+      "resting_heart_rate_bpm": 58,
+      "sleep": {
+        "duration_minutes": 470,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.3
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 54.0,
+          "sd": 4.6,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 59.3,
+          "sd": 1.7,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": null,
+        "avg_hrv_ms": 56,
+        "avg_rhr_bpm": 60,
+        "avg_strain": 10.7,
+        "avg_sleep_minutes": 432,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-04",
+        "type": "cycle",
+        "duration_minutes": 37,
+        "avg_hr_bpm": 137,
+        "peak_hr_bpm": 173,
+        "training_load": 14.5,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "health_platform",
+      "device_type": "mixed",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "sdnn"
+    },
+    "allowed_numbers": [
+      {
+        "value": 57.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 58.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 470.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 0.3,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 54.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.6,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 59.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.7,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 56.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 60.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 10.7,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 432.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 37.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 137.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 173.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 14.5,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 7.8,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 7.2,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      }
+    ]
+  },
+  "task_category": "habit_pattern_analysis",
+  "case_type": "edge",
+  "difficulty": 3,
+  "target_response": {
+    "text": "The numbers are up, but I can't honestly credit the caffeine change with them. Your HRV is 57 ms today against a 30-day average of 54, and the week is averaging 56 ms, so yes, slightly elevated, but that lift is well inside your normal spread of about 4.6 ms, the kind of wobble that happens without any habit change. More importantly, there's no caffeine log in your data, so there's nothing to compare cutoff days against. That doesn't mean the change isn't helping, afternoon caffeine plausibly affects sleep and overnight HRV, it means the attribution isn't establishable yet. Keep the habit going and log it daily alongside your sleep; after a few weeks we can compare stretches with and without the early cutoff and see whether the pattern is real rather than noise.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "HRV 57 vs 54 within normal variation",
+      "attribution not establishable",
+      "log the habit to test it"
+    ],
+    "must_not_mention": [
+      "recovery score value",
+      "respiratory rate",
+      "steps"
+    ],
+    "required_behaviors": [
+      "refuses_unsupported_attribution",
+      "cites_user_baseline",
+      "offers_concrete_alternative"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "unsupported_habit_attribution"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "platform_aggregate",
+    "persona_id": "p-agen-301-habit_patt-11",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agen-2",
+    "critic_passed": null,
+    "human_reviewed": false,
+    "created_at": "2026-07-06"
+  }
+}
