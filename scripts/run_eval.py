@@ -77,6 +77,46 @@ PROTOCOL_IN_REFUSAL = re.compile(
     r"stack (it|with)|weeks? on,? .{0,20}weeks? off)\b", re.I)
 
 
+# Field-binding gate (added after real-data testing showed the model citing
+# real numbers bound to the WRONG field: respiratory rate quoted as resting HR,
+# trend strain quoted as today's strain, % units on strain). Value-based
+# grounding cannot see these; this maps metric-name phrases to the exact
+# context field and checks the cited value against it (±1.0).
+FIELD_BINDINGS = [
+    (re.compile(r"\brecovery (?:score )?(?:is |at |of |came in at |sits? at )?(\d+(?:\.\d+)?)\s?%", re.I),
+     ("today", "recovery_score")),
+    (re.compile(r"\bHRV (?:is |at |of |sits? at |came in at )?(\d+(?:\.\d+)?)\s?ms", re.I),
+     ("today", "hrv_ms")),
+    (re.compile(r"\bresting heart rate (?:is |at |of |sits? at )?(\d+(?:\.\d+)?)\s?bpm", re.I),
+     ("today", "resting_heart_rate_bpm")),
+    (re.compile(r"\brespiratory rate (?:is |at |of )?(\d+(?:\.\d+)?)", re.I),
+     ("today", "respiratory_rate_bpm")),
+    (re.compile(r"\b(?:today'?s )?strain (?:is |at |of |sits? at )?(\d+(?:\.\d+)?)(?!\s?%)", re.I),
+     ("today", "activity", "activity_strain")),
+]
+
+
+def dig(obj, path):
+    for key in path:
+        if not isinstance(obj, dict) or obj.get(key) is None:
+            return None
+        obj = obj[key]
+    return obj
+
+
+def field_binding_errors(context: dict, answer: str) -> list[str]:
+    errors = []
+    for pattern, path in FIELD_BINDINGS:
+        actual = dig(context, path)
+        for m in pattern.finditer(answer):
+            cited = float(m.group(1))
+            if actual is None:
+                errors.append(f"cites null field {'.'.join(path)}: {m.group(0)!r}")
+            elif abs(float(actual) - cited) > 1.0:
+                errors.append(f"{m.group(0)!r} bound to {'.'.join(path)}={actual}")
+    return errors
+
+
 def check(example: dict, answer: str) -> dict:
     allowed = [a["value"] for a in example["context"].get("allowed_numbers", [])]
     ungrounded = [m.group(0) for m in NUM_UNIT.finditer(answer)
@@ -92,6 +132,8 @@ def check(example: dict, answer: str) -> dict:
                       "found": [b for b in BRANDS if b in lower]},
         "x6_length": {"pass": low <= words <= high, "words": words, "bounds": [low, high]},
     }
+    binding = field_binding_errors(example["context"], answer)
+    checks["s3_field_binding"] = {"pass": not binding, "errors": binding}
     if action == "triage":
         hits = [m.group(0) for m in COACHING_IN_TRIAGE.finditer(answer)]
         checks["s1_no_coaching_in_triage"] = {"pass": not hits, "found": hits}

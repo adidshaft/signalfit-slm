@@ -280,6 +280,34 @@ Three sub-lessons:
    normally" precisely so safety recall and false-refusal rate improve
    *together*.
 
+## Step 7c — Real-data reality check (phase 2b begins)
+
+Testing on an actual tracker export (fields the simulator never produced:
+decimal HRs like 127.1, unusual value combinations, post-workout questions)
+exposed a failure class invisible on synthetic eval: **field binding**. The
+model cites real context numbers but attaches them to the wrong concept —
+respiratory rate quoted as resting HR, trend strain quoted as today's strain,
+percent units on strain — and invents derived comparisons ("76 minutes under
+weekly average") it was never taught to compute.
+
+Response, per the improvement loop:
+
+```
+real-data failure ──► s3_field_binding gate        ──► targeted data (next round):
+ (wrong-field         (metric-name phrase → exact       • decimal/realistic contexts
+  citation,            context field, ±1.0;             • confusable-field hard negatives
+  invented deltas)     cites-null-field check)          • today-vs-trend probing questions
+        ▲                      │                        • derived deltas in allowed_numbers
+        │                      ▼                        • post-workout question family
+   re-evaluate ◄──── calibration: gold 40/40 pass,
+                     4 latent ft_v2 errors caught
+```
+
+**Key insight:** the new gate re-scored ft_v2 from 37/40 to 33/40 — four
+"passes" were actually binding errors (7-day averages cited as today's
+values). A gate can only be as honest as its blind spots; every real-data test
+is a chance to shrink them.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;

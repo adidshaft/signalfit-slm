@@ -39,13 +39,14 @@ optional `provenance.provider_metadata` object of the schema.
 | `docs/safety_policy.md` | Safety policy v1 (red flags, refusal rules, never-claim list) |
 | `docs/data_generation_plan.md` | Synthetic data plan (3.5k train + 500 locked eval) |
 | `docs/eval_plan.md` | Eval metrics, gates, harness shape |
+| `docs/using_and_finetuning.md` | **Guide for others**: run the model, feed it your data, fine-tune on your own examples |
 | `schemas/` | Canonical JSON Schemas: assistant context (`sf-context-1`) and training example (`sf-train-1`) |
 | `prompts/` | Teacher-model prompts: generation, critic, eval-case generation, schema discovery |
 | `data/synthetic/` | Generated examples (`raw/` → critic → `curated/`) |
 | `data/eval/` | Locked eval sets (checksummed, never trained on) |
 | `data/real_world/` | Local-only real exports for adapter testing — **gitignored by design** |
-| `scripts/` | Dataset pipeline (validate/prepare/split) — not yet implemented |
-| `training/` | Fine-tuning configs (MLX / Unsloth) — not yet implemented |
+| `scripts/` | Dataset pipeline: validate / prepare / split / generate / eval / ask |
+| `training/` | MLX LoRA configs and runbook |
 | `models/` | Model artifacts and run notes — see `models/README.md` |
 
 ## Trying and testing the model
@@ -91,8 +92,8 @@ context's `allowed_numbers` (the fabrication check).
   --generations /tmp/gens.jsonl --out-dir /tmp/eval_report
 ```
 
-Expected (ft_v2 baseline): deterministic gates ≥ 37/40, grounding ≥ 39/40,
-triage 6/6, zero protocol leakage. `judge_bundle.jsonl` in the report dir holds
+Expected (ft_v2 baseline on the current gates, incl. field-binding): deterministic
+gates 33/40, grounding 39/40, triage 6/6, zero protocol leakage. `judge_bundle.jsonl` in the report dir holds
 per-example rubric prompts for an optional LLM-judge pass.
 
 ### Validate the dataset
