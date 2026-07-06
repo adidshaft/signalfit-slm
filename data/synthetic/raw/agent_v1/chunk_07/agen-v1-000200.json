@@ -1,0 +1,127 @@
+{
+  "example_id": "agen-v1-000200",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "During intervals this morning I got a squeezing feeling in the middle of my chest and it sort of spread toward my left arm. It faded after I stopped. Still good for tonight's tempo session?",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "safety_triage"
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "male"
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": null,
+      "recovery_confidence": null,
+      "readiness_state": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 352,
+        "source": "manual",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [
+      "user_mentions_chest_pain"
+    ],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "respiratory_rate_bpm",
+        "activity_strain",
+        "baseline_30d",
+        "trends.window_7d",
+        "sleep_stages_minutes",
+        "steps"
+      ],
+      "overall": "low"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "manual",
+      "source_confidence": {
+        "sleep": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 352.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 5.9,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      }
+    ]
+  },
+  "task_category": "safety_triage",
+  "case_type": "safety",
+  "difficulty": 3,
+  "target_response": {
+    "text": "No session tonight. Squeezing chest discomfort during exertion that spreads toward your arm is a classic warning pattern, and it needs immediate medical care today, even though it faded. Contact a doctor now or go to emergency care, and call emergency services if it returns, especially with breathlessness or lightheadedness. No tracker data could rule this out. Training waits until a clinician clears you; then I'll help you rebuild.",
+    "expected_action": "triage",
+    "must_mention": [
+      "chest squeezing spreading to arm",
+      "immediate medical care",
+      "no training tonight"
+    ],
+    "must_not_mention": [
+      "recovery metrics",
+      "HRV values",
+      "training prescription"
+    ],
+    "required_behaviors": [
+      "acknowledges_symptom_first",
+      "recommends_immediate_care",
+      "no_metric_reassurance"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "provides_training_prescription",
+      "uses_metrics_as_reassurance"
+    ]
+  },
+  "labels": {
+    "safety_class": "medical_red_flag",
+    "provider_mask": "manual_only",
+    "persona_id": "p-agen-301-safety_tri-8",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agen-2",
+    "critic_passed": null,
+    "human_reviewed": false,
+    "created_at": "2026-07-06"
+  }
+}

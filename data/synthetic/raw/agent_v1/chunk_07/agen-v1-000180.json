@@ -1,0 +1,124 @@
+{
+  "example_id": "agen-v1-000180",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "I logged around 8 hours 17 min in bed last night. At my age is that too much sleep, or about right? I don't have a tracker, just my notebook.",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "sleep_coaching"
+    },
+    "user_profile": {
+      "age_band": "60-64",
+      "biological_sex": "male"
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": null,
+      "recovery_confidence": null,
+      "readiness_state": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 497,
+        "source": "manual",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "respiratory_rate_bpm",
+        "activity_strain",
+        "baseline_30d",
+        "trends.window_7d",
+        "sleep_stages_minutes",
+        "steps"
+      ],
+      "overall": "low"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "manual",
+      "source_confidence": {
+        "sleep": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 497.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 8.3,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      }
+    ]
+  },
+  "task_category": "sleep_coaching",
+  "case_type": "normal",
+  "difficulty": 1,
+  "target_response": {
+    "text": "That's a healthy amount, not too much. You logged 497 minutes, about 8.3 hours, and since you woke feeling well enough to ask rather than complain, there's no sign it's excessive. Because this is a manual log I'd treat the exact figure as an estimate; time in bed and time asleep usually differ a bit. Without a tracker I can't see your sleep stages, heart rate, or any 30-day baseline, so the best signal you have is daytime energy. Keep your bed and wake times steady for the next couple of weeks and jot a one-word morning energy note next to each entry. If you consistently feel groggy despite long nights, that pattern in your log would be worth mentioning to your doctor at a routine visit.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "8.3 hours logged sleep",
+      "manual log is an estimate",
+      "no baseline data available"
+    ],
+    "must_not_mention": [
+      "recovery score",
+      "HRV values",
+      "sleep stage minutes"
+    ],
+    "required_behaviors": [
+      "hedges_on_manual_data",
+      "acknowledges_missing_fields",
+      "gives_concrete_action"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "cites_sleep_stage_values"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "manual_only",
+    "persona_id": "p-agen-301-sleep_coac-15",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agen-2",
+    "critic_passed": null,
+    "human_reviewed": false,
+    "created_at": "2026-07-06"
+  }
+}

@@ -1,0 +1,281 @@
+{
+  "example_id": "agen-v1-000187",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "what actually goes into my recovery score? it's 63 today and I have no idea what that's built from",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "explain_metric"
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "male"
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": 63,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 70,
+      "resting_heart_rate_bpm": 54,
+      "sleep": {
+        "duration_minutes": 393,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 70.2,
+          "sd": 5.6,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 53.3,
+          "sd": 1.9,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 67,
+        "avg_hrv_ms": 71,
+        "avg_rhr_bpm": 53,
+        "avg_strain": 11.2,
+        "avg_sleep_minutes": 423,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-04",
+        "type": "swim",
+        "duration_minutes": 71,
+        "avg_hr_bpm": 126,
+        "peak_hr_bpm": 174,
+        "training_load": 16.9,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "activity_strain",
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_ring",
+      "device_type": "ring",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": null,
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 63.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 70.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 54.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 393.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 70.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 5.6,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 53.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.9,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 67.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 71.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 53.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 11.2,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 423.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 71.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 126.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 174.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 16.9,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 6.5,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 7.0,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      }
+    ]
+  },
+  "task_category": "explain_metric",
+  "case_type": "normal",
+  "difficulty": 1,
+  "target_response": {
+    "text": "Your recovery score is a composite that estimates how ready your body is to take on load, built mainly from overnight heart signals compared against your own history. Today's 63% is a moderate reading, and you can see why from the ingredients: your HRV is 70 ms, essentially on your 30-day average of 70.2 ms, your resting heart rate is 54 bpm against a 53.3 baseline, and you slept 6.5 hours, a bit under your 7-day average of 7 hours. Solid heart data plus slightly short sleep lands you mid-range. One note on your setup: your ring doesn't produce a strain metric, so the score reflects recovery inputs, not yesterday's workout effort directly. A 63% day supports normal training with intensity kept honest rather than maximal.",
+    "expected_action": "answer",
+    "must_mention": [
+      "recovery 63%",
+      "HRV 70 ms at 70.2 ms baseline",
+      "sleep 6.5 hours",
+      "no strain metric on ring"
+    ],
+    "must_not_mention": [
+      "activity strain value",
+      "respiratory rate value",
+      "steps"
+    ],
+    "required_behaviors": [
+      "explains_metric_plainly",
+      "cites_user_baseline",
+      "acknowledges_missing_fields"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "cites_strain_value"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "ring_no_strain",
+    "persona_id": "p-agen-301-explain_me-20",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agen-2",
+    "critic_passed": null,
+    "human_reviewed": false,
+    "created_at": "2026-07-06"
+  }
+}

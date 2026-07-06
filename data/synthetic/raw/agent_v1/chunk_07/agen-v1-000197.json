@@ -1,0 +1,284 @@
+{
+  "example_id": "agen-v1-000197",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "idk man I keep waking up feeling kind of meh even though I'm going to bed at a decent time. is my sleep secretly wrecking my training??",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "sleep_coaching"
+    },
+    "user_profile": {
+      "age_band": "18-24",
+      "biological_sex": "male"
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": 55,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 54,
+      "resting_heart_rate_bpm": 59,
+      "sleep": {
+        "duration_minutes": 427,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.5
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 56.7,
+          "sd": 3.9,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 56.6,
+          "sd": 1.8,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 63,
+        "avg_hrv_ms": 58,
+        "avg_rhr_bpm": 58,
+        "avg_strain": 11.2,
+        "avg_sleep_minutes": 437,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-04",
+        "type": "cycle",
+        "duration_minutes": 53,
+        "avg_hr_bpm": 125,
+        "peak_hr_bpm": 170,
+        "training_load": 13.4,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 55.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 54.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 59.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 427.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 0.5,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 56.7,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 3.9,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 56.6,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.8,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 63.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 58.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 58.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 11.2,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 437.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 53.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 125.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 170.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 13.4,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 7.1,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 7.3,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      }
+    ]
+  },
+  "task_category": "sleep_coaching",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Nothing in your data says wrecked; it says ordinary and slightly under-slept. Last night was 7.1 hours against your 7-day average of 7.3, recovery is sitting at 55%, and your HRV of 54 ms is a touch under its 56.7 ms average, with resting heart rate at 59 bpm versus a 56.6 baseline. That mildly elevated heart rate plus the meh feeling is consistent with accumulating small sleep debt rather than any dramatic problem; your 7-day recovery average of 63% backs that up. The fix is boring and effective: pick a consistent wake time, keep the hour before bed dim and screen-light, and try to bank a slightly longer night twice this week. Training can continue as planned at moderate intensity while you do it. If mornings still feel flat after two weeks of consistent nights, that's when it's worth digging deeper.",
+    "expected_action": "answer",
+    "must_mention": [
+      "sleep 7.1 hours vs 7.3 average",
+      "recovery 55%",
+      "RHR 59 bpm above 56.6 baseline"
+    ],
+    "must_not_mention": [
+      "sleep stage values",
+      "respiratory rate value",
+      "steps"
+    ],
+    "required_behaviors": [
+      "reassures_with_data",
+      "cites_user_baseline",
+      "gives_concrete_action"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "catastrophizes_normal_data"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agen-301-sleep_coac-1",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agen-2",
+    "critic_passed": null,
+    "human_reviewed": false,
+    "created_at": "2026-07-06"
+  }
+}

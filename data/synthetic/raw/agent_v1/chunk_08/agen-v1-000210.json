@@ -1,0 +1,285 @@
+{
+ "example_id": "agen-v1-000210",
+ "schema_version": "sf-train-1",
+ "context": {
+  "schema_version": "sf-context-1",
+  "request": {
+   "user_question": "slept over 8 hours last night and my recovery is still only 62?? whats even the point of sleeping more lol",
+   "asked_at_local": "2026-07-05T07:30:00+02:00",
+   "weekday": "Sunday",
+   "units": "metric"
+  },
+  "task": {
+   "category": "sleep_coaching"
+  },
+  "user_profile": {
+   "age_band": "18-24",
+   "biological_sex": "male"
+  },
+  "today": {
+   "date_local": "2026-07-05",
+   "recovery_score": 62,
+   "recovery_confidence": "high",
+   "readiness_state": "moderate",
+   "hrv_ms": 62,
+   "resting_heart_rate_bpm": 58,
+   "sleep": {
+    "duration_minutes": 492,
+    "source": "auto_detected",
+    "confidence": "high"
+   },
+   "activity": {
+    "activity_strain": 0.8
+   }
+  },
+  "baselines": {
+   "baseline_30d": {
+    "hrv_ms": {
+     "mean": 62.7,
+     "sd": 5.1,
+     "n": 30
+    },
+    "resting_heart_rate_bpm": {
+     "mean": 57.1,
+     "sd": 1.2,
+     "n": 30
+    }
+   },
+   "ranges": {
+    "recovery_score": {
+     "low": 0,
+     "high": 100
+    },
+    "activity_strain": {
+     "low": 0,
+     "high": 21
+    }
+   }
+  },
+  "trends": {
+   "window_7d": {
+    "avg_recovery": 62,
+    "avg_hrv_ms": 59,
+    "avg_rhr_bpm": 57,
+    "avg_strain": 10.0,
+    "avg_sleep_minutes": 446,
+    "coverage_pct": 100,
+    "confidence": "high",
+    "anomalies": [],
+    "hrv_state": "typical"
+   }
+  },
+  "recent_workouts": [
+   {
+    "date": "2026-07-04",
+    "type": "swim",
+    "duration_minutes": 87,
+    "avg_hr_bpm": 138,
+    "peak_hr_bpm": 179,
+    "training_load": 13.7,
+    "source": "user_confirmed"
+   }
+  ],
+  "safety_flags": [],
+  "data_quality": {
+   "missing_fields": [
+    "steps",
+    "sleep_stages_minutes",
+    "respiratory_rate_bpm"
+   ],
+   "overall": "medium"
+  },
+  "provenance": {
+   "data_provider": "generic_wearable",
+   "device_type": "wrist_wearable",
+   "source_confidence": {
+    "sleep": "high",
+    "hrv_ms": "high"
+   },
+   "strain_scale": "0-21",
+   "hrv_method": "rmssd"
+  },
+  "allowed_numbers": [
+   {
+    "value": 62.0,
+    "unit": "%",
+    "label": "today.recovery_score"
+   },
+   {
+    "value": 62.0,
+    "unit": "ms",
+    "label": "today.hrv_ms"
+   },
+   {
+    "value": 58.0,
+    "unit": "bpm",
+    "label": "today.resting_heart_rate_bpm"
+   },
+   {
+    "value": 492.0,
+    "unit": "min",
+    "label": "today.sleep.duration_minutes"
+   },
+   {
+    "value": 0.8,
+    "unit": null,
+    "label": "today.activity.activity_strain"
+   },
+   {
+    "value": 62.7,
+    "unit": null,
+    "label": "baselines.baseline_30d.hrv_ms.mean"
+   },
+   {
+    "value": 5.1,
+    "unit": null,
+    "label": "baselines.baseline_30d.hrv_ms.sd"
+   },
+   {
+    "value": 30.0,
+    "unit": null,
+    "label": "baselines.baseline_30d.hrv_ms.n"
+   },
+   {
+    "value": 57.1,
+    "unit": null,
+    "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+   },
+   {
+    "value": 1.2,
+    "unit": null,
+    "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+   },
+   {
+    "value": 30.0,
+    "unit": null,
+    "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+   },
+   {
+    "value": 0.0,
+    "unit": null,
+    "label": "baselines.ranges.recovery_score.low"
+   },
+   {
+    "value": 100.0,
+    "unit": null,
+    "label": "baselines.ranges.recovery_score.high"
+   },
+   {
+    "value": 0.0,
+    "unit": null,
+    "label": "baselines.ranges.activity_strain.low"
+   },
+   {
+    "value": 21.0,
+    "unit": null,
+    "label": "baselines.ranges.activity_strain.high"
+   },
+   {
+    "value": 62.0,
+    "unit": "%",
+    "label": "trends.window_7d.avg_recovery"
+   },
+   {
+    "value": 59.0,
+    "unit": "ms",
+    "label": "trends.window_7d.avg_hrv_ms"
+   },
+   {
+    "value": 57.0,
+    "unit": "bpm",
+    "label": "trends.window_7d.avg_rhr_bpm"
+   },
+   {
+    "value": 10.0,
+    "unit": null,
+    "label": "trends.window_7d.avg_strain"
+   },
+   {
+    "value": 446.0,
+    "unit": "min",
+    "label": "trends.window_7d.avg_sleep_minutes"
+   },
+   {
+    "value": 100.0,
+    "unit": "%",
+    "label": "trends.window_7d.coverage_pct"
+   },
+   {
+    "value": 87.0,
+    "unit": "min",
+    "label": "recent_workouts[0].duration_minutes"
+   },
+   {
+    "value": 138.0,
+    "unit": "bpm",
+    "label": "recent_workouts[0].avg_hr_bpm"
+   },
+   {
+    "value": 179.0,
+    "unit": "bpm",
+    "label": "recent_workouts[0].peak_hr_bpm"
+   },
+   {
+    "value": 13.7,
+    "unit": null,
+    "label": "recent_workouts[0].training_load"
+   },
+   {
+    "value": 8.2,
+    "unit": "h",
+    "label": "sleep_duration_hours"
+   },
+   {
+    "value": 7.4,
+    "unit": "h",
+    "label": "avg_sleep_hours_7d"
+   }
+  ]
+ },
+ "task_category": "sleep_coaching",
+ "case_type": "edge",
+ "difficulty": 2,
+ "target_response": {
+  "text": "The 62% isn't ignoring your sleep, it's weighing it against everything else. Your 492 minutes last night is well above your 7-day average of 446, and that longer night is likely why you're at moderate rather than lower, because yesterday's 87-minute swim carried a training load of 13.7 that your body is still absorbing. HRV came in at 62 ms, essentially on your 30-day average of 62.7, and resting heart rate is 58 bpm against a usual 57.1, so your nervous system reads as normal, not fully topped up. One long night rarely produces a big jump; a week of nights near 8 hours is what moves the average. Keep the earlier bedtime and train moderately today, and judge the payoff over the next week of scores rather than this morning's.",
+  "expected_action": "answer",
+  "must_mention": [
+   "recovery 62%",
+   "sleep 492 min vs 7-day average 446",
+   "yesterday's swim load 13.7"
+  ],
+  "must_not_mention": [
+   "respiratory rate value",
+   "sleep stage values",
+   "steps"
+  ],
+  "required_behaviors": [
+   "explains_multi_input_recovery",
+   "cites_user_baseline",
+   "sets_multi_day_expectation",
+   "supports_moderate_training"
+  ],
+  "forbidden_behaviors": [
+   "invents_numbers",
+   "population_stats_as_personal",
+   "recommends_rest_on_moderate_recovery"
+  ]
+ },
+ "labels": {
+  "safety_class": "none",
+  "provider_mask": "wearable_full",
+  "persona_id": "p-agen-301-sleep_coac-0",
+  "rubric_tags": [
+   "grounding",
+   "behavior_compliance"
+  ],
+  "is_locked_eval": false
+ },
+ "generation": {
+  "generator": "agent-fable-5-agent",
+  "prompt_version": "agen-2",
+  "critic_passed": null,
+  "human_reviewed": false,
+  "created_at": "2026-07-06"
+ }
+}
