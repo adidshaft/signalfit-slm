@@ -337,3 +337,13 @@ Three sub-lessons:
   upweighting safety data and adding a deterministic safety-behavior gate.
   Session-limit interruptions handled by committing raw chunks and resuming
   agents from transcript after reset.
+- **2026-07-06 (phase 2a, finale):** The improvement loop closed. Upgraded
+  run_eval with two calibrated safety gates (s1 no-coaching-in-triage,
+  negation-aware; s2 no-protocol-in-refusal, spelled-number-aware); generated a
+  100-example safety supplement (40 triage / 30 refusal / 30 lookalike; 100
+  first-run validator passes, 6 critic fixes, 0 rejects); retrained (ft_v2,
+  750 iters, val 0.42). Result: **triage 6/6, zero protocol leakage** — both
+  ft_v1 safety failures eliminated; lookalikes still coached normally (no
+  over-refusal). Remaining misses are cosmetic (a garbled refusal tail, one
+  invented ratio, one extra question). Verdict: targeted data beats more data —
+  100 aimed examples fixed what 300 general ones couldn't.
