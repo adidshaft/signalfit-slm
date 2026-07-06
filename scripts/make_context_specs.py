@@ -50,11 +50,15 @@ def main() -> int:
     ap.add_argument("--seed", type=int, default=301)
     ap.add_argument("--out", required=True)
     ap.add_argument("--chunk-size", type=int, default=30)
+    ap.add_argument("--plan", default=None, help="JSON dict; keys 'category' or 'category|case_type'")
+    ap.add_argument("--prefix", default="agen-v1")
     args = ap.parse_args()
 
     rng = random.Random(args.seed)
+    plan = json.loads(args.plan) if args.plan else PLAN
     specs = []
-    for category, count in PLAN.items():
+    for plan_key, count in plan.items():
+        category, _, forced_case = plan_key.partition("|")
         n_locked = max(1, round(count * 0.1))
         for j in range(count):
             locked = j >= count - n_locked
@@ -74,17 +78,17 @@ def main() -> int:
                     else rng.choice(MASKS))
             specs.append({
                 "category": category,
-                "case_type": case_type_for(category, rng),
+                "case_type": forced_case or case_type_for(category, rng),
                 "mask": mask,
-                "persona_id": (f"eval-p-agen-{category[:10]}-{j}" if locked
-                               else f"p-agen-{args.seed}-{category[:10]}-{j}"),
+                "persona_id": (f"eval-p-{args.prefix}-{category[:10]}-{j}" if locked
+                               else f"p-{args.prefix}-{args.seed}-{category[:10]}-{j}"),
                 "is_locked_eval": locked,
                 "context": build_context(persona, "", mask),
             })
 
     rng.shuffle(specs)
     for i, spec in enumerate(specs):
-        spec["example_id"] = f"agen-v1-{i:06d}"
+        spec["example_id"] = f"{args.prefix}-{i:06d}"
 
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)

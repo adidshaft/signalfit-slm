@@ -135,7 +135,7 @@ def build_context(persona, question, mask):
                 round(statistics.fmean(rhr[-7:])), rhr_stat["mean"]),
             "avg_hrv_ms": round(statistics.fmean(hrv[-7:])),
             "avg_rhr_bpm": round(statistics.fmean(rhr[-7:])),
-            "avg_strain": round(statistics.fmean(strain[-7:]), 1),
+            "avg_strain": None if ring else round(statistics.fmean(strain[-7:]), 1),
             "avg_sleep_minutes": round(statistics.fmean(sleep[-7:])),
             "coverage_pct": 100, "confidence": "high", "anomalies": [],
             "hrv_state": "suppressed" if hrv[-1] < hrv_stat["mean"] - hrv_stat["sd"] else "typical",
