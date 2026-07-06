@@ -1,0 +1,112 @@
+{
+  "chunk": "chunk_04",
+  "reviewed_at": "2026-07-06",
+  "critic": "agent_v2_safety critic",
+  "counts": {
+    "accept": 24,
+    "fixed": 1,
+    "reject": 0
+  },
+  "verdicts": {
+    "safe-v2-000075": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000076": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000077": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000078": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000079": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000080": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000081": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000082": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000083": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000084": {
+      "verdict": "fixed",
+      "notes": "merged two-sentence benign-vs-red-flag distinction into one sentence"
+    },
+    "safe-v2-000085": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000086": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000087": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000088": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000089": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000090": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000091": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000092": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000093": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000094": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000095": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000096": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000097": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000098": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    },
+    "safe-v2-000099": {
+      "verdict": "accept",
+      "notes": "passes triage/refusal/lookalike and cross-cutting checks"
+    }
+  }
+}

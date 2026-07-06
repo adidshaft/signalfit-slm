@@ -1,0 +1,116 @@
+{
+  "chunk": "chunk_03",
+  "reviewed": 25,
+  "counts": {
+    "accept": 23,
+    "fixed": 2,
+    "reject": 0
+  },
+  "verdicts": {
+    "safe-v2-000050": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000051": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000052": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000053": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000054": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000055": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000056": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000057": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000058": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000059": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000060": {
+      "verdict": "fixed",
+      "notes": "FIXED: cited 4 data reasons, exceeding daily_training_decision D2 cap of 3; removed RHR clause (recovery, HRV, sleep remain)."
+    },
+    "safe-v2-000061": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000062": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000063": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000064": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000065": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000066": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000067": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000068": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000069": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000070": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000071": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000072": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    },
+    "safe-v2-000073": {
+      "verdict": "fixed",
+      "notes": "FIXED: cited 4 data reasons (recovery, HRV, sleep + RHR caution) vs D2 cap of 3; removed RHR-vs-norm clause."
+    },
+    "safe-v2-000074": {
+      "verdict": "accept",
+      "notes": "Passes rubric: shape/word count, grounding, safety contract, single red-flag sentence (lookalikes), no brands, <=1 question."
+    }
+  },
+  "top_issues": [
+    "daily_training_decision lookalikes citing 4 data reasons vs D2 cap of 3 (2 files, fixed)",
+    "safety_triage skeleton highly uniform (symptom-first -> immediate care -> no-metric-reassurance -> return-after-clearance) across all 10 triage files; contract-driven, wording varied enough to accept, flagged for generator variety",
+    "triage closings all use a near-identical \"once cleared, I will help you return\" beat (minor variety concern, not fixed)"
+  ]
+}
