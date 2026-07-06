@@ -1,125 +1,132 @@
 # SignalFit-SLM
 
-A small language model that acts as a personal fitness assistant. It consumes a
-**normalized, provider-agnostic wearable-fitness context** plus a user question and
-produces grounded, safe, personalized coaching answers.
+SignalFit-SLM is a small language model project for grounded fitness coaching.
+It takes a normalized wearable-health context plus a user question, then returns
+an answer that stays inside the supplied data and safety policy.
 
-```
-Any provider (WHOOP, Apple Health, Garmin, Oura, Fitbit, Ultrahuman, manual logs, Atria, custom apps)
-        │  provider-specific adapter
-        ▼
-SignalFit universal context schema   (schemas/assistant_context.schema.json)
-        │
-        ▼
-SignalFit-SLM  →  grounded coaching answer
-```
+## Description
 
-SignalFit-SLM is **not** WHOOP-specific and **not** Atria-specific. Atria
-(`~/projects/atria`, treated strictly as read-only reference material) is the first
-reference data provider only; device/app-specific detail lives exclusively in the
-optional `provenance.provider_metadata` object of the schema.
+This project explores how to build a trustworthy assistant for wearable fitness
+data. The model is trained and evaluated on structured context objects rather
+than raw chat logs, which makes it easier to keep answers grounded, auditable,
+and provider-agnostic.
 
-## Core principles
+## Highlights
 
-1. **Answer only from DATA** — every number the model may state is enumerated in the
-   context's `allowed_numbers` list (fabrication guard).
-2. **Honest confidence** — derived metrics carry confidence/evidence grades; the
-   model hedges on estimate-grade data.
-3. **Missing data is first-class** — `missing_fields` is required; the model names
-   gaps instead of guessing.
-4. **Safety before coaching** — see `docs/safety_policy.md`.
-5. **Not a medical device** — never diagnoses, refers out on red flags.
+- universal context schema for wearable and fitness data
+- synthetic generation pipeline with critique and validation steps
+- safety policy focused on refusal, escalation, and missing-data handling
+- evaluation plan for grounding and behavioral quality
+- MLX and Unsloth training organization
 
-## Repository layout
+The project is designed to work across providers such as WHOOP, Atria, Apple
+Health, Garmin, Oura, Fitbit, Ultrahuman, and manual logs, as long as the data
+is converted into the shared assistant-context schema.
 
-| Path | Contents |
+## What This Repo Is
+
+This repository contains the full workflow for the project:
+
+- schema design for the universal wearable context
+- synthetic data generation and critique prompts
+- curated training and evaluation datasets
+- safety policy and evaluation plan
+- training configs for MLX and Unsloth
+- lightweight scripts for validation, dataset prep, and splitting
+
+## What This Repo Is Not
+
+- It is not a storage location for real user health exports.
+- It is not provider-specific software.
+- It is not a medical device or diagnostic system.
+
+## Current Focus
+
+The current emphasis is on:
+
+- grounded answers that only use numbers present in the provided context
+- safety-aware coaching that refuses or escalates when needed
+- dataset quality over raw scale
+- reproducible training and evaluation
+
+## Why This Exists
+
+Most fitness assistants are tied to one vendor, one device, or one app. This
+project tries to separate the intelligence layer from the data source so the
+same assistant can reason over different providers as long as the context is
+normalized first.
+
+## Repository Layout
+
+| Path | Purpose |
 |---|---|
-| `docs/product_brief.md` | Product framing, principles, roadmap |
-| `docs/schema_design.md` | Atria field inventory (verified), canonical schema, provider coverage matrix, MVP/V1/V2 tiers, task categories |
-| `docs/safety_policy.md` | Safety policy v1 (red flags, refusal rules, never-claim list) |
-| `docs/data_generation_plan.md` | Synthetic data plan (3.5k train + 500 locked eval) |
-| `docs/eval_plan.md` | Eval metrics, gates, harness shape |
-| `docs/using_and_finetuning.md` | **Guide for others**: run the model, feed it your data, fine-tune on your own examples |
-| `schemas/` | Canonical JSON Schemas: assistant context (`sf-context-1`) and training example (`sf-train-1`) |
-| `prompts/` | Teacher-model prompts: generation, critic, eval-case generation, schema discovery |
-| `data/synthetic/` | Generated examples (`raw/` → critic → `curated/`) |
-| `data/eval/` | Locked eval sets (checksummed, never trained on) |
-| `data/real_world/` | Local-only real exports for adapter testing — **gitignored by design** |
-| `scripts/` | Dataset pipeline: validate / prepare / split / generate / eval / ask |
-| `training/` | MLX LoRA configs and runbook |
-| `models/` | Model artifacts and run notes — see `models/README.md` |
+| `docs/product_brief.md` | Project framing and goals |
+| `docs/schema_design.md` | Canonical context schema and provider mapping notes |
+| `docs/safety_policy.md` | Safety rules, refusal boundaries, and red-flag handling |
+| `docs/data_generation_plan.md` | Synthetic data strategy and collection plan |
+| `docs/eval_plan.md` | Evaluation design and quality gates |
+| `schemas/` | JSON Schemas for assistant context and training examples |
+| `prompts/` | Teacher-model prompts for generation, critique, discovery, and eval case creation |
+| `data/synthetic/` | Synthetic examples, split into `raw/` and `curated/` |
+| `data/eval/` | Locked evaluation data |
+| `data/real_world/` | Local-only placeholder for private exports and adapter testing |
+| `training/` | Training configs and run organization |
+| `notebooks/` | Exploratory analysis and experiments |
+| `scripts/` | Validation, dataset prep, and splitting helpers |
+| `models/` | Model notes and artifact references |
 
-## Trying and testing the model
+## Data Handling
 
-The current model is **ft_v2**: Qwen2.5-1.5B-Instruct + LoRA adapters trained on
-400 curated examples (see `models/README.md` for the run log). One-time setup:
+Real user exports are intentionally kept out of the repository.
 
-```bash
-python3 -m venv .venv
-.venv/bin/pip install jsonschema anthropic 'mlx-lm==0.31.3' 'transformers<5'
-# note: mlx-lm on Python 3.14 may need a one-line patch — see
-# docs/process_guide.md "Dependency reality check"
-```
+- `data/real_world/` is a placeholder only.
+- Synthetic data belongs in `data/synthetic/`.
+- Eval data belongs in `data/eval/`.
+- Large artifacts and generated files are ignored through `.gitignore`.
 
-### Ask it a question
+If you are adapting this project to your own data, start by mapping your provider
+exports into `schemas/assistant_context.schema.json`, then validate that mapping
+before using it for training or eval.
 
-The model answers ONLY from a context JSON (`sf-context-1`) — it has no memory
-or live data. Use any curated example as the context:
+## Validation Example
 
-```bash
-# random context from the dataset
-.venv/bin/python scripts/ask.py --random "should I train hard today?"
+I tested the model against actual WHOOP data pulled from ATRIA
+(`atria.zookfit.in`) and confirmed that the LLM could answer with timestamps,
+sleep, recovery, and training context intact.
 
-# specific context (bare context or full training-example file)
-.venv/bin/python scripts/ask.py data/synthetic/curated/agent_v1/agen-v1-000138.json \
-  "woke up feeling meh, worth doing my long ride?"
-```
+![ATRIA WHOOP validation screenshot](/var/folders/l9/3shhw7rn0nq9g4f07h5rs50m0000gn/T/codex-clipboard-b632cd1d-7b04-46cf-b9a6-6a3cbc39c7aa.png)
 
-`ask.py` prints the answer and warns if the model cites any number outside the
-context's `allowed_numbers` (the fabrication check).
+## How To Use It
 
-### Run the full evaluation
+Typical workflow:
 
-```bash
-# 1. generate answers for the locked eval split (never trained on)
-.venv/bin/python scripts/generate_answers.py data/ft_v2/eval.jsonl \
-  --adapter models/adapters/ft_v2_qwen2.5-1.5b -o /tmp/gens.jsonl
+1. Convert provider-specific data into the assistant-context schema.
+2. Validate the result with `scripts/validate_schema.py`.
+3. Prepare or split datasets with the helper scripts in `scripts/`.
+4. Train using the configs under `training/`.
+5. Evaluate on the locked eval set under `data/eval/`.
 
-# 2. score against the deterministic gates (grounding, follow-up budget,
-#    brands, length, no-coaching-in-triage, no-protocol-in-refusal)
-.venv/bin/python scripts/run_eval.py \
-  --examples data/synthetic/curated/agent_v1 data/synthetic/curated/agent_v2_safety data/synthetic/curated/worked_examples \
-  --generations /tmp/gens.jsonl --out-dir /tmp/eval_report
-```
+The model itself is context-bound: it does not have live access to your account
+or wearables, so each answer depends on the input context you provide.
 
-Expected (ft_v2 baseline on the current gates, incl. field-binding): deterministic
-gates 33/40, grounding 39/40, triage 6/6, zero protocol leakage. `judge_bundle.jsonl` in the report dir holds
-per-example rubric prompts for an optional LLM-judge pass.
+## Safety Position
 
-### Validate the dataset
+The assistant is meant to support fitness decisions, not replace medical care.
+It should:
 
-```bash
-.venv/bin/python scripts/validate_schema.py data/synthetic/curated/agent_v1 \
-  data/synthetic/curated/agent_v2_safety data/synthetic/curated/worked_examples
-```
+- refuse unsafe requests
+- avoid diagnosis
+- point out missing context when the data is incomplete
+- recommend real-world care for urgent symptoms or concerning patterns
 
-### Serve it as an API
+See `docs/safety_policy.md` for the formal policy.
 
-```bash
-.venv/bin/python -m mlx_lm server --model Qwen/Qwen2.5-1.5B-Instruct \
-  --adapter-path models/adapters/ft_v2_qwen2.5-1.5b --port 8080
-# then POST OpenAI-style chat-completions to localhost:8080
-```
+## Status
 
-### Retrain from scratch
+The repository currently documents a working grounded-coaching pipeline with
+schema design, synthetic data tooling, evaluation scaffolding, and model run
+notes. It is meant to be shared, inspected, and extended.
 
-The whole pipeline is reproducible: `docs/process_guide.md` documents every
-step (data generation → validation → critique → JSONL → split → LoRA → eval)
-with the exact commands.
+## Contact
 
-## Status (2026-07-06)
-
-Phase 2a complete: 400-example curated dataset (300 general + 100 safety
-supplement), ft_v2 fine-tune with safety behaviors verified (triage 6/6, zero
-refusal protocol leakage), deterministic eval gates in place. Next: quality
-polish round, dataset scale-up, or iOS quantization (fuse → 4-bit → MLX Swift).
+Maintainer: adidshaft <adidshaft@gmail.com>
