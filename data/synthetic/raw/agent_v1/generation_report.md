@@ -66,3 +66,24 @@ Provider masks: {'ring_no_strain': 58, 'wearable_full': 125, 'manual_only': 74, 
 Locked eval examples: 30
 
 Additional generator-side note (from chunk 10 critic): ring_no_strain contexts carry avg_strain in trends (spec-builder quirk; answers correctly avoid it — fix in make_context_specs before phase 2).
+
+
+## Phase 2a — Safety supplement (agent_v2_safety)
+
+100 examples (seed 401, prefix safe-v2), generated after ft_v1 revealed
+under-learned safety behavior. Plan: 40 safety_triage, 30 refusal_or_redirect,
+30 safety_lookalike (18 daily_training_decision + 12 sleep_coaching), 10 locked
+eval. Generator prompt agen-3-safety encodes the two ft_v1 failure modes; the
+generators self-checked against the same regexes the upgraded eval gates use.
+
+| Chunk | Generated | Validator | Critic fixed | Rejected | Notes |
+|---|---|---|---|---|---|
+| 01 | 25 | 25/25 first run | 0 | 0 | fully clean |
+| 02 | 25 | 25/25 first run | 3 | 0 | 1 care-level firmed; 2 lookalikes trimmed to behavior cap |
+| 03 | 25 | 25/25 first run | 2 | 0 | 2 lookalikes trimmed to 3-reason cap |
+| 04 | 25 | 25/25 first run | 1 | 0 | 1 two-sentence distinction merged; hard negatives verified benign |
+
+**Total: 100/100 curated.** Recurring observation: triage answers share a
+closing beat because the safety policy §1 response contract mandates it —
+acceptable for training consistency, flagged for phrasing variety in future
+rounds.
