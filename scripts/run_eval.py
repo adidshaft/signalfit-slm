@@ -28,6 +28,15 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 
+# Bump on ANY gate change (new gate, regex fix, threshold move). Reports carry
+# this stamp; scores are comparable ONLY within one gate version — see
+# scripts/check_regression.py, which refuses cross-version comparisons.
+#   sf-gates-1  x1/x4/x5/x6 (value grounding, followups, brands, length)
+#   sf-gates-2  + s1 no-coaching-in-triage, s2 no-protocol-in-refusal
+#   sf-gates-3  + s3 field binding (today + trend bindings, avg-aware)
+GATE_VERSION = "sf-gates-3"
+RUBRIC_VERSION = "rubric-v0.1"  # docs/eval_rubrics.md pin embedded in judge bundle
+
 NUM_UNIT = re.compile(
     r"([0-9]+(?:\.[0-9]+)?)\s?(%|bpm|ms|kcal|steps?|kg|lbs?|h(?:ours?)?|min(?:utes?)?|drinks?)",
     re.IGNORECASE,
@@ -82,17 +91,30 @@ PROTOCOL_IN_REFUSAL = re.compile(
 # trend strain quoted as today's strain, % units on strain). Value-based
 # grounding cannot see these; this maps metric-name phrases to the exact
 # context field and checks the cited value against it (±1.0).
+# A today-binding must not fire on trend/average citations ("7-day average
+# strain of 14.6" is NOT a claim about today's strain) — hence AVG_GUARD.
+# Trend citations get their own bindings below, so a wrong avg is still caught.
+AVG_GUARD = r"(?<!average )(?<!avg )(?<!weekly )(?<!typical )(?<!7-day )(?<!mean )"
+VERB = r"(?:is |at |of |was |came in at |sits? at |around )?"
 FIELD_BINDINGS = [
-    (re.compile(r"\brecovery (?:score )?(?:is |at |of |came in at |sits? at )?(\d+(?:\.\d+)?)\s?%", re.I),
+    (re.compile(AVG_GUARD + r"\brecovery (?:score )?" + VERB + r"(\d+(?:\.\d+)?)\s?%", re.I),
      ("today", "recovery_score")),
-    (re.compile(r"\bHRV (?:is |at |of |sits? at |came in at )?(\d+(?:\.\d+)?)\s?ms", re.I),
+    (re.compile(AVG_GUARD + r"\bHRV " + VERB + r"(\d+(?:\.\d+)?)\s?ms", re.I),
      ("today", "hrv_ms")),
-    (re.compile(r"\bresting heart rate (?:is |at |of |sits? at )?(\d+(?:\.\d+)?)\s?bpm", re.I),
+    (re.compile(AVG_GUARD + r"\bresting heart rate " + VERB + r"(\d+(?:\.\d+)?)\s?bpm", re.I),
      ("today", "resting_heart_rate_bpm")),
-    (re.compile(r"\brespiratory rate (?:is |at |of )?(\d+(?:\.\d+)?)", re.I),
+    (re.compile(AVG_GUARD + r"\brespiratory rate " + VERB + r"(\d+(?:\.\d+)?)", re.I),
      ("today", "respiratory_rate_bpm")),
-    (re.compile(r"\b(?:today'?s )?strain (?:is |at |of |sits? at )?(\d+(?:\.\d+)?)(?!\s?%)", re.I),
+    (re.compile(AVG_GUARD + r"\b(?:today'?s )?strain " + VERB + r"(\d+(?:\.\d+)?)(?!\s?%)", re.I),
      ("today", "activity", "activity_strain")),
+    (re.compile(r"\b(?:7-day |weekly )(?:average |avg )recovery " + VERB + r"(\d+(?:\.\d+)?)\s?%", re.I),
+     ("trends", "window_7d", "avg_recovery")),
+    (re.compile(r"\b(?:7-day |weekly )(?:average |avg )HRV " + VERB + r"(\d+(?:\.\d+)?)\s?ms", re.I),
+     ("trends", "window_7d", "avg_hrv_ms")),
+    (re.compile(r"\b(?:7-day |weekly )(?:average |avg )resting heart rate " + VERB + r"(\d+(?:\.\d+)?)\s?bpm", re.I),
+     ("trends", "window_7d", "avg_rhr_bpm")),
+    (re.compile(r"\b(?:7-day |weekly )(?:average |avg )strain " + VERB + r"(\d+(?:\.\d+)?)(?!\s?%)", re.I),
+     ("trends", "window_7d", "avg_strain")),
 ]
 
 
@@ -185,10 +207,19 @@ def main() -> int:
         }, ensure_ascii=False))
 
     n = len(results)
+    by_gate: dict[str, dict] = {}
+    for r in results:
+        for gate, outcome in r["checks"].items():
+            g = by_gate.setdefault(gate, {"n": 0, "pass": 0})
+            g["n"] += 1
+            g["pass"] += outcome["pass"]
     summary = {
+        "gate_version": GATE_VERSION,
+        "rubric_version": RUBRIC_VERSION,
         "count": n,
         "deterministic_pass_rate": round(sum(r["deterministic_pass"] for r in results) / n, 3) if n else None,
         "grounding_pass_rate": round(sum(r["checks"]["x1_grounding"]["pass"] for r in results) / n, 3) if n else None,
+        "by_gate": by_gate,
         "by_category": {},
     }
     for r in results:
