@@ -1,0 +1,301 @@
+{
+  "example_id": "bind-v1-000000",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "What's my resting heart rate right now?",
+      "asked_at_local": "2026-07-06T08:10:00-04:00",
+      "weekday": "Monday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "explain_metric"
+    },
+    "user_profile": {
+      "age_band": "35-39",
+      "biological_sex": "male"
+    },
+    "today": {
+      "date_local": "2026-07-06",
+      "recovery_score": 71,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 63,
+      "resting_heart_rate_bpm": 62,
+      "respiratory_rate_bpm": 16.5,
+      "sleep": {
+        "duration_minutes": 447,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 6.3
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 62.7,
+          "sd": 4.2,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 61.8,
+          "sd": 1.3,
+          "n": 30
+        },
+        "respiratory_rate_bpm": {
+          "mean": 16.2,
+          "sd": 0.5,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 69,
+        "avg_hrv_ms": 63,
+        "avg_rhr_bpm": 62,
+        "avg_strain": 11.9,
+        "avg_sleep_minutes": 441,
+        "coverage_pct": 96,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical",
+        "avg_respiratory_rate_bpm": 16.3
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-05",
+        "type": "run",
+        "duration_minutes": 52,
+        "avg_hr_bpm": 138,
+        "peak_hr_bpm": 161,
+        "training_load": 11.6,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes"
+      ],
+      "overall": "high"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 71.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 63.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 62.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 16.5,
+        "unit": "bpm",
+        "label": "today.respiratory_rate_bpm"
+      },
+      {
+        "value": 447.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 6.3,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 62.7,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 61.8,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 16.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.respiratory_rate_bpm.mean"
+      },
+      {
+        "value": 0.5,
+        "unit": null,
+        "label": "baselines.baseline_30d.respiratory_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.respiratory_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 69.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 63.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 62.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 11.9,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 441.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 96.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 16.3,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_respiratory_rate_bpm"
+      },
+      {
+        "value": 52.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 138.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 161.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 11.6,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      }
+    ]
+  },
+  "task_category": "explain_metric",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Your resting heart rate is 62 bpm as of this morning — essentially on top of your 30-day average resting heart rate of 61.8 bpm, so nothing unusual is happening. Resting heart rate is how fast your heart beats when you're completely at rest; your device reads it overnight, when it's steadiest. One mix-up worth avoiding: your respiratory rate is 16.5 breaths per minute — that's a breathing measure that sits next to the heart numbers in most apps, not a pulse reading. With today's value within a beat of baseline and your 7-day average resting heart rate at 62 bpm, this is a stable, unremarkable reading — exactly what you want to see.",
+    "expected_action": "answer",
+    "must_mention": [
+      "resting heart rate 62 bpm bound to today's field",
+      "respiratory rate 16.5 identified as a breathing metric, not pulse",
+      "comparison against the user's own baseline"
+    ],
+    "must_not_mention": [
+      "respiratory rate value quoted as resting heart rate"
+    ],
+    "required_behaviors": [
+      "binds_numbers_to_correct_fields",
+      "cites_user_baseline"
+    ],
+    "forbidden_behaviors": [
+      "swaps_field_bindings",
+      "invents_numbers"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-bind-v1-0-rhr-now",
+    "rubric_tags": [
+      "grounding",
+      "field_binding"
+    ],
+    "is_locked_eval": true
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "eval-bind-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

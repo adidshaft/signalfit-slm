@@ -1,0 +1,339 @@
+{
+  "example_id": "bind-v1-000004",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My recovery is way down today, why?",
+      "asked_at_local": "2026-07-08T07:20:00-05:00",
+      "weekday": "Wednesday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "recovery_explanation"
+    },
+    "user_profile": {
+      "age_band": "45-49",
+      "biological_sex": "male"
+    },
+    "today": {
+      "date_local": "2026-07-08",
+      "recovery_score": 54,
+      "recovery_confidence": "high",
+      "readiness_state": "low",
+      "recovery_contributors": [
+        {
+          "factor": "sleep",
+          "z_score": -1.4,
+          "direction": -1
+        },
+        {
+          "factor": "hrv",
+          "z_score": -1.2,
+          "direction": -1
+        },
+        {
+          "factor": "resting_heart_rate",
+          "z_score": -0.9,
+          "direction": -1
+        }
+      ],
+      "hrv_ms": 58,
+      "resting_heart_rate_bpm": 63,
+      "respiratory_rate_bpm": 15.9,
+      "sleep": {
+        "duration_minutes": 392,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 4.1
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 63.8,
+          "sd": 4.1,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 60.4,
+          "sd": 1.5,
+          "n": 30
+        },
+        "recovery_score": {
+          "mean": 67.2,
+          "sd": 8.3,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 68,
+        "avg_hrv_ms": 64,
+        "avg_rhr_bpm": 60,
+        "avg_strain": 13.2,
+        "avg_sleep_minutes": 447,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "suppressed",
+        "avg_respiratory_rate_bpm": 15.6
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-07",
+        "type": "run",
+        "duration_minutes": 61,
+        "avg_hr_bpm": 149,
+        "peak_hr_bpm": 171,
+        "training_load": 14.7,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes"
+      ],
+      "overall": "high"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 54.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": -1.4,
+        "unit": null,
+        "label": "today.recovery_contributors[0].z_score"
+      },
+      {
+        "value": -1.2,
+        "unit": null,
+        "label": "today.recovery_contributors[1].z_score"
+      },
+      {
+        "value": -0.9,
+        "unit": null,
+        "label": "today.recovery_contributors[2].z_score"
+      },
+      {
+        "value": 58.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 63.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 15.9,
+        "unit": "bpm",
+        "label": "today.respiratory_rate_bpm"
+      },
+      {
+        "value": 392.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 4.1,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 63.8,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.1,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 60.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.5,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 67.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.recovery_score.mean"
+      },
+      {
+        "value": 8.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.recovery_score.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.recovery_score.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 68.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 64.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 60.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 13.2,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 447.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 15.6,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_respiratory_rate_bpm"
+      },
+      {
+        "value": 61.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 149.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 171.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 14.7,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 55.0,
+        "unit": "min",
+        "label": "derived.sleep_vs_7d_avg_minutes"
+      }
+    ]
+  },
+  "task_category": "recovery_explanation",
+  "case_type": "normal",
+  "difficulty": 3,
+  "target_response": {
+    "text": "Your recovery is 54% today against a weekly average recovery of 68%, and three signals line up with the drop, in rough order of weight. First, sleep: you got 392 minutes, about 55 minutes under your usual — short nights often show up directly in this score. Second, your HRV is 58 ms versus a 7-day average HRV of 64 ms. Third, your resting heart rate is 63 bpm, up from a 7-day average resting heart rate of 60 bpm. None of this proves a single cause, but it's the pattern a hard-recovery night usually leaves. Tonight's lever: protect a full night — aim for your normal bedtime and skip anything intense this evening.",
+    "expected_action": "answer",
+    "must_mention": [
+      "today's recovery 54% vs weekly average recovery 68%",
+      "short sleep ranked as top contributor with the grounded 55-minute delta",
+      "one actionable lever for tonight"
+    ],
+    "must_not_mention": [
+      "today and weekly values swapped"
+    ],
+    "required_behaviors": [
+      "binds_numbers_to_correct_fields",
+      "correlational_framing",
+      "ranks_contributors_from_context"
+    ],
+    "forbidden_behaviors": [
+      "swaps_today_and_trend_values",
+      "causal_certainty"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-bind-v1-4-recovery-drop",
+    "rubric_tags": [
+      "grounding",
+      "field_binding"
+    ],
+    "is_locked_eval": true
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "eval-bind-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

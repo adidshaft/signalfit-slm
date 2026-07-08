@@ -1,0 +1,294 @@
+{
+  "example_id": "bind-v1-000005",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "What's my HRV today?",
+      "asked_at_local": "2026-07-06T07:50:00+00:00",
+      "weekday": "Monday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "explain_metric"
+    },
+    "user_profile": {
+      "age_band": "50-54",
+      "biological_sex": "female"
+    },
+    "today": {
+      "date_local": "2026-07-06",
+      "recovery_score": 65,
+      "recovery_confidence": "medium",
+      "readiness_state": "moderate",
+      "hrv_ms": 63,
+      "resting_heart_rate_bpm": 59,
+      "respiratory_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 436,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 1.7
+      }
+    },
+    "baselines": {
+      "baseline_7d": {
+        "hrv_ms": {
+          "mean": 64.8,
+          "sd": 3.7,
+          "n": 7
+        }
+      },
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 64.9,
+          "sd": 4.4,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 59.3,
+          "sd": 1.2,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 66,
+        "avg_hrv_ms": 65,
+        "avg_rhr_bpm": 59,
+        "avg_strain": 12.2,
+        "avg_sleep_minutes": 439,
+        "coverage_pct": 96,
+        "confidence": "medium",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-05",
+        "type": "mobility",
+        "duration_minutes": 35,
+        "avg_hr_bpm": 92,
+        "peak_hr_bpm": 110,
+        "training_load": 3.4,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "respiratory_rate_bpm",
+        "steps",
+        "sleep_stages_minutes"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "medium"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 65.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 63.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 59.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 436.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 1.7,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 64.8,
+        "unit": null,
+        "label": "baselines.baseline_7d.hrv_ms.mean"
+      },
+      {
+        "value": 3.7,
+        "unit": null,
+        "label": "baselines.baseline_7d.hrv_ms.sd"
+      },
+      {
+        "value": 7.0,
+        "unit": null,
+        "label": "baselines.baseline_7d.hrv_ms.n"
+      },
+      {
+        "value": 64.9,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 59.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 66.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 65.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 59.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 12.2,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 439.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 96.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 35.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 92.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 110.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 3.4,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      }
+    ]
+  },
+  "task_category": "explain_metric",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Your HRV is 63 ms today. That's a hair below your 7-day average HRV of 64.8 ms and your 30-day mean of 64.9 — a dip of barely a millisecond, well inside normal night-to-night wobble, so nothing here signals a problem. HRV is the variation in timing between heartbeats; higher generally reflects better recovery capacity, but the useful signal is your own multi-week trend, not any single morning. One caveat: your device grades HRV at medium confidence, so treat each reading as an estimate and lean on the weekly average when deciding anything. If tomorrow lands near baseline again, today's dip was noise; a slide sustained over several days would be the thing worth reacting to.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "today's HRV 63 ms bound to today",
+      "7-day average HRV 64.8 ms",
+      "medium-confidence hedge on HRV"
+    ],
+    "must_not_mention": [
+      "7-day or 30-day average quoted as today's HRV"
+    ],
+    "required_behaviors": [
+      "binds_numbers_to_correct_fields",
+      "hedges_on_medium_confidence",
+      "cites_user_baseline"
+    ],
+    "forbidden_behaviors": [
+      "swaps_today_and_trend_values",
+      "invents_numbers"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-bind-v1-5-hrv-today",
+    "rubric_tags": [
+      "grounding",
+      "field_binding"
+    ],
+    "is_locked_eval": true
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "eval-bind-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

@@ -1,8 +1,9 @@
 {
   "suite": "sf-eval-v1",
-  "count": 54,
+  "count": 66,
   "by_slice": {
     "adversarial": 14,
+    "binding": 12,
     "core": 40
   },
   "cases": [
@@ -131,6 +132,114 @@
       "expected_action": "answer",
       "file": "cases/adversarial/advs-v1-000013.json",
       "sha256": "cbb2364b768a74f1bc4cfb21dc46c8dea97ced561341e50acfd1b87b73037414"
+    },
+    {
+      "example_id": "bind-v1-000000",
+      "slice": "binding",
+      "task_category": "explain_metric",
+      "case_type": "normal",
+      "expected_action": "answer",
+      "file": "cases/binding/bind-v1-000000.json",
+      "sha256": "40dfe793bf079f7ddc7490e1b8d1a1858653126f60f41554fb3ee5c401c021c9"
+    },
+    {
+      "example_id": "bind-v1-000001",
+      "slice": "binding",
+      "task_category": "explain_metric",
+      "case_type": "normal",
+      "expected_action": "answer",
+      "file": "cases/binding/bind-v1-000001.json",
+      "sha256": "d26eec7cf6279392d834702fad9252139f93b33d295606ce5589d6f2fa27361e"
+    },
+    {
+      "example_id": "bind-v1-000002",
+      "slice": "binding",
+      "task_category": "daily_training_decision",
+      "case_type": "normal",
+      "expected_action": "answer",
+      "file": "cases/binding/bind-v1-000002.json",
+      "sha256": "04f9e25c5e66aef220989dad787147109cd48a84381e8c57b96168b069d17a2c"
+    },
+    {
+      "example_id": "bind-v1-000003",
+      "slice": "binding",
+      "task_category": "sleep_coaching",
+      "case_type": "normal",
+      "expected_action": "answer",
+      "file": "cases/binding/bind-v1-000003.json",
+      "sha256": "766b8edefb7e4b0557ee1d454cca75e243fd04dfeff42120f4ee86b855eb2b2a"
+    },
+    {
+      "example_id": "bind-v1-000004",
+      "slice": "binding",
+      "task_category": "recovery_explanation",
+      "case_type": "normal",
+      "expected_action": "answer",
+      "file": "cases/binding/bind-v1-000004.json",
+      "sha256": "74696e126ce3e92439e007f781f663a86598cf1ef3dadd347a714509de556481"
+    },
+    {
+      "example_id": "bind-v1-000005",
+      "slice": "binding",
+      "task_category": "explain_metric",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/binding/bind-v1-000005.json",
+      "sha256": "b05fe13db29df07a64502b121f417e385fdc3c58c7a3d3932abbc7e04f1bbf21"
+    },
+    {
+      "example_id": "bind-v1-000006",
+      "slice": "binding",
+      "task_category": "daily_training_decision",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/binding/bind-v1-000006.json",
+      "sha256": "d24f3a1d77c79d32e870f3eb416d4fa0ebfc8dd8b536fb3a75b37e86901e8f67"
+    },
+    {
+      "example_id": "bind-v1-000007",
+      "slice": "binding",
+      "task_category": "explain_metric",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/binding/bind-v1-000007.json",
+      "sha256": "56077f9e6e609318f139ed33387410c41d4cd20b3e901c2aaa1082d3ad87e404"
+    },
+    {
+      "example_id": "bind-v1-000008",
+      "slice": "binding",
+      "task_category": "recovery_explanation",
+      "case_type": "edge",
+      "expected_action": "answer",
+      "file": "cases/binding/bind-v1-000008.json",
+      "sha256": "9c95e9fe4f984c19df5e2bee64e20115fcfd7e0970a93c9d577cf5848a03ad02"
+    },
+    {
+      "example_id": "bind-v1-000009",
+      "slice": "binding",
+      "task_category": "explain_metric",
+      "case_type": "edge",
+      "expected_action": "answer",
+      "file": "cases/binding/bind-v1-000009.json",
+      "sha256": "cf713516ac9e1d5c8ed90c22c9baff238ae6f6788b1ed5ea42358bfeace7c9af"
+    },
+    {
+      "example_id": "bind-v1-000010",
+      "slice": "binding",
+      "task_category": "habit_pattern_analysis",
+      "case_type": "normal",
+      "expected_action": "answer",
+      "file": "cases/binding/bind-v1-000010.json",
+      "sha256": "23ef8a70cf42346aa7e1391e0ac3bf7db03931a7cc017fa3f1f05c305dcff2ac"
+    },
+    {
+      "example_id": "bind-v1-000011",
+      "slice": "binding",
+      "task_category": "recovery_explanation",
+      "case_type": "edge",
+      "expected_action": "answer",
+      "file": "cases/binding/bind-v1-000011.json",
+      "sha256": "fd2b965045ad3bf48cbbe66b5cf5be08432d6a792ee042a66222ab10c5ecc030"
     },
     {
       "example_id": "agen-v1-000002",
