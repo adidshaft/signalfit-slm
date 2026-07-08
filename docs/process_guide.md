@@ -308,6 +308,81 @@ real-data failure ──► s3_field_binding gate        ──► targeted data
 values). A gate can only be as honest as its blind spots; every real-data test
 is a chance to shrink them.
 
+*(Correction from Step 7d calibration: one of those four flags was itself a
+false positive of the draft gate — the model had correctly cited a 7-day
+average and the regex bound it to today's field. The calibrated honest number
+is 34/40. Gates get calibrated in both directions: no false positives on gold,
+no lost recall on known failures.)*
+
+## Step 7d — Building the real eval harness (phase 2b, part 1)
+
+Everything up to here scored models with an eval that was a scaffold: 40
+same-distribution examples, gates that kept changing under the numbers, and a
+judge rubric that had never actually been run. Before generating any more
+training data we made the ruler trustworthy. Four moves:
+
+**1. Freeze and version everything.** `eval/v1/` is an immutable suite
+(`scripts/freeze_eval.py build|check`: per-case sha256 manifest, append-only —
+editing a frozen case refuses and demands a version bump — plus a train/valid
+contamination cross-check against every `data/ft_*/manifest.json`). Gates got
+a version stamp too (`GATE_VERSION` in run_eval.py, currently `sf-gates-3`).
+A score is meaningful only as the triple **(suite, gates, rubric)** — and
+`scripts/check_regression.py` refuses to compare across any mismatch, so the
+"historical numbers aren't comparable" failure mode is now structurally
+impossible rather than merely documented. Both models were re-scored through
+one gate version: ft_v1 27/30 (its own locked set), ft_v2 34/40.
+
+**2. Grow the suite where reality found holes.** Two new frozen slices, both
+gold-calibrated to 100% before use: `adversarial/` (14 cases — PED requests
+wrapped in third-party/fiction/medicalized framings, ED-adjacent compensation
+and punishment framings, symptom minimization, metric-reassurance bait, plus
+3 benign lookalikes that must NOT be refused) and `binding/` (12 field-binding
+probes rebuilding the real-data failure shape with synthetic values: decimal
+sensor-realistic numbers, respiratory-rate-as-RHR distractors, today-vs-trend
+traps, derived deltas that must appear in allowed_numbers). Real exports stay
+local-only; what a real-data failure contributes to the committed suite is its
+*shape*.
+
+**3. Actually run the judge.** The rubric bundle (rubric-v0.1) went through
+the eval-plan protocol for real: every answer judged twice by independent
+agents, verdicts merged strict-AND (`scripts/merge_judgments.py`), the 4
+category_pass disagreements adjudicated by hand and recorded. Judge output
+merges into the deterministic report via `scripts/apply_judge.py`; the
+headline `overall_pass` requires deterministic gates AND every judge criterion.
+
+**4. Pin a baseline and gate on it.** `eval/v1/baseline/` holds the current
+best model's judged report; `check_regression.py` exits 1 on any safety-gate
+drop (zero tolerance), any category drop, or any overall drop — a retrain that
+doesn't clear the pinned bar through the same frozen triple is not an
+improvement, whatever its training loss says.
+
+**What the judge revealed** (ft_v2, core-40, sf-gates-3 + rubric-v0.1):
+
+| tier | pass |
+|---|---|
+| deterministic gates (regex can see) | 34/40 |
+| judge category criteria | 14/40 |
+| overall (gates AND all judge criteria) | **9/40** |
+
+The mechanical gates were measuring *shape*; the judge measures *truth*. The
+dominant failure — X1 qualitative grounding, 20/40 — is invisible to every
+regex we have: the model cites perfectly grounded values but asserts
+arithmetically false **relations** between them ("6.9h, comfortably above your
+7.5h average"; "58 bpm, right on baseline" when baseline is 59.9; invented
+"68-day average" windows). Safety held (triage 4/6, refusal 3/4 overall — the
+phase-2a targeted data demonstrably stuck), while every analytical category
+collapsed at the quality tier (daily_training_decision 0/6, plan_adjustment
+0/4, explain_metric 0/4).
+
+**Key insight:** each honesty upgrade to the eval cut the headline number
+roughly in half — 37/40 → 34/40 (calibrated binding gate) → 9/40 (judge). None
+of those drops changed the model; they changed how much of the model we could
+see. The phase-2b data round now has a sharper target than field binding
+alone: *relational correctness* — direction-true comparisons against the right
+window — is the single highest-value behavior to train next, and X1-style
+false relations need a deterministic gate of their own (comparative-phrase →
+arithmetic check), so the improvement loop can run on them mechanically.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -375,3 +450,15 @@ is a chance to shrink them.
   over-refusal). Remaining misses are cosmetic (a garbled refusal tail, one
   invented ratio, one extra question). Verdict: targeted data beats more data —
   100 aimed examples fixed what 300 general ones couldn't.
+- **2026-07-08/09 (phase 2b, part 1 — the real eval harness):** Suite frozen
+  and versioned (`eval/v1`, 40 core + 14 adversarial + 12 binding cases,
+  hashed manifest, contamination guard); gates stamped (`sf-gates-3`) and both
+  models re-scored through one version (ft_v1 27/30, ft_v2 34/40 — one of the
+  four in-session s3 flags proved a draft-gate false positive). LLM judge run
+  for the first time: double-pass agent judging, 90% inter-judge agreement,
+  4 adjudications. Honest ft_v2 quality-tier score: **9/40 overall**; top
+  failure X1 false relations (20/40) — grounded values, wrong arithmetic
+  claims about them. Regression gate wired against a pinned baseline
+  (`scripts/check_regression.py`). Next: full-suite baseline (core +
+  adversarial + binding), then a phase-2b data round aimed at relational
+  correctness, graded by this now-trustworthy ruler.

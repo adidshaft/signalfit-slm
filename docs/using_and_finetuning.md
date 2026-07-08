@@ -134,6 +134,14 @@ correct behavior (plus benign hard-negatives so you don't overcorrect);
 (4) retrain and compare runs on the same locked eval. That loop, run twice, is
 the whole story of this repo — `docs/process_guide.md` § Step 7b.
 
+Once you have a model worth protecting, upgrade from "same locked eval" to the
+frozen-suite workflow in `eval/README.md`: version the suite
+(`scripts/freeze_eval.py`), score through versioned gates + the LLM judge
+(`run_eval.py` → `merge_judgments.py` → `apply_judge.py`), and block regressions
+against a pinned baseline (`scripts/check_regression.py`). Deterministic gates
+measure shape; only the judge tier catches answers that cite true values while
+claiming false relations between them (`docs/process_guide.md` § Step 7d).
+
 ## 7. Ship it (optional)
 
 ```bash
