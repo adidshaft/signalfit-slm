@@ -58,12 +58,18 @@ def main() -> int:
     for r in report["results"]:
         v = verdicts.get(r["example_id"])
         merged = dict(r)
+        # criteria_pass is the strict bar (rubric roll-up: cross_cutting AND
+        # category): an answer with a judge-confirmed false qualitative claim
+        # (X1) fails overall even when its category criteria all pass.
         merged["judge"] = None if v is None else {
             "judge": v.get("judge"),
             "category_pass": v["category_pass"],
+            "criteria_pass": all(c["pass"] for c in v["criteria"].values()),
             "criteria": v["criteria"],
         }
-        merged["overall_pass"] = bool(r["deterministic_pass"] and v and v["category_pass"])
+        merged["overall_pass"] = bool(
+            r["deterministic_pass"] and v and v["category_pass"]
+            and merged["judge"]["criteria_pass"])
         results.append(merged)
 
     judged = [r for r in results if r["judge"] is not None]
@@ -74,7 +80,8 @@ def main() -> int:
         "count": n,
         "judged_count": len(judged),
         "deterministic_pass_rate": report["summary"]["deterministic_pass_rate"],
-        "judge_pass_rate": round(sum(r["judge"]["category_pass"] for r in judged) / len(judged), 3) if judged else None,
+        "judge_category_pass_rate": round(sum(r["judge"]["category_pass"] for r in judged) / len(judged), 3) if judged else None,
+        "judge_all_criteria_pass_rate": round(sum(r["judge"]["criteria_pass"] for r in judged) / len(judged), 3) if judged else None,
         "overall_pass_rate": round(sum(r["overall_pass"] for r in results) / n, 3) if n else None,
         "by_gate": report["summary"]["by_gate"],
         "by_category": {},
