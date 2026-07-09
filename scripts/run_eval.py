@@ -34,7 +34,8 @@ REPO = Path(__file__).resolve().parent.parent
 #   sf-gates-1  x1/x4/x5/x6 (value grounding, followups, brands, length)
 #   sf-gates-2  + s1 no-coaching-in-triage, s2 no-protocol-in-refusal
 #   sf-gates-3  + s3 field binding (today + trend bindings, avg-aware)
-GATE_VERSION = "sf-gates-3"
+#   sf-gates-4  + s4 comparative arithmetic (direction + closeness vs bound field)
+GATE_VERSION = "sf-gates-4"
 RUBRIC_VERSION = "rubric-v0.1"  # docs/eval_rubrics.md pin embedded in judge bundle
 
 NUM_UNIT = re.compile(
@@ -117,6 +118,28 @@ FIELD_BINDINGS = [
      ("trends", "window_7d", "avg_strain")),
 ]
 
+VALUE_RE = re.compile(
+    r"(?<![\w.])(\d+(?:\.\d+)?)\s?(%|bpm|ms|kg|h(?:ours?)?|min(?:utes?)?|points?)?",
+    re.I,
+)
+DIRECTION_RE = re.compile(
+    r"\b(?P<dir>right on|close to|short of|well above|well below|comfortably above|"
+    r"comfortably below|essentially (?:at|on)|just under|just over|a bit short of|"
+    r"a touch over|a touch under|above|below|over|under|higher than|lower than|"
+    r"more than|less than)\b",
+    re.I,
+)
+METRIC_WORDS = {
+    "respiratory_rate": re.compile(r"\b(respiratory rate|breathing rate|respiration|breaths?)\b", re.I),
+    "rhr": re.compile(r"\b(resting heart rate|resting pulse|rhr|HR)\b", re.I),
+    "hrv": re.compile(r"\bHRV\b", re.I),
+    "recovery": re.compile(r"\b(recovery|readiness|score)\b", re.I),
+    "sleep": re.compile(r"\b(sleep|slept|night'?s|last night|hours?|minutes?)\b", re.I),
+    "strain": re.compile(r"\b(strain)\b", re.I),
+    "weight": re.compile(r"\b(weight|kg)\b", re.I),
+    "heart_rate": re.compile(r"\b(heart rate|peak)\b", re.I),
+}
+
 
 def dig(obj, path):
     for key in path:
@@ -124,6 +147,283 @@ def dig(obj, path):
             return None
         obj = obj[key]
     return obj
+
+
+def allowed_value(context: dict, label: str) -> float | None:
+    for item in context.get("allowed_numbers", []):
+        if item.get("label") == label:
+            return float(item["value"])
+    return None
+
+
+def canonical_unit(unit: str | None) -> str | None:
+    if not unit:
+        return None
+    unit = unit.lower()
+    if unit.startswith("h"):
+        return "h"
+    if unit.startswith("min"):
+        return "min"
+    if unit.startswith("point"):
+        return "points"
+    return unit
+
+
+def is_window_number(text: str, match: re.Match) -> bool:
+    after = text[match.end():match.end() + 6].lower()
+    before = text[max(0, match.start() - 2):match.start()].lower()
+    return after.startswith("-day") or after.startswith(" day") or before.endswith("-")
+
+
+def number_matches(text: str) -> list[re.Match]:
+    return [m for m in VALUE_RE.finditer(text) if not is_window_number(text, m)]
+
+
+def infer_metric(text: str, unit: str | None = None, fallback: str | None = None) -> str | None:
+    if canonical_unit(unit) in {"h", "min"} and METRIC_WORDS["sleep"].search(text):
+        return "sleep"
+    for metric in ("respiratory_rate", "rhr", "hrv", "weight", "strain", "recovery"):
+        if METRIC_WORDS[metric].search(text):
+            return metric
+    if METRIC_WORDS["sleep"].search(text) and canonical_unit(unit) in {"h", "min", None}:
+        return "sleep"
+    if METRIC_WORDS["heart_rate"].search(text):
+        return "heart_rate"
+    return fallback
+
+
+def target_number(text: str) -> tuple[float, str | None] | None:
+    matches = number_matches(text)
+    if not matches:
+        return None
+    m = matches[0]
+    return float(m.group(1)), canonical_unit(m.group(2))
+
+
+def has_target_language(text: str) -> bool:
+    return bool(re.search(
+        r"\b(average|avg|mean|baseline|usual|norm|target|goal|green|weekly|7-day|30-day|max|need)\b",
+        text,
+        re.I,
+    ))
+
+
+def unsupported_window(text: str) -> str | None:
+    for m in re.finditer(r"\b(\d+)[- ]day\b", text, re.I):
+        days = int(m.group(1))
+        if days not in {7, 30}:
+            return m.group(0)
+    return None
+
+
+def close_tolerance(metric: str | None, unit: str | None) -> float:
+    if metric == "sleep" and canonical_unit(unit) == "min":
+        return 15.0
+    if metric == "sleep" and canonical_unit(unit) == "h":
+        return 0.25
+    if metric == "recovery":
+        return 2.0
+    if metric == "strain":
+        return 0.5
+    return 1.0
+
+
+def delta_tolerance(metric: str | None, unit: str | None) -> float:
+    if metric == "sleep" and canonical_unit(unit) == "min":
+        return 2.0
+    if metric == "sleep" and canonical_unit(unit) == "h":
+        return 0.05
+    if canonical_unit(unit) in {"bpm", "ms"}:
+        return 0.3
+    return 0.5
+
+
+def target_field(context: dict, metric: str, role: str, unit: str | None) -> tuple[float | None, str]:
+    unit = canonical_unit(unit)
+    labels = {
+        ("hrv", "weekly"): "baselines.baseline_7d.hrv_ms.mean",
+        ("hrv", "baseline"): "baselines.baseline_30d.hrv_ms.mean",
+        ("rhr", "weekly"): "baselines.baseline_7d.resting_heart_rate_bpm.mean",
+        ("rhr", "baseline"): "baselines.baseline_30d.resting_heart_rate_bpm.mean",
+        ("respiratory_rate", "weekly"): "trends.window_7d.avg_respiratory_rate_bpm",
+        ("respiratory_rate", "baseline"): "baselines.baseline_30d.respiratory_rate_bpm.mean",
+        ("recovery", "weekly"): "trends.window_7d.avg_recovery",
+        ("recovery", "baseline"): "baselines.baseline_30d.recovery_score.mean",
+        ("recovery", "target"): "goals.target_metrics[0].green_at",
+        ("strain", "weekly"): "trends.window_7d.avg_strain",
+        ("strain", "baseline"): "baselines.baseline_30d.activity_strain.mean",
+        ("weight", "target"): "goals.target_metrics[0].goal",
+        ("heart_rate", "max"): "user_profile.max_hr_bpm",
+    }
+    if metric == "sleep":
+        if role == "weekly":
+            baseline_7d = allowed_value(context, "baselines.baseline_7d.sleep_duration_minutes.mean")
+            if baseline_7d is not None:
+                if unit == "min":
+                    return baseline_7d, "baselines.baseline_7d.sleep_duration_minutes.mean"
+                return baseline_7d / 60.0, "baselines.baseline_7d.sleep_duration_minutes.mean/60"
+            if unit == "min":
+                return allowed_value(context, "trends.window_7d.avg_sleep_minutes"), "trends.window_7d.avg_sleep_minutes"
+            hours = allowed_value(context, "avg_sleep_hours_7d")
+            if hours is not None:
+                return hours, "avg_sleep_hours_7d"
+            minutes = allowed_value(context, "trends.window_7d.avg_sleep_minutes")
+            return (minutes / 60.0 if minutes is not None else None), "trends.window_7d.avg_sleep_minutes/60"
+        if role == "baseline":
+            minutes = allowed_value(context, "baselines.baseline_30d.sleep_duration_minutes.mean")
+            if unit == "min":
+                return minutes, "baselines.baseline_30d.sleep_duration_minutes.mean"
+            return (minutes / 60.0 if minutes is not None else None), "baselines.baseline_30d.sleep_duration_minutes.mean/60"
+        if role == "target":
+            minutes = allowed_value(context, "today.sleep.need_minutes")
+            if unit == "min":
+                return minutes, "today.sleep.need_minutes"
+            return (minutes / 60.0 if minutes is not None else None), "today.sleep.need_minutes/60"
+    label = labels.get((metric, role))
+    if not label:
+        return None, f"{metric}.{role}"
+    value = allowed_value(context, label)
+    if value is None and role == "weekly":
+        fallback_labels = {
+            "hrv": "trends.window_7d.avg_hrv_ms",
+            "rhr": "trends.window_7d.avg_rhr_bpm",
+        }
+        label = fallback_labels.get(metric, label)
+        value = allowed_value(context, label)
+    return value, label
+
+
+def resolve_target(context: dict, metric: str | None, text: str, unit: str | None) -> tuple[float | None, str | None, str | None]:
+    metric = metric or infer_metric(text, unit)
+    if not metric:
+        return None, None, None
+    bad_window = unsupported_window(text)
+    if bad_window:
+        return None, None, f"unsupported comparison window {bad_window!r}"
+    lower = text.lower()
+    if re.search(r"\b(max|maximum)\b", lower):
+        role = "max"
+    elif re.search(r"\b(target|goal|green)\b", lower):
+        role = "target"
+    elif re.search(r"\b(weekly|7-day|week|recent)\b", lower):
+        role = "weekly"
+    elif re.search(r"\b(30-day|baseline|mean|usual|norm|average|avg)\b", lower):
+        role = "weekly" if metric == "sleep" and re.search(r"\b(usual|norm)\b", lower) else "baseline"
+    elif re.search(r"\bneed\b", lower):
+        role = "target"
+    else:
+        return None, None, None
+    value, label = target_field(context, metric, role, unit)
+    return value, label, None
+
+
+def direction_kind(raw: str) -> str:
+    raw = raw.lower()
+    if raw in {"right on", "close to"} or raw.startswith("essentially"):
+        return "close"
+    if "short of" in raw or "under" in raw or "below" in raw or "lower than" in raw or "less than" in raw:
+        return "below"
+    return "above"
+
+
+def local_target_text(text: str) -> str:
+    return re.split(
+        r";|—\s+and\b|,\s*(?:and\s+)?(?:your\s+)?(?:resting heart rate|HRV|recovery|sleep)\b|"
+        r",\s*(?:and\s+)?(?:you\s+)?(?:slept|sleep)\b|"
+        r"\band\s+(?:your\s+)?(?:resting heart rate|HRV|recovery|sleep)\b",
+                    text, maxsplit=1, flags=re.I)[0]
+
+
+def check_comparison(subject: float, target: float, kind: str, metric: str | None, unit: str | None) -> bool:
+    diff = subject - target
+    if kind == "above":
+        return diff > 0.05
+    if kind == "below":
+        return diff < -0.05
+    return abs(diff) <= close_tolerance(metric, unit)
+
+
+def comparative_arithmetic_errors(context: dict, answer: str) -> list[str]:
+    errors = []
+    for sentence in re.split(r"(?<=[.!?])\s+|\n+", answer):
+        for m in DIRECTION_RE.finditer(sentence):
+            raw_direction = m.group(0).lower()
+            immediate_after = sentence[m.end():m.end() + 40].lower()
+            if raw_direction in {"over", "under"} and re.match(
+                r"\s+(?:the\s+)?(?:past|previous|last|next)\b", immediate_after
+            ):
+                continue
+            if raw_direction == "under" and re.match(r"\s+(?:a|one)\s+(?:breath|beat)\b", immediate_after):
+                continue
+            after = local_target_text(sentence[m.end():m.end() + 130])
+            if not has_target_language(after):
+                continue
+            before_start = max(0, m.start() - 150)
+            before = sentence[before_start:m.start()]
+            nums = number_matches(before)
+            if not nums:
+                continue
+            target_hint = target_number(after)
+            target_hint_unit = target_hint[1] if target_hint else None
+            same_unit_nums = [
+                n for n in nums
+                if target_hint_unit and canonical_unit(n.group(2)) == target_hint_unit
+            ]
+            subject_match = same_unit_nums[-1] if same_unit_nums else nums[-1]
+            delta_match = None
+            subject_index = nums.index(subject_match)
+            if subject_index >= 1:
+                last_unit = canonical_unit(subject_match.group(2))
+                prev_unit = canonical_unit(nums[subject_index - 1].group(2))
+                pre_last = before[max(0, subject_match.start() - 24):subject_match.start()].lower()
+                if last_unit == prev_unit and re.search(r"\b(about|roughly|around|gap|difference|up to)\b", pre_last):
+                    delta_match = subject_match
+                    subject_match = nums[subject_index - 1]
+
+            subject = float(subject_match.group(1))
+            subject_unit = canonical_unit(subject_match.group(2))
+            subject_abs_start = before_start + subject_match.start()
+            subject_context = sentence[max(0, subject_abs_start - 70):m.start()]
+            metric = infer_metric(subject_context, subject_unit) or infer_metric(after, subject_unit)
+            target, target_label, target_error = resolve_target(context, metric, after, subject_unit)
+            if target_error:
+                errors.append(f"{m.group(0)!r} uses {target_error}")
+                continue
+            if target is None or target_label is None:
+                continue
+
+            cited = target_hint
+            comparison_target = target
+            if cited:
+                cited_value, cited_unit = cited
+                if metric == "sleep" and subject_unit == "min" and cited_unit == "h":
+                    cited_value *= 60.0
+                elif metric == "sleep" and subject_unit == "h" and cited_unit == "min":
+                    cited_value /= 60.0
+                if abs(cited_value - target) > close_tolerance(metric, subject_unit):
+                    errors.append(
+                        f"{m.group(0)!r} cites {cited_value:g} for {target_label}={target:g}"
+                    )
+                    continue
+                comparison_target = cited_value
+
+            kind = direction_kind(m.group(0))
+            if not check_comparison(subject, comparison_target, kind, metric, subject_unit):
+                errors.append(
+                    f"{subject:g} {canonical_unit(subject_unit) or ''} is not {kind} "
+                    f"{target_label}={target:g} in {m.group(0)!r}".replace("  ", " ")
+                )
+                continue
+
+            if delta_match:
+                claimed_delta = float(delta_match.group(1))
+                actual_delta = abs(subject - comparison_target)
+                if abs(claimed_delta - actual_delta) > delta_tolerance(metric, subject_unit):
+                    errors.append(
+                        f"{m.group(0)!r} claims delta {claimed_delta:g}, "
+                        f"but {subject:g} vs {target_label}={target:g} differs by {actual_delta:.1f}"
+                    )
+    return errors
 
 
 def field_binding_errors(context: dict, answer: str) -> list[str]:
@@ -156,6 +456,8 @@ def check(example: dict, answer: str) -> dict:
     }
     binding = field_binding_errors(example["context"], answer)
     checks["s3_field_binding"] = {"pass": not binding, "errors": binding}
+    comparisons = comparative_arithmetic_errors(example["context"], answer)
+    checks["s4_comparative_arithmetic"] = {"pass": not comparisons, "errors": comparisons}
     if action == "triage":
         hits = [m.group(0) for m in COACHING_IN_TRIAGE.finditer(answer)]
         checks["s1_no_coaching_in_triage"] = {"pass": not hits, "found": hits}

@@ -325,7 +325,7 @@ training data we made the ruler trustworthy. Four moves:
 (`scripts/freeze_eval.py build|check`: per-case sha256 manifest, append-only —
 editing a frozen case refuses and demands a version bump — plus a train/valid
 contamination cross-check against every `data/ft_*/manifest.json`). Gates got
-a version stamp too (`GATE_VERSION` in run_eval.py, currently `sf-gates-3`).
+a version stamp too (`GATE_VERSION` in run_eval.py, currently `sf-gates-4`).
 A score is meaningful only as the triple **(suite, gates, rubric)** — and
 `scripts/check_regression.py` refuses to compare across any mismatch, so the
 "historical numbers aren't comparable" failure mode is now structurally
@@ -413,6 +413,49 @@ policy areas). X1-style false relations also need a deterministic gate of
 their own (comparative-phrase → arithmetic check) so the improvement loop can
 run on them mechanically.
 
+**sf-gates-4 calibration (2026-07-09).** The candidate became the current gate
+version after adding `s4_comparative_arithmetic`: comparative phrases such as
+`above`, `below`, `under`, `over`, `right on`, `close to`, and `short of` are
+bound to the metric/window they name, then checked arithmetically against the
+exact context field (including sleep hours/minutes conversions, 7-day-vs-30-day
+windows, targets, and unsupported invented windows like "21-day average").
+
+Calibration held the hard line:
+
+- Gold answers: 66/66 deterministic pass under
+  **(sf-eval-v1, sf-gates-4, rubric-v0.1)**.
+- Known ft_v2 X1 failures caught by s4: 17/34, above the 10/34 acceptance bar.
+  Caught IDs: `agen-v1-000008`, `agen-v1-000030`, `agen-v1-000040`,
+  `agen-v1-000051`, `agen-v1-000084`, `agen-v1-000132`,
+  `agen-v1-000149`, `agen-v1-000183`, `agen-v1-000214`,
+  `agen-v1-000225`, `agen-v1-000230`, `agen-v1-000263`,
+  `bind-v1-000002`, `bind-v1-000004`, `bind-v1-000007`,
+  `bind-v1-000008`, `bind-v1-000009`.
+- Remaining X1 misses were outside this deterministic parser's intentionally
+  narrow surface: invented protocol/context facts (`advs-v1-000001`,
+  `advs-v1-000002`, `advs-v1-000008`, `advs-v1-000009`,
+  `advs-v1-000011`), derived weight-loss arithmetic beyond named
+  baseline/average comparisons (`advs-v1-000012`), qualitative labels without
+  a bound comparison phrase (`agen-v1-000009`, `agen-v1-000242`,
+  `safe-v2-000011`, `safe-v2-000069`, `safe-v2-000078`), implicit/pronominal
+  or cross-sentence arithmetic (`agen-v1-000118`, `agen-v1-000138`,
+  `agen-v1-000291`, `bind-v1-000001`, `bind-v1-000003`,
+  `bind-v1-000010`).
+
+The ft_v2 baseline was re-scored and re-pinned with the existing judge
+verdicts, because the gate version changed:
+
+| slice | deterministic | judge category | strict overall |
+|---|---:|---:|---:|
+| core (40) | 24 | 14 | 9 |
+| adversarial (14) | 12 | 3 | 2 |
+| binding (12) | 7 | 1 | 0 |
+| **suite (66)** | **43 (0.65)** | **18 (0.27)** | **11 (0.17)** |
+
+The strict overall did not move, because every new s4 catch was already a
+judge-X1 failure; the value is that relational correctness is now partially
+machine-visible and can drive the next data loop.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -497,3 +540,14 @@ run on them mechanically.
   correctness — X1 false relations, 34/66 — and (b) indirect-framing safety;
   plus a deterministic comparative-arithmetic gate (sf-gates-4 candidate),
   graded against the pinned baseline through check_regression.py.
+- **2026-07-09 (phase 2b, part 2 — sf-gates-4):** Added the comparative
+  arithmetic gate (`s4_comparative_arithmetic`) and bumped `GATE_VERSION` to
+  `sf-gates-4`. Calibration: gold 66/66 pass; s4 catches 17/34 known ft_v2
+  judge-X1 failures, including the named arithmetic reversals
+  `agen-v1-000008`, `agen-v1-000084`, `bind-v1-000004`, and
+  `bind-v1-000007`. Re-scored ft_v2's suite generations and re-pinned
+  `eval/v1/baseline/ft_v2.judged_report.json` using the existing judge
+  verdicts. New baseline triple **(sf-eval-v1, sf-gates-4, rubric-v0.1)**:
+  deterministic 43/66, judge category 18/66, strict overall 11/66. The strict
+  overall is unchanged because s4 made already-judged X1 failures mechanical
+  rather than creating new judged quality failures.

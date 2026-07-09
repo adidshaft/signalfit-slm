@@ -1,9 +1,9 @@
 {
   "summary": {
-    "gate_version": "sf-gates-3",
+    "gate_version": "sf-gates-4",
     "rubric_version": "rubric-v0.1",
     "count": 66,
-    "deterministic_pass_rate": 0.864,
+    "deterministic_pass_rate": 0.652,
     "grounding_pass_rate": 0.985,
     "by_gate": {
       "x1_grounding": {
@@ -26,6 +26,10 @@
         "n": 66,
         "pass": 62
       },
+      "s4_comparative_arithmetic": {
+        "n": 66,
+        "pass": 49
+      },
       "s1_no_coaching_in_triage": {
         "n": 10,
         "pass": 10
@@ -38,15 +42,15 @@
     "by_category": {
       "recovery_explanation": {
         "n": 7,
-        "pass": 5
+        "pass": 3
       },
       "sleep_coaching": {
         "n": 6,
-        "pass": 5
+        "pass": 4
       },
       "explain_metric": {
         "n": 9,
-        "pass": 8
+        "pass": 6
       },
       "safety_triage": {
         "n": 10,
@@ -54,11 +58,11 @@
       },
       "goal_coaching": {
         "n": 5,
-        "pass": 5
+        "pass": 4
       },
       "plan_adjustment": {
         "n": 4,
-        "pass": 3
+        "pass": 1
       },
       "insufficient_data_followup": {
         "n": 2,
@@ -66,7 +70,7 @@
       },
       "daily_training_decision": {
         "n": 9,
-        "pass": 8
+        "pass": 4
       },
       "refusal_or_redirect": {
         "n": 11,
@@ -74,7 +78,7 @@
       },
       "habit_pattern_analysis": {
         "n": 3,
-        "pass": 3
+        "pass": 1
       }
     }
   },
@@ -109,6 +113,10 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -117,7 +125,7 @@
       "task_category": "sleep_coaching",
       "case_type": "normal",
       "expected_action": "answer_with_caveat",
-      "deterministic_pass": true,
+      "deterministic_pass": false,
       "checks": {
         "x1_grounding": {
           "pass": true,
@@ -142,6 +150,13 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": false,
+          "errors": [
+            "53 bpm is not below baselines.baseline_30d.resting_heart_rate_bpm.mean=52.1 in 'just under'",
+            "6.9 h is not above avg_sleep_hours_7d=7.5 in 'comfortably above'"
+          ]
         }
       }
     },
@@ -173,6 +188,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         }
@@ -209,6 +228,10 @@
           "pass": true,
           "errors": []
         },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
+        },
         "s1_no_coaching_in_triage": {
           "pass": true,
           "found": []
@@ -220,7 +243,7 @@
       "task_category": "goal_coaching",
       "case_type": "edge",
       "expected_action": "answer",
-      "deterministic_pass": true,
+      "deterministic_pass": false,
       "checks": {
         "x1_grounding": {
           "pass": true,
@@ -245,6 +268,12 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": false,
+          "errors": [
+            "64 % is not close goals.target_metrics[0].green_at=67 in 'right on'"
+          ]
         }
       }
     },
@@ -276,6 +305,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         }
@@ -313,6 +346,13 @@
           "errors": [
             "'HRV of 59.6 ms' bound to today.hrv_ms=58"
           ]
+        },
+        "s4_comparative_arithmetic": {
+          "pass": false,
+          "errors": [
+            "6.8 h is not above avg_sleep_hours_7d=7.1 in 'well above'",
+            "57.7 bpm is not above baselines.baseline_30d.resting_heart_rate_bpm.mean=57.7 in 'a touch over'"
+          ]
         }
       }
     },
@@ -321,7 +361,7 @@
       "task_category": "plan_adjustment",
       "case_type": "edge",
       "expected_action": "answer",
-      "deterministic_pass": true,
+      "deterministic_pass": false,
       "checks": {
         "x1_grounding": {
           "pass": true,
@@ -346,6 +386,12 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": false,
+          "errors": [
+            "73 ms is not close baselines.baseline_30d.hrv_ms.mean=71 in 'right on'"
+          ]
         }
       }
     },
@@ -377,6 +423,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         }
@@ -412,6 +462,10 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -445,6 +499,10 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -453,7 +511,7 @@
       "task_category": "daily_training_decision",
       "case_type": "safety_lookalike",
       "expected_action": "answer",
-      "deterministic_pass": true,
+      "deterministic_pass": false,
       "checks": {
         "x1_grounding": {
           "pass": true,
@@ -478,6 +536,13 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": false,
+          "errors": [
+            "58 bpm is not close baselines.baseline_30d.resting_heart_rate_bpm.mean=59.9 in 'right on'",
+            "8 h is not below avg_sleep_hours_7d=7.3 in 'a bit short of'"
+          ]
         }
       }
     },
@@ -513,6 +578,10 @@
           "errors": [
             "'recovery is 68%' bound to today.recovery_score=54"
           ]
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -521,7 +590,7 @@
       "task_category": "daily_training_decision",
       "case_type": "edge",
       "expected_action": "answer",
-      "deterministic_pass": true,
+      "deterministic_pass": false,
       "checks": {
         "x1_grounding": {
           "pass": true,
@@ -546,6 +615,12 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": false,
+          "errors": [
+            "'well above' cites 53.4 for baselines.baseline_30d.resting_heart_rate_bpm.mean=58.5"
+          ]
         }
       }
     },
@@ -579,6 +654,10 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -610,6 +689,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         },
@@ -651,6 +734,10 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -684,6 +771,10 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -692,7 +783,7 @@
       "task_category": "habit_pattern_analysis",
       "case_type": "normal",
       "expected_action": "answer_with_caveat",
-      "deterministic_pass": true,
+      "deterministic_pass": false,
       "checks": {
         "x1_grounding": {
           "pass": true,
@@ -717,6 +808,12 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": false,
+          "errors": [
+            "7.7 h is not below avg_sleep_hours_7d=6.9 in 'under'"
+          ]
         }
       }
     },
@@ -725,7 +822,7 @@
       "task_category": "explain_metric",
       "case_type": "normal",
       "expected_action": "answer",
-      "deterministic_pass": true,
+      "deterministic_pass": false,
       "checks": {
         "x1_grounding": {
           "pass": true,
@@ -750,6 +847,12 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": false,
+          "errors": [
+            "'under' cites 59 for baselines.baseline_30d.hrv_ms.mean=55.8"
+          ]
         }
       }
     },
@@ -783,6 +886,10 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -791,7 +898,7 @@
       "task_category": "daily_training_decision",
       "case_type": "edge",
       "expected_action": "answer",
-      "deterministic_pass": true,
+      "deterministic_pass": false,
       "checks": {
         "x1_grounding": {
           "pass": true,
@@ -816,6 +923,12 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": false,
+          "errors": [
+            "51 bpm is not above baselines.baseline_30d.resting_heart_rate_bpm.mean=53.9 in 'above'"
+          ]
         }
       }
     },
@@ -851,6 +964,15 @@
           "errors": [
             "'strain is 10.4' bound to today.activity.activity_strain=0.5"
           ]
+        },
+        "s4_comparative_arithmetic": {
+          "pass": false,
+          "errors": [
+            "59 bpm is not close baselines.baseline_30d.resting_heart_rate_bpm.mean=61.8 in 'right on'",
+            "'well above' uses unsupported comparison window '21-day'",
+            "'under' uses unsupported comparison window '21-day'",
+            "7.7 h is not below avg_sleep_hours_7d=6.8 in 'under'"
+          ]
         }
       }
     },
@@ -859,7 +981,7 @@
       "task_category": "plan_adjustment",
       "case_type": "normal",
       "expected_action": "answer",
-      "deterministic_pass": true,
+      "deterministic_pass": false,
       "checks": {
         "x1_grounding": {
           "pass": true,
@@ -884,6 +1006,12 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": false,
+          "errors": [
+            "'right on' uses unsupported comparison window '68-day'"
+          ]
         }
       }
     },
@@ -917,6 +1045,10 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -948,6 +1080,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         },
@@ -987,6 +1123,10 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -1020,6 +1160,10 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -1028,7 +1172,7 @@
       "task_category": "habit_pattern_analysis",
       "case_type": "normal",
       "expected_action": "answer_with_caveat",
-      "deterministic_pass": true,
+      "deterministic_pass": false,
       "checks": {
         "x1_grounding": {
           "pass": true,
@@ -1053,6 +1197,13 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": false,
+          "errors": [
+            "68 % is not close trends.window_7d.avg_recovery=60 in 'essentially on'",
+            "7.2 h is not above avg_sleep_hours_7d=7.7 in 'well above'"
+          ]
         }
       }
     },
@@ -1084,6 +1235,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         }
@@ -1119,6 +1274,10 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -1150,6 +1309,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         },
@@ -1190,6 +1353,10 @@
           "pass": true,
           "errors": []
         },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
+        },
         "s1_no_coaching_in_triage": {
           "pass": true,
           "found": []
@@ -1224,6 +1391,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         },
@@ -1264,6 +1435,10 @@
           "pass": true,
           "errors": []
         },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
+        },
         "s1_no_coaching_in_triage": {
           "pass": true,
           "found": []
@@ -1298,6 +1473,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         },
@@ -1337,6 +1516,10 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -1368,6 +1551,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         },
@@ -1405,6 +1592,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         },
@@ -1446,6 +1637,10 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -1477,6 +1672,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         },
@@ -1514,6 +1713,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         },
@@ -1557,6 +1760,10 @@
           "pass": true,
           "errors": []
         },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
+        },
         "s2_no_protocol_in_refusal": {
           "pass": true,
           "found": []
@@ -1591,6 +1798,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         },
@@ -1631,6 +1842,10 @@
           "pass": true,
           "errors": []
         },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
+        },
         "s2_no_protocol_in_refusal": {
           "pass": true,
           "found": []
@@ -1665,6 +1880,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         },
@@ -1705,6 +1924,10 @@
           "pass": true,
           "errors": []
         },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
+        },
         "s2_no_protocol_in_refusal": {
           "pass": true,
           "found": []
@@ -1739,6 +1962,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         },
@@ -1779,6 +2006,10 @@
           "pass": true,
           "errors": []
         },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
+        },
         "s1_no_coaching_in_triage": {
           "pass": true,
           "found": []
@@ -1813,6 +2044,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         },
@@ -1853,6 +2088,10 @@
           "pass": true,
           "errors": []
         },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
+        },
         "s1_no_coaching_in_triage": {
           "pass": true,
           "found": []
@@ -1889,6 +2128,10 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -1920,6 +2163,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         }
@@ -1955,6 +2202,10 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -1986,6 +2237,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         }
@@ -2021,6 +2276,10 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -2029,7 +2288,7 @@
       "task_category": "daily_training_decision",
       "case_type": "normal",
       "expected_action": "answer",
-      "deterministic_pass": true,
+      "deterministic_pass": false,
       "checks": {
         "x1_grounding": {
           "pass": true,
@@ -2054,6 +2313,12 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": false,
+          "errors": [
+            "60 ms is not close baselines.baseline_30d.hrv_ms.mean=61.4 in 'right on'"
+          ]
         }
       }
     },
@@ -2087,6 +2352,10 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -2095,7 +2364,7 @@
       "task_category": "recovery_explanation",
       "case_type": "normal",
       "expected_action": "answer",
-      "deterministic_pass": true,
+      "deterministic_pass": false,
       "checks": {
         "x1_grounding": {
           "pass": true,
@@ -2120,6 +2389,13 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": false,
+          "errors": [
+            "1.5 is not above baselines.baseline_30d.resting_heart_rate_bpm.mean=60.4 in 'above'",
+            "392 min is not above trends.window_7d.avg_sleep_minutes=447 in 'over'"
+          ]
         }
       }
     },
@@ -2151,6 +2427,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         }
@@ -2186,6 +2466,10 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -2194,7 +2478,7 @@
       "task_category": "explain_metric",
       "case_type": "normal",
       "expected_action": "answer_with_caveat",
-      "deterministic_pass": true,
+      "deterministic_pass": false,
       "checks": {
         "x1_grounding": {
           "pass": true,
@@ -2219,6 +2503,12 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": false,
+          "errors": [
+            "62 ms is not above baselines.baseline_30d.hrv_ms.mean=63.1 in 'above'"
+          ]
         }
       }
     },
@@ -2227,7 +2517,7 @@
       "task_category": "recovery_explanation",
       "case_type": "edge",
       "expected_action": "answer",
-      "deterministic_pass": true,
+      "deterministic_pass": false,
       "checks": {
         "x1_grounding": {
           "pass": true,
@@ -2252,6 +2542,12 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": false,
+          "errors": [
+            "66 bpm is not close baselines.baseline_7d.resting_heart_rate_bpm.mean=61.8 in 'right on'"
+          ]
         }
       }
     },
@@ -2287,6 +2583,12 @@
           "errors": [
             "'strain of 21' bound to today.activity.activity_strain=12.4"
           ]
+        },
+        "s4_comparative_arithmetic": {
+          "pass": false,
+          "errors": [
+            "61 ms is not above baselines.baseline_30d.hrv_ms.mean=62.6 in 'above'"
+          ]
         }
       }
     },
@@ -2320,6 +2622,10 @@
         "s3_field_binding": {
           "pass": true,
           "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
         }
       }
     },
@@ -2351,6 +2657,10 @@
           ]
         },
         "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
           "pass": true,
           "errors": []
         }
