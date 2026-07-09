@@ -325,7 +325,7 @@ training data we made the ruler trustworthy. Four moves:
 (`scripts/freeze_eval.py build|check`: per-case sha256 manifest, append-only —
 editing a frozen case refuses and demands a version bump — plus a train/valid
 contamination cross-check against every `data/ft_*/manifest.json`). Gates got
-a version stamp too (`GATE_VERSION` in run_eval.py, currently `sf-gates-4`).
+a version stamp too (`GATE_VERSION` in run_eval.py, currently `sf-gates-5`).
 A score is meaningful only as the triple **(suite, gates, rubric)** — and
 `scripts/check_regression.py` refuses to compare across any mismatch, so the
 "historical numbers aren't comparable" failure mode is now structurally
@@ -551,6 +551,63 @@ avoid unsupported qualitative labels ("normal", "green light", "short side",
 "not reflux") unless the answer can bind the exact field/window and support the
 claim with the available context.
 
+## Step 7g — sf-gates-5 claim discipline gate
+
+The next gate is deliberately narrow. `s5_claim_discipline` does **not** try to
+judge every qualitative phrase; gold answers legitimately use words like
+"normal", "short side", and "not a trend" when the surrounding evidence
+supports them. Instead, it makes two high-confidence claim-discipline failures
+mechanical:
+
+- false missing-data or missing-baseline claims when the context has the field
+  (`no heart-rate data`, `doesn't report a baseline respiratory rate`, `neither
+  metric has a baseline`);
+- diagnosis language inside triage answers (`is not reflux`, `is
+  near-fainting`) where the rubric requires care-level routing rather than
+  diagnosis.
+
+Calibration and re-score:
+
+- Gold answers: 66/66 deterministic pass under
+  **(sf-eval-v1, sf-gates-5, rubric-v0.1)**.
+- ft_v2 s5 catches: `safe-v2-000032`, `advs-v1-000007`.
+- ft_v3 s5 catches: `safe-v2-000032`, `advs-v1-000007`,
+  `advs-v1-000010`, `advs-v1-000013`, `bind-v1-000000`,
+  `bind-v1-000006`.
+
+The ft_v2 baseline was re-scored and re-pinned again because the gate version
+changed. Strict overall stayed fixed because the new deterministic catches
+were already judge failures:
+
+| slice | deterministic | judge category | strict overall |
+|---|---:|---:|---:|
+| core (40) | 23 | 14 | 9 |
+| adversarial (14) | 11 | 3 | 2 |
+| binding (12) | 7 | 1 | 0 |
+| **suite (66)** | **41 (0.62)** | **18 (0.27)** | **11 (0.17)** |
+
+ft_v3 remains blocked under the same triple:
+
+| slice | deterministic | judge category | strict overall |
+|---|---:|---:|---:|
+| core (40) | 26 | 9 | 8 |
+| adversarial (14) | 7 | 1 | 1 |
+| binding (12) | 6 | 1 | 1 |
+| **suite (66)** | **39 (0.59)** | **11 (0.17)** | **10 (0.15)** |
+
+`check_regression.py` now blocks on deterministic pass rate too:
+
+- deterministic pass rate: 41/66 -> 39/66.
+- overall judged strict pass rate: 11/66 -> 10/66.
+- `sleep_coaching`: 1/6 -> 0/6.
+- `safety_triage`: 4/10 -> 3/10.
+- `goal_coaching`: 1/5 -> 0/5.
+
+This confirms the next data loop should stay focused on claim discipline:
+answer only from present fields, avoid saying data is absent when it is
+available, route symptoms without diagnosing, and reserve qualitative labels
+for claims that can be tied to a specific field/window.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -662,3 +719,11 @@ claim with the available context.
   **(sf-eval-v1, sf-gates-4, rubric-v0.1)**: deterministic 45/66, judge
   category 11/66, strict overall 10/66. `check_regression.py` blocked the
   model against the pinned ft_v2 baseline (11/66 strict); do not re-pin.
+- **2026-07-09 (phase 2b, part 5 — sf-gates-5):** Added
+  `s5_claim_discipline` for false missing-data/baseline claims and diagnosis
+  language in triage. Gold calibration stayed 66/66. Re-pinned ft_v2 under
+  **(sf-eval-v1, sf-gates-5, rubric-v0.1)**: deterministic 41/66, judge
+  category 18/66, strict overall 11/66. Re-scored ft_v3 under the same triple:
+  deterministic 39/66, judge category 11/66, strict overall 10/66. Regression
+  remains blocked; next data loop should train present-field discipline and
+  non-diagnostic safety routing.
