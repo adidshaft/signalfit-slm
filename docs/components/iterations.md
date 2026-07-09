@@ -85,10 +85,11 @@ invented recommendation numbers. Every sleep and goal case was inspected.
 
 The resulting agv5 design is 120 examples: 36 balanced benign↔triage boundary
 pairs (72 examples), 24 targeted s4/X1 repairs, and 24 sleep/goal repairs. No
-ft_v5 score exists yet. Five generators and five independent critics have now
+ft_v5 score exists yet. Five generators and five independent critics
 accepted all 120: schema/gold gates 120/120 and pair invariants 36/36. The
-balanced 72-example boundary slice will be repeated once in the ft_v5 training
-mixture; the scoreboard remains unchanged until the full frozen suite and
+balanced 72-example boundary slice was repeated once in the 894-row ft_v5
+mixture. Training completed all 1,769 iterations (best observed val 0.204,
+final 0.296); the scoreboard remains unchanged until the full frozen suite and
 two-pass judge workflow finish.
 
 ## Scoreboard — triple (sf-eval-v1, sf-gates-6, rubric-v0.1)
@@ -122,7 +123,7 @@ predates the suite.)
 
 ## Current loop
 
-ft_v4 is closed and blocked. Iteration 5 phases 1–2 and the weighted 894-row
-ft_v5 dataset are committed; next is the 1,769-iteration LoRA run. The eventual
-verdict must repair `agen-v1-000232` and systematic s4/X1 families without
-giving back ft_v4's s2 refusal and s3 field-binding gains.
+ft_v4 is closed and blocked. Iteration 5 data, weighted dataset, and training
+are complete; next is the full ft_v5 frozen-suite and two-pass judge verdict.
+It must repair `agen-v1-000232` and systematic s4/X1 families without giving
+back ft_v4's s2 refusal and s3 field-binding gains.

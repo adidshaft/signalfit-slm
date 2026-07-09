@@ -3,7 +3,8 @@
 This directory contains MLX LoRA adapter artifacts and run notes for
 SignalFit-SLM. The recommended upload/run is still `ft_v2_qwen2.5-1.5b`;
 `ft_v4_qwen2.5-1.5b` completed evaluation but was blocked by a triage-safety
-regression and is not promoted.
+regression and is not promoted. `ft_v5_qwen2.5-1.5b` is trained but has not yet
+received its frozen-suite verdict.
 
 ## Base model selection (2026-07-05)
 
@@ -31,3 +32,4 @@ regression and is not promoted.
 | 2026-07-09 | ft_v2 pinned baseline | Qwen2.5-1.5B-Instruct | ft_v2, re-scored on frozen suite | `(sf-eval-v1, sf-gates-6, rubric-v0.1)`: deterministic 41/66, judge category 18/66, strict overall 11/66 | Current model of record. This is the file `eval/v1/baseline/ft_v2.judged_report.json`; do not compare candidate runs against older gate triples. |
 | 2026-07-09 | ft_v3 | Qwen2.5-1.5B-Instruct | ft_v3 (552 total, train 461 / valid 51 / eval 40) | `(sf-eval-v1, sf-gates-6, rubric-v0.1)`: deterministic 39/66, judge category 11/66, strict overall 10/66 | Blocked by regression despite good validation loss. Field binding/protocol behavior improved, but judged quality and per-category scores dropped. |
 | 2026-07-10 | ft_v4 | Qwen2.5-1.5B-Instruct | ft_v4 (702 total, train 596 / valid 66 / eval 40) | `(sf-eval-v1, sf-gates-6, rubric-v0.1)`: deterministic 44/66, judge category 19/66, strict 13/66, grounding 65/66 | Trained 1371 MLX LoRA iterations; best observed val loss 0.281 at iter 1000, final val loss 0.354. Aggregate scores improved, with s2 11/11 and s3 64/66, but s1 triage safety dropped 10/10→9/10. `check_regression.py` exited 1; ft_v4 blocked and ft_v2 retained. |
+| 2026-07-10 | ft_v5 | Qwen2.5-1.5B-Instruct | ft_v5 weighted (894 rows / 822 unique; train 769 / valid 85 / eval 40) | pending under `(sf-eval-v1, sf-gates-6, rubric-v0.1)` | Trained 1769 MLX LoRA iterations with balanced boundary slice at 2×. Best observed val loss 0.204 at iter 1750; final val 0.296. Full frozen-suite verdict pending; ft_v2 remains model of record. |

@@ -1005,6 +1005,17 @@ LoRA shape and points to `data/ft_v5`, 1,769 iterations (~2.3 passes over 769
 weighted train rows), and `models/adapters/ft_v5_qwen2.5-1.5b`. As before,
 validation loss records optimization behavior but cannot promote the model.
 
+### Phase 3b: ft_v5 training COMPLETE — verdict next
+
+The MLX LoRA run completed all **1,769** configured iterations and wrote the
+final adapter to `models/adapters/ft_v5_qwen2.5-1.5b/adapters.safetensors`.
+Checkpoints were retained every 250 iterations through 1,750. Best observed
+validation loss was **0.204 at iteration 1,750**; final validation loss was
+0.296, final reported train loss 0.166, trained tokens 2,393,142, and peak
+memory 14.877 GB. The variation in validation loss changes no decision: ft_v5
+must still pass the frozen suite, double judge, zero-drop safety gates,
+lookalike-coaching check, and exact `agen-v1-000232` s1 replay.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -1195,3 +1206,9 @@ validation loss records optimization behavior but cannot promote the model.
   locked eval 40; pair/persona isolation verified and frozen contamination
   check green. Added the ft_v5 MLX config for 1,769 iterations (~2.3 passes)
   and adapter path `models/adapters/ft_v5_qwen2.5-1.5b`.
+- **2026-07-10 (iteration 5, phase 3b — ft_v5 trained):** Completed all 1,769
+  MLX LoRA iterations over the weighted 769-row train split. Best observed val
+  loss 0.204 at iter 1,750; final val 0.296, final train loss 0.166, peak memory
+  14.877 GB. Final adapter and seven 250-step checkpoints are present under
+  `models/adapters/ft_v5_qwen2.5-1.5b`. Frozen suite stayed green. No promotion
+  decision was made from loss; Phase 4 runs the full frozen verdict.
