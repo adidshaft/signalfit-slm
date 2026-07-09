@@ -247,7 +247,7 @@
   "case_type": "normal",
   "difficulty": 2,
   "target_response": {
-    "text": "Heat is almost certainly your answer. In hot conditions your body sends extra blood to the skin to shed heat, so the heart beats more often to keep the muscles supplied — the same easy pace can cost an extra 10 bpm or so, and the drift grows as you sweat through a run. It's a normal, well-described response, not a fault in you or in the watch. Your resting numbers back that up: this morning's resting heart rate is 55 bpm, matching your 55.3 baseline, and HRV is 60 ms, in line with its usual level — no sign of illness or accumulated fatigue. Practical version: in this weather, run easy days by feel, let the heart rate read high without chasing it, start hydrated, and save the pace targets for cooler mornings.",
+    "text": "Heat is the most likely explanation. In hot conditions your body sends extra blood to the skin to shed heat, so the heart often beats faster to support the same easy pace; that can show up as the extra 10 bpm you saw. Your resting picture does not point to broader strain today: resting heart rate is 55 bpm, matching your 55.3 baseline, and HRV is 60 ms, in line with usual. That makes this look like heat-related cardiac drift rather than a watch fault or illness signal. Practical version: for hot easy days, run by feel and let pace slow; save pace targets for cooler mornings.",
     "expected_action": "answer",
     "must_mention": [
       "heat explains HR elevation",
@@ -284,7 +284,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-lookalike-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

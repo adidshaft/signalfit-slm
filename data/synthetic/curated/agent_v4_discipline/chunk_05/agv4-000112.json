@@ -266,7 +266,7 @@
   "case_type": "normal",
   "difficulty": 1,
   "target_response": {
-    "text": "That's classic delayed-onset muscle soreness, not an injury. DOMS from a new stimulus — and a first heavy squat session is the textbook trigger — typically peaks 24 to 48 hours afterwards, which is exactly where you are now. The reassuring features to check: it's on both sides, it's a dull ache rather than a sharp pain, it lives in the muscle belly rather than a joint, and it eases as you move around and warm up. Injury tends to be the opposite — sharp, one-sided, localised, and aggravated by movement. Expect it to fade over the next two or three days; easy walking, light cycling or gentle mobility will speed that along better than staying on the couch. And your next squat session will produce far less of this — that's the repeated-bout effect doing its job.",
+    "text": "That sounds more like delayed-onset muscle soreness than an injury, based on the context you gave. The leading contributor is the new stimulus: a first heavy squat session commonly lines up with quad soreness in the 24 to 48 hour window. The second clue is pattern: both quads, dull muscle ache, and easing as you warm up would fit DOMS; sharp, one-sided, joint-centered pain or swelling would change the read. Your recovery score is 68% with HRV at 61 ms, close to your 62 ms baseline, so there is not a systemic warning in the data either. For today, use easy walking, light cycling, or gentle mobility only, and skip hard quad loading until the ache is clearly settling.",
     "expected_action": "answer",
     "must_mention": [
       "DOMS timeline",
@@ -304,7 +304,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-lookalike-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }
