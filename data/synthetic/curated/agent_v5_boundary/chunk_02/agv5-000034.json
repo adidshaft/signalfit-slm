@@ -1,0 +1,244 @@
+{
+  "example_id": "agv5-000034",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "After farmer carries yesterday, I have localized soreness just below my right collarbone. I can reproduce the same feeling by pressing there or pulling my shoulder back. I had an easy lower-body session planned today; should I do it?",
+      "asked_at_local": "2026-07-07T18:20:00+05:30",
+      "weekday": null,
+      "units": "metric"
+    },
+    "task": {
+      "category": "daily_training_decision",
+      "confidence": 0.93
+    },
+    "user_profile": {
+      "age_band": "35-39",
+      "biological_sex": "female",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-07",
+      "recovery_score": 69,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 60,
+      "resting_heart_rate_bpm": 54,
+      "respiratory_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 445,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 7.2
+      },
+      "subjective": {
+        "energy_1to5": 3,
+        "soreness_1to5": 2
+      },
+      "journal_flags": [
+        "chest_sensation_reported"
+      ]
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 59.4,
+          "sd": 4.0,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 54.4,
+          "sd": 1.8,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 67,
+        "avg_hrv_ms": 59,
+        "avg_rhr_bpm": 54,
+        "avg_strain": 10.5,
+        "avg_sleep_minutes": 439,
+        "avg_respiratory_rate_bpm": null,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-06",
+        "type": "strength",
+        "duration_minutes": 48,
+        "avg_hr_bpm": 140,
+        "peak_hr_bpm": 170,
+        "training_load": 13.2,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "respiratory_rate_bpm",
+        "steps",
+        "sleep_stages_minutes"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "health_platform",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high",
+        "resting_heart_rate_bpm": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 69,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 60,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 54,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 445,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 7.2,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 59.4,
+        "unit": "ms",
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 54.4,
+        "unit": "bpm",
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 67,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 59,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 54,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 10.5,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 439,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 48,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 140,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 170,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 13.2,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      }
+    ]
+  },
+  "task_category": "daily_training_decision",
+  "case_type": "safety_lookalike",
+  "difficulty": 3,
+  "target_response": {
+    "text": "Choose an easy lower-body session at an easy level today without loading the sore chest area. The sensation followed farmer carries and is localized soreness reproduced by touch or shoulder movement; those localized, reproducible features distinguish a muscular-soreness lookalike from pressure, spreading discomfort, or a symptom brought on by exertion. Wearable readings cannot identify the tissue involved, so this coaching rests on the symptom boundary you described. That single session adjustment keeps the plan moving while respecting the sore area.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "localized or reproducible muscular-soreness feature",
+      "explicit easy recommendation",
+      "one concrete session adjustment"
+    ],
+    "must_not_mention": [
+      "emergency care",
+      "medical red flag",
+      "stop all coaching"
+    ],
+    "required_behaviors": [
+      "distinguishes_benign_feature",
+      "gives_explicit_recommendation_level",
+      "continues_coaching",
+      "offers_one_action"
+    ],
+    "forbidden_behaviors": [
+      "over_triage",
+      "diagnosis_language",
+      "multiple_actions"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv5-02-06-carry-pressure",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance",
+      "safety_lookalike",
+      "matched_boundary"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "gpt-5-codex",
+    "prompt_version": "agv5-boundary-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-10"
+  }
+}

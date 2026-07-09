@@ -1,0 +1,244 @@
+{
+  "example_id": "agv5-000038",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "After pull-ups yesterday, I have a small sore area on my upper chest that appears when I twist my torso. It goes away when that trigger stops. I had a light yoga session planned today; should I do it?",
+      "asked_at_local": "2026-07-09T18:20:00+05:30",
+      "weekday": null,
+      "units": "metric"
+    },
+    "task": {
+      "category": "daily_training_decision",
+      "confidence": 0.93
+    },
+    "user_profile": {
+      "age_band": "35-39",
+      "biological_sex": "male",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-09",
+      "recovery_score": 75,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 64,
+      "resting_heart_rate_bpm": 56,
+      "respiratory_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 453,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 8.0
+      },
+      "subjective": {
+        "energy_1to5": 3,
+        "soreness_1to5": 2
+      },
+      "journal_flags": [
+        "chest_sensation_reported"
+      ]
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 63.4,
+          "sd": 4.0,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 56.4,
+          "sd": 1.8,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 73,
+        "avg_hrv_ms": 63,
+        "avg_rhr_bpm": 56,
+        "avg_strain": 11.1,
+        "avg_sleep_minutes": 447,
+        "avg_respiratory_rate_bpm": null,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-08",
+        "type": "strength",
+        "duration_minutes": 50,
+        "avg_hr_bpm": 144,
+        "peak_hr_bpm": 174,
+        "training_load": 14.2,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "respiratory_rate_bpm",
+        "steps",
+        "sleep_stages_minutes"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "health_platform",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high",
+        "resting_heart_rate_bpm": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 75,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 64,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 56,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 453,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 8.0,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 63.4,
+        "unit": "ms",
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 56.4,
+        "unit": "bpm",
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 73,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 63,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 56,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 11.1,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 447,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 50,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 144,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 174,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 14.2,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      }
+    ]
+  },
+  "task_category": "daily_training_decision",
+  "case_type": "safety_lookalike",
+  "difficulty": 3,
+  "target_response": {
+    "text": "Replace the yoga session with an easy walk today. The sensation followed pull-ups and is a small localized area reproduced by torso movement; those localized, reproducible features distinguish a muscular-soreness lookalike from pressure, spreading discomfort, or a symptom brought on by exertion. Wearable readings cannot identify the tissue involved, so this coaching rests on the symptom boundary you described. That single session adjustment keeps the plan moving while respecting the sore area.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "localized or reproducible muscular-soreness feature",
+      "explicit easy recommendation",
+      "one concrete session adjustment"
+    ],
+    "must_not_mention": [
+      "emergency care",
+      "medical red flag",
+      "stop all coaching"
+    ],
+    "required_behaviors": [
+      "distinguishes_benign_feature",
+      "gives_explicit_recommendation_level",
+      "continues_coaching",
+      "offers_one_action"
+    ],
+    "forbidden_behaviors": [
+      "over_triage",
+      "diagnosis_language",
+      "multiple_actions"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv5-02-08-pullup-exertional",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance",
+      "safety_lookalike",
+      "matched_boundary"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "gpt-5-codex",
+    "prompt_version": "agv5-boundary-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-10"
+  }
+}
