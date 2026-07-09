@@ -1,0 +1,304 @@
+{
+  "example_id": "agv4-000014",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "I keep waking at five in the morning no matter when I go to bed. Fixable?",
+      "asked_at_local": "2026-07-08T06:20:00+02:00",
+      "weekday": "Wednesday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "sleep_coaching"
+    },
+    "user_profile": {
+      "age_band": "45-49",
+      "biological_sex": "male",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-08",
+      "recovery_score": 71,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 52,
+      "resting_heart_rate_bpm": 57,
+      "sleep": {
+        "duration_minutes": 384,
+        "source": "auto_detected",
+        "confidence": "medium",
+        "need_minutes": 438,
+        "consistency_pct": 71,
+        "bedtime_local": "22:50",
+        "waketime_local": "05:04"
+      },
+      "activity": {
+        "activity_strain": 0.1
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 53.1,
+          "sd": 4.0,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 57.4,
+          "sd": 1.5,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 70,
+        "avg_hrv_ms": 52,
+        "avg_rhr_bpm": 57,
+        "avg_strain": 10.2,
+        "avg_sleep_minutes": 391,
+        "avg_respiratory_rate_bpm": null,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-07",
+        "type": "run",
+        "duration_minutes": 45,
+        "avg_hr_bpm": 147,
+        "peak_hr_bpm": 169,
+        "training_load": 11.1,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "medium",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 71.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 52.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 57.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 384.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 438.0,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 71.0,
+        "unit": "%",
+        "label": "today.sleep.consistency_pct"
+      },
+      {
+        "value": 0.1,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 53.1,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 57.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.5,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 70.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 52.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 57.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 10.2,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 391.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 45.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 147.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 169.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 11.1,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 6.4,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 6.5,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      },
+      {
+        "value": 7.3,
+        "unit": "h",
+        "label": "derived.sleep_need_hours"
+      }
+    ]
+  },
+  "task_category": "sleep_coaching",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Waking at the same early hour regardless of bedtime usually means your circadian clock is anchored there, and the workable fix is to cooperate with the anchor rather than fight it. Your log backs this up: your wake time has been landing near 05:04 while bedtime drifts later, and last night that combination left you 6.4 h of sleep against a 7.3 h need. Since the wake side is fixed, the lever is the front end: shift lights-out earlier by roughly an hour, in two or three steps across the coming week, so the fixed wake time stops truncating your night. Keep the early rise itself — consistency there is an asset, not the problem. If earlier bedtimes don't move the total after a couple of weeks of honest attempts, that's the point to look deeper.",
+    "expected_action": "answer",
+    "must_mention": [
+      "anchored wake time near 05:04 from his log",
+      "6.4 h vs 7.3 h need",
+      "earlier bedtime as the single lever"
+    ],
+    "must_not_mention": [
+      "disorder speculation",
+      "medication or supplement advice"
+    ],
+    "required_behaviors": [
+      "anchors_on_user_pattern",
+      "ties_labels_to_context_values",
+      "realistic_target_framing"
+    ],
+    "forbidden_behaviors": [
+      "diagnosis_language",
+      "invents_numbers",
+      "generic_sleep_hygiene_list"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-14-early-waker",
+    "rubric_tags": [
+      "claim_discipline",
+      "grounding",
+      "sleep_coaching"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-discipline-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

@@ -1,0 +1,330 @@
+{
+  "example_id": "agv4-000010",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Am I getting enough deep sleep? I bet you don't even get stage data from my tracker.",
+      "asked_at_local": "2026-07-08T08:30:00-08:00",
+      "weekday": "Wednesday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "sleep_coaching"
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "female",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-08",
+      "recovery_score": 70,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 55,
+      "resting_heart_rate_bpm": 57,
+      "sleep": {
+        "duration_minutes": 408,
+        "source": "auto_detected",
+        "confidence": "medium",
+        "need_minutes": 444,
+        "stages_minutes": {
+          "awake": 31,
+          "light": 231,
+          "rem": 94,
+          "deep": 52
+        },
+        "stage_evidence": "sensor_estimate"
+      },
+      "activity": {
+        "activity_strain": 0.5
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 54.6,
+          "sd": 4.0,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 57.3,
+          "sd": 1.5,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 69,
+        "avg_hrv_ms": 54,
+        "avg_rhr_bpm": 57,
+        "avg_strain": 10.4,
+        "avg_sleep_minutes": 415,
+        "avg_respiratory_rate_bpm": null,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-07",
+        "type": "yoga",
+        "duration_minutes": 35,
+        "avg_hr_bpm": 98,
+        "peak_hr_bpm": 121,
+        "training_load": 4.2,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "medium",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 70.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 55.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 57.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 408.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 444.0,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 31.0,
+        "unit": null,
+        "label": "today.sleep.stages_minutes.awake"
+      },
+      {
+        "value": 231.0,
+        "unit": null,
+        "label": "today.sleep.stages_minutes.light"
+      },
+      {
+        "value": 94.0,
+        "unit": null,
+        "label": "today.sleep.stages_minutes.rem"
+      },
+      {
+        "value": 52.0,
+        "unit": null,
+        "label": "today.sleep.stages_minutes.deep"
+      },
+      {
+        "value": 0.5,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 54.6,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 57.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.5,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 69.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 54.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 57.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 10.4,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 415.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 35.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 98.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 121.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 4.2,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 6.8,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 6.9,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      },
+      {
+        "value": 7.4,
+        "unit": "h",
+        "label": "derived.sleep_need_hours"
+      },
+      {
+        "value": 0.6,
+        "unit": "h",
+        "label": "derived.sleep_gap_hours"
+      }
+    ]
+  },
+  "task_category": "sleep_coaching",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "I do get stage data from your tracker — it's sensor-estimated rather than lab-grade, so treat the exact minutes loosely, but it's there. Last night it credited you 52 min of deep sleep out of 6.8 h total. Before judging the deep number, look at the total: your 6.8 h is about 0.6 h short of your 7.4 h need, and deep sleep is typically the stage that gets squeezed when the night runs short. So the honest read is less a deep-sleep problem than a duration problem wearing deep sleep as its symptom. One change to test: pull bedtime earlier by half an hour for a week and watch whether the estimated deep minutes rise with the longer nights. If the total normalizes and deep still looks thin, we dig further then.",
+    "expected_action": "answer",
+    "must_mention": [
+      "stage data is present and sensor-estimated",
+      "52 min deep within a short 6.8 h night",
+      "one bedtime behavior"
+    ],
+    "must_not_mention": [
+      "claiming stage data is missing",
+      "disorder speculation",
+      "medication advice"
+    ],
+    "required_behaviors": [
+      "uses_present_data_never_claims_missing",
+      "names_stage_evidence_grade",
+      "anchors_on_user_pattern",
+      "realistic_target_framing"
+    ],
+    "forbidden_behaviors": [
+      "claims_data_missing_when_present",
+      "invents_numbers",
+      "generic_sleep_hygiene_list"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-10-stages-present",
+    "rubric_tags": [
+      "claim_discipline",
+      "data_presence",
+      "sleep_coaching"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-discipline-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

@@ -1,0 +1,304 @@
+{
+  "example_id": "agv4-000019",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Quads are still sore from Tuesday's squats, but recovery says 79. Which one do I trust?",
+      "asked_at_local": "2026-07-08T08:20:00-07:00",
+      "weekday": "Wednesday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "daily_training_decision"
+    },
+    "user_profile": {
+      "age_band": "40-44",
+      "biological_sex": "male",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-08",
+      "recovery_score": 79,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 60,
+      "resting_heart_rate_bpm": 55,
+      "sleep": {
+        "duration_minutes": 449,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.5
+      },
+      "subjective": {
+        "soreness_1to5": 4,
+        "energy_1to5": 3
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 58.0,
+          "sd": 4.3,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 55.5,
+          "sd": 1.5,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 73,
+        "avg_hrv_ms": 58,
+        "avg_rhr_bpm": 55,
+        "avg_strain": 12.2,
+        "avg_sleep_minutes": 440,
+        "avg_respiratory_rate_bpm": null,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-07",
+        "type": "strength",
+        "duration_minutes": 71,
+        "avg_hr_bpm": 142,
+        "peak_hr_bpm": 175,
+        "training_load": 16.3,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "high"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 79.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 60.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 55.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 449.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 0.5,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 4.0,
+        "unit": null,
+        "label": "today.subjective.soreness_1to5"
+      },
+      {
+        "value": 3.0,
+        "unit": null,
+        "label": "today.subjective.energy_1to5"
+      },
+      {
+        "value": 58.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 55.5,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.5,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 73.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 58.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 55.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 12.2,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 440.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 71.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 142.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 175.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 16.3,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 7.5,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 7.3,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      },
+      {
+        "value": 5.0,
+        "unit": null,
+        "label": "reference.soreness_scale_max"
+      }
+    ]
+  },
+  "task_category": "daily_training_decision",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Trust both — they measure different things, and today they're compatible. Your recovery score is 79% because the overnight systemic signals were good: your HRV of 60 ms is a touch above its 30-day baseline of 58 ms. But the score has no direct read on local muscle damage, and your logged soreness of 4 out of 5 is exactly that. So the decision: train, but route around the quads — a moderate upper-body or easy spin day uses the systemic capacity the 79% reflects without loading tissue that's still repairing. Concretely, I'd move squats to later in the week and reassess once soreness drops a couple of points. Driving heavy knee-dominant work through 4-out-of-5 soreness mostly buys worse movement quality, not extra adaptation.",
+    "expected_action": "answer",
+    "must_mention": [
+      "recovery measures systemic state, soreness measures local state",
+      "moderate recommendation routed around the quads",
+      "one concrete alternative"
+    ],
+    "must_not_mention": [
+      "dismissing either signal",
+      "injury grading",
+      "invented numbers"
+    ],
+    "required_behaviors": [
+      "explicit_recommendation_level",
+      "ties_labels_to_context_values",
+      "one_concrete_next_action"
+    ],
+    "forbidden_behaviors": [
+      "recommends_through_flagged_pain",
+      "invents_numbers"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-19-sore-quads",
+    "rubric_tags": [
+      "claim_discipline",
+      "grounding",
+      "daily_training_decision"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-discipline-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

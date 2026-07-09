@@ -1,0 +1,189 @@
+{
+  "example_id": "agv4-000023",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Is a resting heart rate of 61 high for me?",
+      "asked_at_local": "2026-07-08T07:35:00+00:00",
+      "weekday": "Wednesday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "insufficient_data_followup"
+    },
+    "user_profile": {
+      "age_band": "55-59",
+      "biological_sex": "male",
+      "training_experience": "beginner"
+    },
+    "today": {
+      "date_local": "2026-07-08",
+      "recovery_score": 65,
+      "recovery_confidence": "learning",
+      "readiness_state": "moderate",
+      "hrv_ms": 49,
+      "resting_heart_rate_bpm": 61,
+      "sleep": {
+        "duration_minutes": 412,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 8.4
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": null,
+        "avg_hrv_ms": null,
+        "avg_rhr_bpm": 60,
+        "avg_strain": null,
+        "avg_sleep_minutes": null,
+        "avg_respiratory_rate_bpm": null,
+        "coverage_pct": 43,
+        "confidence": "learning",
+        "anomalies": [],
+        "hrv_state": null
+      }
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "baseline_30d",
+        "respiratory_rate_bpm",
+        "steps"
+      ],
+      "overall": "low"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "resting_heart_rate_bpm": "medium"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 65.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 49.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 61.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 412.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 8.4,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 60.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 43.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 6.9,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      }
+    ]
+  },
+  "task_category": "insufficient_data_followup",
+  "case_type": "edge",
+  "difficulty": 2,
+  "target_response": {
+    "text": "I can't tell you what's high for you yet — that's the exact piece still missing: your 30-day baselines haven't been built, because this device only has a handful of days of history so far. A resting heart rate of 61 bpm is a single point with nothing personal to compare it against; the same number can be routine for one person and elevated for another, so I won't slap a label on it. What your short history does show: your 7-day average resting heart rate is 60 bpm at 43% coverage, marked as still learning, and today's 61 bpm sits within a beat of that early average — nothing erratic between days. The one thing that unlocks a real answer is consistent overnight wear for a couple more weeks; once the baseline forms, I can tell you exactly where 61 bpm falls in your own range.",
+    "expected_action": "followup",
+    "must_mention": [
+      "names the unbuilt 30-day baseline as the blocker",
+      "declines to label 61 bpm without a personal reference",
+      "partial guidance from the learning 7-day average"
+    ],
+    "must_not_mention": [
+      "population norm presented as his value",
+      "invented baseline numbers"
+    ],
+    "required_behaviors": [
+      "names_missing_fields",
+      "explains_why_field_matters",
+      "gives_partial_guidance",
+      "single_followup_or_logging_action"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "unsupported_qualitative_label"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_new_user",
+    "persona_id": "p-agv4-23-no-baseline-yet",
+    "rubric_tags": [
+      "claim_discipline",
+      "missing_data",
+      "insufficient_data_followup"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-discipline-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

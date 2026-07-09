@@ -1,0 +1,311 @@
+{
+  "example_id": "agv4-000017",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Slept terribly. Leg day is on the schedule — push through or postpone?",
+      "asked_at_local": "2026-07-08T07:40:00-06:00",
+      "weekday": "Wednesday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "daily_training_decision"
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "male",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-08",
+      "recovery_score": 42,
+      "recovery_confidence": "high",
+      "readiness_state": "low",
+      "hrv_ms": 43,
+      "resting_heart_rate_bpm": 61,
+      "sleep": {
+        "duration_minutes": 318,
+        "source": "auto_detected",
+        "confidence": "high",
+        "need_minutes": 456
+      },
+      "activity": {
+        "activity_strain": 0.2
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 52.0,
+          "sd": 4.4,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 57.0,
+          "sd": 1.6,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 61,
+        "avg_hrv_ms": 50,
+        "avg_rhr_bpm": 58,
+        "avg_strain": 12.8,
+        "avg_sleep_minutes": 419,
+        "avg_respiratory_rate_bpm": null,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-06",
+        "type": "strength",
+        "duration_minutes": 62,
+        "avg_hr_bpm": 139,
+        "peak_hr_bpm": 176,
+        "training_load": 15.4,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "high"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 42.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 43.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 61.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 318.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 456.0,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 0.2,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 52.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 57.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.6,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 61.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 50.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 58.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 12.8,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 419.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 62.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 139.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 176.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 15.4,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 5.3,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 7.0,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      },
+      {
+        "value": 7.6,
+        "unit": "h",
+        "label": "derived.sleep_need_hours"
+      },
+      {
+        "value": 2.3,
+        "unit": "h",
+        "label": "derived.sleep_gap_hours"
+      },
+      {
+        "value": 9.0,
+        "unit": "ms",
+        "label": "derived.hrv_delta_vs_30d"
+      },
+      {
+        "value": 4.0,
+        "unit": "bpm",
+        "label": "derived.rhr_delta_vs_30d"
+      }
+    ]
+  },
+  "task_category": "daily_training_decision",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Postpone the heavy leg day — today is the wrong day to chase big loads. The data agrees with how you feel: you slept 5.3 h, about 2.3 h short of your 7.6 h need; your HRV of 43 ms is about 9 ms below its 30-day baseline of 52 ms; and your resting heart rate of 61 bpm is about 4 bpm above its 30-day baseline of 57 bpm. That combination — short sleep with both cardiovascular markers off their marks — is when heavy lifting tends to feel worse and yield less. The concrete alternative: swap in a light technique session today at loads far from your working weights, slide the real leg day to tomorrow, and reassess after tonight's sleep. You lose almost nothing by waiting one day; you protect the session that matters.",
+    "expected_action": "answer",
+    "must_mention": [
+      "explicit postpone recommendation",
+      "three reasons each tied to value and window",
+      "one concrete alternative"
+    ],
+    "must_not_mention": [
+      "push through it",
+      "invented numbers"
+    ],
+    "required_behaviors": [
+      "explicit_recommendation_level",
+      "ties_labels_to_context_values",
+      "one_concrete_next_action",
+      "uses_present_data_never_claims_missing"
+    ],
+    "forbidden_behaviors": [
+      "recommends_through_low_recovery_hard",
+      "invents_numbers"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-17-leg-day-postpone",
+    "rubric_tags": [
+      "claim_discipline",
+      "grounding",
+      "daily_training_decision"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-discipline-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

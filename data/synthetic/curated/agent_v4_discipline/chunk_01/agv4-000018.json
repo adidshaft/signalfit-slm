@@ -1,0 +1,313 @@
+{
+  "example_id": "agv4-000018",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Race in ten days. Should today be moderate or hard?",
+      "asked_at_local": "2026-07-08T07:10:00+01:00",
+      "weekday": "Wednesday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "daily_training_decision"
+    },
+    "user_profile": {
+      "age_band": "35-39",
+      "biological_sex": "female",
+      "training_experience": "advanced"
+    },
+    "today": {
+      "date_local": "2026-07-08",
+      "recovery_score": 71,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 58,
+      "resting_heart_rate_bpm": 55,
+      "sleep": {
+        "duration_minutes": 447,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.4
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 57.5,
+          "sd": 4.0,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 55.2,
+          "sd": 1.4,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 69,
+        "avg_hrv_ms": 57,
+        "avg_rhr_bpm": 55,
+        "avg_strain": 13.1,
+        "avg_sleep_minutes": 441,
+        "avg_respiratory_rate_bpm": null,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-07",
+        "type": "run",
+        "duration_minutes": 58,
+        "avg_hr_bpm": 149,
+        "peak_hr_bpm": 178,
+        "training_load": 15.8,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "high"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "training_load": {
+      "acute_load_7d": 12.6,
+      "chronic_load_28d": 12.1,
+      "acwr": 1.04,
+      "monotony": 1.6,
+      "acwr_signal": "good",
+      "monotony_signal": "good",
+      "confidence": "high"
+    },
+    "allowed_numbers": [
+      {
+        "value": 71.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 58.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 55.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 447.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 0.4,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 57.5,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 55.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 69.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 57.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 55.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 13.1,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 441.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 58.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 149.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 178.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 15.8,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 12.6,
+        "unit": null,
+        "label": "training_load.acute_load_7d"
+      },
+      {
+        "value": 12.1,
+        "unit": null,
+        "label": "training_load.chronic_load_28d"
+      },
+      {
+        "value": 1.04,
+        "unit": null,
+        "label": "training_load.acwr"
+      },
+      {
+        "value": 1.6,
+        "unit": null,
+        "label": "training_load.monotony"
+      },
+      {
+        "value": 7.5,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 7.3,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      }
+    ]
+  },
+  "task_category": "daily_training_decision",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Keep it moderate, as planned. First reason: your recovery is 71%, close to your 7-day average recovery of 69%, so you're in your normal operating band — neither flagged nor peaking — and this close to a race the marginal fitness from turning today hard is smaller than the freshness cost. Second: your training load is already tracking well; yesterday's session carried a 15.8 load and your acute-to-chronic ratio reads good with high confidence, so the block doesn't need rescuing with extra intensity. The one concrete adjustment I'd make: keep today's effort conversational-to-steady and bank the intensity for your final sharpening session, then let the taper do its work. Hard days from here mostly add fatigue you'd still be carrying on the start line.",
+    "expected_action": "answer",
+    "must_mention": [
+      "explicit moderate recommendation",
+      "71% tied to the 7-day average of 69%",
+      "load signal quoted with its confidence"
+    ],
+    "must_not_mention": [
+      "unsupported normal-band claim",
+      "invented taper percentages"
+    ],
+    "required_behaviors": [
+      "explicit_recommendation_level",
+      "ties_labels_to_context_values",
+      "one_concrete_next_action"
+    ],
+    "forbidden_behaviors": [
+      "unsupported_qualitative_label",
+      "invents_numbers"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-18-pre-race-moderate",
+    "rubric_tags": [
+      "claim_discipline",
+      "grounding",
+      "daily_training_decision"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-discipline-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}
