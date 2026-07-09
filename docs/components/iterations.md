@@ -1,4 +1,4 @@
-# Iterations — four trips around the improvement loop
+# Iterations — five trips around the improvement loop
 
 The loop that governs the whole project:
 
@@ -75,6 +75,19 @@ The candidate is still blocked: safety triage falls s1 10/10→9/10, sleep
 strict falls 1/6→0/6, and goal coaching strict falls 1/5→0/5. ft_v2 remains
 the model of record.
 
+## Iteration 5 — ft_v5 boundary round — failure mining complete
+
+The ft_v4 failure ledger was read before generation. Its 17 s4 failures contain
+24 comparison errors, dominated by close-language overreach and reversed
+above/below relations. Judge X1 fails 32 unique examples: 15 overlap s4, while
+17 expose field roles, evidence sufficiency, context-state contradictions, or
+invented recommendation numbers. Every sleep and goal case was inspected.
+
+The resulting agv5 design is 120 examples: 36 balanced benign↔triage boundary
+pairs (72 examples), 24 targeted s4/X1 repairs, and 24 sleep/goal repairs. No
+ft_v5 score exists yet; the scoreboard remains unchanged until the full frozen
+suite and two-pass judge workflow finish.
+
 ## Scoreboard — triple (sf-eval-v1, sf-gates-6, rubric-v0.1)
 
 | model | deterministic | judge category | strict overall | verdict |
@@ -106,6 +119,7 @@ predates the suite.)
 
 ## Current loop
 
-ft_v4 is closed and blocked. The next loop should target comparative and
-qualitative grounding (s4/X1) plus the exact `agen-v1-000232` triage failure,
-without giving back ft_v4's s2 refusal and s3 field-binding gains.
+ft_v4 is closed and blocked. Iteration 5 phase 1 is committed; next is the
+five-chunk `agent_v5_boundary` round. It must repair the exact
+`agen-v1-000232` boundary error and systematic s4/X1 families without giving
+back ft_v4's s2 refusal and s3 field-binding gains.

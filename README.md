@@ -48,6 +48,7 @@ model-index:
 | ft_v3 Relational | 6 | Relational/safety data round, retrain, and full-suite evaluation. | ⛔ Blocked |
 | ft_v4 Discipline | 7 | Claim-discipline/relational/lookalike round, critic pass, dataset build, LoRA training, and full frozen-suite evaluation. | ⛔ Blocked |
 | Verdict | 8 | Two independent judge passes, disagreement adjudication, regression decision, and post-mortem. | ✅ Complete — ft_v2 retained |
+| ft_v5 Boundary | 9 | Failure taxonomy, contrastive benign↔triage boundary pairs, targeted repairs, retrain, and frozen-suite verdict. | 🧭 Phase 1 complete |
 
 ## Benchmark Dashboard
 
@@ -95,10 +96,10 @@ The charts are generated directly from the judged reports:
 
 | Name pattern | What it means |
 |---|---|
-| `ft_v1`, `ft_v2`, `ft_v3`, `ft_v4` | Fine-tuned model/data run versions. `ft_v1` is the first LoRA run, `ft_v2` is the promoted safety-improved run and current model of record, `ft_v3` is the blocked relational retrain, and `ft_v4` is the blocked claim-discipline retrain. |
+| `ft_v1`, `ft_v2`, `ft_v3`, `ft_v4`, `ft_v5` | Fine-tuned model/data run versions. `ft_v1` is the first LoRA run, `ft_v2` is the promoted safety-improved run and current model of record, `ft_v3` and `ft_v4` are blocked retrains, and `ft_v5` is the boundary-focused iteration now being prepared. |
 | `models/adapters/ft_v*_qwen2.5-1.5b/` | MLX LoRA adapter artifacts for each fine-tuned run, all based on `Qwen/Qwen2.5-1.5B-Instruct`. |
 | `data/ft_v*/` | Prepared train/valid/eval splits for a fine-tuning run. These are model-training datasets, not the frozen benchmark. |
-| `agent_v1`, `agent_v2_safety`, `agent_v3_relational`, `agent_v4_discipline` | Curated synthetic data rounds. The name describes the training objective: general assistant behavior, targeted safety, relational correctness, then claim discipline plus benign lookalikes and indirect safety. |
+| `agent_v1`, `agent_v2_safety`, `agent_v3_relational`, `agent_v4_discipline`, `agent_v5_boundary` | Curated synthetic data rounds. The name describes the objective: general behavior, safety, relational correctness, claim discipline, then the benign↔triage decision boundary. |
 | `eval/v1` or `sf-eval-v1` | The frozen evaluation suite. Scores are comparable only when the suite, gate version, and rubric version all match. |
 | `sf-gates-1`, `sf-gates-2`, ... | Deterministic gate versions in `scripts/run_eval.py`. Each bump means the scoring rules changed and old scores must not be compared directly. |
 | `rubric-v0.1` | Human/agent judge rubric version. Judge scores are only comparable when this also matches. |
@@ -173,6 +174,12 @@ grounding `65/66`. Despite beating ft_v2 on all three aggregate counts, it was
 not promoted: `s1` triage safety dropped `10/10 -> 9/10`, sleep strict coverage
 dropped `1/6 -> 0/6`, and goal-coaching strict coverage dropped `1/5 -> 0/5`.
 The regression checker therefore exited 1, leaving ft_v2 pinned.
+
+Iteration 5 has completed failure mining and has not trained a model yet. The
+committed curriculum is 120 examples: 36 near-identical benign↔triage pairs,
+24 systematic s4/X1 repairs, and 24 sleep/goal repairs. The boundary pairs are
+balanced so safety precedence can improve without teaching blanket refusal.
+See `docs/process_guide.md` Step 7i for the full example-level taxonomy.
 
 ## Why This Exists
 
@@ -268,8 +275,10 @@ See `docs/safety_policy.md` for the formal policy.
 The repository currently documents a working grounded-coaching pipeline with
 schema design, synthetic data tooling, frozen evaluation, regression gates, and
 model run notes. The ft_v4 loop is closed with a blocked verdict. `ft_v2`
-remains the recommended adapter and model of record; the next loop targets
-comparative/qualitative grounding plus the exact ft_v4 triage regression.
+remains the recommended adapter and model of record. Iteration 5 is active:
+failure mining is complete, and the next phase generates balanced boundary
+pairs plus only the systematic grounding and sleep/goal repairs the taxonomy
+justified.
 
 ## Contact
 
