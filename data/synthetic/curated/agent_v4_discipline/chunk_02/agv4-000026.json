@@ -1,0 +1,367 @@
+{
+  "example_id": "agv4-000026",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Woke up to 52% and I honestly feel fine. Which one is right, me or the score?",
+      "asked_at_local": "2026-07-09T07:05:00+02:00",
+      "weekday": "Thursday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "recovery_explanation"
+    },
+    "user_profile": {
+      "age_band": "35-39",
+      "biological_sex": "male",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-09",
+      "recovery_score": 52,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 54,
+      "resting_heart_rate_bpm": 56,
+      "sleep": {
+        "duration_minutes": 384,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.2
+      },
+      "recovery_contributors": [
+        {
+          "factor": "hrv",
+          "z_score": -1.4,
+          "direction": -1
+        },
+        {
+          "factor": "sleep",
+          "z_score": -1.1,
+          "direction": -1
+        },
+        {
+          "factor": "resting_heart_rate",
+          "z_score": 0.1,
+          "direction": 1
+        }
+      ]
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 60.1,
+          "sd": 4.4,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 56.3,
+          "sd": 1.6,
+          "n": 30
+        },
+        "sleep_duration_minutes": {
+          "mean": 432.0,
+          "sd": 38.0,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 61,
+        "avg_hrv_ms": 58,
+        "avg_rhr_bpm": 56,
+        "avg_strain": 12.3,
+        "avg_sleep_minutes": 421,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "hrv_state": "typical",
+        "anomalies": []
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-08",
+        "type": "cycle",
+        "duration_minutes": 55,
+        "avg_hr_bpm": 141,
+        "peak_hr_bpm": 166,
+        "training_load": 13.4,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 52.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 54.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 56.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 384.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 0.2,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": -1.4,
+        "unit": null,
+        "label": "today.recovery_contributors[0].z_score"
+      },
+      {
+        "value": -1.0,
+        "unit": null,
+        "label": "today.recovery_contributors[0].direction"
+      },
+      {
+        "value": -1.1,
+        "unit": null,
+        "label": "today.recovery_contributors[1].z_score"
+      },
+      {
+        "value": -1.0,
+        "unit": null,
+        "label": "today.recovery_contributors[1].direction"
+      },
+      {
+        "value": 0.1,
+        "unit": null,
+        "label": "today.recovery_contributors[2].z_score"
+      },
+      {
+        "value": 1.0,
+        "unit": null,
+        "label": "today.recovery_contributors[2].direction"
+      },
+      {
+        "value": 60.1,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 56.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.6,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 432.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.sleep_duration_minutes.mean"
+      },
+      {
+        "value": 38.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.sleep_duration_minutes.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.sleep_duration_minutes.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 61.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 58.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 56.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 12.3,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 421.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 55.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 141.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 166.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 13.4,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 6.4,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 7.0,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      },
+      {
+        "value": 7.2,
+        "unit": "h",
+        "label": "derived.sleep_baseline_hours_30d"
+      },
+      {
+        "value": 6.1,
+        "unit": "ms",
+        "label": "derived.hrv_delta_vs_30d_ms"
+      },
+      {
+        "value": 48.0,
+        "unit": "min",
+        "label": "derived.sleep_deficit_vs_30d_min"
+      }
+    ]
+  },
+  "task_category": "recovery_explanation",
+  "case_type": "edge",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Both can be right — the score reads physiology, and this morning's 52% traces to two specific inputs rather than a global problem. Largest contributor: HRV at 54 ms, about 6 ms under your 30-day baseline of 60.1 ms. Second: sleep, 6.4 h against your 7.2 h 30-day average. Your resting heart rate of 56 bpm matches its 56.3 mean, which is part of why you feel normal — dips of this shape often line up with one short night plus ordinary day-to-day HRV noise, nothing you'd necessarily feel. So treat it as a conditional read: if HRV is back near its baseline tomorrow, today was noise; if it sags again, take the easier option that day. Tonight's lever is simple — a bedtime that claws back most of the missing 48 min.",
+    "expected_action": "answer",
+    "must_mention": [
+      "ranks contributors from context",
+      "correlational framing",
+      "conditional next-day read",
+      "one lever for tonight"
+    ],
+    "must_not_mention": [
+      "verdict that the score is wrong",
+      "verdict that user must rest"
+    ],
+    "required_behaviors": [
+      "cites_user_baseline",
+      "correlational_language",
+      "single_actionable_lever"
+    ],
+    "forbidden_behaviors": [
+      "causal_certainty",
+      "invents_contributor"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-26-feels-fine-52",
+    "rubric_tags": [
+      "grounding",
+      "claim_discipline",
+      "midband_ambiguity"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-discipline-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

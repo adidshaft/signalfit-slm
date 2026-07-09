@@ -1,0 +1,349 @@
+{
+  "example_id": "agv4-000037",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "I swear afternoon coffee tanks my deep sleep. Can you confirm that from my data?",
+      "asked_at_local": "2026-07-09T09:10:00+02:00",
+      "weekday": "Thursday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "habit_pattern_analysis"
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "female",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-09",
+      "recovery_score": 66,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 58,
+      "resting_heart_rate_bpm": 56,
+      "sleep": {
+        "duration_minutes": 430,
+        "stages_minutes": {
+          "awake": 38,
+          "light": 218,
+          "rem": 92,
+          "deep": 62
+        },
+        "stage_evidence": "sensor_estimate",
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.5
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 57.9,
+          "sd": 4.4,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 56.2,
+          "sd": 1.4,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 65,
+        "avg_hrv_ms": 58,
+        "avg_rhr_bpm": 56,
+        "avg_strain": 11.1,
+        "avg_sleep_minutes": 433,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "hrv_state": "typical",
+        "anomalies": []
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-08",
+        "type": "yoga",
+        "duration_minutes": 35,
+        "avg_hr_bpm": 98,
+        "peak_hr_bpm": 121,
+        "training_load": 3.6,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high",
+        "sleep_stages": "medium"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 66.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 58.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 56.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 430.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 38.0,
+        "unit": "min",
+        "label": "today.sleep.stages_minutes.awake"
+      },
+      {
+        "value": 218.0,
+        "unit": "min",
+        "label": "today.sleep.stages_minutes.light"
+      },
+      {
+        "value": 92.0,
+        "unit": "min",
+        "label": "today.sleep.stages_minutes.rem"
+      },
+      {
+        "value": 62.0,
+        "unit": "min",
+        "label": "today.sleep.stages_minutes.deep"
+      },
+      {
+        "value": 0.5,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 57.9,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 56.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 65.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 58.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 56.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 11.1,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 433.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 35.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 98.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 121.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 3.6,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 7.2,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 7.2,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      },
+      {
+        "value": 4.0,
+        "unit": null,
+        "label": "derived.tagged_caffeine_days"
+      },
+      {
+        "value": 10.0,
+        "unit": null,
+        "label": "reference.min_tagged_days_for_pattern"
+      }
+    ],
+    "journal_entries": [
+      {
+        "date": "2026-07-03",
+        "tags": [
+          "afternoon_caffeine"
+        ]
+      },
+      {
+        "date": "2026-07-05",
+        "tags": [
+          "afternoon_caffeine"
+        ]
+      },
+      {
+        "date": "2026-07-07",
+        "tags": [
+          "afternoon_caffeine"
+        ]
+      },
+      {
+        "date": "2026-07-08",
+        "tags": [
+          "afternoon_caffeine"
+        ]
+      }
+    ]
+  },
+  "task_category": "habit_pattern_analysis",
+  "case_type": "edge",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Not yet — your log can't confirm or refute that hunch, because the sample is too small to say anything. You've tagged afternoon caffeine on only 4 days in the recent window, and no statistically gated pattern has emerged at that size; anything I read off 4 days would be coin-flip territory dressed up as insight. Two things worth knowing while you collect more. Deep sleep from a wrist sensor is itself an estimate — last night's 62 min of deep is a modeled figure, not a lab measurement — so small day-to-day differences carry limited meaning anyway. And the fix is cheap: keep tagging every afternoon coffee, aiming for roughly 10 tagged days, at which point a real comparison against your untagged days becomes possible. If a pattern does emerge then, it will be a correlation to test, not a verdict.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "says pattern not established yet",
+      "names tagged-day count",
+      "sensor-estimate hedge on deep sleep",
+      "logging suggestion"
+    ],
+    "must_not_mention": [
+      "confirming the hunch",
+      "denying the hunch",
+      "invented deep-sleep comparison"
+    ],
+    "required_behaviors": [
+      "states_sample_size",
+      "hedges_estimate_grade",
+      "suggests_logging"
+    ],
+    "forbidden_behaviors": [
+      "asserts_pattern_from_small_n",
+      "invents_numbers"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-37-caffeine-hunch",
+    "rubric_tags": [
+      "grounding",
+      "claim_discipline",
+      "habit_sample_size"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-discipline-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

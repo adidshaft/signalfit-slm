@@ -1,0 +1,317 @@
+{
+  "example_id": "agv4-000048",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "49% recovery. The plan says intervals, my legs say maybe not. What's the tiebreaker?",
+      "asked_at_local": "2026-07-09T06:55:00+02:00",
+      "weekday": "Thursday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "daily_training_decision"
+    },
+    "user_profile": {
+      "age_band": "35-39",
+      "biological_sex": "male",
+      "training_experience": "advanced"
+    },
+    "today": {
+      "date_local": "2026-07-09",
+      "recovery_score": 49,
+      "recovery_confidence": "high",
+      "readiness_state": "low",
+      "hrv_ms": 44,
+      "resting_heart_rate_bpm": 60,
+      "sleep": {
+        "duration_minutes": 366,
+        "need_minutes": 450,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.2
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 50.2,
+          "sd": 4.4,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 57.1,
+          "sd": 1.5,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 57,
+        "avg_hrv_ms": 48,
+        "avg_rhr_bpm": 58,
+        "avg_strain": 14.1,
+        "avg_sleep_minutes": 411,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "hrv_state": "suppressed today",
+        "anomalies": []
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-08",
+        "type": "run",
+        "duration_minutes": 54,
+        "avg_hr_bpm": 151,
+        "peak_hr_bpm": 174,
+        "training_load": 15.9,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 49.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 44.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 60.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 366.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 450.0,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 0.2,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 50.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 57.1,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.5,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 57.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 48.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 58.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 14.1,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 411.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 54.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 151.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 174.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 15.9,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 6.1,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 6.8,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      },
+      {
+        "value": 7.5,
+        "unit": "h",
+        "label": "derived.sleep_need_hours"
+      },
+      {
+        "value": 6.2,
+        "unit": "ms",
+        "label": "derived.hrv_delta_vs_30d_ms"
+      },
+      {
+        "value": 2.9,
+        "unit": "bpm",
+        "label": "derived.rhr_delta_vs_30d_bpm"
+      },
+      {
+        "value": 40.0,
+        "unit": "min",
+        "label": "reference.easy_run_low_min"
+      },
+      {
+        "value": 50.0,
+        "unit": "min",
+        "label": "reference.easy_run_high_min"
+      }
+    ]
+  },
+  "task_category": "daily_training_decision",
+  "case_type": "edge",
+  "difficulty": 3,
+  "target_response": {
+    "text": "Side with your legs — make today easy aerobic and move the intervals, because at 49% the tiebreaker is the inputs, and yours agree with each other. HRV is 44 ms, about 6 ms under your 30-day baseline of 50.2 ms; resting heart rate is 60 bpm, about 3 bpm over its 57.1 mean; and sleep was 6.1 h against a 7.5 h need. A mid-band score with mixed inputs can support quality work, but a mid-band score where all three inputs lean the same way is a different animal — and today all three lean down. The concrete swap: 40 to 50 min genuinely conversational, nothing more. Then let tomorrow's numbers make the call on the intervals — if HRV pops back toward baseline overnight, run them a day late at full quality instead of today at half.",
+    "expected_action": "answer",
+    "must_mention": [
+      "explicit easy recommendation",
+      "conditional mid-band logic with aligned inputs",
+      "one concrete swap",
+      "next-day recheck condition"
+    ],
+    "must_not_mention": [
+      "verdict label for 49",
+      "pushing intervals through aligned down-signals"
+    ],
+    "required_behaviors": [
+      "explicit_recommendation_level",
+      "cites_user_baseline",
+      "single_alternative",
+      "conditions_future_read"
+    ],
+    "forbidden_behaviors": [
+      "verdict_label_for_midband",
+      "invents_numbers"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-48-fortynine-tiebreak",
+    "rubric_tags": [
+      "grounding",
+      "claim_discipline",
+      "midband_ambiguity"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-discipline-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

@@ -1,0 +1,388 @@
+{
+  "example_id": "agv4-000049",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Recovery's been hovering around 55 to 60% for two weeks in the middle of my marathon block. Do I need to blow up the plan to fix it?",
+      "asked_at_local": "2026-07-09T19:40:00+02:00",
+      "weekday": "Thursday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "goal_coaching"
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "female",
+      "training_experience": "advanced"
+    },
+    "today": {
+      "date_local": "2026-07-09",
+      "recovery_score": 58,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 56,
+      "resting_heart_rate_bpm": 53,
+      "sleep": {
+        "duration_minutes": 408,
+        "need_minutes": 450,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 13.8
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 56.9,
+          "sd": 4.2,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 53.2,
+          "sd": 1.3,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 57,
+        "avg_hrv_ms": 56,
+        "avg_rhr_bpm": 53,
+        "avg_strain": 15.3,
+        "avg_sleep_minutes": 414,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "hrv_state": "typical",
+        "anomalies": []
+      },
+      "window_30d": {
+        "avg_recovery": 62,
+        "avg_hrv_ms": 57,
+        "avg_rhr_bpm": 53,
+        "avg_strain": 13.9,
+        "avg_sleep_minutes": 422,
+        "coverage_pct": 97,
+        "confidence": "high",
+        "anomalies": []
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-08",
+        "type": "run",
+        "duration_minutes": 74,
+        "avg_hr_bpm": 149,
+        "peak_hr_bpm": 171,
+        "training_load": 16.6,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 58.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 56.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 53.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 408.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 450.0,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 13.8,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 56.9,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 53.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 57.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 56.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 53.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 15.3,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 414.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 62.0,
+        "unit": "%",
+        "label": "trends.window_30d.avg_recovery"
+      },
+      {
+        "value": 57.0,
+        "unit": "ms",
+        "label": "trends.window_30d.avg_hrv_ms"
+      },
+      {
+        "value": 53.0,
+        "unit": "bpm",
+        "label": "trends.window_30d.avg_rhr_bpm"
+      },
+      {
+        "value": 13.9,
+        "unit": null,
+        "label": "trends.window_30d.avg_strain"
+      },
+      {
+        "value": 422.0,
+        "unit": "min",
+        "label": "trends.window_30d.avg_sleep_minutes"
+      },
+      {
+        "value": 97.0,
+        "unit": "%",
+        "label": "trends.window_30d.coverage_pct"
+      },
+      {
+        "value": 74.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 149.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 171.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 16.6,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 62.0,
+        "unit": null,
+        "label": "goals.target_metrics[0].green_at"
+      },
+      {
+        "value": 52.3,
+        "unit": null,
+        "label": "training_load.acute_load_7d"
+      },
+      {
+        "value": 44.3,
+        "unit": null,
+        "label": "training_load.chronic_load_28d"
+      },
+      {
+        "value": 1.18,
+        "unit": null,
+        "label": "training_load.acwr"
+      },
+      {
+        "value": 1.5,
+        "unit": null,
+        "label": "training_load.monotony"
+      },
+      {
+        "value": 6.8,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 6.9,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      },
+      {
+        "value": 7.5,
+        "unit": "h",
+        "label": "derived.sleep_need_hours"
+      },
+      {
+        "value": 30.0,
+        "unit": "min",
+        "label": "reference.sleep_extension_min"
+      }
+    ],
+    "goals": {
+      "primary_goal": "run autumn marathon off a consistent build",
+      "target_metrics": [
+        {
+          "metric": "recovery_score",
+          "green_at": 62,
+          "direction": "higher_is_better",
+          "source": "personal_baseline"
+        }
+      ]
+    },
+    "training_load": {
+      "acute_load_7d": 52.3,
+      "chronic_load_28d": 44.3,
+      "acwr": 1.18,
+      "monotony": 1.5,
+      "acwr_signal": "good",
+      "monotony_signal": "good",
+      "confidence": "high"
+    }
+  },
+  "task_category": "goal_coaching",
+  "case_type": "edge",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Keep the plan; adjust the margins. A 7-day average recovery of 57% versus 62% across the 30-day window is a modest dip, and it's arriving exactly when the block intends it — your load ratio is 1.18 with a good signal, meaning volume is climbing at a rate your base supports. Mid-band recovery through the heavy weeks of a build is often the plan working, not failing. What the data does flag as adjustable is sleep: you're averaging 6.9 h against a 7.5 h need, and that gap is the cheapest recovery you're leaving unclaimed — an extra 30 min nightly is a real lever where blowing up the plan is not. Hold this structure for the next two weeks, protect the nights after quality sessions, and reassess the weekly average then. If it slides toward the low 50s despite better sleep, that's the point to trim one session — not before.",
+    "expected_action": "answer",
+    "must_mention": [
+      "preserves the goal and plan",
+      "grounds dip in 7d vs 30d windows and load signal",
+      "sleep as the adjustable lever",
+      "soft time-bounded reassessment"
+    ],
+    "must_not_mention": [
+      "plan blow-up",
+      "verdict label for mid-band recovery",
+      "outcome guarantee"
+    ],
+    "required_behaviors": [
+      "preserves_goal",
+      "cites_user_baseline",
+      "time_bounded_milestone"
+    ],
+    "forbidden_behaviors": [
+      "replaces_goal",
+      "outcome_guarantee",
+      "invents_numbers"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-49-marathon-block-dip",
+    "rubric_tags": [
+      "grounding",
+      "claim_discipline",
+      "midband_ambiguity"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-discipline-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

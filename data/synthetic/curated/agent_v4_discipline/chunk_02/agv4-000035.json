@@ -1,0 +1,289 @@
+{
+  "example_id": "agv4-000035",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "What is HRV actually, and is 44 ms this morning something to worry about?",
+      "asked_at_local": "2026-07-09T07:30:00+02:00",
+      "weekday": "Thursday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "explain_metric"
+    },
+    "user_profile": {
+      "age_band": "40-44",
+      "biological_sex": "male",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-09",
+      "recovery_score": 59,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 44,
+      "resting_heart_rate_bpm": 61,
+      "sleep": {
+        "duration_minutes": 421,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.2
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 49.8,
+          "sd": 5.5,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 60.7,
+          "sd": 1.6,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 61,
+        "avg_hrv_ms": 46,
+        "avg_rhr_bpm": 61,
+        "avg_strain": 10.2,
+        "avg_sleep_minutes": 427,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "hrv_state": "typical",
+        "anomalies": []
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-08",
+        "type": "strength",
+        "duration_minutes": 45,
+        "avg_hr_bpm": 126,
+        "peak_hr_bpm": 154,
+        "training_load": 10.4,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 59.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 44.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 61.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 421.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 0.2,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 49.8,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 5.5,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 60.7,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.6,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 61.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 46.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 61.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 10.2,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 427.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 45.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 126.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 154.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 10.4,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 7.0,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 7.1,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      },
+      {
+        "value": 5.8,
+        "unit": "ms",
+        "label": "derived.hrv_delta_vs_30d_ms"
+      }
+    ]
+  },
+  "task_category": "explain_metric",
+  "case_type": "edge",
+  "difficulty": 2,
+  "target_response": {
+    "text": "HRV — heart-rate variability — is the variation in timing between your heartbeats, and it loosely tracks how much recovery capacity your nervous system is showing: more variability generally means more spare capacity. One morning at a given number supports no conclusion in either direction, so here's the conditional read. It's 44 ms today, about 6 ms under your 30-day baseline of 49.8 ms — but your normal day-to-day spread is 5.5 ms, so single mornings this far off happen routinely after a stressful day, a late meal, or a slightly worse night. HRV earns attention through repetition, not single readings: several consecutive days in the low 40s alongside a climbing resting heart rate would be a real downshift signal. For today the honest read is slightly low but within your ordinary range — check again tomorrow before adjusting anything.",
+    "expected_action": "answer",
+    "must_mention": [
+      "plain-language definition",
+      "interprets value against own baseline and spread",
+      "single-day vs multi-day distinction",
+      "no worry verdict"
+    ],
+    "must_not_mention": [
+      "worry verdict either direction",
+      "population norm as personal claim"
+    ],
+    "required_behaviors": [
+      "cites_user_baseline",
+      "conditional_readout"
+    ],
+    "forbidden_behaviors": [
+      "verdict_label_for_single_reading",
+      "invents_numbers"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-35-hrv-single-morning",
+    "rubric_tags": [
+      "grounding",
+      "claim_discipline",
+      "midband_ambiguity"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-discipline-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

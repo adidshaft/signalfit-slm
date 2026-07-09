@@ -1,0 +1,318 @@
+{
+  "example_id": "agv4-000039",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "It's 1pm and I'm only at 4200 steps of my 9000 goal. Should I be worried I'll miss it?",
+      "asked_at_local": "2026-07-09T13:05:00+02:00",
+      "weekday": "Thursday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "goal_coaching"
+    },
+    "user_profile": {
+      "age_band": "25-29",
+      "biological_sex": "female",
+      "training_experience": "beginner"
+    },
+    "today": {
+      "date_local": "2026-07-09",
+      "recovery_score": 68,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 64,
+      "resting_heart_rate_bpm": 59,
+      "sleep": {
+        "duration_minutes": 432,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 6.2,
+        "steps": 4200
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 63.1,
+          "sd": 4.5,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 59.3,
+          "sd": 1.4,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 66,
+        "avg_hrv_ms": 63,
+        "avg_rhr_bpm": 59,
+        "avg_strain": 10.6,
+        "avg_sleep_minutes": 429,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "hrv_state": "typical",
+        "anomalies": []
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-08",
+        "type": "walk",
+        "duration_minutes": 52,
+        "avg_hr_bpm": 104,
+        "peak_hr_bpm": 122,
+        "training_load": 5.1,
+        "source": "auto_detected"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 68.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 64.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 59.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 432.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 6.2,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 4200.0,
+        "unit": "steps",
+        "label": "today.activity.steps"
+      },
+      {
+        "value": 63.1,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.5,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 59.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 66.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 63.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 59.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 10.6,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 429.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 52.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 104.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 122.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 5.1,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 9000.0,
+        "unit": null,
+        "label": "goals.target_metrics[0].green_at"
+      },
+      {
+        "value": 7.2,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 7.2,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      },
+      {
+        "value": 4800.0,
+        "unit": "steps",
+        "label": "derived.steps_remaining"
+      },
+      {
+        "value": 30.0,
+        "unit": "min",
+        "label": "reference.evening_walk_low_min"
+      },
+      {
+        "value": 40.0,
+        "unit": "min",
+        "label": "reference.evening_walk_high_min"
+      }
+    ],
+    "goals": {
+      "primary_goal": "build a consistent daily movement habit",
+      "target_metrics": [
+        {
+          "metric": "steps",
+          "green_at": 9000,
+          "direction": "higher_is_better",
+          "source": "user_edited"
+        }
+      ]
+    }
+  },
+  "task_category": "goal_coaching",
+  "case_type": "normal",
+  "difficulty": 1,
+  "target_response": {
+    "text": "You're in a normal position, not a worrying one. Step counts don't accumulate evenly — most people bank the bulk of their movement after midday, so a 1pm reading is a halftime score, not a result. You're at 4200 steps against a goal of 9000, which leaves 4800 to close across the rest of the day; a normal afternoon plus an ordinary evening routine covers most of that without special effort. Treat the goal as a progress target: the useful question at this hour is whether any movement is planned later, not whether the bar is filled yet. If today happens to have an open slot, a 30 to 40 min walk after dinner is worth roughly half the remaining gap on its own. Judge the day at bedtime — and judge the habit by the weekly pattern, not any single afternoon.",
+    "expected_action": "answer",
+    "must_mention": [
+      "progress-target framing without alarm",
+      "grounded remaining-step arithmetic",
+      "one concrete evening option"
+    ],
+    "must_not_mention": [
+      "alarm framing for mid-day shortfall",
+      "invented step counts"
+    ],
+    "required_behaviors": [
+      "progress_target_framing",
+      "cites_user_goal"
+    ],
+    "forbidden_behaviors": [
+      "alarm_framing_midday",
+      "invents_numbers"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-39-midday-step-checkin",
+    "rubric_tags": [
+      "grounding",
+      "claim_discipline"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-discipline-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}
