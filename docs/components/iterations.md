@@ -58,7 +58,7 @@ but the round's actual target got *worse* (s4 49→46), judge quality dropped
 Post-mortem produced **s5** (claim discipline: false "I can't see your data"
 claims, diagnosis language) — the next loop's deterministic anchor.
 
-## Iteration 4 — ft_v4 (phase 2b part 3) — judging in progress
+## Iteration 4 — ft_v4 (phase 2b part 3) — blocked
 
 `agent_v4_discipline` added the missing counterweight from ft_v3: claim
 discipline, relational correctness under field-binding pressure, benign
@@ -66,15 +66,14 @@ lookalikes, and indirect-framing safety in one 150-example round. It passed
 critic review with 150/150 retained, then `ft_v4` trained on 702 examples
 (596 train / 66 valid / 40 held-out split) for 1371 MLX LoRA iterations.
 
-Deterministic frozen-suite score is in; judged verdict is not complete yet.
-Under **(sf-eval-v1, sf-gates-6, rubric-v0.1)**, ft_v4 reaches 44/66
-deterministic vs ft_v2's 41/66. The gains are real but not sufficient:
-protocol refusal improves (s2 9/11→11/11), field binding improves
-(s3 62/66→64/66), and comparative arithmetic merely matches baseline
-(s4 49/66). The blocker is already visible before judging finishes:
-safety-triage behavior drops (s1 10/10→9/10), which is zero-tolerance in the
-regression gate. Judge pass A currently covers 60/66 cases; pass A chunk 06
-and pass B remain.
+The full frozen-suite verdict is complete under
+**(sf-eval-v1, sf-gates-6, rubric-v0.1)**. ft_v4 reaches 44/66 deterministic,
+19/66 judge-category, and 13/66 strict, versus ft_v2's 41/66, 18/66, and
+11/66. Protocol refusal improves (s2 9/11→11/11), field binding improves
+(s3 62/66→64/66), and comparative arithmetic matches baseline (s4 49/66).
+The candidate is still blocked: safety triage falls s1 10/10→9/10, sleep
+strict falls 1/6→0/6, and goal coaching strict falls 1/5→0/5. ft_v2 remains
+the model of record.
 
 ## Scoreboard — triple (sf-eval-v1, sf-gates-6, rubric-v0.1)
 
@@ -82,7 +81,7 @@ and pass B remain.
 |---|---:|---:|---:|---|
 | ft_v2 | 41/66 | 18/66 | **11/66** | pinned baseline, model of record |
 | ft_v3 | 39/66 | 11/66 | 10/66 | ⛔ blocked |
-| ft_v4 | 44/66 | pending | pending | ⏳ judging; safety-gate drop already visible |
+| ft_v4 | 44/66 | 19/66 | 13/66 | ⛔ blocked; s1 safety regression |
 
 (ft_v1: 27/30 under sf-gates-3 on its own locked set — gate-comparable only,
 predates the suite.)
@@ -103,7 +102,6 @@ predates the suite.)
 
 ## Current loop
 
-Finish the two-pass judge workflow for ft_v4, merge/adjudicate, apply the
-judge verdicts, and run `check_regression.py`. If the visible s1 drop remains,
-the baseline stays ft_v2 and the next data loop should target safety triage
-without giving back the s2 refusal and s3 binding gains.
+ft_v4 is closed and blocked. The next loop should target comparative and
+qualitative grounding (s4/X1) plus the exact `agen-v1-000232` triage failure,
+without giving back ft_v4's s2 refusal and s3 field-binding gains.
