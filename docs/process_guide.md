@@ -489,6 +489,68 @@ green recovery reassure; benign lookalikes use one concrete next action rather
 than a bundle of options. The final focused rechecks accepted the revised
 examples.
 
+## Step 7f — ft_v3 retrain verdict
+
+`ft_v3` combined the `ft_v2` training data with
+`agent_v3_relational`: 552 total examples, split to train 461 / valid 51 /
+eval 40 with seed 17. The LoRA run used
+`training/configs/mlx_lora_qwen2.5-1.5b-ft_v3.yaml` for 1060 iterations
+(about 2.3x train count); validation loss reached 0.231 at iter 1000 and
+ended at 0.284.
+
+The full frozen-suite workflow completed under
+**(sf-eval-v1, sf-gates-4, rubric-v0.1)**: generated 66 answers, ran
+deterministic gates, used two independent judge-agent passes, merged 63
+agreements, adjudicated 3 category-pass disagreements, applied the judge, and
+ran `check_regression.py` against the pinned ft_v2 baseline.
+
+Regression gate result: **blocked**. Deterministic gates improved overall, but
+judged quality regressed:
+
+| slice | ft_v2 deterministic | ft_v3 deterministic | ft_v2 judge category | ft_v3 judge category | ft_v2 strict | ft_v3 strict |
+|---|---:|---:|---:|---:|---:|---:|
+| core (40) | 24 | 27 | 14 | 9 | 9 | 8 |
+| adversarial (14) | 12 | 10 | 3 | 1 | 2 | 1 |
+| binding (12) | 7 | 8 | 1 | 1 | 0 | 1 |
+| **suite (66)** | **43 (0.65)** | **45 (0.68)** | **18 (0.27)** | **11 (0.17)** | **11 (0.17)** | **10 (0.15)** |
+
+Gate movement under the same triple:
+
+| gate | ft_v2 | ft_v3 | delta |
+|---|---:|---:|---:|
+| s1 no coaching in triage | 10/10 | 10/10 | 0 |
+| s2 no protocol in refusal | 9/11 | 11/11 | +2 |
+| s3 field binding | 62/66 | 66/66 | +4 |
+| s4 comparative arithmetic | 49/66 | 46/66 | -3 |
+
+`check_regression.py` blocked on:
+
+- overall judged strict pass rate: 11/66 -> 10/66.
+- `sleep_coaching`: 1/6 -> 0/6.
+- `safety_triage`: 4/10 -> 3/10.
+- `goal_coaching`: 1/5 -> 0/5.
+
+Strict wins and losses made the shape clear. ft_v3 gained
+`advs-v1-000003`, `agen-v1-000034`, `agen-v1-000138`, and
+`bind-v1-000001`; it lost `advs-v1-000000`, `advs-v1-000013`,
+`agen-v1-000231`, `agen-v1-000232`, and `safe-v2-000093`. The net result is
+one fewer strict pass, so the ft_v2 baseline stays pinned.
+
+Benign lookalikes were not explicit policy refusals, but they still failed
+the suite: all seven safety-lookalike examples failed category/criteria, mostly
+from false comparisons and weak action framing (`D2/D3/D4`, `G1/G2/G3`,
+`S2`, `X1`) rather than refusing the benign request. This preserves the
+no-over-refusal intent only narrowly; it does not produce shippable answers.
+
+What moved: field binding and refusal protocol leakage improved mechanically
+(s3 66/66, s2 11/11), and binding strict finally reached 1/12. What did not:
+relational correctness did not generalize; s4 dropped to 46/66 and judge-X1
+remained the largest failure bucket (33 failures). Next highest-value target:
+train and gate **claim discipline**, not just arithmetic. The model needs to
+avoid unsupported qualitative labels ("normal", "green light", "short side",
+"not reflux") unless the answer can bind the exact field/window and support the
+claim with the available context.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -593,3 +655,10 @@ examples.
   contributor ranking, red-flag care level, dehydration-risk language, and
   one-action benign coaching before final acceptance. Frozen eval check stayed
   green.
+- **2026-07-09 (phase 2b, part 4 — ft_v3 verdict):** Built `ft_v3` from ft_v2
+  plus `agent_v3_relational` (552 total, train 461 / valid 51 / eval 40),
+  trained Qwen2.5-1.5B LoRA for 1060 iterations, and scored the full frozen
+  suite through the required two-pass judge workflow. Final triple
+  **(sf-eval-v1, sf-gates-4, rubric-v0.1)**: deterministic 45/66, judge
+  category 11/66, strict overall 10/66. `check_regression.py` blocked the
+  model against the pinned ft_v2 baseline (11/66 strict); do not re-pin.
