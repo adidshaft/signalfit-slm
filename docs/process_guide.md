@@ -646,11 +646,18 @@ in the same commit — numbers identical (det 0.621 / strict 0.167), proving the
 fix removed only the false positive. Lesson repeated from Step 7b: **when a
 gold fails a gate, suspect the gate first.**
 
-**Status:** chunks 05–06 committed (validated 25/25, gold-calibrated 1.0 —
-chunk 06 exercises s1/s2 on its 10 triage + 10 refusals). Chunks 01–04 in
-generation. Next: critic pass → ft_v4 dataset (all four rounds + worked
-examples) → LoRA train → full workflow → `check_regression.py` against the
-re-pinned ft_v2 baseline under **(sf-eval-v1, sf-gates-6, rubric-v0.1)**.
+**Status: generation COMPLETE — 150/150.** Full-round verification: validator
+150/150, gold calibration 1.0 at sf-gates-6 with every gate active
+(s1 10/10 and s2 10/10 on chunk 06's triage/refusals), 150 unique ids, frozen
+suite still green. Two generation-quality upgrades worth keeping: chunk 03/04
+generators **mutation-tested the gates against their own golds** (flipping any
+direction phrase produced s4 errors in 25/25 examples; s3 fired 71 binding
+matches in chunk 04) — proof the gates actively verify these answers rather
+than passing vacuously; and interrupted agents were **resumed from their
+transcripts** rather than restarted, picking up chunk 02 from its 6
+already-written files. Next: critic pass → ft_v4 dataset (all four rounds +
+worked examples) → LoRA train → full workflow → `check_regression.py` against
+the re-pinned ft_v2 baseline under **(sf-eval-v1, sf-gates-6, rubric-v0.1)**.
 
 ## Dated log (newest last)
 
@@ -779,3 +786,9 @@ re-pinned ft_v2 baseline under **(sf-eval-v1, sf-gates-6, rubric-v0.1)**.
   judge-quality tier) committed — both validated 25/25, gold-calibrated 1.0.
   Chunks 01–04 (claim discipline ×2, relational correctness ×2) in
   generation. See Step 7h for the full design rationale.
+- **2026-07-09/10 (phase 2b, part 6 — agv4 generation complete):** All six
+  chunks done: 150/150 through validator, gold calibration 1.0 at sf-gates-6,
+  every gate exercised (chunk 03/04 generators mutation-tested s3/s4 on their
+  own golds). Session-limit interruptions handled by resuming agents from
+  transcripts (chunk 02 continued from its 6 on-disk files). Remaining:
+  critic pass → ft_v4 → full frozen-suite verdict vs pinned ft_v2 baseline.
