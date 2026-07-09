@@ -264,7 +264,7 @@
   "case_type": "normal",
   "difficulty": 2,
   "target_response": {
-    "text": "The late-caffeine tag you logged yesterday is the prime suspect. You slept 6.1 hours, well short of your sleep need of 7.6 hours, and caffeine late in the day often lines up with exactly that — it delays sleep onset and thins out early-night deep sleep even when you do drop off. The knock-on effects are visible too: your resting heart rate of 61 bpm is a couple of beats over your 30-day baseline of 58.8 bpm, while your HRV of 57 ms is only a shade under its 30-day baseline of 57.9 ms — a short-night pattern, not an illness one. Tonight's lever: make today's last coffee an early-afternoon one, keep your normal bedtime, and expect most of this to rebound by tomorrow.",
+    "text": "The late-caffeine tag you logged yesterday is the strongest clue. You slept 6.1 hours, well short of your sleep need of 7.6 hours, and late caffeine often lines up with shorter, less settled sleep. The downstream signals fit that pattern too: your resting heart rate of 61 bpm is a couple of beats over your 30-day baseline of 58.8 bpm, while your HRV of 57 ms is only a shade under its 30-day baseline of 57.9 ms — more of a short-night pattern than an illness signal. Tonight's lever: make today's last coffee an early-afternoon one and keep the rest of the evening routine normal.",
     "expected_action": "answer",
     "must_mention": [
       "caffeine as correlational contributor",
@@ -300,7 +300,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-relational-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

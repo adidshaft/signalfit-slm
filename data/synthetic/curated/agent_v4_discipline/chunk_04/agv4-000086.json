@@ -248,7 +248,7 @@
   "case_type": "normal",
   "difficulty": 2,
   "target_response": {
-    "text": "Yes — plenty of room; do the intervals as planned this evening. Today's strain is 6.2 against a strain target of 14.5, so the commute spent well under half of the day's budget. You're also working from a strong base: your recovery score is 78%, well above your 7-day average recovery of 70%, and your HRV is 63 ms, over your 30-day average of 61.8 ms. Two things keep it clean: eat something real before the session, since a lunchtime ride plus evening intensity on empty tends to drag tomorrow's numbers, and try to finish a couple of hours before bed. If the warm-up feels dead, trim a rep or two rather than scrapping the whole session.",
+    "text": "Yes — plenty of room; do the intervals as planned this evening. Today's strain is 6.2 against a strain target of 14.5, so the commute spent well under half of the day's budget. You're also working from a strong base: your recovery score is 78%, well above your 7-day average recovery of 70%, and your HRV is 63 ms, over your 30-day average of 61.8 ms. The one guardrail: use the warm-up honestly — if it feels dead, trim a rep or two rather than scrapping the whole session.",
     "expected_action": "answer",
     "must_mention": [
       "explicit as-planned recommendation",
@@ -285,7 +285,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-relational-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

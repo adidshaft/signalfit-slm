@@ -257,7 +257,7 @@
   "case_type": "normal",
   "difficulty": 2,
   "target_response": {
-    "text": "Go moderate today — not a repeat of yesterday. Recovery is 64%, just under your 30-day average of 66.2%, and your HRV of 60 ms is essentially at your 30-day baseline of 60.4 ms, so you're not damaged, just not fully topped up. Yesterday's load of 16.8 was also well above your 7-day average strain of 12.1, and stacking peak days back-to-back is where niggles tend to start. Concretely: keep the planned session but cap the effort near 12 on the strain scale, or swap the intervals for steady tempo work. Bank the next truly hard hit for Thursday, when you'll get far more out of it.",
+    "text": "Go moderate today — not a repeat of yesterday. Recovery is 64%, just under your 30-day average of 66.2%, and your HRV of 60 ms is essentially at your 30-day baseline of 60.4 ms, so the data says manageable fatigue, not a green light for another peak. Yesterday's load of 16.8 was also well above your 7-day average strain of 12.1, and stacking peak days back-to-back is where niggles tend to start. Concretely: keep the planned session but cap the effort near 12 on the strain scale, making it steady rather than another hard hit.",
     "expected_action": "answer",
     "must_mention": [
       "moderate recommendation",
@@ -293,7 +293,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-relational-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

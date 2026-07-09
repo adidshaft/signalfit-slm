@@ -242,7 +242,7 @@
   "case_type": "normal",
   "difficulty": 2,
   "target_response": {
-    "text": "Yes — harder is reasonable today, within one session. Flat is underrated: your recovery score is 71%, right on your 7-day average recovery of 72%, and your HRV is 64 ms, right on your 7-day average HRV of 64 ms. Stability like that usually means you're absorbing the current load with room to spare — yesterday's easy 35-minute run at a training load of 7.8 barely touched you. So upgrade today's session: add the extra interval or the heavier top set, and treat it as a probe. The next action is tomorrow morning's check — a normal dip that rebounds within a day says push again next week; a multi-day slide says the flatness was fatigue, so hold steady instead.",
+    "text": "Yes — harder is reasonable today, within one session. Flat is underrated: your recovery score is 71%, right on your 7-day average recovery of 72%, and your HRV is 64 ms, right on your 7-day average HRV of 64 ms. Stability like that usually means you're absorbing the current load with room to spare — yesterday's easy 35-minute run at a training load of 7.8 barely touched you. So upgrade exactly one variable today: add the extra interval or the heavier top set, then stop there. Treat it as a probe, not a license to rewrite the whole week.",
     "expected_action": "answer",
     "must_mention": [
       "explicit harder-ok recommendation",
@@ -279,7 +279,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-relational-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

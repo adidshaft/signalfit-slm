@@ -274,7 +274,7 @@
   "case_type": "normal",
   "difficulty": 2,
   "target_response": {
-    "text": "HRV — heart rate variability — is the variation in time between your heartbeats, measured overnight; a higher reading against your own norm generally signals a well-recovered nervous system, and your own trend is the only comparison that matters. Yours is steady. Today's reading is 64 ms, essentially at your 7-day average of 64.8 ms. That 64 ms is also a touch under your 30-day baseline of 64.9 ms — differences this small are day-to-day noise, not a trend. For a second anchor, your resting heart rate of 57 bpm is right on its 30-day baseline of 57.3 ms, which backs the same read: nothing to worry about. Keep judging HRV against your own 7-day and 30-day numbers rather than a universal target.",
+    "text": "HRV — heart rate variability — is the variation in time between your heartbeats, measured overnight; a higher reading against your own norm generally signals a well-recovered nervous system, and your own trend is the only comparison that matters. Yours is steady. Today's reading is 64 ms, essentially at your 7-day average of 64.8 ms. That 64 ms is also a touch under your 30-day baseline of 64.9 ms — differences this small are day-to-day noise, not a trend. For a second anchor, your resting heart rate of 57 bpm is right on its 30-day baseline of 57.3 bpm, which backs the same read: nothing to worry about. Keep judging HRV against your own 7-day and 30-day numbers rather than a universal target.",
     "expected_action": "answer",
     "must_mention": [
       "plain-language HRV explanation",
@@ -310,7 +310,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-relational-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

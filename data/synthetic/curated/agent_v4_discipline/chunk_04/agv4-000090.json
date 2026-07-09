@@ -272,7 +272,7 @@
   "case_type": "normal",
   "difficulty": 2,
   "target_response": {
-    "text": "Yes — a moderate one. Across 12 tagged afternoon-caffeine days versus 41 comparison days, your next-day recovery ran about 6 points lower — a medium-confidence link, and \"linked\" is the right word: this is correlation in your own data, not proof. Today fits the shape, if mildly: your recovery score is 63%, just under your 7-day average recovery of 67%, and your HRV is 60 ms, close to your 30-day average of 60.6 ms. Worth noting: espresso afternoons often travel with other things — later bedtimes, busier days — so the coffee may share the blame. The clean experiment: keep the espresso but cap it at lunchtime for a week, and see whether the tagged-day gap closes. If it does, you've found a cheap 6 points.",
+    "text": "Yes — a moderate one. Across 12 tagged afternoon-caffeine days versus 41 comparison days, your next-day recovery ran about 6 points lower — a medium-confidence link, and \"linked\" is the right word: this is correlation in your own data, not proof. Today fits the shape, if mildly: your recovery score is 63%, just under your 7-day average recovery of 67%, and your HRV is 60 ms, close to your 30-day average of 60.6 ms. Worth noting: espresso afternoons often travel with other things — later bedtimes, busier days — so the coffee may share the blame. The clean experiment: keep the espresso but cap it at lunchtime for a week, and see whether the tagged-day gap closes. If it does, treat that as a useful lever to keep testing rather than proof the coffee was the whole story.",
     "expected_action": "answer",
     "must_mention": [
       "pattern stated with 12 tagged vs 41 comparison days",
@@ -310,7 +310,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-relational-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

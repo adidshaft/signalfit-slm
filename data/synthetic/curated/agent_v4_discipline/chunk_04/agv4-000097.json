@@ -271,7 +271,7 @@
   "case_type": "normal",
   "difficulty": 2,
   "target_response": {
-    "text": "Yes, one change: keep the volume, redistribute the intensity. Your monotony is 2.6 — the flag isn't about how much you ride but how identical the days are, and yours barely vary: today's strain is 11.6, close to your 7-day average strain of 11.8, with your overall load ratio at 1.07, squarely in the good zone. Monotonous load is linked with staleness and creeping fatigue even when the totals are sensible. The concrete restructure: make two rides each week genuinely hard, make the others genuinely easy, and keep one day off the bike entirely — same weekly volume, more contrast. Your recovery score is 68%, essentially at your 7-day average recovery of 69%, so you have the headroom to add a hard day. Same bike, same routes if you like; just stop riding every day at the same temperature.",
+    "text": "Yes, one change: keep the volume, redistribute the intensity. Your monotony is 2.6 — the flag isn't about how much you ride but how identical the days are, and yours barely vary: today's strain is 11.6, close to your 7-day average strain of 11.8, with your overall load ratio at 1.07, squarely in the good zone. Monotonous load is linked with staleness and creeping fatigue even when the totals are sensible. The concrete restructure: make two rides each week genuinely hard, make the others genuinely easy, and keep one day off the bike entirely — same weekly volume, more contrast. Your recovery score is 68%, essentially at your 7-day average recovery of 69%, so you have the headroom to add a hard day. Same bike, same routes if you like; just stop riding every day at the same intensity.",
     "expected_action": "answer",
     "must_mention": [
       "adjustment consistent with the watch-level monotony of 2.6",
@@ -309,7 +309,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-relational-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

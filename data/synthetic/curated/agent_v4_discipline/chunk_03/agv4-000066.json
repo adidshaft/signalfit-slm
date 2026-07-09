@@ -274,7 +274,7 @@
   "case_type": "normal",
   "difficulty": 1,
   "target_response": {
-    "text": "It's real, and it's mostly sleep doing it. Recovery of 84% is well above your 7-day average of 71%, and the inputs that moved are the ones sleep drives: you logged 7.9 hours, comfortably above your 7-day average of 7.2 hours, and your HRV of 66 ms is well above its 30-day baseline of 61.2 ms. Two good nights in a row often line up with a jump like this — the second night tends to matter more than the first. The lever: don't spend it all at once. Keep tonight's bedtime where it's been, bank a third night, and use tomorrow for the harder session while the window is open.",
+    "text": "It's real, and sleep lines up most strongly with it. Recovery of 84% is well above your 7-day average of 71%, and the inputs that moved match a better-rested morning: you logged 7.9 hours, comfortably above your 7-day average of 7.2 hours, and your HRV of 66 ms is well above its 30-day baseline of 61.2 ms. Two good nights in a row often line up with a jump like this. The lever: keep tonight's bedtime where it's been and bank a third steady night, rather than treating one high score as permission to spend everything at once.",
     "expected_action": "answer",
     "must_mention": [
       "sleep and HRV as the moved contributors",
@@ -310,7 +310,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-relational-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

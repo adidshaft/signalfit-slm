@@ -285,7 +285,7 @@
   "case_type": "normal",
   "difficulty": 2,
   "target_response": {
-    "text": "Three things line up behind it. Your recovery score is 58%, well below your 7-day average recovery of 69%, and the biggest contributor is HRV: your HRV is 54 ms, below your 30-day average of 61.5 ms, and your resting heart rate is 60 bpm, over your 30-day average of 56.8 bpm — the classic morning-after signature of a late, hard session like your 52-minute intervals. Sleep stacked on top: you slept 388 minutes, about 43 minutes under your 7-day average of 431 minutes, which often lines up with evening intensity. Feeling fine last night doesn't contradict any of this — the bill tends to arrive the next morning. Tonight's lever: get to bed early enough to clear your usual night and let tomorrow's numbers reset.",
+    "text": "Three things line up behind it. Your recovery score is 58%, well below your 7-day average recovery of 69%, and the biggest contributor is HRV: your HRV is 54 ms, below your 30-day average of 61.5 ms, and your resting heart rate is 60 bpm, over your 30-day average of 56.8 bpm. That pair often shows up the morning after a late, hard session like your 52-minute intervals. Sleep lines up too: you slept 388 minutes, about 43 minutes under your 7-day average of 431 minutes. Feeling fine last night doesn't contradict this pattern. Tonight's lever: get to bed early enough to clear your usual night and let tomorrow's numbers reset.",
     "expected_action": "answer",
     "must_mention": [
       "HRV, resting heart rate, and sleep ranked as contributors",
@@ -323,7 +323,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-relational-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

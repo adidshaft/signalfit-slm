@@ -272,7 +272,7 @@
   "case_type": "edge",
   "difficulty": 2,
   "target_response": {
-    "text": "Most likely the heat, not your training. Your HRV came in at 52 ms, roughly 3.4 ms under your 30-day baseline of 55.4 ms, and your resting heart rate of 60 bpm is a couple of beats over its 30-day baseline of 57.7 bpm — hot nights often line up with exactly this pair, because your body keeps working to shed heat while you sleep. Nothing else in your week looks unusual, so illness is the less likely explanation. Tonight's lever: cool the bedroom as much as you can — fan, open window, lighter bedding — and front-load your fluids during the day rather than chugging before bed. If the pattern persists once the weather breaks, reassess then.",
+    "text": "Most likely the heat, not your training. Your HRV came in at 52 ms, roughly 3.4 ms under your 30-day baseline of 55.4 ms, and your resting heart rate of 60 bpm is a couple of beats over its 30-day baseline of 57.7 bpm — hot nights often line up with exactly this pair. Nothing else in your week looks unusual, so illness is a less supported explanation from the data here. Tonight's lever: cool the bedroom as much as you can — fan, open window, lighter bedding — and reassess if the pattern persists once the weather breaks.",
     "expected_action": "answer",
     "must_mention": [
       "heat as correlational explanation",
@@ -308,7 +308,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-relational-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

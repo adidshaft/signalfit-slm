@@ -253,7 +253,7 @@
   "case_type": "normal",
   "difficulty": 2,
   "target_response": {
-    "text": "Take the day — full rest, or a 20-minute walk at most. Yesterday's race was a maximal effort — training load 19.2, average heart rate 168 bpm — and every morning signal shows the bill: your recovery score is 44%, well below your 7-day average recovery of 66%; your HRV is 49 ms, well below your 30-day average of 58.7 ms; and your resting heart rate is 63 bpm, well above your 30-day average of 56.2 bpm. Training through numbers like these mostly buys a deeper hole, not extra fitness — the adaptation from the race happens during the recovery you'd be skipping. If tomorrow's numbers bounce back toward normal, an easy run is fine then; keep the next quality session for the day after.",
+    "text": "Take the day — full rest, or a 20-minute walk at most. Yesterday's race was a maximal effort — training load 19.2, average heart rate 168 bpm — and every morning signal shows the bill: your recovery score is 44%, well below your 7-day average recovery of 66%; your HRV is 49 ms, well below your 30-day average of 58.7 ms; and your resting heart rate is 63 bpm, well above your 30-day average of 56.2 bpm. Training through numbers like these mostly buys a deeper hole, not extra fitness; the adaptation from the race happens during the recovery you'd be skipping. Make today the recovery day and leave the next quality session off the table.",
     "expected_action": "answer",
     "must_mention": [
       "explicit rest recommendation",
@@ -290,7 +290,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-relational-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

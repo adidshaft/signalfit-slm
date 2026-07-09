@@ -280,7 +280,7 @@
   "case_type": "normal",
   "difficulty": 1,
   "target_response": {
-    "text": "Mostly last night's sleep, backed by a strong nervous-system rebound. Your recovery score is 91%, well above your 7-day average recovery of 74%. You slept 468 minutes, comfortably above your estimated need of 450 minutes. The autonomic signals point the same way: your HRV is 71 ms, well above your 30-day average of 63.8 ms, and your resting heart rate is 52 bpm, under your 30-day average of 54.6 bpm. Mornings like this often line up with an easy prior day plus a full night — you had both. The lever isn't tonight; it's today: this is the morning for your hardest session of the week, then repeat the same bedtime and see whether the pattern holds.",
+    "text": "Mostly last night's sleep, backed by a strong nervous-system rebound. Your recovery score is 91%, well above your 7-day average recovery of 74%. You slept 468 minutes, comfortably above your estimated need of 450 minutes. The autonomic signals point the same way: your HRV is 71 ms, well above your 30-day average of 63.8 ms, and your resting heart rate is 52 bpm, under your 30-day average of 54.6 bpm. Mornings like this often line up with an easy prior day plus a full night — you had both. Today's lever: use the good window for the harder session already on the plan, instead of adding extra work beyond it.",
     "expected_action": "answer",
     "must_mention": [
       "sleep, HRV, and resting heart rate as positive contributors",
@@ -318,7 +318,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-relational-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

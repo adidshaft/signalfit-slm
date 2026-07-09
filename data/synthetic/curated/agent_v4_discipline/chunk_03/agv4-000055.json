@@ -262,7 +262,7 @@
   "case_type": "normal",
   "difficulty": 1,
   "target_response": {
-    "text": "Green light — do the heavy leg session as planned; today is exactly what those sessions are for. Recovery is 82% this morning, comfortably above your 7-day average of 74%, and your HRV of 71 ms is well above your 30-day baseline of 66.8 ms. Sleep backs it up too: 462 minutes, just over your 7-day average of 452 minutes. If you want one governor, cap the top sets around RPE 8 and let bar speed decide whether the last set happens. Then treat tomorrow as the easy day, so this good stretch turns into adaptation rather than a hole you dig for the rest of the week.",
+    "text": "Green light — do the heavy leg session as planned; today is exactly what those sessions are for. Recovery is 82% this morning, comfortably above your 7-day average of 74%, and your HRV of 71 ms is well above your 30-day baseline of 66.8 ms. Sleep backs it up too: 462 minutes, just over your 7-day average of 452 minutes. One governor is enough: cap the top sets around RPE 8 and let bar speed decide whether the last set happens. That keeps the session productive without turning a good-readiness day into an overreach.",
     "expected_action": "answer",
     "must_mention": [
       "explicit go-hard recommendation",
@@ -298,7 +298,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-relational-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

@@ -282,7 +282,7 @@
   "case_type": "edge",
   "difficulty": 3,
   "target_response": {
-    "text": "There's an early hint, but it isn't solid yet. In 7 tagged evening-lift days versus 33 comparison days, you slept roughly 24 minutes less on average — but with only 7 tagged days that's a low-confidence pattern, and it could just as easily be the things that travel with evening sessions: later dinner, later shower, screens while winding down. Last night fits loosely — after yesterday's 51-minute strength session you slept 415 minutes, about 23 minutes under your 7-day average of 438 minutes, though your HRV is 62 ms, close to your 30-day average of 62.5 ms, so nothing systemic is showing. What would settle it: keep tagging evening lifts for a few more weeks, and note dinner time on those days. If the gap survives 15 or so tagged days, believe it and shift key sessions earlier; if it shrinks, it was the routine around the lifting, not the lifting.",
+    "text": "There's an early hint, but it isn't solid yet. In 7 tagged evening-lift days versus 33 comparison days, you slept roughly 24 minutes less on average — but with only 7 tagged days that's a low-confidence pattern, and it could just as easily be the things that travel with evening sessions: later dinner, later shower, screens while winding down. Last night fits loosely — after yesterday's 51-minute strength session you slept 415 minutes, about 23 minutes under your 7-day average of 438 minutes, though your HRV is 62 ms, close to your 30-day average of 62.5 ms, so nothing systemic is showing. What would settle it: keep tagging evening lifts for a few more weeks, and note dinner time on those days. If the gap survives 15 or so tagged days, treat it as actionable and try shifting key sessions earlier; if it shrinks, the routine around the lifting was probably the signal.",
     "expected_action": "answer_with_caveat",
     "must_mention": [
       "pattern stated with 7 tagged vs 33 comparison days",
@@ -321,7 +321,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-relational-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

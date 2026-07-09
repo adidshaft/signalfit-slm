@@ -314,7 +314,7 @@
   "case_type": "normal",
   "difficulty": 3,
   "target_response": {
-    "text": "Mostly volume, then sleep. The two sessions stacked into one big day — training loads of 14.2 and 9.8 back to back — and prior activity is the top contributor your app flagged. Sleep made it worse: you slept 402 minutes, about 58 minutes short of your estimated need of 460 minutes, which often lines up with a late second session. The downstream signals agree — your HRV is 55 ms, below your 30-day average of 60.2 ms — and together that lands your recovery score at 52%, well under your 7-day average recovery of 67%. None of this says the double was a mistake; it says it cost what doubles cost. Tonight's lever: a full night and no third hard day — an easy spin or rest tomorrow lets the load actually absorb.",
+    "text": "Mostly volume, then sleep. The two sessions stacked into one big day — training loads of 14.2 and 9.8 back to back — and prior activity is the top contributor your app flagged. Short sleep lines up behind it: you slept 402 minutes, about 58 minutes short of your estimated need of 460 minutes, which often shows up after a late second session. The downstream signals agree — your HRV is 55 ms, below your 30-day average of 60.2 ms — and together that lands your recovery score at 52%, well under your 7-day average recovery of 67%. None of this says the double was a mistake; it says it carried a predictable recovery cost. Tomorrow's lever: no third hard day — rest or keep it to an easy spin.",
     "expected_action": "answer",
     "must_mention": [
       "prior activity ranked first, then sleep",
@@ -352,7 +352,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-relational-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

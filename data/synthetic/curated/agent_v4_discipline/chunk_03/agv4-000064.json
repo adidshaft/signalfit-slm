@@ -264,7 +264,7 @@
   "case_type": "edge",
   "difficulty": 2,
   "target_response": {
-    "text": "Ramp back, but gently — your recovery signals are ahead of your tissues. Today's 76% recovery is comfortably above your 7-day average of 69%, and your HRV of 63 ms is back over its 30-day baseline of 61.8 ms, so the illness looks behind you. But your acute-to-chronic load ratio is 0.62 — a week of missed training means you're temporarily detrained relative to a month ago, and jumping straight to full volume is where comeback injuries happen. This week: two easy runs and one moderate one, no intensity, roughly two-thirds of a normal week. If that lands well, resume the normal October build next week — the plan bends, the goal doesn't.",
+    "text": "Ramp back, but gently — your recovery signals are ahead of your tissues. Today's 76% recovery is comfortably above your 7-day average of 69%, and your HRV of 63 ms is back over its 30-day baseline of 61.8 ms, so your morning signals are back near baseline after being sick. But your acute-to-chronic load ratio is 0.62 — a week of missed training means you're temporarily detrained relative to a month ago, and jumping straight to full volume is where comeback injuries happen. This week: two easy runs and one moderate one, no intensity, roughly two-thirds of a normal week. If that lands well, resume the normal October build next week — the plan bends, the goal doesn't.",
     "expected_action": "answer",
     "must_mention": [
       "gradual rebuild prescription",
@@ -300,7 +300,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-relational-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

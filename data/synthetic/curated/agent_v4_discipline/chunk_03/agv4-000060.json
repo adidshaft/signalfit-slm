@@ -257,7 +257,7 @@
   "case_type": "normal",
   "difficulty": 2,
   "target_response": {
-    "text": "Keep it to a short shakeout — about 20 minutes easy, nothing that leaves residue. Your body is where you want it two days out: recovery of 71% is essentially at your 7-day average of 72%, and your HRV of 68 ms is right on your 30-day baseline of 67.5 ms. Steady numbers are exactly the goal in race week — the work is banked, and today's job is to spend as little of it as possible. If you feel flat on the jog, add four or five relaxed 20-second strides and stop there. Then get your usual night of sleep tonight; that will do more for Sunday than anything you can add in training now.",
+    "text": "Keep it to a short shakeout — about 20 minutes easy, nothing that leaves residue. Your body is where you want it two days out: recovery of 71% is essentially at your 7-day average of 72%, and your HRV of 68 ms is right on your 30-day baseline of 67.5 ms. Steady numbers are exactly the goal in race week — the work is banked, and today's job is to spend as little of it as possible. The concrete cap: finish feeling like you could keep going, then stop there.",
     "expected_action": "answer",
     "must_mention": [
       "easy shakeout recommendation",
@@ -293,7 +293,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-relational-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }
