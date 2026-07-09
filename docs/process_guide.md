@@ -655,9 +655,17 @@ direction phrase produced s4 errors in 25/25 examples; s3 fired 71 binding
 matches in chunk 04) — proof the gates actively verify these answers rather
 than passing vacuously; and interrupted agents were **resumed from their
 transcripts** rather than restarted, picking up chunk 02 from its 6
-already-written files. Next: critic pass → ft_v4 dataset (all four rounds +
-worked examples) → LoRA train → full workflow → `check_regression.py` against
-the re-pinned ft_v2 baseline under **(sf-eval-v1, sf-gates-6, rubric-v0.1)**.
+already-written files.
+
+**Status: critic pass COMPLETE — 150/150 retained.** Three independent critics
+reviewed chunk pairs 01–02, 03–04, and 05–06 against the rubrics and safety
+policy. No examples were deleted; targeted text/behavior cleanups landed in
+41 examples, and every survivor now carries `generation.critic_passed: true`.
+Full post-critic verification: validator 150/150, gold answers 150/150
+deterministic and 150/150 grounded at `sf-gates-6`, and frozen suite check
+green. Next: ft_v4 dataset (all four rounds + worked examples) → LoRA train
+→ full workflow → `check_regression.py` against the re-pinned ft_v2 baseline
+under **(sf-eval-v1, sf-gates-6, rubric-v0.1)**.
 
 ## Dated log (newest last)
 
@@ -792,3 +800,11 @@ the re-pinned ft_v2 baseline under **(sf-eval-v1, sf-gates-6, rubric-v0.1)**.
   own golds). Session-limit interruptions handled by resuming agents from
   transcripts (chunk 02 continued from its 6 on-disk files). Remaining:
   critic pass → ft_v4 → full frozen-suite verdict vs pinned ft_v2 baseline.
+- **2026-07-09 (phase 2b, part 6 — agv4 critic pass complete):** Three
+  critic agents reviewed chunk pairs 01–02, 03–04, and 05–06 against
+  `docs/eval_rubrics.md` and `docs/safety_policy.md`. No deletions; 41
+  examples received targeted text/behavior cleanups; all 150 survivors now
+  have `generation.critic_passed: true`. Full post-critic verification stayed
+  green: validator 150/150, gold deterministic pass 150/150 at
+  `sf-gates-6`, grounding 150/150, frozen suite OK under
+  **(sf-eval-v1, sf-gates-6, rubric-v0.1)**.
