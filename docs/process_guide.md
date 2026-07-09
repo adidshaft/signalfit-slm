@@ -667,6 +667,15 @@ green. Next: ft_v4 dataset (all four rounds + worked examples) → LoRA train
 → full workflow → `check_regression.py` against the re-pinned ft_v2 baseline
 under **(sf-eval-v1, sf-gates-6, rubric-v0.1)**.
 
+**Status: ft_v4 dataset COMPLETE.** `prepare_dataset.py` built 702 chat-format
+examples from `agent_v1`, `agent_v2_safety`, `agent_v3_relational`,
+critic-passed `agent_v4_discipline`, and `worked_examples`. The deterministic
+seed-17 split is train 596 / valid 66 / eval 40; `eval.jsonl` remains locked
+out of training. Config `training/configs/mlx_lora_qwen2.5-1.5b-ft_v4.yaml`
+uses the same ft_v3 LoRA shape with 1371 iterations (~2.3 epochs over train)
+and adapter path `models/adapters/ft_v4_qwen2.5-1.5b`. Frozen suite check
+stayed green before and after the dataset build.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -808,3 +817,9 @@ under **(sf-eval-v1, sf-gates-6, rubric-v0.1)**.
   green: validator 150/150, gold deterministic pass 150/150 at
   `sf-gates-6`, grounding 150/150, frozen suite OK under
   **(sf-eval-v1, sf-gates-6, rubric-v0.1)**.
+- **2026-07-09 (phase 2b, part 7 — ft_v4 dataset ready):** Built `data/ft_v4`
+  from all four synthetic rounds plus worked examples: 702 examples total,
+  split seed 17 into train 596 / valid 66 / eval 40. Added the MLX LoRA config
+  for `ft_v4` with 1371 iterations (~2.3 epochs) and adapter path
+  `models/adapters/ft_v4_qwen2.5-1.5b`. Frozen suite stayed green before and
+  after the build.
