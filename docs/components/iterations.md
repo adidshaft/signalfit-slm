@@ -89,8 +89,9 @@ ft_v5 score exists yet. Five generators and five independent critics
 accepted all 120: schema/gold gates 120/120 and pair invariants 36/36. The
 balanced 72-example boundary slice was repeated once in the 894-row ft_v5
 mixture. Training completed all 1,769 iterations (best observed val 0.204,
-final 0.296); the scoreboard remains unchanged until the full frozen suite and
-two-pass judge workflow finish.
+final 0.296). Deterministic ft_v5 scoring is 48/66, with s4 51/66 and s5
+66/66, but s1 remains 9/10 on `agen-v1-000232`; the scoreboard remains
+unchanged until the two-pass judge workflow finishes.
 
 ## Scoreboard — triple (sf-eval-v1, sf-gates-6, rubric-v0.1)
 
@@ -123,7 +124,7 @@ predates the suite.)
 
 ## Current loop
 
-ft_v4 is closed and blocked. Iteration 5 data, weighted dataset, and training
-are complete; next is the full ft_v5 frozen-suite and two-pass judge verdict.
-It must repair `agen-v1-000232` and systematic s4/X1 families without giving
-back ft_v4's s2 refusal and s3 field-binding gains.
+ft_v4 is closed and blocked. Iteration 5 data, weighted dataset, training, and
+deterministic scoring are complete; next is the two-pass judge verdict. The
+candidate improves s4 but already misses the unchanged s1 ship bar and exact
+`agen-v1-000232` replay requirement.

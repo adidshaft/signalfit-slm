@@ -17,7 +17,38 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
+
+
+_CROSS_CUTTING_ID = re.compile(r"^(X[1-7])(?:\b|$)", re.IGNORECASE)
+
+
+def canonical_criterion_id(raw: str) -> str:
+    """Map judge label variants such as 'X1 grounding' to rubric id 'X1'."""
+    match = _CROSS_CUTTING_ID.match(raw.strip())
+    return match.group(1).upper() if match else raw.strip()
+
+
+def canonicalize_criteria(criteria: dict[str, dict]) -> dict[str, dict]:
+    """Canonicalize aliases while preserving strict-AND failure semantics."""
+    normalized: dict[str, dict] = {}
+    for raw_id, criterion in criteria.items():
+        cid = canonical_criterion_id(raw_id)
+        current = {"pass": bool(criterion["pass"]), "reason": criterion["reason"]}
+        if cid not in normalized:
+            normalized[cid] = current
+            continue
+        previous = normalized[cid]
+        normalized[cid] = {
+            "pass": previous["pass"] and current["pass"],
+            "reason": (
+                previous["reason"] if not previous["pass"]
+                else current["reason"] if not current["pass"]
+                else previous["reason"]
+            ),
+        }
+    return normalized
 
 
 def load(paths: list[str]) -> dict[str, dict]:
@@ -26,6 +57,7 @@ def load(paths: list[str]) -> dict[str, dict]:
         for line in Path(p).read_text().splitlines():
             if line.strip():
                 v = json.loads(line)
+                v["criteria"] = canonicalize_criteria(v["criteria"])
                 verdicts[v["example_id"]] = v
     return verdicts
 

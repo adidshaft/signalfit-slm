@@ -48,7 +48,7 @@ model-index:
 | ft_v3 Relational | 6 | Relational/safety data round, retrain, and full-suite evaluation. | ⛔ Blocked |
 | ft_v4 Discipline | 7 | Claim-discipline/relational/lookalike round, critic pass, dataset build, LoRA training, and full frozen-suite evaluation. | ⛔ Blocked |
 | Verdict | 8 | Two independent judge passes, disagreement adjudication, regression decision, and post-mortem. | ✅ Complete — ft_v2 retained |
-| ft_v5 Boundary | 9 | Failure taxonomy, contrastive benign↔triage boundary pairs, targeted repairs, retrain, and frozen-suite verdict. | 🧪 Training complete — scoring next |
+| ft_v5 Boundary | 9 | Failure taxonomy, contrastive benign↔triage boundary pairs, targeted repairs, retrain, and frozen-suite verdict. | ⚖️ 48/66 deterministic — judging |
 
 ## Benchmark Dashboard
 
@@ -278,8 +278,10 @@ schema design, synthetic data tooling, frozen evaluation, regression gates, and
 model run notes. The ft_v4 loop is closed with a blocked verdict. `ft_v2`
 remains the recommended adapter and model of record. Iteration 5 is active:
 failure mining, the 120-example agv5 critic pass, the weighted 894-row dataset,
-and the 1,769-iteration LoRA run are complete. Next is the full frozen-suite
-generation and double-judge verdict.
+the 1,769-iteration LoRA run, and frozen deterministic scoring are complete.
+ft_v5 reaches 48/66 deterministic, with s4 51/66 and s5 66/66, but s1 remains
+9/10 and `agen-v1-000232` still fails the literal no-coaching gate. Double
+judging is in progress for the complete blocked-or-ship verdict.
 
 ## Contact
 

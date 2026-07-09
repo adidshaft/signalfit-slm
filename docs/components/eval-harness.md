@@ -58,9 +58,10 @@ cites true values while claiming a **false relation** between them.
    labels + context JSON + the answer.
 2. **Two independent judge passes** (agent workflow, no paid API; judges never
    see each other's output).
-3. `scripts/merge_judgments.py` — agreement → strict-AND verdict (a criterion
-   either judge failed stays failed); `category_pass` disagreement → a
-   disagreements file.
+3. `scripts/merge_judgments.py` — canonicalizes cross-cutting label aliases
+   (`X1 grounding` → `X1`, etc.), then agreement → strict-AND verdict (a
+   criterion either judge failed stays failed); `category_pass` disagreement
+   → a disagreements file.
 4. **Adjudication** — a human (or the main agent) resolves each disagreement
    with recorded reasoning; adjudicated verdicts are appended. Conventions so
    far: `category_pass` = AND of per-category criteria only; rubric caps read
