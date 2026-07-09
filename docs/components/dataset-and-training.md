@@ -6,7 +6,7 @@
 |---|---|---|
 | `scripts/prepare_dataset.py` | example JSON → `sf-chat-1` chat JSONL | Strips the question duplicate and the `task` label from the model input (the model must not see its category); pins system prompt `sft-sys-1`; writes a sidecar manifest with per-line example_id/labels/sha256 + file sha256. |
 | `scripts/split_dataset.py` | train / valid / eval split | **Persona-disjoint** train/valid (validation measures generalization, not memory); locked eval isolated — `is_locked_eval` examples and their personas never enter train/valid; split recorded in `manifest.json` with per-split example_ids + hashes. |
-| `data/ft_v0 … ft_v4` | one directory per training generation | `all.jsonl` + manifests + splits + that generation's eval artifacts. ft_v2 = 402 lines (agent_v1 + agent_v2_safety + worked); ft_v3 = 552 (…+ agent_v3_relational) → train 461 / valid 51 / eval 40; ft_v4 = 702 (…+ agent_v4_discipline) → train 596 / valid 66 / eval 40. |
+| `data/ft_v0 … ft_v5` | one directory per training generation | `all.jsonl` + manifests + splits + that generation's eval artifacts. ft_v2 = 402 lines; ft_v3 = 552 → train 461 / valid 51 / eval 40; ft_v4 = 702 → train 596 / valid 66 / eval 40; weighted ft_v5 = 894 rows / 822 unique → train 769 / valid 85 / eval 40. |
 
 The manifests are what make everything auditable: the eval-suite freezer
 (`freeze_eval.py`) cross-checks its case ids against every
@@ -36,6 +36,7 @@ source); training logs in `models/*_train.log`.
 | ft_v2 | 326 train (+safety round) | 750 | → 0.42 | safety fixed; **pinned baseline / model of record** |
 | ft_v3 | 461 train (+relational round) | 1060 | → 0.284 | ⛔ blocked by regression gate |
 | ft_v4 | 596 train (+discipline round) | 1371 | best 0.281, final 0.354 | ⛔ blocked: 44/66 deterministic, 19/66 judge-category, 13/66 strict; s1 9/10 |
+| ft_v5 | 769 weighted train (+boundary round; boundary slice 2×) | 1769 | pending | dataset ready; training next |
 
 Rules of thumb from these runs: `iters ≈ 2.3 × train_count` (~2–2.5 epochs);
 ~10–20 min and ~10 GB peak RAM at batch 1 / seq-len 3072 on an M-series Mac.

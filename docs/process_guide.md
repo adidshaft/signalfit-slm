@@ -987,6 +987,24 @@ same `p-agv5-*` persona so a pair or its repeat cannot cross train/valid. The
 unweighted corpus would be 822 lines; one extra boundary copy yields **894**
 prepared lines before splitting.
 
+### Phase 3a: weighted ft_v5 dataset COMPLETE — training next
+
+`prepare_dataset.py` combined agent_v1, agent_v2_safety,
+agent_v3_relational, agent_v4_discipline, agent_v5_boundary, and worked
+examples, then received one additional copy of agv5 chunks 01–03. The result
+is **894 rows / 822 unique example ids**: exactly the 72 intended boundary
+examples occur twice and every other example occurs once.
+
+The seed-17 persona-disjoint split is train 769 / valid 85 / locked eval 40.
+Of the weighted boundary rows, 136 land in train and 8 in validation; none
+land in eval. Every repeated id, matched pair, and shared persona remains in
+one split. The frozen-suite contamination check is green.
+
+Config `training/configs/mlx_lora_qwen2.5-1.5b-ft_v5.yaml` preserves the ft_v4
+LoRA shape and points to `data/ft_v5`, 1,769 iterations (~2.3 passes over 769
+weighted train rows), and `models/adapters/ft_v5_qwen2.5-1.5b`. As before,
+validation loss records optimization behavior but cannot promote the model.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -1171,3 +1189,9 @@ prepared lines before splitting.
   s1 36/36, pair invariants 36/36, and frozen suite green under
   **(sf-eval-v1, sf-gates-6, rubric-v0.1)**. Phase 3 will repeat the balanced
   72-example boundary slice once, producing an expected 894-line ft_v5 corpus.
+- **2026-07-10 (iteration 5, phase 3a — ft_v5 dataset ready):** Built the
+  documented 2× boundary mixture: 894 rows / 822 unique ids, with only the 72
+  balanced boundary examples repeated. Seed-17 split: train 769 / valid 85 /
+  locked eval 40; pair/persona isolation verified and frozen contamination
+  check green. Added the ft_v5 MLX config for 1,769 iterations (~2.3 passes)
+  and adapter path `models/adapters/ft_v5_qwen2.5-1.5b`.

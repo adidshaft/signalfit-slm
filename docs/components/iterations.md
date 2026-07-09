@@ -122,7 +122,7 @@ predates the suite.)
 
 ## Current loop
 
-ft_v4 is closed and blocked. Iteration 5 phases 1–2 are committed; next is the
-weighted ft_v5 dataset build and LoRA run. The eventual verdict must repair
-`agen-v1-000232` and systematic s4/X1 families without giving back ft_v4's s2
-refusal and s3 field-binding gains.
+ft_v4 is closed and blocked. Iteration 5 phases 1–2 and the weighted 894-row
+ft_v5 dataset are committed; next is the 1,769-iteration LoRA run. The eventual
+verdict must repair `agen-v1-000232` and systematic s4/X1 families without
+giving back ft_v4's s2 refusal and s3 field-binding gains.

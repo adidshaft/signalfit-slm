@@ -48,7 +48,7 @@ model-index:
 | ft_v3 Relational | 6 | Relational/safety data round, retrain, and full-suite evaluation. | ⛔ Blocked |
 | ft_v4 Discipline | 7 | Claim-discipline/relational/lookalike round, critic pass, dataset build, LoRA training, and full frozen-suite evaluation. | ⛔ Blocked |
 | Verdict | 8 | Two independent judge passes, disagreement adjudication, regression decision, and post-mortem. | ✅ Complete — ft_v2 retained |
-| ft_v5 Boundary | 9 | Failure taxonomy, contrastive benign↔triage boundary pairs, targeted repairs, retrain, and frozen-suite verdict. | 🧪 Phase 2 data complete |
+| ft_v5 Boundary | 9 | Failure taxonomy, contrastive benign↔triage boundary pairs, targeted repairs, retrain, and frozen-suite verdict. | 🏗️ Dataset ready — training next |
 
 ## Benchmark Dashboard
 
@@ -277,8 +277,8 @@ The repository currently documents a working grounded-coaching pipeline with
 schema design, synthetic data tooling, frozen evaluation, regression gates, and
 model run notes. The ft_v4 loop is closed with a blocked verdict. `ft_v2`
 remains the recommended adapter and model of record. Iteration 5 is active:
-failure mining and the 120-example agv5 critic pass are complete. Next is the
-weighted ft_v5 dataset build and LoRA training.
+failure mining, the 120-example agv5 critic pass, and the weighted 894-row
+ft_v5 dataset are complete. Next is the 1,769-iteration LoRA run.
 
 ## Contact
 
