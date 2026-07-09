@@ -1,0 +1,150 @@
+{
+  "example_id": "agv5-000118",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My weekly recovery average is 67% with medium confidence, and my green target is 70%. What is the next milestone?",
+      "asked_at_local": "2026-07-10T09:00:00+05:30",
+      "weekday": "Friday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "goal_coaching",
+      "confidence": 0.77
+    },
+    "user_profile": {
+      "age_band": "35-39",
+      "biological_sex": "male",
+      "training_experience": "advanced"
+    },
+    "goals": {
+      "primary_goal": "keep recovery supportive of regular training",
+      "target_metrics": [
+        {
+          "metric": "recovery_score",
+          "green_at": 70,
+          "direction": "higher_is_better",
+          "source": "personal_baseline"
+        }
+      ]
+    },
+    "today": {
+      "date_local": "2026-07-10",
+      "recovery_score": 68,
+      "recovery_confidence": "medium",
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": null
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 67,
+        "confidence": "medium",
+        "anomalies": []
+      }
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "sleep_duration_minutes",
+        "activity_strain"
+      ],
+      "degraded_fields": [
+        {
+          "field": "trends.window_7d.avg_recovery",
+          "reason": "partial recent coverage"
+        }
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "ring",
+      "source_confidence": {
+        "recovery_score": "medium",
+        "trends.window_7d.avg_recovery": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 68,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 67,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 70,
+        "unit": "%",
+        "label": "goals.target_metrics[0].green_at"
+      }
+    ]
+  },
+  "task_category": "goal_coaching",
+  "case_type": "normal",
+  "difficulty": 3,
+  "target_response": {
+    "text": "With medium confidence, your weekly average recovery is estimated at 67% against your personal green target of 70%, so it has not reached the target and should not be treated as exact. The confidence grade makes direction more useful than claiming a precise gap. Over the next couple of weeks, focus on seeing whether the medium-confidence weekly average moves toward 70%. That is one soft milestone tied to your stored target, without inventing an improvement rate or guaranteeing green recovery.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "weekly recovery is a medium-confidence estimate",
+      "67% against 70% target",
+      "one soft time-bounded milestone"
+    ],
+    "must_not_mention": [
+      "invented percentage-point gap",
+      "unhedged medium-confidence value",
+      "guaranteed recovery"
+    ],
+    "required_behaviors": [
+      "hedges_on_medium_confidence",
+      "frames_progress_against_actual_target",
+      "soft_time_bounded_milestone",
+      "uses_correct_weekly_field"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "outcome_guarantee",
+      "misbinds_fields"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv5-118-medium-recovery-goal",
+    "rubric_tags": [
+      "goal_coaching",
+      "g1_target_progress",
+      "g2_soft_milestone",
+      "confidence_hedging",
+      "numeric_discipline",
+      "field_binding"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "codex-agent",
+    "prompt_version": "agv5-boundary-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-10"
+  }
+}

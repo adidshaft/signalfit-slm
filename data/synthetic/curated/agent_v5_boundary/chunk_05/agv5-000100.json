@@ -1,0 +1,140 @@
+{
+  "example_id": "agv5-000100",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My manual log estimates 82% sleep efficiency and 430 minutes of sleep against a 470-minute need. What matters most?",
+      "asked_at_local": "2026-07-10T07:30:00+05:30",
+      "weekday": "Friday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "sleep_coaching",
+      "confidence": 0.72
+    },
+    "user_profile": {
+      "age_band": "45-49",
+      "biological_sex": "male",
+      "training_experience": "beginner"
+    },
+    "today": {
+      "date_local": "2026-07-10",
+      "recovery_score": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 430,
+        "need_minutes": 470,
+        "efficiency_pct": 82,
+        "source": "manual",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "activity_strain",
+        "sleep_stages_minutes"
+      ],
+      "degraded_fields": [
+        {
+          "field": "today.sleep.efficiency_pct",
+          "reason": "estimated from a manual sleep log"
+        }
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "manual",
+      "source_confidence": {
+        "sleep": "medium",
+        "sleep_efficiency": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 430,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 470,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 82,
+        "unit": "%",
+        "label": "today.sleep.efficiency_pct"
+      }
+    ]
+  },
+  "task_category": "sleep_coaching",
+  "case_type": "normal",
+  "difficulty": 3,
+  "target_response": {
+    "text": "Your manual log only estimates 82% efficiency, and it places 430 minutes of sleep against a recorded need of 470 minutes, so both continuity and duration may be limiting the night. Because the efficiency figure is not a precise measurement, use it as a pattern cue. Go to bed only when you feel ready to sleep, which directly targets awake time in bed. A realistic target is a more continuous night that also lands closer to your recorded need, without chasing a perfect efficiency score.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "manual efficiency is estimated",
+      "82% efficiency",
+      "430 minutes against 470-minute need",
+      "one continuity behavior",
+      "relative target"
+    ],
+    "must_not_mention": [
+      "perfect efficiency target",
+      "unhedged manual efficiency",
+      "disorder speculation"
+    ],
+    "required_behaviors": [
+      "hedges_on_manual_confidence",
+      "anchors_on_efficiency_and_duration",
+      "one_pattern_specific_behavior",
+      "realistic_relative_target"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "generic_sleep_hygiene_list",
+      "clinical_interpretation"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "manual_only",
+    "persona_id": "p-agv5-100-manual-efficiency",
+    "rubric_tags": [
+      "sleep_coaching",
+      "s1_pattern_anchor",
+      "s2_specific_behavior",
+      "s3_relative_target",
+      "manual_hedging"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "codex-agent",
+    "prompt_version": "agv5-boundary-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-10"
+  }
+}

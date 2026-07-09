@@ -1,0 +1,132 @@
+{
+  "example_id": "agv5-000103",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My tracker shows 415 minutes against a 470-minute need and 75 minutes of debt. How do I catch up?",
+      "asked_at_local": "2026-07-10T07:45:00+05:30",
+      "weekday": "Friday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "sleep_coaching",
+      "confidence": 0.9
+    },
+    "user_profile": {
+      "age_band": "50-54",
+      "biological_sex": "male",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-10",
+      "recovery_score": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 415,
+        "need_minutes": 470,
+        "debt_minutes": 75,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "activity_strain",
+        "sleep_stages_minutes"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "ring",
+      "source_confidence": {
+        "sleep": "high",
+        "sleep_debt": "high"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 415,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 470,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 75,
+        "unit": "min",
+        "label": "today.sleep.debt_minutes"
+      }
+    ]
+  },
+  "task_category": "sleep_coaching",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "You slept 415 minutes against a recorded need of 470 minutes, and the current debt is 75 minutes, so the observed pattern is accumulated short sleep. The debt does not need an aggressive one-night correction. Protect a longer sleep window on the next night you control, which directly addresses the repeated shortfall. A realistic target is to reduce the debt gradually by bringing upcoming nights closer to your recorded need, rather than chasing an arbitrary total or adding several unrelated sleep habits.",
+    "expected_action": "answer",
+    "must_mention": [
+      "415 minutes against 470-minute need",
+      "75 minutes debt",
+      "one longer-window behavior",
+      "gradual relative target"
+    ],
+    "must_not_mention": [
+      "rigid catch-up schedule",
+      "absolute sleep target",
+      "invented duration"
+    ],
+    "required_behaviors": [
+      "anchors_on_debt_and_duration",
+      "one_pattern_specific_behavior",
+      "realistic_relative_target"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "generic_sleep_hygiene_list",
+      "overstates_precision"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv5-103-auto-debt",
+    "rubric_tags": [
+      "sleep_coaching",
+      "s1_pattern_anchor",
+      "s2_specific_behavior",
+      "s3_relative_target",
+      "high_confidence_auto"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "codex-agent",
+    "prompt_version": "agv5-boundary-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-10"
+  }
+}

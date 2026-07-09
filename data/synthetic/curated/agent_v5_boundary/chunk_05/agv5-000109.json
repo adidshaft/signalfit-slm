@@ -1,0 +1,139 @@
+{
+  "example_id": "agv5-000109",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "I manually entered 78 kg and my goal is 75 kg. How should I think about progress?",
+      "asked_at_local": "2026-07-10T08:10:00+05:30",
+      "weekday": "Friday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "goal_coaching",
+      "confidence": 0.76
+    },
+    "user_profile": {
+      "age_band": "35-39",
+      "biological_sex": "male",
+      "weight_kg": 78,
+      "training_experience": "intermediate"
+    },
+    "goals": {
+      "primary_goal": "gradual weight reduction while keeping training steady",
+      "target_metrics": [
+        {
+          "metric": "weight_kg",
+          "goal": 75,
+          "direction": "lower_is_better",
+          "source": "user_edited"
+        }
+      ]
+    },
+    "today": {
+      "date_local": "2026-07-10",
+      "recovery_score": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": null
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "sleep_duration_minutes",
+        "activity_strain"
+      ],
+      "degraded_fields": [
+        {
+          "field": "user_profile.weight_kg",
+          "reason": "single manual entry"
+        }
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "manual",
+      "source_confidence": {
+        "weight_kg": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 78,
+        "unit": "kg",
+        "label": "user_profile.weight_kg"
+      },
+      {
+        "value": 75,
+        "unit": "kg",
+        "label": "goals.target_metrics[0].goal"
+      }
+    ]
+  },
+  "task_category": "goal_coaching",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Your manually entered weight is an estimate at 78 kg against your personal target of 75 kg, so there is still a modest remaining gap. One entry can move with ordinary measurement noise, which is why the direction matters more than claiming exact progress from today alone. Over the next couple of weeks, focus on collecting comparable entries and look for the trend to move toward 75 kg. That milestone stays tied to your actual target without promising a particular outcome or inventing a rate of change.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "manual weight is an estimate",
+      "78 kg against 75 kg target",
+      "one soft time-bounded milestone"
+    ],
+    "must_not_mention": [
+      "derived weight gap",
+      "invented weekly rate",
+      "outcome guarantee"
+    ],
+    "required_behaviors": [
+      "hedges_on_manual_confidence",
+      "frames_progress_against_actual_target",
+      "soft_time_bounded_milestone"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "outcome_guarantee",
+      "body_composition_promise"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "manual_only",
+    "persona_id": "p-agv5-109-manual-weight-target",
+    "rubric_tags": [
+      "goal_coaching",
+      "g1_target_progress",
+      "g2_soft_milestone",
+      "manual_hedging",
+      "numeric_discipline"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "codex-agent",
+    "prompt_version": "agv5-boundary-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-10"
+  }
+}

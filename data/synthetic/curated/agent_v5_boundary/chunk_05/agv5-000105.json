@@ -1,0 +1,141 @@
+{
+  "example_id": "agv5-000105",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My tracker shows 61% sleep consistency, with a recent average of 425 minutes against a 465-minute need. What should I focus on?",
+      "asked_at_local": "2026-07-10T07:55:00+05:30",
+      "weekday": "Friday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "sleep_coaching",
+      "confidence": 0.9
+    },
+    "user_profile": {
+      "age_band": "25-29",
+      "biological_sex": "female",
+      "training_experience": "advanced"
+    },
+    "today": {
+      "date_local": "2026-07-10",
+      "recovery_score": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 425,
+        "need_minutes": 465,
+        "consistency_pct": 61,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": {
+        "avg_sleep_minutes": 425,
+        "confidence": "high",
+        "anomalies": []
+      }
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "activity_strain",
+        "sleep_stages_minutes"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "sleep_consistency": "high"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 425,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 465,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 61,
+        "unit": "%",
+        "label": "today.sleep.consistency_pct"
+      },
+      {
+        "value": 425,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      }
+    ]
+  },
+  "task_category": "sleep_coaching",
+  "case_type": "normal",
+  "difficulty": 3,
+  "target_response": {
+    "text": "Your sleep consistency is 61%, and the recent average is 425 minutes against a recorded need of 465 minutes, so variable timing is paired with a repeated duration shortfall. Focus on the timing pattern rather than collecting unrelated sleep tips. Choose one repeatable bedtime for the nights you control and keep it stable. A realistic target is a steadier pattern than the current one, with the recent average moving closer to your recorded need; perfect consistency is neither necessary nor supported by this context.",
+    "expected_action": "answer",
+    "must_mention": [
+      "61% consistency",
+      "425 minutes against 465-minute need",
+      "one repeatable-bedtime behavior",
+      "relative target"
+    ],
+    "must_not_mention": [
+      "perfect consistency target",
+      "invented bedtime",
+      "generic sleep list"
+    ],
+    "required_behaviors": [
+      "anchors_on_consistency_and_duration",
+      "one_pattern_specific_behavior",
+      "realistic_relative_target"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "generic_sleep_hygiene_list",
+      "overstates_precision"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv5-105-auto-consistency",
+    "rubric_tags": [
+      "sleep_coaching",
+      "s1_pattern_anchor",
+      "s2_specific_behavior",
+      "s3_relative_target",
+      "high_confidence_auto"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "codex-agent",
+    "prompt_version": "agv5-boundary-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-10"
+  }
+}

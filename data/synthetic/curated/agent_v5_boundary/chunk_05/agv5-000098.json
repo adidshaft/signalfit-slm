@@ -1,0 +1,142 @@
+{
+  "example_id": "agv5-000098",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My manually logged recent average is 405 minutes while my sleep need is 465 minutes. How should I respond?",
+      "asked_at_local": "2026-07-10T07:20:00+05:30",
+      "weekday": "Friday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "sleep_coaching",
+      "confidence": 0.74
+    },
+    "user_profile": {
+      "age_band": "25-29",
+      "biological_sex": "other",
+      "training_experience": "beginner"
+    },
+    "today": {
+      "date_local": "2026-07-10",
+      "recovery_score": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 410,
+        "need_minutes": 465,
+        "source": "manual",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": {
+        "avg_sleep_minutes": 405,
+        "confidence": "medium",
+        "anomalies": []
+      }
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "activity_strain",
+        "sleep_stages_minutes"
+      ],
+      "degraded_fields": [
+        {
+          "field": "trends.window_7d.avg_sleep_minutes",
+          "reason": "based on manual sleep entries"
+        }
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "manual",
+      "source_confidence": {
+        "sleep": "medium",
+        "trends.window_7d.avg_sleep_minutes": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 410,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 465,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 405,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      }
+    ]
+  },
+  "task_category": "sleep_coaching",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Based on your manual entries, the recent average is estimated at 405 minutes against a recorded need of 465 minutes, so this looks like a repeated duration shortfall rather than one isolated night. Make the pattern easier to change by beginning your bedtime routine earlier on the nights you control. A realistic target is to move the recent average closer to your recorded need over time; the manual average is useful directionally, but it is not precise enough to justify an exact catch-up prescription.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "manual average is estimated",
+      "405 minutes against 465-minute need",
+      "one earlier routine behavior",
+      "relative target closer to need"
+    ],
+    "must_not_mention": [
+      "exact catch-up prescription",
+      "unhedged manual average",
+      "absolute eight-hour target"
+    ],
+    "required_behaviors": [
+      "hedges_on_manual_confidence",
+      "anchors_on_recent_average_vs_need",
+      "one_pattern_specific_behavior",
+      "realistic_relative_target"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "generic_sleep_hygiene_list",
+      "overstates_precision"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "manual_only",
+    "persona_id": "p-agv5-098-manual-average-gap",
+    "rubric_tags": [
+      "sleep_coaching",
+      "s1_pattern_anchor",
+      "s2_specific_behavior",
+      "s3_relative_target",
+      "manual_hedging"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "codex-agent",
+    "prompt_version": "agv5-boundary-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-10"
+  }
+}

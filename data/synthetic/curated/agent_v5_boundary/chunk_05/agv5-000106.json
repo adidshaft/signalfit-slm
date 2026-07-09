@@ -1,0 +1,144 @@
+{
+  "example_id": "agv5-000106",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My manual log estimates 440 minutes total and 48 minutes deep against a 475-minute need. Should I fix deep sleep?",
+      "asked_at_local": "2026-07-10T08:00:00+05:30",
+      "weekday": "Friday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "sleep_coaching",
+      "confidence": 0.69
+    },
+    "user_profile": {
+      "age_band": "40-44",
+      "biological_sex": "female",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-10",
+      "recovery_score": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 440,
+        "need_minutes": 475,
+        "stages_minutes": {
+          "deep": 48
+        },
+        "stage_evidence": "manual_estimate",
+        "source": "manual",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "activity_strain"
+      ],
+      "degraded_fields": [
+        {
+          "field": "today.sleep.stages_minutes",
+          "reason": "manual estimate"
+        }
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "manual",
+      "source_confidence": {
+        "sleep": "medium",
+        "sleep_stages": "low"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 440,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 475,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 48,
+        "unit": "min",
+        "label": "today.sleep.stages_minutes.deep"
+      }
+    ]
+  },
+  "task_category": "sleep_coaching",
+  "case_type": "normal",
+  "difficulty": 3,
+  "target_response": {
+    "text": "Your manual log estimates 440 minutes of total sleep against a recorded need of 475 minutes; within that estimated night, deep sleep was also manually estimated at 48 minutes. The exact stage figure is too uncertain to optimize directly, while the shorter total is the clear pattern. Extend the available sleep opportunity before trying to change any stage. A realistic target is a total night closer to your recorded need, with the deep estimate treated as a loose observation rather than a diagnosis or precise scorecard.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "manual total and deep values are estimates",
+      "440 minutes against 475-minute need",
+      "48 minutes estimated deep sleep",
+      "one longer-opportunity behavior",
+      "relative target"
+    ],
+    "must_not_mention": [
+      "stage diagnosis",
+      "unhedged deep value",
+      "absolute deep-sleep target"
+    ],
+    "required_behaviors": [
+      "hedges_on_manual_confidence",
+      "names_stage_evidence_grade",
+      "anchors_on_duration_vs_need",
+      "one_pattern_specific_behavior",
+      "realistic_relative_target"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "medication_advice",
+      "disorder_speculation"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "manual_only",
+    "persona_id": "p-agv5-106-manual-stages",
+    "rubric_tags": [
+      "sleep_coaching",
+      "s1_pattern_anchor",
+      "s2_specific_behavior",
+      "s3_relative_target",
+      "manual_hedging",
+      "stage_estimate"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "codex-agent",
+    "prompt_version": "agv5-boundary-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-10"
+  }
+}

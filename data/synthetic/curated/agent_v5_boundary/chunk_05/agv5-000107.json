@@ -1,0 +1,143 @@
+{
+  "example_id": "agv5-000107",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My tracker detected 440 minutes total and estimates 48 minutes deep against a 475-minute need. Should I fix deep sleep?",
+      "asked_at_local": "2026-07-10T08:05:00+05:30",
+      "weekday": "Friday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "sleep_coaching",
+      "confidence": 0.86
+    },
+    "user_profile": {
+      "age_band": "55-59",
+      "biological_sex": "male",
+      "training_experience": "beginner"
+    },
+    "today": {
+      "date_local": "2026-07-10",
+      "recovery_score": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 440,
+        "need_minutes": 475,
+        "stages_minutes": {
+          "deep": 48
+        },
+        "stage_evidence": "sensor_estimate",
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "activity_strain"
+      ],
+      "degraded_fields": [
+        {
+          "field": "today.sleep.stages_minutes",
+          "reason": "sensor estimate"
+        }
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "ring",
+      "source_confidence": {
+        "sleep": "high",
+        "sleep_stages": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 440,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 475,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 48,
+        "unit": "min",
+        "label": "today.sleep.stages_minutes.deep"
+      }
+    ]
+  },
+  "task_category": "sleep_coaching",
+  "case_type": "normal",
+  "difficulty": 3,
+  "target_response": {
+    "text": "Your detected total was 440 minutes against a recorded need of 475 minutes; within that night, the device only estimates deep sleep at 48 minutes. The exact stage figure should be treated loosely because it is sensor-estimated, while the shorter total is the clearer pattern. Extend the available sleep opportunity before trying to change any stage. A realistic target is a total night closer to your recorded need, with the estimated deep value used as context rather than as a diagnosis or precise scorecard.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "deep sleep is sensor-estimated",
+      "440 minutes against 475-minute need",
+      "48 minutes estimated deep sleep",
+      "one longer-opportunity behavior",
+      "relative target"
+    ],
+    "must_not_mention": [
+      "stage diagnosis",
+      "unhedged stage estimate",
+      "absolute deep-sleep target"
+    ],
+    "required_behaviors": [
+      "hedges_on_estimate_grade",
+      "names_stage_evidence_grade",
+      "anchors_on_duration_vs_need",
+      "one_pattern_specific_behavior",
+      "realistic_relative_target"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "medication_advice",
+      "disorder_speculation"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv5-107-auto-stages",
+    "rubric_tags": [
+      "sleep_coaching",
+      "s1_pattern_anchor",
+      "s2_specific_behavior",
+      "s3_relative_target",
+      "sensor_estimate"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "codex-agent",
+    "prompt_version": "agv5-boundary-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-10"
+  }
+}

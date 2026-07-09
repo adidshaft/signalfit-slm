@@ -1,0 +1,143 @@
+{
+  "example_id": "agv5-000117",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My activity calories are estimated at 420 kcal so far against my 600 kcal goal. Am I behind?",
+      "asked_at_local": "2026-07-10T15:30:00+05:30",
+      "weekday": "Friday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "goal_coaching",
+      "confidence": 0.8
+    },
+    "user_profile": {
+      "age_band": "20-24",
+      "biological_sex": "female",
+      "training_experience": "intermediate"
+    },
+    "goals": {
+      "primary_goal": "maintain a regular activity habit",
+      "target_metrics": [
+        {
+          "metric": "active_calories_kcal",
+          "goal": 600,
+          "direction": "higher_is_better",
+          "source": "user_edited"
+        }
+      ]
+    },
+    "today": {
+      "date_local": "2026-07-10",
+      "recovery_score": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": null
+      },
+      "activity": {
+        "activity_strain": null,
+        "active_calories_kcal": 420,
+        "active_calories_confidence": "estimate"
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "sleep_duration_minutes",
+        "activity_strain"
+      ],
+      "degraded_fields": [
+        {
+          "field": "today.activity.active_calories_kcal",
+          "reason": "sensor estimate"
+        }
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "active_calories_kcal": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 420,
+        "unit": "kcal",
+        "label": "today.activity.active_calories_kcal"
+      },
+      {
+        "value": 600,
+        "unit": "kcal",
+        "label": "goals.target_metrics[0].goal"
+      }
+    ]
+  },
+  "task_category": "goal_coaching",
+  "case_type": "normal",
+  "difficulty": 3,
+  "target_response": {
+    "text": "Your device only estimates 420 kcal toward your personal activity target of 600 kcal, so this is an in-progress reading rather than evidence that the day has failed. Calorie output is estimate-grade, and the exact shortfall should not be treated as precise or alarming in the afternoon. Over the next week, focus on completing your planned activity and see whether the daily estimate generally moves nearer 600 kcal. That milestone stays tied to your actual target without inventing a remaining calorie amount or promising an outcome.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "activity calories are estimated",
+      "420 kcal toward 600 kcal target",
+      "mid-day reading is not alarm framing",
+      "one soft weekly milestone"
+    ],
+    "must_not_mention": [
+      "invented remaining calories",
+      "unhedged calorie estimate",
+      "failure alarm"
+    ],
+    "required_behaviors": [
+      "hedges_on_estimate_grade",
+      "frames_progress_against_actual_target",
+      "soft_time_bounded_milestone",
+      "avoids_midday_alarm_framing"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "outcome_guarantee",
+      "overstates_precision"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv5-117-estimated-calorie-goal",
+    "rubric_tags": [
+      "goal_coaching",
+      "g1_target_progress",
+      "g2_soft_milestone",
+      "g3_midday_calories",
+      "estimate_hedging",
+      "numeric_discipline"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "codex-agent",
+    "prompt_version": "agv5-boundary-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-10"
+  }
+}

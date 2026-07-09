@@ -1,0 +1,140 @@
+{
+  "example_id": "agv5-000102",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My manual sleep log estimates 415 minutes against a 470-minute need and 75 minutes of debt. How do I catch up?",
+      "asked_at_local": "2026-07-10T07:40:00+05:30",
+      "weekday": "Friday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "sleep_coaching",
+      "confidence": 0.73
+    },
+    "user_profile": {
+      "age_band": "35-39",
+      "biological_sex": "female",
+      "training_experience": "advanced"
+    },
+    "today": {
+      "date_local": "2026-07-10",
+      "recovery_score": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 415,
+        "need_minutes": 470,
+        "debt_minutes": 75,
+        "source": "manual",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "activity_strain",
+        "sleep_stages_minutes"
+      ],
+      "degraded_fields": [
+        {
+          "field": "today.sleep.debt_minutes",
+          "reason": "derived from manual sleep entries"
+        }
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "manual",
+      "source_confidence": {
+        "sleep": "medium",
+        "sleep_debt": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 415,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 470,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 75,
+        "unit": "min",
+        "label": "today.sleep.debt_minutes"
+      }
+    ]
+  },
+  "task_category": "sleep_coaching",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Your manual log is an estimate, but it places 415 minutes against a recorded need of 470 minutes and estimates 75 minutes of sleep debt, so the pattern is accumulated short sleep. Do not treat the debt figure as a demand to erase everything at once. Protect a longer sleep window on the next night you control. A realistic target is to reduce the estimated debt gradually by moving each logged night closer to your recorded need, without inventing a rigid catch-up schedule.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "manual debt is estimated",
+      "415 minutes against 470-minute need",
+      "75 minutes debt",
+      "one longer-window behavior",
+      "gradual relative target"
+    ],
+    "must_not_mention": [
+      "rigid catch-up schedule",
+      "unhedged manual debt",
+      "absolute sleep target"
+    ],
+    "required_behaviors": [
+      "hedges_on_manual_confidence",
+      "anchors_on_debt_and_duration",
+      "one_pattern_specific_behavior",
+      "realistic_relative_target"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "generic_sleep_hygiene_list",
+      "overstates_precision"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "manual_only",
+    "persona_id": "p-agv5-102-manual-debt",
+    "rubric_tags": [
+      "sleep_coaching",
+      "s1_pattern_anchor",
+      "s2_specific_behavior",
+      "s3_relative_target",
+      "manual_hedging"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "codex-agent",
+    "prompt_version": "agv5-boundary-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-10"
+  }
+}

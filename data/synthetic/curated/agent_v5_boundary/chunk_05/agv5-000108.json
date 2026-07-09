@@ -1,0 +1,132 @@
+{
+  "example_id": "agv5-000108",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "I am at 6200 steps this afternoon and my goal is 8000 steps. Am I failing the day?",
+      "asked_at_local": "2026-07-10T15:10:00+05:30",
+      "weekday": "Friday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "goal_coaching",
+      "confidence": 0.93
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "female",
+      "training_experience": "beginner"
+    },
+    "goals": {
+      "primary_goal": "build a steadier daily walking habit",
+      "target_metrics": [
+        {
+          "metric": "steps",
+          "goal": 8000,
+          "direction": "higher_is_better",
+          "source": "user_edited"
+        }
+      ]
+    },
+    "today": {
+      "date_local": "2026-07-10",
+      "recovery_score": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": null
+      },
+      "activity": {
+        "activity_strain": null,
+        "steps": 6200
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "sleep_duration_minutes",
+        "activity_strain"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "phone_pedometer",
+      "device_type": "phone_only",
+      "source_confidence": {
+        "steps": "high"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 6200,
+        "unit": "steps",
+        "label": "today.activity.steps"
+      },
+      {
+        "value": 8000,
+        "unit": "steps",
+        "label": "goals.target_metrics[0].goal"
+      }
+    ]
+  },
+  "task_category": "goal_coaching",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "You have logged 6200 steps toward your personal target of 8000 steps, so this is in-progress rather than a failed day. An afternoon reading is a checkpoint, not an alarm, and your target is the right comparison. Over the next week, focus on finishing most days nearer your 8000 steps through one ordinary walk when it fits. Judge the habit by whether daily totals are moving toward the stored target, not by treating every mid-day shortfall as evidence that the plan is broken.",
+    "expected_action": "answer",
+    "must_mention": [
+      "6200 steps toward 8000-step target",
+      "mid-day shortfall is not alarm framing",
+      "one soft weekly milestone"
+    ],
+    "must_not_mention": [
+      "failure alarm",
+      "invented remaining steps",
+      "outcome guarantee"
+    ],
+    "required_behaviors": [
+      "frames_progress_against_actual_target",
+      "soft_time_bounded_milestone",
+      "avoids_midday_alarm_framing"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "outcome_guarantee",
+      "moralizing"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "phone_steps",
+    "persona_id": "p-agv5-108-afternoon-steps",
+    "rubric_tags": [
+      "goal_coaching",
+      "g1_target_progress",
+      "g2_soft_milestone",
+      "g3_midday_steps"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "codex-agent",
+    "prompt_version": "agv5-boundary-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-10"
+  }
+}

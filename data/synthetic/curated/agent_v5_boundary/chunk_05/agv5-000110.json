@@ -1,0 +1,141 @@
+{
+  "example_id": "agv5-000110",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My weekly average recovery is 64% and my personal green target is 68%. Is that useful progress?",
+      "asked_at_local": "2026-07-10T08:20:00+05:30",
+      "weekday": "Friday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "goal_coaching",
+      "confidence": 0.9
+    },
+    "user_profile": {
+      "age_band": "25-29",
+      "biological_sex": "female",
+      "training_experience": "advanced"
+    },
+    "goals": {
+      "primary_goal": "support consistent training recovery",
+      "target_metrics": [
+        {
+          "metric": "recovery_score",
+          "green_at": 68,
+          "direction": "higher_is_better",
+          "source": "personal_baseline"
+        }
+      ]
+    },
+    "today": {
+      "date_local": "2026-07-10",
+      "recovery_score": 66,
+      "recovery_confidence": "high",
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": null
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 64,
+        "confidence": "high",
+        "anomalies": []
+      }
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "sleep_duration_minutes",
+        "activity_strain"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "recovery_score": "high",
+        "trends.window_7d.avg_recovery": "high"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 66,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 64,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 68,
+        "unit": "%",
+        "label": "goals.target_metrics[0].green_at"
+      }
+    ]
+  },
+  "task_category": "goal_coaching",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Your weekly average recovery is 64% against your personal green target of 68%, so it is a useful checkpoint but has not reached the target. This context does not show whether the average has improved over time, so avoid calling it progress from the current value alone. Over the next couple of weeks, focus on seeing whether the weekly average moves toward 68%. That is one soft milestone tied directly to your stored target, without inventing a prior trend or exact improvement rate.",
+    "expected_action": "answer",
+    "must_mention": [
+      "64% weekly average against 68% target",
+      "one soft time-bounded milestone"
+    ],
+    "must_not_mention": [
+      "invented percentage-point gap",
+      "guaranteed green days",
+      "derived rate"
+    ],
+    "required_behaviors": [
+      "frames_progress_against_actual_target",
+      "soft_time_bounded_milestone",
+      "uses_correct_weekly_field"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "outcome_guarantee",
+      "misbinds_fields"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv5-110-recovery-green-target",
+    "rubric_tags": [
+      "goal_coaching",
+      "g1_target_progress",
+      "g2_soft_milestone",
+      "numeric_discipline",
+      "field_binding"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "codex-agent",
+    "prompt_version": "agv5-boundary-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-10"
+  }
+}

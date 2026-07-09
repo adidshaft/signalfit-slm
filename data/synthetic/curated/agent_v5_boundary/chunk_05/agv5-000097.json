@@ -1,0 +1,124 @@
+{
+  "example_id": "agv5-000097",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My tracker detected 420 minutes of sleep and says I needed 470 minutes. What should I change?",
+      "asked_at_local": "2026-07-10T07:15:00+05:30",
+      "weekday": "Friday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "sleep_coaching",
+      "confidence": 0.9
+    },
+    "user_profile": {
+      "age_band": "35-39",
+      "biological_sex": "male",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-10",
+      "recovery_score": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 420,
+        "need_minutes": 470,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "activity_strain",
+        "sleep_stages_minutes"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high"
+      },
+      "strain_scale": null,
+      "hrv_method": null
+    },
+    "allowed_numbers": [
+      {
+        "value": 420,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 470,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      }
+    ]
+  },
+  "task_category": "sleep_coaching",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Your automatically detected sleep was 420 minutes against a recorded need of 470 minutes, so the observed pattern is a shorter night than needed. The clearest lever is the available sleep window, not a broad list of sleep tips. Start that window earlier while leaving your intended wake time unchanged. A realistic target is for the next night to land closer to your recorded need and reduce the remaining shortfall, rather than demanding an arbitrary fixed total.",
+    "expected_action": "answer",
+    "must_mention": [
+      "420 minutes against 470-minute need",
+      "one earlier sleep-window behavior",
+      "relative target closer to need"
+    ],
+    "must_not_mention": [
+      "absolute eight-hour target",
+      "sleep disorder speculation",
+      "invented gap"
+    ],
+    "required_behaviors": [
+      "anchors_on_duration_vs_need",
+      "one_pattern_specific_behavior",
+      "realistic_relative_target"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "generic_sleep_hygiene_list",
+      "causal_certainty"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv5-097-auto-duration-gap",
+    "rubric_tags": [
+      "sleep_coaching",
+      "s1_pattern_anchor",
+      "s2_specific_behavior",
+      "s3_relative_target",
+      "high_confidence_auto"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "codex-agent",
+    "prompt_version": "agv5-boundary-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-10"
+  }
+}
