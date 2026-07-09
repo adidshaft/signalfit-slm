@@ -1,5 +1,17 @@
 # SignalFit-SLM
 
+## Project Stages
+
+| Stage | No. | Description | Status |
+|---|---:|---|---|
+| Foundation | 1 | Product framing, universal wearable context schema, safety policy, and eval rubric. | ✅ Done |
+| Seed Pipeline | 2 | Synthetic seed examples, validation scripts, dataset prep, and split workflow. | ✅ Done |
+| ft_v1 | 3 | First MLX LoRA fine-tune and locked-set smoke evaluation. | ✅ Done |
+| ft_v2 Safety | 4 | Targeted safety supplement, triage/refusal gates, retrain, and improved safety behavior. | ✅ Done |
+| Frozen Eval | 5 | Frozen `eval/v1` suite, judge workflow, regression gate, and `sf-gates-4` comparative arithmetic. | ✅ Done |
+| ft_v3 Relational | 6 | Relational/safety data round, retrain, and full-suite eval; blocked by regression, not promoted. | ⚠️ Evaluated |
+| Claim Discipline | 7 | Next loop for unsupported qualitative claims, stronger rubric training, and future baseline candidate. | 🔜 Future |
+
 SignalFit-SLM is a small language model project for grounded fitness coaching.
 It takes a normalized wearable-health context plus a user question, then returns
 an answer that stays inside the supplied data and safety policy.
