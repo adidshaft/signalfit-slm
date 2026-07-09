@@ -615,6 +615,43 @@ answer only from present fields, avoid saying data is absent when it is
 available, route symptoms without diagnosing, and reserve qualitative labels
 for claims that can be tied to a specific field/window.
 
+## Step 7h — agv4 data round + sf-gates-6 (phase 2b, part 6, in progress)
+
+**What:** the fourth data round, `agent_v4_discipline` — 150 examples in six
+chunks of 25 — followed by ft_v4 and the full frozen-suite verdict.
+
+**Why this mix:** it is the ft_v3 post-mortem turned into data, plus the one
+thing agent_v3 omitted:
+
+| chunks | theme | measured failure it targets |
+|---|---|---|
+| 01–02 | claim discipline (incl. hard variants: mid-range verdicts, questions that *invite* a diagnosis) | s5/judge: unsupported labels ("green light"), false "I can't see your data" claims, diagnosis-by-exclusion |
+| 03–04 | relational correctness (04 under field-binding pressure) | s4 49→46 regression in ft_v3; judge X1 still largest bucket (33/66) |
+| 05 | benign lookalikes (supplements, sensible cuts, normal discomfort, alarming-sounding slang) | the anti-over-refusal counterweight missing from agent_v3 — added *before* pushing safety harder, not after over-refusal appears |
+| 06 | indirect-framing safety at judge-quality tier (F1–F3 refusals, T1–T4 triage, benign contrasts in-chunk) | adversarial slice: 3/14 judge pass; fiction-framing jailbreak class |
+
+**How:** same generator→validate→(critic)→curate pipeline as rounds 1–3, with
+two process upgrades learned this session: (a) generators verify their own
+work — `validate_schema.py` exit 0 AND gold answers through the full current
+gate set at 1.0 — before reporting; (b) generators write files incrementally,
+because session limits kill agents mid-run and both times this happened the
+files were already on disk (check the directory before re-running anything).
+
+**The sf-gates-6 interlude** — a generator failed calibration on x5 (brands)
+because the substring check matched "oura" inside *encourage*. That is a gate
+bug, and the calibration rule caught it exactly as designed — in a gold
+answer, before it could corrupt a score. Fix: word-boundary regexes; bump to
+`sf-gates-6`; recalibrate (gold 66/66); re-score ft_v2 and re-pin the baseline
+in the same commit — numbers identical (det 0.621 / strict 0.167), proving the
+fix removed only the false positive. Lesson repeated from Step 7b: **when a
+gold fails a gate, suspect the gate first.**
+
+**Status:** chunks 05–06 committed (validated 25/25, gold-calibrated 1.0 —
+chunk 06 exercises s1/s2 on its 10 triage + 10 refusals). Chunks 01–04 in
+generation. Next: critic pass → ft_v4 dataset (all four rounds + worked
+examples) → LoRA train → full workflow → `check_regression.py` against the
+re-pinned ft_v2 baseline under **(sf-eval-v1, sf-gates-6, rubric-v0.1)**.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -734,3 +771,11 @@ for claims that can be tied to a specific field/window.
   deterministic 39/66, judge category 11/66, strict overall 10/66. Regression
   remains blocked; next data loop should train present-field discipline and
   non-diagnostic safety routing.
+- **2026-07-09 (phase 2b, part 6 — agv4 round opened + sf-gates-6):** x5
+  brand gate word-boundary fix after "oura"-in-"encourage" false positive
+  caught by gold calibration (gate bug, not data bug); baseline re-pinned
+  under **(sf-eval-v1, sf-gates-6, rubric-v0.1)** with identical numbers.
+  agv4 chunks 05 (25 benign lookalikes) and 06 (25 indirect-framing safety,
+  judge-quality tier) committed — both validated 25/25, gold-calibrated 1.0.
+  Chunks 01–04 (claim discipline ×2, relational correctness ×2) in
+  generation. See Step 7h for the full design rationale.
