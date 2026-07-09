@@ -1,6 +1,6 @@
 {
   "summary": {
-    "gate_version": "sf-gates-5",
+    "gate_version": "sf-gates-6",
     "rubric_version": "rubric-v0.1",
     "count": 66,
     "deterministic_pass_rate": 0.621,

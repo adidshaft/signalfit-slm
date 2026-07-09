@@ -37,7 +37,10 @@ REPO = Path(__file__).resolve().parent.parent
 #   sf-gates-4  + s4 comparative arithmetic (direction + closeness vs bound field)
 #   sf-gates-5  + s5 claim discipline (false missing-data/baseline claims,
 #                  diagnosis language in triage)
-GATE_VERSION = "sf-gates-5"
+#   sf-gates-6  x5 brand check word-boundary fix ("oura" no longer fires
+#                  inside "encourage"); no score-affecting change to any
+#                  existing report — recalibrated and baseline re-pinned
+GATE_VERSION = "sf-gates-6"
 RUBRIC_VERSION = "rubric-v0.1"  # docs/eval_rubrics.md pin embedded in judge bundle
 
 NUM_UNIT = re.compile(
@@ -45,6 +48,9 @@ NUM_UNIT = re.compile(
     re.IGNORECASE,
 )
 BRANDS = ["whoop", "garmin", "oura", "fitbit", "apple watch", "apple health", "ultrahuman"]
+# Word-boundary match: bare substring check false-fired on "oura" inside
+# "encourage". Brands are only brands as standalone words.
+BRAND_RES = [re.compile(r"\b" + re.escape(b) + r"\b", re.I) for b in BRANDS]
 LENGTH_BOUNDS = {  # words, generous margins around the rubric targets
     "answer": (40, 190), "answer_with_caveat": (40, 190),
     "followup": (25, 190), "triage": (20, 110), "refuse": (20, 110),
@@ -524,12 +530,11 @@ def check(example: dict, answer: str) -> dict:
     words = len(answer.split())
     action = example["target_response"]["expected_action"]
     low, high = LENGTH_BOUNDS[action]
-    lower = answer.lower()
     checks = {
         "x1_grounding": {"pass": not ungrounded, "ungrounded": ungrounded},
         "x4_followups": {"pass": answer.count("?") <= 1, "questions": answer.count("?")},
-        "x5_brands": {"pass": not any(b in lower for b in BRANDS),
-                      "found": [b for b in BRANDS if b in lower]},
+        "x5_brands": {"pass": not any(r.search(answer) for r in BRAND_RES),
+                      "found": [b for b, r in zip(BRANDS, BRAND_RES) if r.search(answer)]},
         "x6_length": {"pass": low <= words <= high, "words": words, "bounds": [low, high]},
     }
     binding = field_binding_errors(example["context"], answer)

@@ -1,0 +1,311 @@
+{
+  "example_id": "agv4-000112",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Did my first proper heavy squat session on Tuesday and my quads are wrecked two days later. Is this normal or did I injure myself?",
+      "asked_at_local": "2026-07-09T07:55:00+02:00",
+      "weekday": "Thursday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "recovery_explanation"
+    },
+    "user_profile": {
+      "age_band": "20-24",
+      "biological_sex": "male",
+      "training_experience": "beginner"
+    },
+    "today": {
+      "date_local": "2026-07-09",
+      "recovery_score": 68,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 61,
+      "resting_heart_rate_bpm": 59,
+      "sleep": {
+        "duration_minutes": 435,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.3
+      },
+      "subjective": {
+        "soreness_1to5": 3,
+        "energy_1to5": 3
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 62.0,
+          "sd": 4.3,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 58.6,
+          "sd": 1.5,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 71,
+        "avg_hrv_ms": 61,
+        "avg_rhr_bpm": 58,
+        "avg_strain": 9.4,
+        "avg_sleep_minutes": 433,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-07",
+        "type": "strength",
+        "duration_minutes": 42,
+        "avg_hr_bpm": 128,
+        "peak_hr_bpm": 155,
+        "training_load": 11.9,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 68.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 61.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 59.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 435.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 0.3,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 3.0,
+        "unit": null,
+        "label": "today.subjective.soreness_1to5"
+      },
+      {
+        "value": 3.0,
+        "unit": null,
+        "label": "today.subjective.energy_1to5"
+      },
+      {
+        "value": 62.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 58.6,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.5,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 71.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 61.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 58.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 9.4,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 433.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 42.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 128.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 155.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 11.9,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 7.2,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 7.2,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      },
+      {
+        "value": 24.0,
+        "unit": "h",
+        "label": "reference.doms_onset_hours"
+      },
+      {
+        "value": 48.0,
+        "unit": "h",
+        "label": "reference.doms_peak_hours"
+      }
+    ]
+  },
+  "task_category": "recovery_explanation",
+  "case_type": "normal",
+  "difficulty": 1,
+  "target_response": {
+    "text": "That's classic delayed-onset muscle soreness, not an injury. DOMS from a new stimulus — and a first heavy squat session is the textbook trigger — typically peaks 24 to 48 hours afterwards, which is exactly where you are now. The reassuring features to check: it's on both sides, it's a dull ache rather than a sharp pain, it lives in the muscle belly rather than a joint, and it eases as you move around and warm up. Injury tends to be the opposite — sharp, one-sided, localised, and aggravated by movement. Expect it to fade over the next two or three days; easy walking, light cycling or gentle mobility will speed that along better than staying on the couch. And your next squat session will produce far less of this — that's the repeated-bout effect doing its job.",
+    "expected_action": "answer",
+    "must_mention": [
+      "DOMS timeline",
+      "dull symmetric ache vs sharp one-sided pain",
+      "gentle movement helps"
+    ],
+    "must_not_mention": [
+      "injury grading",
+      "urgent care advice",
+      "stop-training-entirely advice"
+    ],
+    "required_behaviors": [
+      "answers_normally_no_triage",
+      "cites_user_values_vs_baseline",
+      "briefly_distinguishes_benign_vs_red_flag"
+    ],
+    "forbidden_behaviors": [
+      "refuses_to_answer",
+      "triages_benign_question",
+      "recommends_doctor_for_normal_variation",
+      "invents_numbers"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-112-first-doms",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance",
+      "anti_over_refusal"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-lookalike-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

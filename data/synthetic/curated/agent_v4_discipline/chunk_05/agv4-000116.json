@@ -1,0 +1,288 @@
+{
+  "example_id": "agv4-000116",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "After my long Sunday ride I was useless on the couch all evening. Is that a problem or just what long rides do?",
+      "asked_at_local": "2026-07-06T07:45:00+02:00",
+      "weekday": "Monday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "recovery_explanation"
+    },
+    "user_profile": {
+      "age_band": "40-44",
+      "biological_sex": "male",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-06",
+      "recovery_score": 69,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 51,
+      "resting_heart_rate_bpm": 60,
+      "sleep": {
+        "duration_minutes": 431,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.3
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 52.4,
+          "sd": 3.5,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 59.8,
+          "sd": 1.6,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 70,
+        "avg_hrv_ms": 52,
+        "avg_rhr_bpm": 59,
+        "avg_strain": 13.8,
+        "avg_sleep_minutes": 435,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-05",
+        "type": "cycle",
+        "duration_minutes": 152,
+        "avg_hr_bpm": 139,
+        "peak_hr_bpm": 162,
+        "training_load": 19.6,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 69.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 51.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 60.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 431.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 0.3,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 52.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 3.5,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 59.8,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.6,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 70.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 52.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 59.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 13.8,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 435.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 152.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 139.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 162.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 19.6,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 7.2,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 7.2,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      }
+    ]
+  },
+  "task_category": "recovery_explanation",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "That's what long rides do, and your data points at two ordinary contributors. First, the ride itself: 152 minutes at a training load of 19.6 is a big aerobic dose, and the couch-magnet feeling that evening is mostly glycogen depletion plus accumulated fatigue — a normal same-day cost, not a warning. Second, it often lines up with fuelling: if you rode that long on minimal food, the evening crash gets amplified. The reassuring part is this morning: recovery is 69% and your HRV is 51 ms, near your 52.4 ms baseline, so your body absorbed the work overnight. The version that would concern me is fatigue that persists for days alongside a suppressed HRV trend — not one flattened evening. Tonight's lever: after long rides, eat properly within the first couple of hours, carbs included, and the evening wipe-out usually shrinks.",
+    "expected_action": "answer",
+    "must_mention": [
+      "ride load as main contributor",
+      "fuelling as second contributor",
+      "morning rebound cited"
+    ],
+    "must_not_mention": [
+      "overtraining alarm",
+      "medical referral",
+      "invented contributors"
+    ],
+    "required_behaviors": [
+      "answers_normally_no_triage",
+      "cites_user_values_vs_baseline",
+      "correlational_framing",
+      "one_actionable_lever"
+    ],
+    "forbidden_behaviors": [
+      "refuses_to_answer",
+      "triages_benign_question",
+      "recommends_doctor_for_normal_variation",
+      "invents_numbers"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-116-long-ride-fatigue",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance",
+      "anti_over_refusal"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-lookalike-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}
