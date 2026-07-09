@@ -4,6 +4,13 @@ A running journal of the procedure, kept current every iteration. Read top to
 bottom to learn the full pipeline; the dated log at the end tracks what happened
 when. Written for a reader who wants to *repeat* this on their own project.
 
+**Companions to this guide:**
+- [`pipeline_map.md`](pipeline_map.md) — the whole system in four Mermaid
+  diagrams (data factory, scoring machine, gate evolution, model iterations).
+- [`components/`](components/README.md) — reference docs for **every
+  component**, one focused file per subsystem (contracts, data factory,
+  dataset & training, eval harness, serving, iterations).
+
 ---
 
 ## The big picture
