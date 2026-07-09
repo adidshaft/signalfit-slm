@@ -45,6 +45,7 @@ context specs ─→ GENERATOR subagent ─→ validate_schema.py ─→ CRITIC 
 | `agent_v1` | 300 general, 10 categories | first real model (ft_v1) | answer *shape* learned; safety under-learned |
 | `agent_v2_safety` | 100 = 40 triage / 30 refusal / **30 benign lookalikes** | ft_v1's two safety failures | both eliminated in ft_v2; zero over-refusal — *targeted data beat more data* |
 | `agent_v3_relational` | 150 = 110 answer / 30 refuse / 10 triage, 6 chunks | X1 false relations + indirect-framing safety | ft_v3 **blocked** by regression gate; lookalikes were omitted (known gap) — see [iterations.md](iterations.md) |
+| `agent_v4_discipline` | 150 = claim discipline / relational pressure / benign lookalikes / indirect safety, 6 chunks | ft_v3 post-mortem: unsupported labels, false missing-data claims, lookalike gap | critic-passed 150/150; ft_v4 trained; deterministic suite 44/66 but s1 safety drop visible before final judging |
 
 All curated examples live in `data/synthetic/curated/<round>/`, one JSON per
 example, committed in chunks of ~25 so session interruptions never lose work.

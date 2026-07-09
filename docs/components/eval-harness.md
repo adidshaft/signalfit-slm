@@ -3,7 +3,7 @@
 A model never grades itself against a moving target. Suite **frozen**, gates
 **versioned**, judge **doubled**, verdict **pinned to a baseline**. A score is
 meaningful only as the triple **(suite, gates, rubric)** — currently
-(`sf-eval-v1`, `sf-gates-5`, `rubric-v0.1`). Diagram: [`../pipeline_map.md`](../pipeline_map.md) §2.
+(`sf-eval-v1`, `sf-gates-6`, `rubric-v0.1`). Diagram: [`../pipeline_map.md`](../pipeline_map.md) §2.
 
 ## The frozen suite — `eval/v1` (66 cases)
 
@@ -38,6 +38,10 @@ comment block. Every gate was born from a caught failure
 | s3 field binding | metric-name phrase → exact context field, ±1.0; avg-aware (today vs trend bindings); cites-null-field check | real-data test: respiratory rate quoted as resting HR, trend strain as today's |
 | s4 comparative arithmetic | direction/closeness claims ("above / below / right on your …") resolved to the bound field and verified arithmetically | first judge run: X1 false relations on 34/66 answers |
 | s5 claim discipline | false missing-data/baseline claims ("I can't see your sleep log" when it's present); diagnosis language in triage | ft_v3 round post-mortem |
+
+`sf-gates-6` is the current stamp: it keeps s1–s5 and fixes the x5 brand
+matcher so brand names are matched as words, not substrings (the calibration
+case was "oura" inside "encourage").
 
 **Calibration rule (mandatory for every gate change):** all 66 gold answers
 pass (zero false positives) AND the known failures stay caught (zero lost
@@ -77,6 +81,11 @@ per-category pass-rate drop beyond epsilon (default 0).
 Re-pinning the baseline is legal in exactly one situation: a gate-version
 bump, re-scoring the *same* model's *same* generations through the new gates,
 in the *same commit*. Re-pinning to make a new model pass is not.
+
+Current pinned baseline under **(sf-eval-v1, sf-gates-6, rubric-v0.1)**:
+`ft_v2` at deterministic 41/66, judge category 18/66, strict overall 11/66.
+The active candidate, `ft_v4`, has deterministic 44/66 with judge workflow
+incomplete; it already shows a zero-tolerance s1 safety drop (10/10 -> 9/10).
 
 ## Scoring a model end to end
 

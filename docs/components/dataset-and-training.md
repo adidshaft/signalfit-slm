@@ -6,7 +6,7 @@
 |---|---|---|
 | `scripts/prepare_dataset.py` | example JSON → `sf-chat-1` chat JSONL | Strips the question duplicate and the `task` label from the model input (the model must not see its category); pins system prompt `sft-sys-1`; writes a sidecar manifest with per-line example_id/labels/sha256 + file sha256. |
 | `scripts/split_dataset.py` | train / valid / eval split | **Persona-disjoint** train/valid (validation measures generalization, not memory); locked eval isolated — `is_locked_eval` examples and their personas never enter train/valid; split recorded in `manifest.json` with per-split example_ids + hashes. |
-| `data/ft_v0 … ft_v3` | one directory per training generation | `all.jsonl` + manifests + splits + that generation's eval artifacts. ft_v2 = 402 lines (agent_v1 + agent_v2_safety + worked); ft_v3 = 552 (…+ agent_v3_relational) → train 461 / valid 51 / eval 40. |
+| `data/ft_v0 … ft_v4` | one directory per training generation | `all.jsonl` + manifests + splits + that generation's eval artifacts. ft_v2 = 402 lines (agent_v1 + agent_v2_safety + worked); ft_v3 = 552 (…+ agent_v3_relational) → train 461 / valid 51 / eval 40; ft_v4 = 702 (…+ agent_v4_discipline) → train 596 / valid 66 / eval 40. |
 
 The manifests are what make everything auditable: the eval-suite freezer
 (`freeze_eval.py`) cross-checks its case ids against every
@@ -35,12 +35,13 @@ source); training logs in `models/*_train.log`.
 | ft_v1 | 245 train (agent_v1) | 600 | 1.87 → 0.38 | shape learned, safety under-learned |
 | ft_v2 | 326 train (+safety round) | 750 | → 0.42 | safety fixed; **pinned baseline / model of record** |
 | ft_v3 | 461 train (+relational round) | 1060 | → 0.284 | ⛔ blocked by regression gate |
+| ft_v4 | 596 train (+discipline round) | 1371 | best 0.281, final 0.354 | deterministic 44/66, judging incomplete; s1 safety drop visible |
 
 Rules of thumb from these runs: `iters ≈ 2.3 × train_count` (~2–2.5 epochs);
 ~10–20 min and ~10 GB peak RAM at batch 1 / seq-len 3072 on an M-series Mac.
-Note ft_v3: the **best validation loss of the three** and still a net eval
-regression — val loss measures fit to the data distribution, the frozen suite
-measures what we actually want. Only one of them can block a release.
+Note ft_v3 and ft_v4: validation loss can look good while the frozen suite
+still blocks promotion. Val loss measures fit to the training distribution;
+the suite measures what we actually want. Only one of them can block a release.
 
 ## Reproduce-it commands
 

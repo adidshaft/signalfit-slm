@@ -1,4 +1,4 @@
-# Iterations — three trips around the improvement loop
+# Iterations — four trips around the improvement loop
 
 The loop that governs the whole project:
 
@@ -9,7 +9,7 @@ eval failure → make it DETERMINISTIC (new gate) → generate TARGETED data
 ```
 
 Diagram: [`../pipeline_map.md`](../pipeline_map.md) §4. Full narrative:
-[`../process_guide.md`](../process_guide.md) Steps 7–7g and the dated log.
+[`../process_guide.md`](../process_guide.md) Steps 7–7h and the dated log.
 
 ## Iteration 1 — ft_v1 (phase 1)
 
@@ -58,17 +58,36 @@ but the round's actual target got *worse* (s4 49→46), judge quality dropped
 Post-mortem produced **s5** (claim discipline: false "I can't see your data"
 claims, diagnosis language) — the next loop's deterministic anchor.
 
-## Scoreboard — triple (sf-eval-v1, sf-gates-5, rubric-v0.1)
+## Iteration 4 — ft_v4 (phase 2b part 3) — judging in progress
+
+`agent_v4_discipline` added the missing counterweight from ft_v3: claim
+discipline, relational correctness under field-binding pressure, benign
+lookalikes, and indirect-framing safety in one 150-example round. It passed
+critic review with 150/150 retained, then `ft_v4` trained on 702 examples
+(596 train / 66 valid / 40 held-out split) for 1371 MLX LoRA iterations.
+
+Deterministic frozen-suite score is in; judged verdict is not complete yet.
+Under **(sf-eval-v1, sf-gates-6, rubric-v0.1)**, ft_v4 reaches 44/66
+deterministic vs ft_v2's 41/66. The gains are real but not sufficient:
+protocol refusal improves (s2 9/11→11/11), field binding improves
+(s3 62/66→64/66), and comparative arithmetic merely matches baseline
+(s4 49/66). The blocker is already visible before judging finishes:
+safety-triage behavior drops (s1 10/10→9/10), which is zero-tolerance in the
+regression gate. Judge pass A currently covers 60/66 cases; pass A chunk 06
+and pass B remain.
+
+## Scoreboard — triple (sf-eval-v1, sf-gates-6, rubric-v0.1)
 
 | model | deterministic | judge category | strict overall | verdict |
 |---|---:|---:|---:|---|
 | ft_v2 | 41/66 | 18/66 | **11/66** | pinned baseline, model of record |
 | ft_v3 | 39/66 | 11/66 | 10/66 | ⛔ blocked |
+| ft_v4 | 44/66 | pending | pending | ⏳ judging; safety-gate drop already visible |
 
 (ft_v1: 27/30 under sf-gates-3 on its own locked set — gate-comparable only,
 predates the suite.)
 
-## What the three iterations teach
+## What the iterations teach
 
 1. **A blocked model is the harness succeeding.** ft_v3 had the best val loss
    and genuinely improved two safety gates; the regression gate still refused
@@ -78,9 +97,13 @@ predates the suite.)
    abstract; each mechanizes something a model actually did wrong once.
 3. **Honesty upgrades look like regressions.** Expect the headline number to
    fall every time the ruler improves; track the triple, not the number.
+4. **Aggregate gains cannot buy back a safety drop.** ft_v4 improves the
+   deterministic count and fixes protocol leakage, but one new triage coaching
+   failure is enough to block promotion unless a later run removes it.
 
-## Next loop (queued)
+## Current loop
 
-Data round targeting **claim discipline + relational correctness**, this time
-*including* the benign lookalikes `agent_v3` omitted; graded under the same
-triple against the pinned ft_v2 baseline.
+Finish the two-pass judge workflow for ft_v4, merge/adjudicate, apply the
+judge verdicts, and run `check_regression.py`. If the visible s1 drop remains,
+the baseline stays ft_v2 and the next data loop should target safety triage
+without giving back the s2 refusal and s3 binding gains.
