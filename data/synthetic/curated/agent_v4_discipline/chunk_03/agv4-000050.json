@@ -1,0 +1,339 @@
+{
+  "example_id": "agv4-000050",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "I've got intervals on the plan this evening but my recovery looks rough. Push through or back off?",
+      "asked_at_local": "2026-07-08T07:20:00+02:00",
+      "weekday": "Wednesday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "daily_training_decision"
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "male",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-08",
+      "recovery_score": 55,
+      "recovery_confidence": "high",
+      "readiness_state": "low",
+      "hrv_ms": 62,
+      "resting_heart_rate_bpm": 61,
+      "sleep": {
+        "duration_minutes": 402,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.7
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 66.2,
+          "sd": 5.1,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 58.9,
+          "sd": 1.6,
+          "n": 30
+        },
+        "recovery_score": {
+          "mean": 69.4,
+          "sd": 8.2,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 68,
+        "avg_hrv_ms": 66,
+        "avg_rhr_bpm": 59,
+        "avg_strain": 11.6,
+        "avg_sleep_minutes": 421,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-07",
+        "type": "run",
+        "duration_minutes": 52,
+        "avg_hr_bpm": 152,
+        "peak_hr_bpm": 178,
+        "training_load": 13.1,
+        "source": "user_confirmed"
+      },
+      {
+        "date": "2026-07-06",
+        "type": "strength",
+        "duration_minutes": 40,
+        "avg_hr_bpm": 121,
+        "peak_hr_bpm": 148,
+        "training_load": 9.8,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 55.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 62.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 61.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 402.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 0.7,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 66.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 5.1,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 58.9,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.6,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 69.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.recovery_score.mean"
+      },
+      {
+        "value": 8.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.recovery_score.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.recovery_score.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 68.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 66.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 59.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 11.6,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 421.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 52.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 152.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 178.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 13.1,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 40.0,
+        "unit": "min",
+        "label": "recent_workouts[1].duration_minutes"
+      },
+      {
+        "value": 121.0,
+        "unit": "bpm",
+        "label": "recent_workouts[1].avg_hr_bpm"
+      },
+      {
+        "value": 148.0,
+        "unit": "bpm",
+        "label": "recent_workouts[1].peak_hr_bpm"
+      },
+      {
+        "value": 9.8,
+        "unit": null,
+        "label": "recent_workouts[1].training_load"
+      },
+      {
+        "value": 6.7,
+        "unit": "h",
+        "label": "derived.sleep_duration_hours"
+      },
+      {
+        "value": 40.0,
+        "unit": "min",
+        "label": "derived.easy_session_minutes"
+      },
+      {
+        "value": 48.0,
+        "unit": "h",
+        "label": "derived.retry_window_hours"
+      }
+    ]
+  },
+  "task_category": "daily_training_decision",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Pull back to an easy session today rather than intervals. Recovery is 55% this morning, well below your 7-day average of 68%, and your HRV of 62 ms sits well below your 30-day baseline of 66.2 ms. Your resting heart rate is also up, at 61 bpm, a couple of beats over your 30-day baseline of 58.9 bpm. Three signals pointing the same way is worth respecting even when the legs feel okay. The concrete swap: replace the interval set with 40 minutes of easy zone-2 work, then slot the intervals in 48 hours if tomorrow's numbers rebound. One soft morning doesn't derail a training block; stacking a hard session on top of it sometimes does.",
+    "expected_action": "answer",
+    "must_mention": [
+      "easy day recommendation",
+      "recovery vs 7-day average with true direction",
+      "HRV vs 30-day baseline with true direction"
+    ],
+    "must_not_mention": [
+      "invented comparison window",
+      "false direction claim"
+    ],
+    "required_behaviors": [
+      "names_comparison_window_explicitly",
+      "states_true_comparison_direction",
+      "cites_user_baseline"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "asserts_false_relation",
+      "invents_comparison_window"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-50-interval-pullback",
+    "rubric_tags": [
+      "grounding",
+      "relational_correctness",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-relational-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

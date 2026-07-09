@@ -1,0 +1,322 @@
+{
+  "example_id": "agv4-000058",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "I slept over eight and a half hours last night to catch up. Did it actually help?",
+      "asked_at_local": "2026-07-08T09:00:00+02:00",
+      "weekday": "Wednesday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "sleep_coaching"
+    },
+    "user_profile": {
+      "age_band": "35-39",
+      "biological_sex": "male",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-08",
+      "recovery_score": 75,
+      "recovery_confidence": "high",
+      "readiness_state": "high",
+      "hrv_ms": 63,
+      "resting_heart_rate_bpm": 55,
+      "sleep": {
+        "duration_minutes": 512,
+        "need_minutes": 470,
+        "debt_minutes": 130,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.2
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 62.4,
+          "sd": 4.1,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 55.8,
+          "sd": 1.3,
+          "n": 30
+        },
+        "sleep_duration_minutes": {
+          "mean": 419.0,
+          "sd": 41.0,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 69,
+        "avg_hrv_ms": 62,
+        "avg_rhr_bpm": 56,
+        "avg_strain": 10.1,
+        "avg_sleep_minutes": 408,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-07",
+        "type": "run",
+        "duration_minutes": 44,
+        "avg_hr_bpm": 148,
+        "peak_hr_bpm": 167,
+        "training_load": 10.8,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 75.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 63.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 55.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 512.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 470.0,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 130.0,
+        "unit": "min",
+        "label": "today.sleep.debt_minutes"
+      },
+      {
+        "value": 0.2,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 62.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.1,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 55.8,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 419.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.sleep_duration_minutes.mean"
+      },
+      {
+        "value": 41.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.sleep_duration_minutes.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.sleep_duration_minutes.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 69.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 62.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 56.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 10.1,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 408.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 44.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 148.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 167.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 10.8,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 8.5,
+        "unit": "h",
+        "label": "derived.sleep_duration_hours"
+      },
+      {
+        "value": 6.8,
+        "unit": "h",
+        "label": "derived.avg_sleep_hours_7d"
+      },
+      {
+        "value": 30.0,
+        "unit": "min",
+        "label": "reference.nap_cap_minutes"
+      }
+    ]
+  },
+  "task_category": "sleep_coaching",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Yes, it helped — that 8.5 hours did real work, comfortably above your 7-day average of 6.8 hours — but one long night doesn't clear the ledger: you're still carrying about 130 minutes of sleep debt. The catch-up itself was the right move; the mistake would be treating it as the fix. This week, repetition pays the rest down: keep your wake time fixed even on days you get to bed late, and if you nap, cap it around 30 minutes and keep it before mid-afternoon so it doesn't push bedtime back. Chip the remaining debt in modest nightly slices rather than banking on another big weekend night.",
+    "expected_action": "answer",
+    "must_mention": [
+      "last night vs 7-day average with true direction",
+      "remaining debt quantified",
+      "wake-time anchor behavior"
+    ],
+    "must_not_mention": [
+      "invented comparison window",
+      "false direction claim"
+    ],
+    "required_behaviors": [
+      "names_comparison_window_explicitly",
+      "states_true_comparison_direction",
+      "cites_user_baseline"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "asserts_false_relation",
+      "invents_comparison_window"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-58-catchup-ledger",
+    "rubric_tags": [
+      "grounding",
+      "relational_correctness",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-relational-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

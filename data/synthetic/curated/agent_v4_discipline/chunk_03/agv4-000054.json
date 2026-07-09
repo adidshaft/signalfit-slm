@@ -1,0 +1,366 @@
+{
+  "example_id": "agv4-000054",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "I want to add a fourth run this week. Does my data support that?",
+      "asked_at_local": "2026-07-08T18:40:00+02:00",
+      "weekday": "Wednesday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "plan_adjustment"
+    },
+    "user_profile": {
+      "age_band": "40-44",
+      "biological_sex": "male",
+      "training_experience": "intermediate"
+    },
+    "goals": {
+      "primary_goal": "build weekly running volume for a fall half-marathon"
+    },
+    "today": {
+      "date_local": "2026-07-08",
+      "recovery_score": 69,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 61,
+      "resting_heart_rate_bpm": 56,
+      "sleep": {
+        "duration_minutes": 430,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 1.1
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 61.5,
+          "sd": 4.4,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 56.4,
+          "sd": 1.3,
+          "n": 30
+        },
+        "activity_strain": {
+          "mean": 11.2,
+          "sd": 2.6,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 70,
+        "avg_hrv_ms": 61,
+        "avg_rhr_bpm": 56,
+        "avg_strain": 13.8,
+        "avg_sleep_minutes": 433,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "training_load": {
+      "acute_load_7d": 13.8,
+      "chronic_load_28d": 10.8,
+      "acwr": 1.28,
+      "monotony": 1.6,
+      "acwr_signal": "watch",
+      "monotony_signal": "good",
+      "confidence": "high"
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-07",
+        "type": "run",
+        "duration_minutes": 58,
+        "avg_hr_bpm": 154,
+        "peak_hr_bpm": 176,
+        "training_load": 14.8,
+        "source": "user_confirmed"
+      },
+      {
+        "date": "2026-07-05",
+        "type": "run",
+        "duration_minutes": 46,
+        "avg_hr_bpm": 150,
+        "peak_hr_bpm": 169,
+        "training_load": 12.6,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 69.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 61.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 56.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 430.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 1.1,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 61.5,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 56.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 11.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.activity_strain.mean"
+      },
+      {
+        "value": 2.6,
+        "unit": null,
+        "label": "baselines.baseline_30d.activity_strain.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.activity_strain.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 70.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 61.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 56.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 13.8,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 433.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 13.8,
+        "unit": null,
+        "label": "training_load.acute_load_7d"
+      },
+      {
+        "value": 10.8,
+        "unit": null,
+        "label": "training_load.chronic_load_28d"
+      },
+      {
+        "value": 1.28,
+        "unit": null,
+        "label": "training_load.acwr"
+      },
+      {
+        "value": 1.6,
+        "unit": null,
+        "label": "training_load.monotony"
+      },
+      {
+        "value": 58.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 154.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 176.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 14.8,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 46.0,
+        "unit": "min",
+        "label": "recent_workouts[1].duration_minutes"
+      },
+      {
+        "value": 150.0,
+        "unit": "bpm",
+        "label": "recent_workouts[1].avg_hr_bpm"
+      },
+      {
+        "value": 169.0,
+        "unit": "bpm",
+        "label": "recent_workouts[1].peak_hr_bpm"
+      },
+      {
+        "value": 12.6,
+        "unit": null,
+        "label": "recent_workouts[1].training_load"
+      },
+      {
+        "value": 35.0,
+        "unit": "min",
+        "label": "derived.easy_run_minutes"
+      },
+      {
+        "value": 1.0,
+        "unit": null,
+        "label": "reference.acwr_neutral"
+      }
+    ]
+  },
+  "task_category": "plan_adjustment",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Hold off on the fourth run this week. Your 7-day average strain of 13.8 is well above your 30-day norm of 11.2, and your acute-to-chronic load ratio is 1.28 — in the watch zone, where adding more volume tends to raise injury risk faster than it builds fitness. The issue isn't the load itself, it's the ramp rate. Keep three runs, make the middle one an easy 35 minutes instead of tempo, and hold total volume steady for one week. Once the ratio settles back toward 1.0, add the fourth run — that sequencing protects the half-marathon build instead of replacing it.",
+    "expected_action": "answer",
+    "must_mention": [
+      "concrete volume decision",
+      "7-day average strain vs 30-day norm with true direction",
+      "goal preserved"
+    ],
+    "must_not_mention": [
+      "invented comparison window",
+      "false direction claim"
+    ],
+    "required_behaviors": [
+      "names_comparison_window_explicitly",
+      "states_true_comparison_direction",
+      "cites_user_baseline"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "asserts_false_relation",
+      "invents_comparison_window"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-54-fourth-run-ramp",
+    "rubric_tags": [
+      "grounding",
+      "relational_correctness",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-relational-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

@@ -1,0 +1,322 @@
+{
+  "example_id": "agv4-000095",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Third week of my marathon build and everything feels heavy. Do I need to change the plan?",
+      "asked_at_local": "2026-07-09T07:35:00+02:00",
+      "weekday": "Thursday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "plan_adjustment"
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "male",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-09",
+      "recovery_score": 62,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 58,
+      "resting_heart_rate_bpm": 58,
+      "sleep": {
+        "duration_minutes": 430,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.5
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 61.8,
+          "sd": 4.1,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 56.3,
+          "sd": 1.3,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 65,
+        "avg_hrv_ms": 59,
+        "avg_rhr_bpm": 57,
+        "avg_strain": 13.4,
+        "avg_sleep_minutes": 432,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-08",
+        "type": "run",
+        "duration_minutes": 64,
+        "avg_hr_bpm": 154,
+        "peak_hr_bpm": 177,
+        "training_load": 15.3,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "goals": {
+      "primary_goal": "marathon",
+      "preferences": [
+        "morning runs"
+      ]
+    },
+    "training_load": {
+      "acute_load_7d": 58.6,
+      "chronic_load_28d": 39.2,
+      "acwr": 1.49,
+      "monotony": 1.7,
+      "acwr_signal": "watch",
+      "monotony_signal": "good",
+      "confidence": "high"
+    },
+    "allowed_numbers": [
+      {
+        "value": 62.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 58.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 58.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 430.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 0.5,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 61.8,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.1,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 56.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 65.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 59.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 57.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 13.4,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 432.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 64.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 154.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 177.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 15.3,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 58.6,
+        "unit": null,
+        "label": "training_load.acute_load_7d"
+      },
+      {
+        "value": 39.2,
+        "unit": null,
+        "label": "training_load.chronic_load_28d"
+      },
+      {
+        "value": 1.49,
+        "unit": null,
+        "label": "training_load.acwr"
+      },
+      {
+        "value": 1.7,
+        "unit": null,
+        "label": "training_load.monotony"
+      },
+      {
+        "value": 7.2,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 7.2,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      }
+    ]
+  },
+  "task_category": "plan_adjustment",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Yes — trim this week's volume, keep the goal. The ramp is the problem, not the plan: your acute-to-chronic load ratio is 1.49, in the watch zone, meaning the last week's training is running about half again ahead of what your body is conditioned for. The morning signals agree it's biting — your recovery score is 62%, under your 7-day average recovery of 65%, and your resting heart rate is 58 bpm, above your 30-day average of 56.3 bpm. The concrete adjustment: cut this week's easy-run volume by roughly a quarter and keep both quality sessions, which pulls the ratio back toward balance without touching the marathon-specific work. Heaviness in week three is information, not weakness — respond now and the plan won't have to force it later.",
+    "expected_action": "answer",
+    "must_mention": [
+      "adjustment consistent with the watch-level ACWR of 1.49",
+      "volume cut is concrete, quality sessions and goal preserved",
+      "today vs windows comparisons true"
+    ],
+    "must_not_mention": [
+      "abandoning the marathon goal",
+      "quoting load metrics as learning-grade"
+    ],
+    "required_behaviors": [
+      "binds_numbers_to_correct_fields",
+      "states_true_directions_with_named_windows",
+      "concrete_adjustment",
+      "preserves_goal",
+      "quotes_acwr_at_high_confidence"
+    ],
+    "forbidden_behaviors": [
+      "misbinds_fields",
+      "false_direction_claims",
+      "invents_numbers"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-95-marathon-ramp",
+    "rubric_tags": [
+      "grounding",
+      "field_binding",
+      "relational_correctness"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-relational-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

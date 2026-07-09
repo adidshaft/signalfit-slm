@@ -1,0 +1,317 @@
+{
+  "example_id": "agv4-000057",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My watch says my resting heart rate is 58. What does that actually tell me?",
+      "asked_at_local": "2026-07-08T07:50:00+02:00",
+      "weekday": "Wednesday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "explain_metric"
+    },
+    "user_profile": {
+      "age_band": "45-49",
+      "biological_sex": "male",
+      "training_experience": "beginner"
+    },
+    "today": {
+      "date_local": "2026-07-08",
+      "recovery_score": 73,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 62,
+      "resting_heart_rate_bpm": 58,
+      "sleep": {
+        "duration_minutes": 444,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.5
+      }
+    },
+    "baselines": {
+      "baseline_7d": {
+        "hrv_ms": {
+          "mean": 61.4,
+          "sd": 3.6,
+          "n": 7
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 59.2,
+          "sd": 1.1,
+          "n": 7
+        }
+      },
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 61.8,
+          "sd": 4.2,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 59.9,
+          "sd": 1.6,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 71,
+        "avg_hrv_ms": 62,
+        "avg_rhr_bpm": 59,
+        "avg_strain": 11.2,
+        "avg_sleep_minutes": 439,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-06",
+        "type": "walk",
+        "duration_minutes": 60,
+        "avg_hr_bpm": 108,
+        "peak_hr_bpm": 126,
+        "training_load": 5.4,
+        "source": "auto_detected"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 73.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 62.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 58.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 444.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 0.5,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 61.4,
+        "unit": null,
+        "label": "baselines.baseline_7d.hrv_ms.mean"
+      },
+      {
+        "value": 3.6,
+        "unit": null,
+        "label": "baselines.baseline_7d.hrv_ms.sd"
+      },
+      {
+        "value": 7.0,
+        "unit": null,
+        "label": "baselines.baseline_7d.hrv_ms.n"
+      },
+      {
+        "value": 59.2,
+        "unit": null,
+        "label": "baselines.baseline_7d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.1,
+        "unit": null,
+        "label": "baselines.baseline_7d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 7.0,
+        "unit": null,
+        "label": "baselines.baseline_7d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 61.8,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 59.9,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.6,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 71.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 62.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 59.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 11.2,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 439.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 60.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 108.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 126.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 5.4,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      }
+    ]
+  },
+  "task_category": "explain_metric",
+  "case_type": "normal",
+  "difficulty": 1,
+  "target_response": {
+    "text": "Resting heart rate is how many times your heart beats per minute at full rest, measured overnight — one of the simplest recovery markers there is, because it drifts up when you're fatigued, ill, or run down. Yours is trending the right way: your resting heart rate of 58 bpm is just under your 30-day baseline of 59.9 bpm. That 58 bpm resting pulse also sits under your 7-day average of 59.2 bpm, so the improvement is recent rather than a fluke of one night. Day to day, a swing of a beat or two is normal noise; the signal worth acting on is a sustained climb of several beats, which you don't have. If anything, this suggests your aerobic base is settling in nicely.",
+    "expected_action": "answer",
+    "must_mention": [
+      "plain-language RHR explanation",
+      "today vs 30-day baseline with true direction",
+      "today vs 7-day average with true direction"
+    ],
+    "must_not_mention": [
+      "invented comparison window",
+      "false direction claim"
+    ],
+    "required_behaviors": [
+      "names_comparison_window_explicitly",
+      "states_true_comparison_direction",
+      "cites_user_baseline"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "asserts_false_relation",
+      "invents_comparison_window"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-57-rhr-trend-read",
+    "rubric_tags": [
+      "grounding",
+      "relational_correctness",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-relational-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

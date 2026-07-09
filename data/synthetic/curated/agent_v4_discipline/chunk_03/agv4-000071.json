@@ -1,0 +1,307 @@
+{
+  "example_id": "agv4-000071",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Slept badly and my recovery is down but I don't feel sick. What happened?",
+      "asked_at_local": "2026-07-08T07:55:00+02:00",
+      "weekday": "Wednesday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "recovery_explanation"
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "male",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-08",
+      "recovery_score": 58,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 57,
+      "resting_heart_rate_bpm": 61,
+      "sleep": {
+        "duration_minutes": 368,
+        "need_minutes": 455,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.5
+      },
+      "journal_flags": [
+        "late_caffeine"
+      ]
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 57.9,
+          "sd": 4.2,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 58.8,
+          "sd": 1.4,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 68,
+        "avg_hrv_ms": 58,
+        "avg_rhr_bpm": 59,
+        "avg_strain": 10.7,
+        "avg_sleep_minutes": 431,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-07",
+        "type": "strength",
+        "duration_minutes": 45,
+        "avg_hr_bpm": 126,
+        "peak_hr_bpm": 149,
+        "training_load": 10.1,
+        "source": "user_confirmed"
+      }
+    ],
+    "journal_entries": [
+      {
+        "date": "2026-07-07",
+        "tags": [
+          "late_caffeine"
+        ]
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 58.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 57.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 61.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 368.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 455.0,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 0.5,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 57.9,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 58.8,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 68.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 58.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 59.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 10.7,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 431.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 45.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 126.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 149.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 10.1,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 6.1,
+        "unit": "h",
+        "label": "derived.sleep_duration_hours"
+      },
+      {
+        "value": 7.6,
+        "unit": "h",
+        "label": "derived.sleep_need_hours"
+      },
+      {
+        "value": 87.0,
+        "unit": "min",
+        "label": "derived.sleep_shortfall_minutes"
+      }
+    ]
+  },
+  "task_category": "recovery_explanation",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "The late-caffeine tag you logged yesterday is the prime suspect. You slept 6.1 hours, well short of your sleep need of 7.6 hours, and caffeine late in the day often lines up with exactly that — it delays sleep onset and thins out early-night deep sleep even when you do drop off. The knock-on effects are visible too: your resting heart rate of 61 bpm is a couple of beats over your 30-day baseline of 58.8 bpm, while your HRV of 57 ms is only a shade under its 30-day baseline of 57.9 ms — a short-night pattern, not an illness one. Tonight's lever: make today's last coffee an early-afternoon one, keep your normal bedtime, and expect most of this to rebound by tomorrow.",
+    "expected_action": "answer",
+    "must_mention": [
+      "caffeine as correlational contributor",
+      "sleep vs need with true direction",
+      "RHR and HRV each against named 30-day baseline"
+    ],
+    "must_not_mention": [
+      "invented comparison window",
+      "false direction claim"
+    ],
+    "required_behaviors": [
+      "ranks_contributors_from_context",
+      "correlational_framing",
+      "states_true_comparison_direction"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "asserts_false_relation",
+      "invents_comparison_window"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-71-late-caffeine",
+    "rubric_tags": [
+      "grounding",
+      "relational_correctness",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-relational-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

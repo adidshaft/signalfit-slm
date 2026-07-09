@@ -1,0 +1,356 @@
+{
+  "example_id": "agv4-000059",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My plan feels stale but I'm not sure what to change. What does my load data say?",
+      "asked_at_local": "2026-07-08T19:20:00+02:00",
+      "weekday": "Wednesday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "plan_adjustment"
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "female",
+      "training_experience": "intermediate"
+    },
+    "goals": {
+      "primary_goal": "general aerobic fitness"
+    },
+    "today": {
+      "date_local": "2026-07-08",
+      "recovery_score": 71,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 64,
+      "resting_heart_rate_bpm": 55,
+      "sleep": {
+        "duration_minutes": 436,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.8
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 63.9,
+          "sd": 4.3,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 55.2,
+          "sd": 1.2,
+          "n": 30
+        },
+        "activity_strain": {
+          "mean": 12.1,
+          "sd": 2.2,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 70,
+        "avg_hrv_ms": 64,
+        "avg_rhr_bpm": 55,
+        "avg_strain": 11.9,
+        "avg_sleep_minutes": 430,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "training_load": {
+      "acute_load_7d": 11.9,
+      "chronic_load_28d": 11.7,
+      "acwr": 1.02,
+      "monotony": 2.4,
+      "acwr_signal": "good",
+      "monotony_signal": "bad",
+      "confidence": "high"
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-07",
+        "type": "run",
+        "duration_minutes": 45,
+        "avg_hr_bpm": 145,
+        "peak_hr_bpm": 161,
+        "training_load": 11.6,
+        "source": "user_confirmed"
+      },
+      {
+        "date": "2026-07-06",
+        "type": "run",
+        "duration_minutes": 47,
+        "avg_hr_bpm": 144,
+        "peak_hr_bpm": 160,
+        "training_load": 11.8,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 71.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 64.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 55.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 436.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 0.8,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 63.9,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 55.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 12.1,
+        "unit": null,
+        "label": "baselines.baseline_30d.activity_strain.mean"
+      },
+      {
+        "value": 2.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.activity_strain.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.activity_strain.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 70.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 64.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 55.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 11.9,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 430.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 11.9,
+        "unit": null,
+        "label": "training_load.acute_load_7d"
+      },
+      {
+        "value": 11.7,
+        "unit": null,
+        "label": "training_load.chronic_load_28d"
+      },
+      {
+        "value": 1.02,
+        "unit": null,
+        "label": "training_load.acwr"
+      },
+      {
+        "value": 2.4,
+        "unit": null,
+        "label": "training_load.monotony"
+      },
+      {
+        "value": 45.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 145.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 161.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 11.6,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 47.0,
+        "unit": "min",
+        "label": "recent_workouts[1].duration_minutes"
+      },
+      {
+        "value": 144.0,
+        "unit": "bpm",
+        "label": "recent_workouts[1].avg_hr_bpm"
+      },
+      {
+        "value": 160.0,
+        "unit": "bpm",
+        "label": "recent_workouts[1].peak_hr_bpm"
+      },
+      {
+        "value": 11.8,
+        "unit": null,
+        "label": "recent_workouts[1].training_load"
+      }
+    ]
+  },
+  "task_category": "plan_adjustment",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Your total load is fine — it's the sameness that needs fixing. Your 7-day average strain of 11.9 is essentially at your 30-day norm of 12.1, so volume isn't the problem, but your monotony score is 2.4, firmly in the flagged zone: nearly every day lands at the same moderate intensity. The fix is polarizing, not cutting. Keep the week's volume, but make one session genuinely hard, drop two others to conversational easy pace, and take one full rest day. Same fitness stimulus, more variation for your body to adapt around — your aerobic goal stays on track, just with a healthier weekly shape.",
+    "expected_action": "answer",
+    "must_mention": [
+      "monotony identified as the issue",
+      "7-day average strain vs 30-day norm as essentially equal",
+      "polarized-week prescription"
+    ],
+    "must_not_mention": [
+      "invented comparison window",
+      "false direction claim"
+    ],
+    "required_behaviors": [
+      "names_comparison_window_explicitly",
+      "states_true_comparison_direction",
+      "cites_user_baseline"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "asserts_false_relation",
+      "invents_comparison_window"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-59-monotony-polarize",
+    "rubric_tags": [
+      "grounding",
+      "relational_correctness",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-relational-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

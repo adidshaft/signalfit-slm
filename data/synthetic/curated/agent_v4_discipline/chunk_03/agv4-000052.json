@@ -1,0 +1,317 @@
+{
+  "example_id": "agv4-000052",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "What does my HRV number this morning actually mean? Should I be worried it's not higher?",
+      "asked_at_local": "2026-07-08T08:05:00+02:00",
+      "weekday": "Wednesday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "explain_metric"
+    },
+    "user_profile": {
+      "age_band": "25-29",
+      "biological_sex": "male",
+      "training_experience": "beginner"
+    },
+    "today": {
+      "date_local": "2026-07-08",
+      "recovery_score": 70,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 64,
+      "resting_heart_rate_bpm": 57,
+      "sleep": {
+        "duration_minutes": 441,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.5
+      }
+    },
+    "baselines": {
+      "baseline_7d": {
+        "hrv_ms": {
+          "mean": 64.8,
+          "sd": 3.9,
+          "n": 7
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 57.6,
+          "sd": 1.2,
+          "n": 7
+        }
+      },
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 64.9,
+          "sd": 4.4,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 57.3,
+          "sd": 1.3,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 69,
+        "avg_hrv_ms": 65,
+        "avg_rhr_bpm": 58,
+        "avg_strain": 10.8,
+        "avg_sleep_minutes": 437,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-07",
+        "type": "cycle",
+        "duration_minutes": 55,
+        "avg_hr_bpm": 136,
+        "peak_hr_bpm": 162,
+        "training_load": 10.9,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 70.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 64.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 57.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 441.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 0.5,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 64.8,
+        "unit": null,
+        "label": "baselines.baseline_7d.hrv_ms.mean"
+      },
+      {
+        "value": 3.9,
+        "unit": null,
+        "label": "baselines.baseline_7d.hrv_ms.sd"
+      },
+      {
+        "value": 7.0,
+        "unit": null,
+        "label": "baselines.baseline_7d.hrv_ms.n"
+      },
+      {
+        "value": 57.6,
+        "unit": null,
+        "label": "baselines.baseline_7d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.2,
+        "unit": null,
+        "label": "baselines.baseline_7d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 7.0,
+        "unit": null,
+        "label": "baselines.baseline_7d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 64.9,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 57.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 69.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 65.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 58.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 10.8,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 437.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 55.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 136.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 162.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 10.9,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      }
+    ]
+  },
+  "task_category": "explain_metric",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "HRV — heart rate variability — is the variation in time between your heartbeats, measured overnight; a higher reading against your own norm generally signals a well-recovered nervous system, and your own trend is the only comparison that matters. Yours is steady. Today's reading is 64 ms, essentially at your 7-day average of 64.8 ms. That 64 ms is also a touch under your 30-day baseline of 64.9 ms — differences this small are day-to-day noise, not a trend. For a second anchor, your resting heart rate of 57 bpm is right on its 30-day baseline of 57.3 ms, which backs the same read: nothing to worry about. Keep judging HRV against your own 7-day and 30-day numbers rather than a universal target.",
+    "expected_action": "answer",
+    "must_mention": [
+      "plain-language HRV explanation",
+      "today vs 7-day average named explicitly",
+      "today vs 30-day baseline named explicitly"
+    ],
+    "must_not_mention": [
+      "invented comparison window",
+      "false direction claim"
+    ],
+    "required_behaviors": [
+      "names_comparison_window_explicitly",
+      "states_true_comparison_direction",
+      "cites_user_baseline"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "asserts_false_relation",
+      "invents_comparison_window"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-52-hrv-noise-band",
+    "rubric_tags": [
+      "grounding",
+      "relational_correctness",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-relational-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

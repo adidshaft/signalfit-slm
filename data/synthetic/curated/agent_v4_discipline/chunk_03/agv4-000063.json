@@ -1,0 +1,341 @@
+{
+  "example_id": "agv4-000063",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My sleep hours look okay on average but I feel off. What am I missing?",
+      "asked_at_local": "2026-07-08T08:25:00+02:00",
+      "weekday": "Wednesday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "sleep_coaching"
+    },
+    "user_profile": {
+      "age_band": "25-29",
+      "biological_sex": "female",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-08",
+      "recovery_score": 69,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 61,
+      "resting_heart_rate_bpm": 57,
+      "sleep": {
+        "duration_minutes": 402,
+        "need_minutes": 445,
+        "debt_minutes": 140,
+        "efficiency_pct": 88,
+        "consistency_pct": 61,
+        "bedtime_local": "01:12",
+        "waketime_local": "07:55",
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.4
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 61.3,
+          "sd": 4.0,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 56.8,
+          "sd": 1.3,
+          "n": 30
+        },
+        "sleep_duration_minutes": {
+          "mean": 407.0,
+          "sd": 44.0,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 68,
+        "avg_hrv_ms": 61,
+        "avg_rhr_bpm": 57,
+        "avg_strain": 10.3,
+        "avg_sleep_minutes": 401,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-07",
+        "type": "strength",
+        "duration_minutes": 50,
+        "avg_hr_bpm": 128,
+        "peak_hr_bpm": 151,
+        "training_load": 10.4,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 69.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 61.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 57.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 402.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 445.0,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 140.0,
+        "unit": "min",
+        "label": "today.sleep.debt_minutes"
+      },
+      {
+        "value": 88.0,
+        "unit": "%",
+        "label": "today.sleep.efficiency_pct"
+      },
+      {
+        "value": 61.0,
+        "unit": "%",
+        "label": "today.sleep.consistency_pct"
+      },
+      {
+        "value": 0.4,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 61.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 56.8,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 407.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.sleep_duration_minutes.mean"
+      },
+      {
+        "value": 44.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.sleep_duration_minutes.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.sleep_duration_minutes.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 68.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 61.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 57.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 10.3,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 401.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 50.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 128.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 151.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 10.4,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 6.7,
+        "unit": "h",
+        "label": "derived.sleep_duration_hours"
+      },
+      {
+        "value": 6.7,
+        "unit": "h",
+        "label": "derived.avg_sleep_hours_7d"
+      },
+      {
+        "value": 7.4,
+        "unit": "h",
+        "label": "derived.sleep_need_hours"
+      },
+      {
+        "value": 30.0,
+        "unit": "min",
+        "label": "derived.bedtime_window_minutes"
+      }
+    ]
+  },
+  "task_category": "sleep_coaching",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Your average isn't the problem — the timing is. Last night's 6.7 hours is right on your 7-day average of 6.7 hours, but your consistency score of 61% shows how much your bedtime swings night to night, and irregular timing degrades sleep quality even when the hours look stable. There's also a duration gap underneath: both numbers run short of your sleep need of 7.4 hours. Two moves: pick a bedtime window and hold it within about 30 minutes nightly, weekends included, and anchor your wake time first, since it's the stronger lever. Re-check the consistency score in two weeks; if it climbs while the hours hold, the feeling-off should fade with it.",
+    "expected_action": "answer",
+    "must_mention": [
+      "consistency identified via consistency score",
+      "duration right on 7-day average",
+      "need gap named with true direction"
+    ],
+    "must_not_mention": [
+      "invented comparison window",
+      "false direction claim"
+    ],
+    "required_behaviors": [
+      "names_comparison_window_explicitly",
+      "states_true_comparison_direction",
+      "cites_user_baseline"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "asserts_false_relation",
+      "invents_comparison_window"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-63-timing-swing",
+    "rubric_tags": [
+      "grounding",
+      "relational_correctness",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-relational-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

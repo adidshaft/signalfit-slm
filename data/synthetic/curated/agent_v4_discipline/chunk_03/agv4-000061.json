@@ -1,0 +1,315 @@
+{
+  "example_id": "agv4-000061",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "It's been brutally hot all week and my recovery keeps coming in low. Training too hard or something else?",
+      "asked_at_local": "2026-07-08T07:30:00+02:00",
+      "weekday": "Wednesday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "recovery_explanation"
+    },
+    "user_profile": {
+      "age_band": "40-44",
+      "biological_sex": "female",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-08",
+      "recovery_score": 63,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "recovery_contributors": [
+        {
+          "factor": "resting_heart_rate",
+          "z_score": -1.2,
+          "direction": -1
+        },
+        {
+          "factor": "hrv",
+          "z_score": -0.9,
+          "direction": -1
+        }
+      ],
+      "hrv_ms": 52,
+      "resting_heart_rate_bpm": 60,
+      "sleep": {
+        "duration_minutes": 405,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.6
+      },
+      "journal_flags": [
+        "heatwave"
+      ]
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 55.4,
+          "sd": 4.1,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 57.7,
+          "sd": 1.3,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 68,
+        "avg_hrv_ms": 55,
+        "avg_rhr_bpm": 58,
+        "avg_strain": 11.0,
+        "avg_sleep_minutes": 424,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-07",
+        "type": "run",
+        "duration_minutes": 42,
+        "avg_hr_bpm": 151,
+        "peak_hr_bpm": 170,
+        "training_load": 10.6,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 63.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": -1.2,
+        "unit": null,
+        "label": "today.recovery_contributors[0].z_score"
+      },
+      {
+        "value": -1.0,
+        "unit": null,
+        "label": "today.recovery_contributors[0].direction"
+      },
+      {
+        "value": -0.9,
+        "unit": null,
+        "label": "today.recovery_contributors[1].z_score"
+      },
+      {
+        "value": -1.0,
+        "unit": null,
+        "label": "today.recovery_contributors[1].direction"
+      },
+      {
+        "value": 52.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 60.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 405.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 0.6,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 55.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.1,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 57.7,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 68.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 55.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 58.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 11.0,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 424.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 42.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 151.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 170.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 10.6,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 3.4,
+        "unit": "ms",
+        "label": "derived.hrv_delta_ms"
+      }
+    ]
+  },
+  "task_category": "recovery_explanation",
+  "case_type": "edge",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Most likely the heat, not your training. Your HRV came in at 52 ms, roughly 3.4 ms under your 30-day baseline of 55.4 ms, and your resting heart rate of 60 bpm is a couple of beats over its 30-day baseline of 57.7 bpm — hot nights often line up with exactly this pair, because your body keeps working to shed heat while you sleep. Nothing else in your week looks unusual, so illness is the less likely explanation. Tonight's lever: cool the bedroom as much as you can — fan, open window, lighter bedding — and front-load your fluids during the day rather than chugging before bed. If the pattern persists once the weather breaks, reassess then.",
+    "expected_action": "answer",
+    "must_mention": [
+      "heat as correlational explanation",
+      "HRV vs 30-day baseline with quantified true delta",
+      "cooling lever for tonight"
+    ],
+    "must_not_mention": [
+      "invented comparison window",
+      "false direction claim"
+    ],
+    "required_behaviors": [
+      "ranks_contributors_from_context",
+      "correlational_framing",
+      "cites_derived_delta"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "asserts_false_relation",
+      "invents_comparison_window"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-61-heatwave-suppress",
+    "rubric_tags": [
+      "grounding",
+      "relational_correctness",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-relational-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

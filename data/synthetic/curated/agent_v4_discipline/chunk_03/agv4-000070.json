@@ -1,0 +1,251 @@
+{
+  "example_id": "agv4-000070",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Big brick session planned today — do my numbers support it?",
+      "asked_at_local": "2026-07-09T06:45:00+02:00",
+      "weekday": "Thursday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "daily_training_decision"
+    },
+    "user_profile": {
+      "age_band": "35-39",
+      "biological_sex": "male",
+      "training_experience": "advanced"
+    },
+    "today": {
+      "date_local": "2026-07-09",
+      "recovery_score": 78,
+      "recovery_confidence": "high",
+      "readiness_state": "high",
+      "hrv_ms": 74,
+      "resting_heart_rate_bpm": 52,
+      "sleep": {
+        "duration_minutes": 430,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 72.6,
+          "sd": 5.0,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 52.4,
+          "sd": 1.1,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 74,
+        "avg_hrv_ms": 73,
+        "avg_rhr_bpm": 52,
+        "avg_strain": null,
+        "avg_sleep_minutes": 428,
+        "coverage_pct": 96,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-07",
+        "type": "cycle",
+        "duration_minutes": 75,
+        "avg_hr_bpm": 141,
+        "peak_hr_bpm": 165,
+        "training_load": null,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "activity_strain",
+        "steps",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_ring",
+      "device_type": "ring",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": null,
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 78.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 74.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 52.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 430.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 72.6,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 5.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 52.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.1,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 74.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 73.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 52.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 428.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 96.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 75.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 141.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 165.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 30.0,
+        "unit": "min",
+        "label": "derived.fallback_steady_minutes"
+      }
+    ]
+  },
+  "task_category": "daily_training_decision",
+  "case_type": "edge",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Go ahead as planned — your morning signals all agree. Your HRV of 74 ms is a touch over your 30-day baseline of 72.6 ms, your resting heart rate of 52 bpm is right on its 30-day baseline of 52.4 bpm, and you slept 430 minutes, essentially at your 7-day average of 428 minutes. One note on method: your ring doesn't measure strain, so I'm reading readiness from those three signals rather than a load score — they're the ones that matter most anyway. If you want a built-in check, decide at the end of the warm-up: feeling normal, run the full brick; feeling heavy, cut it to a steady 30 minutes and keep the quality for tomorrow.",
+    "expected_action": "answer",
+    "must_mention": [
+      "as-planned recommendation",
+      "three signals each with named window and true direction",
+      "strain unavailability acknowledged"
+    ],
+    "must_not_mention": [
+      "invented comparison window",
+      "false direction claim"
+    ],
+    "required_behaviors": [
+      "names_comparison_window_explicitly",
+      "states_true_comparison_direction",
+      "cites_user_baseline"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "asserts_false_relation",
+      "invents_comparison_window"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "ring_no_strain",
+    "persona_id": "p-agv4-70-ring-brick-day",
+    "rubric_tags": [
+      "grounding",
+      "relational_correctness",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-relational-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

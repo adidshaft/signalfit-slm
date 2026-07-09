@@ -1,0 +1,376 @@
+{
+  "example_id": "agv4-000074",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My coach wants me to take a deload week. Does my data actually support that?",
+      "asked_at_local": "2026-07-08T20:10:00+02:00",
+      "weekday": "Wednesday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "plan_adjustment"
+    },
+    "user_profile": {
+      "age_band": "35-39",
+      "biological_sex": "female",
+      "training_experience": "advanced"
+    },
+    "goals": {
+      "primary_goal": "marathon in November"
+    },
+    "today": {
+      "date_local": "2026-07-08",
+      "recovery_score": 62,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 58,
+      "resting_heart_rate_bpm": 58,
+      "sleep": {
+        "duration_minutes": 415,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 1.0
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 60.3,
+          "sd": 4.4,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 56.8,
+          "sd": 1.4,
+          "n": 30
+        },
+        "recovery_score": {
+          "mean": 65.9,
+          "sd": 7.1,
+          "n": 30
+        },
+        "activity_strain": {
+          "mean": 11.8,
+          "sd": 2.4,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 64,
+        "avg_hrv_ms": 58,
+        "avg_rhr_bpm": 58,
+        "avg_strain": 14.6,
+        "avg_sleep_minutes": 419,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "training_load": {
+      "acute_load_7d": 14.6,
+      "chronic_load_28d": 10.9,
+      "acwr": 1.34,
+      "monotony": 2.1,
+      "acwr_signal": "watch",
+      "monotony_signal": "watch",
+      "confidence": "high"
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-07",
+        "type": "run",
+        "duration_minutes": 72,
+        "avg_hr_bpm": 156,
+        "peak_hr_bpm": 178,
+        "training_load": 17.1,
+        "source": "user_confirmed"
+      },
+      {
+        "date": "2026-07-05",
+        "type": "run",
+        "duration_minutes": 65,
+        "avg_hr_bpm": 153,
+        "peak_hr_bpm": 174,
+        "training_load": 15.9,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 62.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 58.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 58.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 415.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 1.0,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 60.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 56.8,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 65.9,
+        "unit": null,
+        "label": "baselines.baseline_30d.recovery_score.mean"
+      },
+      {
+        "value": 7.1,
+        "unit": null,
+        "label": "baselines.baseline_30d.recovery_score.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.recovery_score.n"
+      },
+      {
+        "value": 11.8,
+        "unit": null,
+        "label": "baselines.baseline_30d.activity_strain.mean"
+      },
+      {
+        "value": 2.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.activity_strain.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.activity_strain.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 64.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 58.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 58.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 14.6,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 419.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 14.6,
+        "unit": null,
+        "label": "training_load.acute_load_7d"
+      },
+      {
+        "value": 10.9,
+        "unit": null,
+        "label": "training_load.chronic_load_28d"
+      },
+      {
+        "value": 1.34,
+        "unit": null,
+        "label": "training_load.acwr"
+      },
+      {
+        "value": 2.1,
+        "unit": null,
+        "label": "training_load.monotony"
+      },
+      {
+        "value": 72.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 156.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 178.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 17.1,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 65.0,
+        "unit": "min",
+        "label": "recent_workouts[1].duration_minutes"
+      },
+      {
+        "value": 153.0,
+        "unit": "bpm",
+        "label": "recent_workouts[1].avg_hr_bpm"
+      },
+      {
+        "value": 174.0,
+        "unit": "bpm",
+        "label": "recent_workouts[1].peak_hr_bpm"
+      },
+      {
+        "value": 15.9,
+        "unit": null,
+        "label": "recent_workouts[1].training_load"
+      }
+    ]
+  },
+  "task_category": "plan_adjustment",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Your data backs your coach. Your 7-day average strain of 14.6 is well above your 30-day norm of 11.8, your acute-to-chronic load ratio sits at 1.34 in the watch zone, and the cost is showing: today's 62% recovery sits below your 30-day average of 65.9%. Load climbing while recovery drifts is exactly what a deload is for. Structure it so it stays a deload, not a detour: one week, cut volume by about a third, keep two short quality touches so you don't go stale, then resume the marathon build. Done now, this costs you nothing in November; skipped, it tends to get taken from you later as forced time off.",
+    "expected_action": "answer",
+    "must_mention": [
+      "deload endorsed with load evidence",
+      "7-day average strain vs 30-day norm with true direction",
+      "recovery vs 30-day average with true direction"
+    ],
+    "must_not_mention": [
+      "invented comparison window",
+      "false direction claim"
+    ],
+    "required_behaviors": [
+      "names_comparison_window_explicitly",
+      "states_true_comparison_direction",
+      "cites_user_baseline"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "asserts_false_relation",
+      "invents_comparison_window"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-74-deload-verdict",
+    "rubric_tags": [
+      "grounding",
+      "relational_correctness",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-relational-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

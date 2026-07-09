@@ -1,0 +1,328 @@
+{
+  "example_id": "agv4-000091",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Do my evening lifting sessions mess with my sleep? It feels like they might.",
+      "asked_at_local": "2026-07-09T07:35:00+02:00",
+      "weekday": "Thursday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "habit_pattern_analysis"
+    },
+    "user_profile": {
+      "age_band": "25-29",
+      "biological_sex": "male",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-09",
+      "recovery_score": 66,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 62,
+      "resting_heart_rate_bpm": 56,
+      "sleep": {
+        "duration_minutes": 415,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.3
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 62.5,
+          "sd": 4.1,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 55.7,
+          "sd": 1.2,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 68,
+        "avg_hrv_ms": 62,
+        "avg_rhr_bpm": 56,
+        "avg_strain": 11.5,
+        "avg_sleep_minutes": 438,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-08",
+        "type": "strength",
+        "duration_minutes": 51,
+        "avg_hr_bpm": 134,
+        "peak_hr_bpm": 159,
+        "training_load": 11.2,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "habit_insights": [
+      {
+        "text": "Strength sessions after 19:00 line up with shorter sleep",
+        "sample_days": 7,
+        "comparison_days": 33,
+        "effect": -24.0,
+        "metric": "sleep_duration_minutes",
+        "confidence": "low"
+      }
+    ],
+    "allowed_numbers": [
+      {
+        "value": 66.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 62.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 56.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 415.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 0.3,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 62.5,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.1,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 55.7,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 68.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 62.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 56.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 11.5,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 438.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 51.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 134.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 159.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 11.2,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 7.0,
+        "unit": null,
+        "label": "habit_insights[0].sample_days"
+      },
+      {
+        "value": 33.0,
+        "unit": null,
+        "label": "habit_insights[0].comparison_days"
+      },
+      {
+        "value": -24.0,
+        "unit": null,
+        "label": "habit_insights[0].effect"
+      },
+      {
+        "value": 6.9,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 7.3,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      },
+      {
+        "value": 24.0,
+        "unit": "min",
+        "label": "derived.habit_effect_sleep_minutes"
+      },
+      {
+        "value": 23.0,
+        "unit": "min",
+        "label": "derived.sleep_vs_7d_avg_minutes"
+      },
+      {
+        "value": 15.0,
+        "unit": null,
+        "label": "reference.habit_min_tagged_days"
+      }
+    ]
+  },
+  "task_category": "habit_pattern_analysis",
+  "case_type": "edge",
+  "difficulty": 3,
+  "target_response": {
+    "text": "There's an early hint, but it isn't solid yet. In 7 tagged evening-lift days versus 33 comparison days, you slept roughly 24 minutes less on average — but with only 7 tagged days that's a low-confidence pattern, and it could just as easily be the things that travel with evening sessions: later dinner, later shower, screens while winding down. Last night fits loosely — after yesterday's 51-minute strength session you slept 415 minutes, about 23 minutes under your 7-day average of 438 minutes, though your HRV is 62 ms, close to your 30-day average of 62.5 ms, so nothing systemic is showing. What would settle it: keep tagging evening lifts for a few more weeks, and note dinner time on those days. If the gap survives 15 or so tagged days, believe it and shift key sessions earlier; if it shrinks, it was the routine around the lifting, not the lifting.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "pattern stated with 7 tagged vs 33 comparison days",
+      "alternative explanation offered for the small sample",
+      "grounded 23-minute sleep delta"
+    ],
+    "must_not_mention": [
+      "causal certainty",
+      "firm advice from 7 tagged days"
+    ],
+    "required_behaviors": [
+      "binds_numbers_to_correct_fields",
+      "states_true_directions_with_named_windows",
+      "states_sample_sizes",
+      "correlational_framing",
+      "offers_confound_below_10_samples"
+    ],
+    "forbidden_behaviors": [
+      "misbinds_fields",
+      "false_direction_claims",
+      "invents_numbers",
+      "causal_claims"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-91-evening-lifts",
+    "rubric_tags": [
+      "grounding",
+      "field_binding",
+      "relational_correctness"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-relational-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

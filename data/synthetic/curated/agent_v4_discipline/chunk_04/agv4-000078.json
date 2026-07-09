@@ -1,0 +1,292 @@
+{
+  "example_id": "agv4-000078",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "This morning my resting heart rate shows 54 but yesterday's run screen says 151. Why are these so far apart?",
+      "asked_at_local": "2026-07-09T07:35:00+02:00",
+      "weekday": "Thursday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "explain_metric"
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "male",
+      "max_hr_bpm": 190,
+      "max_hr_source": "age_estimate",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-09",
+      "recovery_score": 73,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 64,
+      "resting_heart_rate_bpm": 54,
+      "sleep": {
+        "duration_minutes": 452,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.6
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 62.9,
+          "sd": 4.0,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 55.2,
+          "sd": 1.2,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 71,
+        "avg_hrv_ms": 63,
+        "avg_rhr_bpm": 55,
+        "avg_strain": 12.1,
+        "avg_sleep_minutes": 445,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-08",
+        "type": "run",
+        "duration_minutes": 44,
+        "avg_hr_bpm": 151,
+        "peak_hr_bpm": 176,
+        "training_load": 13.8,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 190.0,
+        "unit": "bpm",
+        "label": "user_profile.max_hr_bpm"
+      },
+      {
+        "value": 73.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 64.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 54.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 452.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 0.6,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 62.9,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 55.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 71.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 63.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 55.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 12.1,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 445.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 44.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 151.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 176.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 13.8,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 7.5,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 7.4,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      }
+    ]
+  },
+  "task_category": "explain_metric",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "They measure opposite ends of your heart's range, so they should be far apart. Your resting heart rate is 54 bpm — your heart at complete rest, sampled during sleep — and it's just under your 30-day average of 55.2 bpm, which is a good sign. The 151 bpm is your run's average working heart rate: what your heart did while you pushed for 44 minutes. Its peak of 176 bpm stayed below your estimated max of 190 bpm, so the run was hard but controlled. A big gap between resting and working heart rate is exactly what fitness looks like — the same pump idling low and revving high. Keep reading the morning number for recovery and the workout numbers for effort; neither replaces the other.",
+    "expected_action": "answer",
+    "must_mention": [
+      "54 bpm bound to resting heart rate",
+      "151 bpm bound to the run's average heart rate",
+      "peak 176 vs estimated max 190 direction true"
+    ],
+    "must_not_mention": [
+      "workout average quoted as resting heart rate",
+      "alarm framing"
+    ],
+    "required_behaviors": [
+      "binds_numbers_to_correct_fields",
+      "states_true_directions_with_named_windows",
+      "hedges_estimated_max"
+    ],
+    "forbidden_behaviors": [
+      "misbinds_fields",
+      "false_direction_claims",
+      "invents_numbers"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-78-rhr-vs-avg-hr",
+    "rubric_tags": [
+      "grounding",
+      "field_binding",
+      "relational_correctness"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-relational-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

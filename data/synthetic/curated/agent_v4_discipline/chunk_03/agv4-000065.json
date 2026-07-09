@@ -1,0 +1,300 @@
+{
+  "example_id": "agv4-000065",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Yesterday's session was a monster. Can I go again today or should I ease up?",
+      "asked_at_local": "2026-07-08T07:05:00+02:00",
+      "weekday": "Wednesday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "daily_training_decision"
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "male",
+      "training_experience": "advanced"
+    },
+    "today": {
+      "date_local": "2026-07-08",
+      "recovery_score": 64,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 60,
+      "resting_heart_rate_bpm": 57,
+      "sleep": {
+        "duration_minutes": 425,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.6
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 60.4,
+          "sd": 4.2,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 56.9,
+          "sd": 1.3,
+          "n": 30
+        },
+        "recovery_score": {
+          "mean": 66.2,
+          "sd": 7.9,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 67,
+        "avg_hrv_ms": 60,
+        "avg_rhr_bpm": 57,
+        "avg_strain": 12.1,
+        "avg_sleep_minutes": 429,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-07",
+        "type": "run",
+        "duration_minutes": 68,
+        "avg_hr_bpm": 158,
+        "peak_hr_bpm": 181,
+        "training_load": 16.8,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 64.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 60.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 57.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 425.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 0.6,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 60.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 56.9,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 66.2,
+        "unit": null,
+        "label": "baselines.baseline_30d.recovery_score.mean"
+      },
+      {
+        "value": 7.9,
+        "unit": null,
+        "label": "baselines.baseline_30d.recovery_score.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.recovery_score.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 67.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 60.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 57.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 12.1,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 429.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 68.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 158.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 181.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 16.8,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 12.0,
+        "unit": null,
+        "label": "derived.strain_cap"
+      }
+    ]
+  },
+  "task_category": "daily_training_decision",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Go moderate today — not a repeat of yesterday. Recovery is 64%, just under your 30-day average of 66.2%, and your HRV of 60 ms is essentially at your 30-day baseline of 60.4 ms, so you're not damaged, just not fully topped up. Yesterday's load of 16.8 was also well above your 7-day average strain of 12.1, and stacking peak days back-to-back is where niggles tend to start. Concretely: keep the planned session but cap the effort near 12 on the strain scale, or swap the intervals for steady tempo work. Bank the next truly hard hit for Thursday, when you'll get far more out of it.",
+    "expected_action": "answer",
+    "must_mention": [
+      "moderate recommendation",
+      "yesterday's load vs 7-day average strain with true direction",
+      "one concrete cap or swap"
+    ],
+    "must_not_mention": [
+      "invented comparison window",
+      "false direction claim"
+    ],
+    "required_behaviors": [
+      "names_comparison_window_explicitly",
+      "states_true_comparison_direction",
+      "cites_user_baseline"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "asserts_false_relation",
+      "invents_comparison_window"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-65-backtoback-peak",
+    "rubric_tags": [
+      "grounding",
+      "relational_correctness",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-relational-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}

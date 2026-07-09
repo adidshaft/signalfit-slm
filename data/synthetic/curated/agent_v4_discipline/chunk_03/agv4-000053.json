@@ -1,0 +1,335 @@
+{
+  "example_id": "agv4-000053",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "I keep waking up tired even though I'm not staying up crazy late. How do I fix my sleep?",
+      "asked_at_local": "2026-07-08T07:35:00+02:00",
+      "weekday": "Wednesday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "sleep_coaching"
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "female",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-08",
+      "recovery_score": 66,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 60,
+      "resting_heart_rate_bpm": 58,
+      "sleep": {
+        "duration_minutes": 391,
+        "need_minutes": 450,
+        "debt_minutes": 120,
+        "consistency_pct": 71,
+        "bedtime_local": "23:58",
+        "waketime_local": "06:29",
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 0.4
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 60.6,
+          "sd": 4.0,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 57.9,
+          "sd": 1.4,
+          "n": 30
+        },
+        "sleep_duration_minutes": {
+          "mean": 421.0,
+          "sd": 36.0,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 68,
+        "avg_hrv_ms": 60,
+        "avg_rhr_bpm": 58,
+        "avg_strain": 10.5,
+        "avg_sleep_minutes": 415,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-07",
+        "type": "run",
+        "duration_minutes": 40,
+        "avg_hr_bpm": 147,
+        "peak_hr_bpm": 168,
+        "training_load": 10.2,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 66.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 60.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 58.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 391.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 450.0,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 120.0,
+        "unit": "min",
+        "label": "today.sleep.debt_minutes"
+      },
+      {
+        "value": 71.0,
+        "unit": "%",
+        "label": "today.sleep.consistency_pct"
+      },
+      {
+        "value": 0.4,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 60.6,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 4.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 57.9,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.4,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 421.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.sleep_duration_minutes.mean"
+      },
+      {
+        "value": 36.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.sleep_duration_minutes.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.sleep_duration_minutes.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 68.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 60.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 58.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 10.5,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 415.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 40.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 147.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 168.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 10.2,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 6.5,
+        "unit": "h",
+        "label": "derived.sleep_duration_hours"
+      },
+      {
+        "value": 7.5,
+        "unit": "h",
+        "label": "derived.sleep_need_hours"
+      },
+      {
+        "value": 6.9,
+        "unit": "h",
+        "label": "derived.avg_sleep_hours_7d"
+      },
+      {
+        "value": 25.0,
+        "unit": "min",
+        "label": "derived.bedtime_advance_minutes"
+      }
+    ]
+  },
+  "task_category": "sleep_coaching",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "You slept 6.5 hours last night, an hour short of your sleep need of 7.5 hours. Your 7-day average sits at 6.9 hours, so this is a pattern rather than a one-off — you're carrying a steady nightly shortfall, which is exactly what waking up tired feels like. The good news is your wake time barely moves, so the lever is the front end: pull bedtime earlier by about 25 minutes this week — that alone closes most of the nightly gap — and protect the last half hour before bed from screens so the earlier time actually sticks. Hold that for a week, then judge it by whether the 7-day average climbs toward your need, not by any single night.",
+    "expected_action": "answer",
+    "must_mention": [
+      "duration vs need with true gap",
+      "7-day average named",
+      "one to two specific behaviors"
+    ],
+    "must_not_mention": [
+      "invented comparison window",
+      "false direction claim"
+    ],
+    "required_behaviors": [
+      "names_comparison_window_explicitly",
+      "states_true_comparison_direction",
+      "cites_user_baseline"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "asserts_false_relation",
+      "invents_comparison_window"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv4-53-front-end-debt",
+    "rubric_tags": [
+      "grounding",
+      "relational_correctness",
+      "behavior_compliance"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "agent-fable-5-agent",
+    "prompt_version": "agv4-relational-1",
+    "critic_passed": false,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}
