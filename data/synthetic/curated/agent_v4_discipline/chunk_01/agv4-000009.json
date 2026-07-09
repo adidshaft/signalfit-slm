@@ -297,7 +297,7 @@
   "case_type": "normal",
   "difficulty": 2,
   "target_response": {
-    "text": "Not broken — 91% is what a body that adapted looks like on paper. Ranked by contribution: you slept 8.2 h, about 0.4 h over your 7.8 h need; your HRV of 68 ms is about 8 ms above its 30-day baseline of 60 ms; and your resting heart rate of 53 bpm is about 3 bpm below its 30-day baseline of 56 bpm. A hard block followed by a big rebound often lines up with supercompensation — the training stressed you, the recovery landed, and the physiology swung past its usual mark. That's an interpretation of the pattern, not a certainty. If you want to use the green day, today is a sensible one for your key quality session; the score says capacity is there, not that you must spend it.",
+    "text": "Not broken — 91% fits a strong rebound on paper. Ranked by contribution: you slept 8.2 h, about 0.4 h over your 7.8 h need; your HRV of 68 ms is about 8 ms above its 30-day baseline of 60 ms; and your resting heart rate of 53 bpm is about 3 bpm below its 30-day baseline of 56 bpm. A hard block followed by a big rebound often lines up with supercompensation, but that's an interpretation of the pattern, not a certainty. The practical read: today is a sensible one for your key quality session if it was already planned; the score says capacity is likely there, not that you must spend it.",
     "expected_action": "answer",
     "must_mention": [
       "all three contributors tied to values and windows",
@@ -333,7 +333,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-discipline-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

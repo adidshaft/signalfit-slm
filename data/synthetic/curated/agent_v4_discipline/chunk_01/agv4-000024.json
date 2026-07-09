@@ -243,7 +243,7 @@
   "case_type": "edge",
   "difficulty": 2,
   "target_response": {
-    "text": "I can't check that, and it's worth being precise about why: respiratory rate isn't in your data — last night's value is empty because your device doesn't track that field — so there's no way to say whether the congestion moved your breathing rate. What I can see stayed put: your resting heart rate of 57 bpm is right on its 30-day baseline of 57 bpm, and your HRV of 54 ms is essentially at its 30-day baseline of 54 ms, so the stuffy night didn't visibly stress the signals that are tracked. To be clear, that's silence on the breathing itself, not an all-clear — I simply have no respiratory data to judge it with. One useful step: tag the congestion in your journal tonight so we can correlate it with the metrics you do have if it recurs. And if breathing feels labored at rest rather than just stuffy, check in with a clinician instead of a dashboard.",
+    "text": "I can't check that, and it's worth being precise about why: respiratory rate isn't in your data — last night's value is empty because your device doesn't track that field — so there's no way to say whether the congestion moved your breathing rate. I can see resting heart rate at 57 bpm against its 30-day baseline of 57 bpm, and HRV at 54 ms against its 54 ms baseline, but those do not answer the breathing question and should not be used as reassurance about congestion. To be clear, this is a data gap, not an all-clear. One useful step: tag the congestion in your journal tonight so we can correlate it with the metrics you do have if it recurs. And if breathing feels labored at rest rather than just stuffy, check in with a clinician instead of a dashboard.",
     "expected_action": "followup",
     "must_mention": [
       "names respiratory_rate as the missing field",
@@ -281,7 +281,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-discipline-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

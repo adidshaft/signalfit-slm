@@ -203,7 +203,7 @@
   "case_type": "edge",
   "difficulty": 2,
   "target_response": {
-    "text": "I can't check the hike's load, because it never reached your data: today's strain field is empty and no workout is recorded this week, so the hike exists in your legs but not in your feed. Without a duration or effort record I won't guess at load numbers. What the overnight signals do say is encouraging for tomorrow: your recovery is 76%, and your HRV of 55 ms is essentially at its 30-day baseline of 54 ms — whatever the hike cost, your body absorbed it overnight without visible protest. The one fix that unlocks a real answer: log the hike manually with its duration and a rough effort rating, and I can fold it into your load picture from now on. For tomorrow, start the long run at an easy effort and adjust by feel early.",
+    "text": "I can't check the hike's load, because it never reached your data: today's strain field is empty and no workout is recorded this week, so the hike exists in your legs but not in your feed. Without a duration or effort record I won't guess at load numbers. What the overnight signals do say is usable, not definitive: your recovery is 76%, and your HRV of 55 ms is essentially at its 30-day baseline of 54 ms, so there is no data-based reason to cancel tomorrow outright. The one fix that unlocks a real answer: log the hike manually with its duration and a rough effort rating, and I can fold it into your load picture from now on. For tomorrow, start the long run at an easy effort and adjust by feel early.",
     "expected_action": "followup",
     "must_mention": [
       "names the empty strain field and missing workout record",
@@ -239,7 +239,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-discipline-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

@@ -212,7 +212,7 @@
   "case_type": "edge",
   "difficulty": 2,
   "target_response": {
-    "text": "I can't judge the meditation effect yet, because the one field it would show up in is empty: today's HRV reading is missing from your feed, and your HRV history hasn't accumulated enough mornings to form a trend line. HRV is exactly the right metric to watch for this — it's the marker that most often shifts with consistent relaxation practice — which is why I'd rather wait for real data than guess. What I can say from what's present: your resting heart rate of 56 bpm is right on its 30-day baseline of 56 bpm, so nothing looks off while we wait. The single fix: check the device's overnight fit tonight — a loose band is the usual culprit for dropped HRV readings — then ask me again once a couple of weeks of mornings have landed.",
+    "text": "I can't judge the meditation effect yet, because the one field it would show up in is empty: today's HRV reading is missing from your feed, and your HRV history hasn't accumulated enough mornings to form a trend line. HRV is exactly the right metric to watch for this — it's the marker that most often shifts with consistent relaxation practice — which is why I'd rather wait for real data than guess. What I can say from what's present: your resting heart rate of 56 bpm is right on its 30-day baseline of 56 bpm; that does not prove a meditation effect, but it gives a stable comparison while HRV fills in. The single fix: check the device's overnight fit tonight — a loose band is the usual culprit for dropped HRV readings — then ask me again once a couple of weeks of mornings have landed.",
     "expected_action": "followup",
     "must_mention": [
       "names hrv_ms as the missing field",
@@ -249,7 +249,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-discipline-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

@@ -324,7 +324,7 @@
   "case_type": "edge",
   "difficulty": 2,
   "target_response": {
-    "text": "Both can be right — the score reads physiology, and this morning's 52% traces to two specific inputs rather than a global problem. Largest contributor: HRV at 54 ms, about 6 ms under your 30-day baseline of 60.1 ms. Second: sleep, 6.4 h against your 7.2 h 30-day average. Your resting heart rate of 56 bpm matches its 56.3 mean, which is part of why you feel normal — dips of this shape often line up with one short night plus ordinary day-to-day HRV noise, nothing you'd necessarily feel. So treat it as a conditional read: if HRV is back near its baseline tomorrow, today was noise; if it sags again, take the easier option that day. Tonight's lever is simple — a bedtime that claws back most of the missing 48 min.",
+    "text": "Both can be right — the score reads physiology, and this morning's 52% lines up with two specific inputs rather than a global problem. Largest contributor: HRV at 54 ms, about 6 ms under your 30-day baseline of 60.1 ms. Second: sleep, 6.4 h against your 7.2 h 30-day average. Your resting heart rate of 56 bpm matches its 56.3 mean, so not every input is pointing down; dips of this shape often line up with one short night plus ordinary day-to-day HRV noise, nothing you'd necessarily feel. Treat it as a conditional read: if HRV is back near baseline tomorrow, today was probably noise; if it sags again, take the easier option that day. Tonight's lever is simple: set bedtime early enough to recover most of the missing 48 min.",
     "expected_action": "answer",
     "must_mention": [
       "ranks contributors from context",
@@ -360,7 +360,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-discipline-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

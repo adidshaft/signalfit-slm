@@ -263,7 +263,7 @@
   "case_type": "edge",
   "difficulty": 3,
   "target_response": {
-    "text": "Yes to the walk — make today rest plus easy movement, and let the data explain why rather than a label. This morning's numbers are a textbook acute response to yesterday's 112-min race at a training load of 19.2: HRV at 42 ms, well below your 30-day baseline of 58.3 ms, and resting heart rate at 63 bpm, well above its 55.6 mean. After the biggest effort in your recent log, that swing is the repair bill coming due, and it's expected to be temporary. A 20 to 30 min flat walk is a good choice — gentle circulation without adding load. What would change the read: resting heart rate still sitting that high after two or three mornings, or feeling feverish or unwell — that pattern deserves attention rather than training through. Recheck tomorrow before planning anything harder.",
+    "text": "Yes to the walk — make today rest plus easy movement, and let the data explain why rather than a label. This morning's numbers fit an acute response to yesterday's 112-min race at a training load of 19.2: HRV at 42 ms, well below your 30-day baseline of 58.3 ms, and resting heart rate at 63 bpm, well above its 55.6 mean. After the biggest effort in your recent log, that swing often reflects recovery demand rather than a reason to add more work. A 20 to 30 min flat walk is a good choice — gentle circulation without adding load. What would change the read: resting heart rate still sitting that high after two or three mornings, or feeling feverish or unwell — that pattern deserves attention rather than training through. Recheck tomorrow before planning anything harder.",
     "expected_action": "answer",
     "must_mention": [
       "explicit rest-plus-easy-movement level",
@@ -300,7 +300,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-discipline-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

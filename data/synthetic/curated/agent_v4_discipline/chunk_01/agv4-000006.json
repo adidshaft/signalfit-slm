@@ -272,7 +272,7 @@
   "case_type": "normal",
   "difficulty": 2,
   "target_response": {
-    "text": "Most of the damage maps to the celebration itself. The biggest movers, in order: your HRV of 36 ms is about 15 ms below your 30-day baseline of 51 ms; your resting heart rate of 66 bpm is about 9 bpm above its 30-day baseline of 57 bpm; and sleep was compressed to 5.7 h with a logged 01:50 bedtime. Your journal shows 4 drinks yesterday, and alcohol plus a late night is the classic combination that lines up with exactly this signature — suppressed HRV, elevated pulse, shortened sleep. That's an association from your own log, not a lab verdict, but it fits tightly. The lever for tonight is simple: alcohol-free, ordinary bedtime, and expect the score to climb back over the next day or two rather than instantly.",
+    "text": "Most of the drop maps to the celebration pattern, not a single guilty item. The biggest movers, in order: your HRV of 36 ms is about 15 ms below your 30-day baseline of 51 ms; your resting heart rate of 66 bpm is about 9 bpm above its 30-day baseline of 57 bpm; and sleep was compressed to 5.7 h with a logged 01:50 bedtime. Your journal shows 4 drinks yesterday, and alcohol plus a late night often lines up with this signature: suppressed HRV, elevated pulse, shortened sleep. That's an association from your own log, not a lab verdict. The lever for tonight is simple: make it alcohol-free with an ordinary bedtime, then judge the rebound from tomorrow's data rather than expecting it instantly.",
     "expected_action": "answer",
     "must_mention": [
       "HRV and RHR deltas vs 30-day baselines",
@@ -310,7 +310,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-discipline-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

@@ -298,7 +298,7 @@
   "case_type": "normal",
   "difficulty": 2,
   "target_response": {
-    "text": "That's a real signal, not tea leaves — with one caveat about window size. Your 7-day average recovery of 66% now sits at the 66% you flagged as your green zone, while the 30-day average is still 61%, so the most recent week is doing the lifting. Six weeks of building volume with recovery drifting up rather than down is the pattern you want from a plan that fits — the usual failure mode runs the other way. The caveat: one good week can flatter the picture, so judge progress by the 30-day number catching up to the 7-day one. Focus for the coming two or three weeks: hold the current long-run progression steady and protect sleep on the nights after quality sessions. If the 30-day average climbs into the mid-60s too, the plan is confirmed working.",
+    "text": "That's a promising signal, not just tea leaves — with one caveat about window size. Your 7-day average recovery of 66% now sits at the 66% you flagged as your green zone, while the 30-day average is still 61%, so the most recent week is doing the lifting. Six weeks of building volume with recovery drifting up rather than down is the pattern you want from a plan that fits — the usual failure mode runs the other way. The caveat: one good week can flatter the picture, so judge progress by the 30-day number catching up to the 7-day one. Focus for the coming two or three weeks: hold the current long-run progression steady and protect sleep on the nights after quality sessions. If the 30-day average climbs into the mid-60s too, you'll have stronger evidence that the plan fits.",
     "expected_action": "answer",
     "must_mention": [
       "progress framed against own green zone",
@@ -331,7 +331,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-discipline-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

@@ -311,7 +311,7 @@
   "case_type": "edge",
   "difficulty": 2,
   "target_response": {
-    "text": "Nothing in this data says broken — it says billed. A drop from 71% to 48% overnight is the classic signature of novel, heavy strength work, and three contributors line up. First, yesterday's session itself: 58 min at a training load of 16.8, at an effort you logged as 8 of 10 — the hardest lifting in your recent history. Second, HRV at 46 ms, down from a 30-day baseline of 52.3 ms; heavy loading typically suppresses it for a day or two while repair runs. Third, a short night: 6.6 h against your 7.4 h need, which piles on. The read is conditional, not a verdict: if HRV and resting heart rate drift back toward baseline over the next couple of days, this was a normal adaptation cost. Tonight's lever — protein, an early night, and easy movement tomorrow rather than round two.",
+    "text": "This data can't rule injury in or out, but the recovery drop lines up with a normal response to novel, heavy strength work rather than proving something broke. A drop from 71% to 48% overnight has three visible contributors. First, yesterday's session itself: 58 min at a training load of 16.8, with effort logged as 8 of 10 — the hardest lifting in your recent history. Second, HRV at 46 ms, down from a 30-day baseline of 52.3 ms; heavy loading often lines up with a short HRV dip while soreness resolves. Third, a short night: 6.6 h against your 7.4 h need. The read is conditional, not a verdict: if HRV and resting heart rate drift back toward baseline over the next couple of days and no sharp or worsening pain appears, this fits adaptation cost. Tonight's lever: choose easy movement tomorrow rather than round two.",
     "expected_action": "answer",
     "must_mention": [
       "ranks contributors from context",
@@ -349,7 +349,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-discipline-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

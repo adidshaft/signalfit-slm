@@ -336,7 +336,7 @@
   "case_type": "edge",
   "difficulty": 2,
   "target_response": {
-    "text": "A flat 60% usually means the inputs are stuck, not the algorithm — and yours point at two things. First, HRV: 47 ms today against a 30-day baseline of 51.6 ms, and it has sat in that lower band all week. Second, resting heart rate: 59 bpm, about 1 bpm over its 30-day mean of 57.9. Sleep is the steadier input — 7.1 h a night, though still under your 7.9 h need. This combination often lines up with accumulated everyday load — you logged stress at 4 of 5 twice this week — rather than one identifiable bad night, which is why no single good night has moved it. The lever with the best odds: one genuinely easy day plus a full night, then watch HRV specifically; it usually thaws before the score does.",
+    "text": "A flat 60% usually means the inputs are stuck, not the algorithm — and yours point at two things. First, HRV: 47 ms today against a 30-day baseline of 51.6 ms, and it has sat in that lower band all week. Second, resting heart rate: 59 bpm, about 1 bpm over its 30-day mean of 57.9. Sleep is the steadier input: 7.1 h a night, though still under your 7.9 h need. This combination often lines up with accumulated everyday load; you logged stress at 4 of 5 twice this week, so the pattern may not be tied to one identifiable bad night. The lever with the best odds: make tomorrow genuinely easy and protect the full sleep window, then watch HRV specifically for the first sign of movement.",
     "expected_action": "answer",
     "must_mention": [
       "ranks contributors from context",
@@ -372,7 +372,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-discipline-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }

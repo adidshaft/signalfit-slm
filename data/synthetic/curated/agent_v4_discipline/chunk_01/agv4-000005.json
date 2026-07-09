@@ -315,7 +315,7 @@
   "case_type": "normal",
   "difficulty": 2,
   "target_response": {
-    "text": "Your 54% is low because all three of its main inputs ran on the wrong side of your history overnight, even though you feel fine — the score reads physiology, not mood. Ranked by impact from today's breakdown: first, HRV came in at 41 ms, about 11 ms below your 30-day baseline of 52 ms; second, your resting heart rate of 62 bpm sat about 4 bpm above its 30-day baseline of 58 bpm; third, you slept 6.5 h, about 1.2 h short of your 7.7 h need. Feeling fine while the numbers dip is common — subjective energy often lags physiology by a day. One lever for tonight: set lights-out early enough to clear that sleep gap, and let tomorrow's reading confirm the rebound.",
+    "text": "Your 54% lines up with all three main inputs sitting on the harder side of your history, even though you feel fine; the score is reading overnight physiology, not mood. Ranked by impact from today's breakdown: first, HRV came in at 41 ms, about 11 ms below your 30-day baseline of 52 ms; second, your resting heart rate of 62 bpm sat about 4 bpm above its 30-day baseline of 58 bpm; third, you slept 6.5 h, about 1.2 h short of your 7.7 h need. Feeling fine while the numbers dip is common — subjective energy can lag physiology by a day. One lever for tonight: set lights-out early enough to clear that sleep gap, then use tomorrow's reading as the check rather than treating today as a verdict.",
     "expected_action": "answer",
     "must_mention": [
       "three contributors ranked",
@@ -353,7 +353,7 @@
   "generation": {
     "generator": "agent-fable-5-agent",
     "prompt_version": "agv4-discipline-1",
-    "critic_passed": false,
+    "critic_passed": true,
     "human_reviewed": false,
     "created_at": "2026-07-09"
   }
