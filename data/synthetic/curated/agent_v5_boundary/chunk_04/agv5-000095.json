@@ -1,0 +1,142 @@
+{
+  "example_id": "agv5-000095",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Does the current data label my HRV state typical or suppressed?",
+      "asked_at_local": "2026-07-10T06:45:00+05:30",
+      "weekday": "Friday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "explain_metric"
+    },
+    "user_profile": {
+      "age_band": "25-29",
+      "biological_sex": "other",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-10",
+      "recovery_score": null,
+      "hrv_ms": 57,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": null
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 60,
+          "n": 30
+        }
+      },
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": {
+        "avg_hrv_ms": 58,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "suppressed"
+      }
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "resting_heart_rate_bpm",
+        "sleep_duration_minutes",
+        "activity_strain"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "ring",
+      "source_confidence": {
+        "hrv_ms": "high"
+      },
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 57,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 58,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 60,
+        "unit": "ms",
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 30,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 100,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      }
+    ]
+  },
+  "task_category": "explain_metric",
+  "case_type": "edge",
+  "difficulty": 3,
+  "target_response": {
+    "text": "The explicit HRV state is suppressed, not typical. Today's HRV is 57 ms, below the 30-day baseline of 60 ms. The 7-day average is 58 ms. HRV describes beat-to-beat timing variation, while the state field is the provider's trend classification. The present context therefore supports the 'suppressed' label; it does not support rewriting that field as 'typical.' The numbers and the state must each remain bound to their own roles.",
+    "expected_action": "answer",
+    "must_mention": [
+      "HRV state is suppressed",
+      "today and trend values",
+      "state field controls the label"
+    ],
+    "must_not_mention": [
+      "state is typical",
+      "invented contributor"
+    ],
+    "required_behaviors": [
+      "binds_explicit_state",
+      "binds_today_trend_baseline_roles",
+      "states_true_relations"
+    ],
+    "forbidden_behaviors": [
+      "state_contradiction",
+      "unsupported_cause",
+      "invents_numbers"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "ring_hrv_state",
+    "persona_id": "p-agv5-x1-context-state",
+    "rubric_tags": [
+      "X1",
+      "family_D",
+      "context_state",
+      "suppressed"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "human",
+    "prompt_version": "agv5-boundary-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-10"
+  }
+}
