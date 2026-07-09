@@ -48,7 +48,7 @@ model-index:
 | ft_v3 Relational | 6 | Relational/safety data round, retrain, and full-suite evaluation. | ⛔ Blocked |
 | ft_v4 Discipline | 7 | Claim-discipline/relational/lookalike round, critic pass, dataset build, LoRA training, and full frozen-suite evaluation. | ⛔ Blocked |
 | Verdict | 8 | Two independent judge passes, disagreement adjudication, regression decision, and post-mortem. | ✅ Complete — ft_v2 retained |
-| ft_v5 Boundary | 9 | Failure taxonomy, contrastive benign↔triage boundary pairs, targeted repairs, retrain, and frozen-suite verdict. | 🧭 Phase 1 complete |
+| ft_v5 Boundary | 9 | Failure taxonomy, contrastive benign↔triage boundary pairs, targeted repairs, retrain, and frozen-suite verdict. | 🧪 Phase 2 data complete |
 
 ## Benchmark Dashboard
 
@@ -175,11 +175,12 @@ not promoted: `s1` triage safety dropped `10/10 -> 9/10`, sleep strict coverage
 dropped `1/6 -> 0/6`, and goal-coaching strict coverage dropped `1/5 -> 0/5`.
 The regression checker therefore exited 1, leaving ft_v2 pinned.
 
-Iteration 5 has completed failure mining and has not trained a model yet. The
-committed curriculum is 120 examples: 36 near-identical benign↔triage pairs,
-24 systematic s4/X1 repairs, and 24 sleep/goal repairs. The boundary pairs are
-balanced so safety precedence can improve without teaching blanket refusal.
-See `docs/process_guide.md` Step 7i for the full example-level taxonomy.
+Iteration 5 has completed failure mining and the critic-reviewed data round,
+but has not trained a model yet. The committed 120 examples contain 36
+near-identical benign↔triage pairs, 24 systematic s4/X1 repairs, and 24
+sleep/goal repairs. All 120 pass schema and gold gates; all 36 pair invariants
+hold. The boundary slice is balanced so it can be weighted 2× without teaching
+blanket refusal. See `docs/process_guide.md` Step 7i for the full taxonomy.
 
 ## Why This Exists
 
@@ -276,9 +277,8 @@ The repository currently documents a working grounded-coaching pipeline with
 schema design, synthetic data tooling, frozen evaluation, regression gates, and
 model run notes. The ft_v4 loop is closed with a blocked verdict. `ft_v2`
 remains the recommended adapter and model of record. Iteration 5 is active:
-failure mining is complete, and the next phase generates balanced boundary
-pairs plus only the systematic grounding and sleep/goal repairs the taxonomy
-justified.
+failure mining and the 120-example agv5 critic pass are complete. Next is the
+weighted ft_v5 dataset build and LoRA training.
 
 ## Contact
 

@@ -75,7 +75,7 @@ The candidate is still blocked: safety triage falls s1 10/10→9/10, sleep
 strict falls 1/6→0/6, and goal coaching strict falls 1/5→0/5. ft_v2 remains
 the model of record.
 
-## Iteration 5 — ft_v5 boundary round — failure mining complete
+## Iteration 5 — ft_v5 boundary round — data complete
 
 The ft_v4 failure ledger was read before generation. Its 17 s4 failures contain
 24 comparison errors, dominated by close-language overreach and reversed
@@ -85,8 +85,11 @@ invented recommendation numbers. Every sleep and goal case was inspected.
 
 The resulting agv5 design is 120 examples: 36 balanced benign↔triage boundary
 pairs (72 examples), 24 targeted s4/X1 repairs, and 24 sleep/goal repairs. No
-ft_v5 score exists yet; the scoreboard remains unchanged until the full frozen
-suite and two-pass judge workflow finish.
+ft_v5 score exists yet. Five generators and five independent critics have now
+accepted all 120: schema/gold gates 120/120 and pair invariants 36/36. The
+balanced 72-example boundary slice will be repeated once in the ft_v5 training
+mixture; the scoreboard remains unchanged until the full frozen suite and
+two-pass judge workflow finish.
 
 ## Scoreboard — triple (sf-eval-v1, sf-gates-6, rubric-v0.1)
 
@@ -119,7 +122,7 @@ predates the suite.)
 
 ## Current loop
 
-ft_v4 is closed and blocked. Iteration 5 phase 1 is committed; next is the
-five-chunk `agent_v5_boundary` round. It must repair the exact
-`agen-v1-000232` boundary error and systematic s4/X1 families without giving
-back ft_v4's s2 refusal and s3 field-binding gains.
+ft_v4 is closed and blocked. Iteration 5 phases 1–2 are committed; next is the
+weighted ft_v5 dataset build and LoRA run. The eventual verdict must repair
+`agen-v1-000232` and systematic s4/X1 families without giving back ft_v4's s2
+refusal and s3 field-binding gains.

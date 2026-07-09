@@ -938,6 +938,55 @@ After any edit, `validate_schema.py` must exit 0 and every gold must pass the
 full `sf-gates-6` deterministic eval at 1.0. Freeze checks bracket every phase.
 No agv5 generation starts until this taxonomy commit is pushed.
 
+### Phase 2: agv5 generation + critic pass COMPLETE — 120/120 retained
+
+Five generator agents owned disjoint 24-example chunks, wrote incrementally,
+and self-validated before five separate critic agents reviewed every example.
+No example was deleted. Final composition:
+
+| slice | examples | acceptance result |
+|---|---:|---|
+| breathlessness boundary | 24 = 12 benign↔triage pairs | accepted 24/24 |
+| chest-sensation boundary | 24 = 12 benign↔triage pairs | accepted 24/24 |
+| dizziness + HR boundary | 24 = 12 benign↔triage pairs | accepted 24/24 |
+| systematic X1/s4 repairs | 24 = 12/4/4/4 families A–D | accepted 24/24 |
+| sleep + goal repairs | 24 = 12 sleep + 12 goal | accepted 24/24 |
+
+The round contains 36 safety-lookalike coaching answers paired one-to-one with
+36 safety-triage answers; all pair members share a fresh persona, identical
+numeric/provider/non-symptom context, and differ only in the symptom boundary
+plus required safety labels. Overall categories are daily decision 36, triage
+36, explain metric 18, goal 14, sleep 12, and habit analysis 4. Case types are
+safety 36, safety-lookalike 40, normal 34, and edge 10.
+
+Critics repaired issues that mechanical gates do not prove: ambiguous
+resolution wording; under-specified persistent/forced-stop symptoms; one
+incorrect care level; chest-loading actions on benign chest-soreness cases;
+22 stale recent-workout dates; evaluator-like answer language; unclear
+today/baseline/delta roles; and unsupported progress, legality, or proximity
+claims in sleep/goal golds. They also made the chest red-side mix explicit
+(pressure 4, tightness 2, spreading 2, exertional 4) and preserved substantive
+coaching on every benign member.
+
+Full post-critic verification:
+
+- `validate_schema.py`: **120 passed, 0 failed**;
+- exact ids `agv5-000000`–`agv5-000119`, all unique;
+- all examples `critic_passed: true`, all personas fresh `p-agv5-*`;
+- pair audit: **36/36** identical-context and expected-action flips;
+- gold eval: deterministic **120/120**, grounding **120/120**;
+- x1/x4/x5/x6/s3/s4/s5 **120/120** and triage s1 **36/36**;
+- frozen suite: 66/66 hashes match, no train/valid contamination.
+
+**Mixture decision for Phase 3:** repeat the 72 boundary examples once (2×)
+and keep every prior source plus the 48 non-boundary agv5 repairs at 1×. The
+failure is specifically boundary confusion, and the pair set is exactly
+balanced 36 benign/36 triage, so repetition increases boundary-loss weight
+without changing the safety class prior. Repeats must remain grouped by the
+same `p-agv5-*` persona so a pair or its repeat cannot cross train/valid. The
+unweighted corpus would be 822 lines; one extra boundary copy yields **894**
+prepared lines before splitting.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -1113,3 +1162,12 @@ No agv5 generation starts until this taxonomy commit is pushed.
   number and judge-ID aliases are contract/tooling issues. Step 7i records the
   complete taxonomy, protected ids, and the 120-example agv5 design. Frozen
   suite stayed green; generation remained locked until this commit.
+- **2026-07-10 (iteration 5, phase 2 — agv5 complete):** Five generators plus
+  five independent critics produced and accepted 120/120 examples across five
+  committed chunks: 36 balanced benign↔triage boundary pairs, 24 systematic
+  X1/s4 repairs, and 24 sleep/goal repairs. Critics fixed semantic ambiguity,
+  care level, stale dates, unsafe benign actions, role clarity, and unsupported
+  claims. Post-critic schema 120/120, gold deterministic/grounding 120/120,
+  s1 36/36, pair invariants 36/36, and frozen suite green under
+  **(sf-eval-v1, sf-gates-6, rubric-v0.1)**. Phase 3 will repeat the balanced
+  72-example boundary slice once, producing an expected 894-line ft_v5 corpus.
