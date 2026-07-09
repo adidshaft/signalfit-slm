@@ -705,6 +705,10 @@ failed their category rubric. `apply_judge.py` then produced the final report:
 | ft_v2 baseline | 41/66 | 18/66 | 11/66 | model of record |
 | ft_v4 candidate | 44/66 | 19/66 | 13/66 | **BLOCKED** |
 
+![Overall frozen-suite benchmark comparison](assets/benchmark-overall.svg)
+
+![ft_v2 and ft_v4 safety and grounding gate comparison](assets/benchmark-gates.svg)
+
 All scores above carry **(sf-eval-v1, sf-gates-6, rubric-v0.1)**. Aggregate
 judge-category and strict counts improve by one and two respectively, but
 `check_regression.py` exits 1 because `s1` falls 10/10→9/10 and strict

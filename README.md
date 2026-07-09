@@ -45,15 +45,57 @@ model-index:
 | ft_v1 | 3 | First MLX LoRA fine-tune and locked-set smoke evaluation. | ✅ Done |
 | ft_v2 Safety | 4 | Targeted safety supplement, triage/refusal gates, retrain, and improved safety behavior. | ✅ Done |
 | Frozen Eval | 5 | Frozen `eval/v1` suite, judge workflow, regression gate, and `sf-gates-4` comparative arithmetic. | ✅ Done |
-| ft_v3 Relational | 6 | Relational/safety data round, retrain, and full-suite eval; blocked by regression, not promoted. | ⚠️ Evaluated |
-| ft_v4 Discipline | 7 | Claim-discipline/relational/lookalike data round, critic pass, dataset build, LoRA train, and deterministic frozen-suite score. | ⏳ Judging |
-| Verdict | 8 | Complete second judge pass, merge/adjudicate, run regression, then either promote ft_v4 or write the post-mortem. | 🔜 Next |
+| ft_v3 Relational | 6 | Relational/safety data round, retrain, and full-suite evaluation. | ⛔ Blocked |
+| ft_v4 Discipline | 7 | Claim-discipline/relational/lookalike round, critic pass, dataset build, LoRA training, and full frozen-suite evaluation. | ⛔ Blocked |
+| Verdict | 8 | Two independent judge passes, disagreement adjudication, regression decision, and post-mortem. | ✅ Complete — ft_v2 retained |
+
+## Benchmark Dashboard
+
+All scores in this dashboard use the same comparison triple:
+**(sf-eval-v1, sf-gates-6, rubric-v0.1)**. `ft_v1` is excluded because it used
+an earlier 30-case suite and is not directly comparable.
+
+| Run | Deterministic | Judge category | Strict overall | Decision |
+|---|---:|---:|---:|---|
+| `ft_v2` | 41/66 (62.1%) | 18/66 (27.3%) | 11/66 (16.7%) | ✅ Model of record |
+| `ft_v3` | 39/66 (59.1%) | 11/66 (16.7%) | 10/66 (15.2%) | ⛔ Blocked by regression |
+| `ft_v4` | **44/66 (66.7%)** | **19/66 (28.8%)** | **13/66 (19.7%)** | ⛔ Blocked by safety regression |
+
+![Overall frozen-suite benchmark comparison](docs/assets/benchmark-overall.svg)
+
+`ft_v4` wins the aggregate comparison, but release decisions are constrained:
+one safety-gate regression is enough to block promotion.
+
+![ft_v2 and ft_v4 safety and grounding gate comparison](docs/assets/benchmark-gates.svg)
+
+| Gate | ft_v2 | ft_v4 | Movement |
+|---|---:|---:|---|
+| `s1` no coaching in triage | **10/10** | 9/10 | ⚠️ −1, release blocker |
+| `s2` no protocol in refusal | 9/11 | **11/11** | ⬆️ +2 |
+| `s3` field binding | 62/66 | **64/66** | ⬆️ +2 |
+| `s4` comparative arithmetic | 49/66 | 49/66 | ➖ unchanged |
+| `s5` claim discipline | 64/66 | **65/66** | ⬆️ +1 |
+
+```mermaid
+flowchart LR
+    A["ft_v4: 44/66 deterministic"] --> B["Two-pass judging: 19/66 category"]
+    B --> C["Strict result: 13/66"]
+    C --> D{"Any gated regression?"}
+    D -->|"Yes: s1 fell 10/10 to 9/10"| E["BLOCK ft_v4"]
+    E --> F["Keep ft_v2 as model of record"]
+```
+
+The charts are generated directly from the judged reports:
+
+```bash
+.venv/bin/python scripts/render_benchmark_charts.py
+```
 
 ## Naming Conventions
 
 | Name pattern | What it means |
 |---|---|
-| `ft_v1`, `ft_v2`, `ft_v3`, `ft_v4` | Fine-tuned model/data run versions. `ft_v1` is the first LoRA run, `ft_v2` is the promoted safety-improved run, `ft_v3` is the relational-data retrain that was blocked, and `ft_v4` is the claim-discipline retrain currently under judged evaluation. |
+| `ft_v1`, `ft_v2`, `ft_v3`, `ft_v4` | Fine-tuned model/data run versions. `ft_v1` is the first LoRA run, `ft_v2` is the promoted safety-improved run and current model of record, `ft_v3` is the blocked relational retrain, and `ft_v4` is the blocked claim-discipline retrain. |
 | `models/adapters/ft_v*_qwen2.5-1.5b/` | MLX LoRA adapter artifacts for each fine-tuned run, all based on `Qwen/Qwen2.5-1.5B-Instruct`. |
 | `data/ft_v*/` | Prepared train/valid/eval splits for a fine-tuning run. These are model-training datasets, not the frozen benchmark. |
 | `agent_v1`, `agent_v2_safety`, `agent_v3_relational`, `agent_v4_discipline` | Curated synthetic data rounds. The name describes the training objective: general assistant behavior, targeted safety, relational correctness, then claim discipline plus benign lookalikes and indirect safety. |
@@ -65,7 +107,7 @@ model-index:
 | `suite_generations.jsonl` | Model answers for the full frozen suite. |
 | `eval_report.json` | Deterministic gate report from `scripts/run_eval.py`. |
 | `judge_bundle.jsonl` | Self-contained prompts for independent judge passes. |
-| `suite_verdicts.jsonl` | Final merged/adjudicated judge verdicts. |
+| `judge_verdicts.jsonl` | Final merged/adjudicated judge verdicts. |
 | `judged_report.json` | Deterministic gates plus judge verdicts; this is the report used by `scripts/check_regression.py`. |
 
 SignalFit-SLM is a small language model project for grounded fitness coaching.
@@ -124,13 +166,13 @@ The current model of record is still `ft_v2`. Its pinned frozen-suite baseline i
 `(sf-eval-v1, sf-gates-6, rubric-v0.1)`: deterministic `41/66`, judge category
 `18/66`, strict overall `11/66`.
 
-`ft_v4` has been trained and generated against the same frozen suite, but the
-judge workflow is not complete yet. Its deterministic score is `44/66`, with
-grounding `65/66`. Important gate movement vs `ft_v2`: `s4` comparative
-arithmetic stayed `49/66`, `s2` protocol refusal improved `9/11 -> 11/11`,
-but `s1` triage safety dropped `10/10 -> 9/10`, so promotion is already blocked
-unless the verdict policy changes. Judge pass A currently covers `60/66` cases;
-pass A chunk 06 and all pass B chunks remain.
+`ft_v4` completed the same frozen-suite workflow: two independent judge passes
+over 66/66 cases, 59 category agreements, and seven recorded adjudications.
+It scored deterministic `44/66`, judge category `19/66`, strict `13/66`, and
+grounding `65/66`. Despite beating ft_v2 on all three aggregate counts, it was
+not promoted: `s1` triage safety dropped `10/10 -> 9/10`, sleep strict coverage
+dropped `1/6 -> 0/6`, and goal-coaching strict coverage dropped `1/5 -> 0/5`.
+The regression checker therefore exited 1, leaving ft_v2 pinned.
 
 ## Why This Exists
 
@@ -199,7 +241,7 @@ This repository includes MLX LoRA adapters under `models/adapters/`.
 | `ft_v1` | `Qwen/Qwen2.5-1.5B-Instruct` | `data/ft_v1` | `models/adapters/ft_v1_qwen2.5-1.5b/` | Early run; useful for comparison, but safety behavior was weaker. |
 | `ft_v2` | `Qwen/Qwen2.5-1.5B-Instruct` | `data/ft_v2` | `models/adapters/ft_v2_qwen2.5-1.5b/` | Recommended adapter; safety supplement added and evaluated. |
 | `ft_v3` | `Qwen/Qwen2.5-1.5B-Instruct` | `data/ft_v3` | `models/adapters/ft_v3_qwen2.5-1.5b/` | Blocked by regression under the frozen suite. |
-| `ft_v4` | `Qwen/Qwen2.5-1.5B-Instruct` | `data/ft_v4` | `models/adapters/ft_v4_qwen2.5-1.5b/` | Trained; deterministic eval done; judge workflow in progress; not promoted. |
+| `ft_v4` | `Qwen/Qwen2.5-1.5B-Instruct` | `data/ft_v4` | `models/adapters/ft_v4_qwen2.5-1.5b/` | Full verdict complete: 44/66 deterministic, 19/66 judge-category, 13/66 strict; blocked by s1 safety regression. |
 
 Frozen-suite evaluation for `ft_v2` is pinned in
 `eval/v1/baseline/ft_v2.judged_report.json`: deterministic `41/66`, judge
@@ -225,9 +267,9 @@ See `docs/safety_policy.md` for the formal policy.
 
 The repository currently documents a working grounded-coaching pipeline with
 schema design, synthetic data tooling, frozen evaluation, regression gates, and
-model run notes. `ft_v4` is the active evaluation candidate, but `ft_v2` remains
-the recommended/model-of-record adapter until the judged regression workflow
-finishes without a safety-gate drop.
+model run notes. The ft_v4 loop is closed with a blocked verdict. `ft_v2`
+remains the recommended adapter and model of record; the next loop targets
+comparative/qualitative grounding plus the exact ft_v4 triage regression.
 
 ## Contact
 

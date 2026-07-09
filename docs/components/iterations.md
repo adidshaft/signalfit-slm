@@ -86,6 +86,10 @@ the model of record.
 (ft_v1: 27/30 under sf-gates-3 on its own locked set — gate-comparable only,
 predates the suite.)
 
+![Overall frozen-suite benchmark comparison](../assets/benchmark-overall.svg)
+
+![ft_v2 and ft_v4 safety and grounding gate comparison](../assets/benchmark-gates.svg)
+
 ## What the iterations teach
 
 1. **A blocked model is the harness succeeding.** ft_v3 had the best val loss

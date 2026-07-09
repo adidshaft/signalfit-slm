@@ -35,7 +35,7 @@ source); training logs in `models/*_train.log`.
 | ft_v1 | 245 train (agent_v1) | 600 | 1.87 → 0.38 | shape learned, safety under-learned |
 | ft_v2 | 326 train (+safety round) | 750 | → 0.42 | safety fixed; **pinned baseline / model of record** |
 | ft_v3 | 461 train (+relational round) | 1060 | → 0.284 | ⛔ blocked by regression gate |
-| ft_v4 | 596 train (+discipline round) | 1371 | best 0.281, final 0.354 | deterministic 44/66, judging incomplete; s1 safety drop visible |
+| ft_v4 | 596 train (+discipline round) | 1371 | best 0.281, final 0.354 | ⛔ blocked: 44/66 deterministic, 19/66 judge-category, 13/66 strict; s1 9/10 |
 
 Rules of thumb from these runs: `iters ≈ 2.3 × train_count` (~2–2.5 epochs);
 ~10–20 min and ~10 GB peak RAM at batch 1 / seq-len 3072 on an M-series Mac.

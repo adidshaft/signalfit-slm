@@ -84,8 +84,10 @@ in the *same commit*. Re-pinning to make a new model pass is not.
 
 Current pinned baseline under **(sf-eval-v1, sf-gates-6, rubric-v0.1)**:
 `ft_v2` at deterministic 41/66, judge category 18/66, strict overall 11/66.
-The active candidate, `ft_v4`, has deterministic 44/66 with judge workflow
-incomplete; it already shows a zero-tolerance s1 safety drop (10/10 -> 9/10).
+The completed `ft_v4` candidate scored deterministic 44/66, judge category
+19/66, and strict overall 13/66. It was still blocked because s1 triage safety
+dropped 10/10 -> 9/10, sleep strict dropped 1/6 -> 0/6, and goal-coaching
+strict dropped 1/5 -> 0/5. ft_v2 remains pinned.
 
 ## Scoring a model end to end
 

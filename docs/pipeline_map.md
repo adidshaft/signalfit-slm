@@ -181,18 +181,21 @@ flowchart LR
     G3["sf-gates-3<br/>+ s3 field binding<br/>(today + trend bindings, avg-aware)"]
     G4["sf-gates-4<br/>+ s4 comparative arithmetic<br/>(direction + closeness vs bound field)"]
     G5["sf-gates-5<br/>+ s5 claim discipline<br/>(false missing-data / baseline claims,<br/>diagnosis language in triage)"]
+    G6["sf-gates-6<br/>x5 brand matcher uses word boundaries<br/>(no score change; removes substring false positives)"]
 
     F1(["ft_v1 eval: a triage answer coached,<br/>a refusal leaked protocol shape<br/>('four weeks on' — spelled out,<br/>invisible to the digit regex)"])
     F2(["real-data test (local Atria/WHOOP export):<br/>respiratory rate quoted as resting HR,<br/>trend strain quoted as today's strain,<br/>invented deltas"])
     F3(["first judge run: X1 false relations 34/66 —<br/>grounded values, arithmetically false claims<br/>('6.9h comfortably above your 7.5h average')"])
     F4(["ft_v3 round: unsupported qualitative labels<br/>('green light', 'not reflux'),<br/>false 'I can't see your sleep log' claims"])
+    F5(["gold calibration caught 'oura' inside 'encourage' —<br/>a gate bug, not a model failure"])
 
-    G1 --> F1 --> G2 --> F2 --> G3 --> F3 --> G4 --> F4 --> G5
+    G1 --> F1 --> G2 --> F2 --> G3 --> F3 --> G4 --> F4 --> G5 --> F5 --> G6
 
     style F1 fill:#8b1e1e,color:#fff
     style F2 fill:#8b1e1e,color:#fff
     style F3 fill:#8b1e1e,color:#fff
     style F4 fill:#8b1e1e,color:#fff
+    style F5 fill:#8b1e1e,color:#fff
 ```
 
 Two rules keep this honest: a gate change **bumps `GATE_VERSION`** (reports
@@ -203,7 +206,7 @@ how much of it we could see.
 
 ---
 
-## 4. The model iterations — the improvement loop, three times around
+## 4. The model iterations — the improvement loop, four times around
 
 ```
 eval failure → make it DETERMINISTIC (new gate) → generate TARGETED data
@@ -247,22 +250,35 @@ flowchart TD
         G4B --> D3 --> T3 --> E3 --> REG --> BLOCKED --> G5B
     end
 
+    subgraph IT4["Iteration 4 — ft_v4 (phase 2b part 3)"]
+        G6B["sf-gates-6 calibration fix<br/>+ agent_v4_discipline 150 examples<br/>(claim discipline, relations, lookalikes, safety)"]
+        T4["ft_v4: LoRA 1371 iters,<br/>best val 0.281, final 0.354"]
+        E4["full workflow: deterministic 44/66,<br/>judge category 19/66, strict 13/66;<br/>59 judge agreements + 7 adjudications"]
+        REG4{"check_regression.py<br/>vs pinned ft_v2 baseline"}
+        BLOCKED4["⛔ BLOCKED — aggregate gains,<br/>but s1 triage safety fell 10/10→9/10;<br/>sleep strict 1/6→0/6 and goal strict 1/5→0/5.<br/>Baseline stays ft_v2."]
+        NEXT["next loop: s4/X1 grounding<br/>+ replay agen-v1-000232;<br/>preserve s2 and s3 gains"]
+        G6B --> T4 --> E4 --> REG4 --> BLOCKED4 --> NEXT
+    end
+
     E1 --> FIX1
     E2 --> RD
     PIN --> G4B
+    G5B --> G6B
 
     style BLOCKED fill:#8b1e1e,color:#fff
+    style BLOCKED4 fill:#8b1e1e,color:#fff
     style JG fill:#1e5c8b,color:#fff
 ```
 
-**Scoreboard** (all under the triple sf-eval-v1 / sf-gates-5 / rubric-v0.1):
+**Scoreboard** (all under the triple sf-eval-v1 / sf-gates-6 / rubric-v0.1):
 
 | model | deterministic | judge category | strict overall | verdict |
 |---|---:|---:|---:|---|
 | ft_v2 | 41/66 | 18/66 | **11/66** | pinned baseline, model of record |
 | ft_v3 | 39/66 | 11/66 | 10/66 | ⛔ blocked by regression gate |
+| ft_v4 | **44/66** | **19/66** | **13/66** | ⛔ blocked by s1 safety regression |
 
-The blocked retrain is the harness working as designed: field binding and
-protocol leakage genuinely improved, but the regression gate saw the quality
-tier drop and refused the trade. That refusal — automatic, versioned,
-non-negotiable — is what the whole phase-2b build was for.
+Both blocked retrains are the harness working as designed. ft_v4 improved all
+three aggregate counts plus refusal safety and field binding, but the regression
+gate saw one new triage-coaching failure and refused the trade. That refusal —
+automatic, versioned, non-negotiable — is what the phase-2b ruler was built for.

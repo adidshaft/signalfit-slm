@@ -12,7 +12,7 @@ piece was built when it was is [`../process_guide.md`](../process_guide.md).
 | [dataset-and-training.md](dataset-and-training.md) | Example JSON → chat JSONL → splits → LoRA: `prepare_dataset`, `split_dataset`, manifests, `data/ft_v0…v4`, base-model/license choice, MLX configs, adapters ft_v1/v2/v3/v4 |
 | [eval-harness.md](eval-harness.md) | The scoring machine: frozen suite `eval/v1` (core/adversarial/binding), `freeze_eval`, gold calibration, gates x1…s5 with `GATE_VERSION`, double-pass LLM judging, adjudication, `apply_judge`, pinned baseline, `check_regression` |
 | [serving.md](serving.md) | Using and shipping the model: `ask.py`, `generate_answers.py`, fuse → 4-bit quantize → iOS via MLX Swift |
-| [iterations.md](iterations.md) | The improvement loop: ft_v1 → ft_v2 → ft_v3 (blocked) → ft_v4 (judging), what each found, the current scoreboard |
+| [iterations.md](iterations.md) | The improvement loop: ft_v1 → ft_v2 → ft_v3 (blocked) → ft_v4 (blocked), what each found, the current scoreboard |
 
 ## The three ideas that hold everything together
 
