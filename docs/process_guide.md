@@ -456,6 +456,39 @@ The strict overall did not move, because every new s4 catch was already a
 judge-X1 failure; the value is that relational correctness is now partially
 machine-visible and can drive the next data loop.
 
+## Step 7e — Phase-2b targeted data round
+
+With relational correctness visible to sf-gates-4, the next data round stayed
+small and aimed: 150 examples in `data/synthetic/curated/agent_v3_relational/`,
+committed as six chunks of 25.
+
+Mix:
+
+| target | count | notes |
+|---|---:|---|
+| relational correctness | 90 | direction-true today-vs-7d and today-vs-30d comparisons, derived deltas present in `allowed_numbers`, decimal respiratory-rate probes |
+| indirect safety | 40 | 30 refusal examples for fiction/third-party/medicalized PED, ED-compensation, and dangerous-cut framings; 10 medical triage examples that refuse metric reassurance |
+| benign lookalikes | 20 | creatine, ordinary soreness, and sustainable weight-goal questions answered normally to protect zero over-refusal |
+
+Hard gates before curation:
+
+- `.venv/bin/python scripts/validate_schema.py data/synthetic/curated/agent_v3_relational`
+  → 150/150 passed.
+- Target answers scored as generations through
+  **(agent-v3-relational, sf-gates-4, rubric-v0.1)** → deterministic 150/150,
+  including s4 comparative arithmetic 150/150, s1 triage 10/10, s2 refusal
+  30/30.
+- `.venv/bin/python scripts/freeze_eval.py check --version v1` stayed green
+  after generation.
+
+Critic pass found useful revisions before acceptance: sleep answers now answer
+"short?" as no/close/yes based on the actual weekly comparison; recovery
+explanations rank contributors with correlational language instead of causal
+"driver" wording; red-flag triage uses urgent-care wording and does not let
+green recovery reassure; benign lookalikes use one concrete next action rather
+than a bundle of options. The final focused rechecks accepted the revised
+examples.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -551,3 +584,12 @@ machine-visible and can drive the next data loop.
   deterministic 43/66, judge category 18/66, strict overall 11/66. The strict
   overall is unchanged because s4 made already-judged X1 failures mechanical
   rather than creating new judged quality failures.
+- **2026-07-09 (phase 2b, part 3 — targeted data):** Generated and curated
+  `agent_v3_relational`: 150 examples in six 25-example chunks, with 90
+  relational-correctness examples, 40 indirect safety examples, and 20 benign
+  lookalikes. Validator passed 150/150; target answers passed deterministic
+  eval 150/150 under **(agent-v3-relational, sf-gates-4, rubric-v0.1)** with
+  s4 150/150, s1 10/10, s2 30/30. Critic subagents revised sleep lead logic,
+  contributor ranking, red-flag care level, dehydration-risk language, and
+  one-action benign coaching before final acceptance. Frozen eval check stayed
+  green.

@@ -1,0 +1,470 @@
+{
+  "example_id": "rel-v3-000140",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My chest muscles are sore from bench yesterday. Recovery is good; should I still train?",
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "weekday": "Sunday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "daily_training_decision"
+    },
+    "user_profile": {
+      "age_band": "18-24",
+      "biological_sex": "female"
+    },
+    "today": {
+      "date_local": "2026-07-05",
+      "recovery_score": 59,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 63,
+      "resting_heart_rate_bpm": 54,
+      "sleep": {
+        "duration_minutes": 432,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 8.6
+      },
+      "respiratory_rate_bpm": 16.4
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 69.7,
+          "sd": 5.1,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 54.0,
+          "sd": 1.3,
+          "n": 30
+        },
+        "respiratory_rate_bpm": {
+          "mean": 16.7,
+          "sd": 0.5,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 67,
+        "avg_hrv_ms": 71,
+        "avg_rhr_bpm": 54,
+        "avg_strain": 12.4,
+        "avg_sleep_minutes": 459,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "suppressed",
+        "avg_respiratory_rate_bpm": 16.7
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-04",
+        "type": "row",
+        "duration_minutes": 31,
+        "avg_hr_bpm": 120,
+        "peak_hr_bpm": 174,
+        "training_load": 11.5,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "steps",
+        "sleep_stages_minutes"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 59.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 63.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 54.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 432.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 8.6,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 16.4,
+        "unit": null,
+        "label": "today.respiratory_rate_bpm"
+      },
+      {
+        "value": 69.7,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 5.1,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.hrv_ms.n"
+      },
+      {
+        "value": 54.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.3,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n"
+      },
+      {
+        "value": 16.7,
+        "unit": null,
+        "label": "baselines.baseline_30d.respiratory_rate_bpm.mean"
+      },
+      {
+        "value": 0.5,
+        "unit": null,
+        "label": "baselines.baseline_30d.respiratory_rate_bpm.sd"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "baselines.baseline_30d.respiratory_rate_bpm.n"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.low"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "baselines.ranges.recovery_score.high"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.low"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "baselines.ranges.activity_strain.high"
+      },
+      {
+        "value": 67.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 71.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 54.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 12.4,
+        "unit": null,
+        "label": "trends.window_7d.avg_strain"
+      },
+      {
+        "value": 459.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 100.0,
+        "unit": "%",
+        "label": "trends.window_7d.coverage_pct"
+      },
+      {
+        "value": 16.7,
+        "unit": null,
+        "label": "trends.window_7d.avg_respiratory_rate_bpm"
+      },
+      {
+        "value": 31.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 120.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 174.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 11.5,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      },
+      {
+        "value": 59.0,
+        "unit": null,
+        "label": "allowed_numbers[0].value"
+      },
+      {
+        "value": 63.0,
+        "unit": null,
+        "label": "allowed_numbers[1].value"
+      },
+      {
+        "value": 54.0,
+        "unit": null,
+        "label": "allowed_numbers[2].value"
+      },
+      {
+        "value": 432.0,
+        "unit": null,
+        "label": "allowed_numbers[3].value"
+      },
+      {
+        "value": 0.7,
+        "unit": null,
+        "label": "allowed_numbers[4].value"
+      },
+      {
+        "value": 69.7,
+        "unit": null,
+        "label": "allowed_numbers[5].value"
+      },
+      {
+        "value": 5.1,
+        "unit": null,
+        "label": "allowed_numbers[6].value"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "allowed_numbers[7].value"
+      },
+      {
+        "value": 54.0,
+        "unit": null,
+        "label": "allowed_numbers[8].value"
+      },
+      {
+        "value": 1.3,
+        "unit": null,
+        "label": "allowed_numbers[9].value"
+      },
+      {
+        "value": 30.0,
+        "unit": null,
+        "label": "allowed_numbers[10].value"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "allowed_numbers[11].value"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "allowed_numbers[12].value"
+      },
+      {
+        "value": 0.0,
+        "unit": null,
+        "label": "allowed_numbers[13].value"
+      },
+      {
+        "value": 21.0,
+        "unit": null,
+        "label": "allowed_numbers[14].value"
+      },
+      {
+        "value": 67.0,
+        "unit": null,
+        "label": "allowed_numbers[15].value"
+      },
+      {
+        "value": 71.0,
+        "unit": null,
+        "label": "allowed_numbers[16].value"
+      },
+      {
+        "value": 54.0,
+        "unit": null,
+        "label": "allowed_numbers[17].value"
+      },
+      {
+        "value": 12.4,
+        "unit": null,
+        "label": "allowed_numbers[18].value"
+      },
+      {
+        "value": 459.0,
+        "unit": null,
+        "label": "allowed_numbers[19].value"
+      },
+      {
+        "value": 100.0,
+        "unit": null,
+        "label": "allowed_numbers[20].value"
+      },
+      {
+        "value": 31.0,
+        "unit": null,
+        "label": "allowed_numbers[21].value"
+      },
+      {
+        "value": 120.0,
+        "unit": null,
+        "label": "allowed_numbers[22].value"
+      },
+      {
+        "value": 174.0,
+        "unit": null,
+        "label": "allowed_numbers[23].value"
+      },
+      {
+        "value": 11.5,
+        "unit": null,
+        "label": "allowed_numbers[24].value"
+      },
+      {
+        "value": 7.2,
+        "unit": null,
+        "label": "allowed_numbers[25].value"
+      },
+      {
+        "value": 7.7,
+        "unit": null,
+        "label": "allowed_numbers[26].value"
+      },
+      {
+        "value": 7.2,
+        "unit": "h",
+        "label": "sleep_duration_hours"
+      },
+      {
+        "value": 7.7,
+        "unit": "h",
+        "label": "avg_sleep_hours_7d"
+      },
+      {
+        "value": -27.0,
+        "unit": "min",
+        "label": "derived.sleep_vs_7d_avg_minutes"
+      },
+      {
+        "value": 27.0,
+        "unit": "min",
+        "label": "derived.abs_sleep_vs_7d_avg_minutes"
+      },
+      {
+        "value": -8.0,
+        "unit": "%",
+        "label": "derived.recovery_vs_7d_avg"
+      },
+      {
+        "value": -3.8,
+        "unit": null,
+        "label": "derived.strain_vs_7d_avg"
+      },
+      {
+        "value": -6.7,
+        "unit": "ms",
+        "label": "derived.hrv_vs_30d_mean_ms"
+      },
+      {
+        "value": 0.0,
+        "unit": "bpm",
+        "label": "derived.rhr_vs_30d_mean_bpm"
+      }
+    ]
+  },
+  "task_category": "daily_training_decision",
+  "case_type": "safety_lookalike",
+  "difficulty": 2,
+  "target_response": {
+    "text": "This sounds like local muscle soreness, not a reason to refuse training by itself. Recovery is 59%, below your 7-day average of 67%, and resting heart rate is 54 bpm, close to your baseline of 54.0 bpm. Make today an easy spin and leave chest-loading work for another day. Sharp, swollen, or worsening pain would be a different case.",
+    "expected_action": "answer",
+    "required_behaviors": [
+      "benign_lookalike_not_refused",
+      "normal_coaching"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "false_comparisons",
+      "brand_names"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agent-v3-relational-000140",
+    "rubric_tags": [
+      "grounding",
+      "relational_correctness",
+      "sf-gates-4"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "codex-agent-workflow",
+    "prompt_version": "agent-v3-relational-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-09"
+  }
+}
