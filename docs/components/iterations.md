@@ -9,7 +9,7 @@ eval failure → make it DETERMINISTIC (new gate) → generate TARGETED data
 ```
 
 Diagram: [`../pipeline_map.md`](../pipeline_map.md) §4. Full narrative:
-[`../process_guide.md`](../process_guide.md) Steps 7–7h and the dated log.
+[`../process_guide.md`](../process_guide.md) Steps 7–7i and the dated log.
 
 ## Iteration 1 — ft_v1 (phase 1)
 
@@ -75,7 +75,7 @@ The candidate is still blocked: safety triage falls s1 10/10→9/10, sleep
 strict falls 1/6→0/6, and goal coaching strict falls 1/5→0/5. ft_v2 remains
 the model of record.
 
-## Iteration 5 — ft_v5 boundary round — data complete
+## Iteration 5 — ft_v5 boundary round — blocked
 
 The ft_v4 failure ledger was read before generation. Its 17 s4 failures contain
 24 comparison errors, dominated by close-language overreach and reversed
@@ -84,14 +84,18 @@ above/below relations. Judge X1 fails 32 unique examples: 15 overlap s4, while
 invented recommendation numbers. Every sleep and goal case was inspected.
 
 The resulting agv5 design is 120 examples: 36 balanced benign↔triage boundary
-pairs (72 examples), 24 targeted s4/X1 repairs, and 24 sleep/goal repairs. No
-ft_v5 score exists yet. Five generators and five independent critics
-accepted all 120: schema/gold gates 120/120 and pair invariants 36/36. The
-balanced 72-example boundary slice was repeated once in the 894-row ft_v5
-mixture. Training completed all 1,769 iterations (best observed val 0.204,
-final 0.296). Deterministic ft_v5 scoring is 48/66, with s4 51/66 and s5
-66/66, but s1 remains 9/10 on `agen-v1-000232`; the scoreboard remains
-unchanged until the two-pass judge workflow finishes.
+pairs (72 examples), 24 targeted s4/X1 repairs, and 24 sleep/goal repairs.
+Five generators and five independent critics accepted all 120: schema/gold
+gates 120/120 and pair invariants 36/36. The balanced boundary slice was
+repeated once in the 894-row mixture, then trained for all 1,769 iterations.
+
+The final verdict is **⛔ blocked**. ft_v5 reaches 48/66 deterministic, but
+double judging (56 agreements, ten adjudications) yields 18/66 category and
+9/66 strict. s4 improves to 51/66 and s5 to 66/66, while s1 remains 9/10,
+sleep and goal stay at zero strict, and refusal falls to 3/11 strict. The
+benign-lookalike audit is 5/7 deterministic, 1/7 category, and 0/7 strict.
+The candidate converts deterministic target gains into brittle prose rather
+than reliable judged quality, so ft_v2 remains the model of record.
 
 ## Scoreboard — triple (sf-eval-v1, sf-gates-6, rubric-v0.1)
 
@@ -100,13 +104,14 @@ unchanged until the two-pass judge workflow finishes.
 | ft_v2 | 41/66 | 18/66 | **11/66** | pinned baseline, model of record |
 | ft_v3 | 39/66 | 11/66 | 10/66 | ⛔ blocked |
 | ft_v4 | 44/66 | 19/66 | 13/66 | ⛔ blocked; s1 safety regression |
+| ft_v5 | **48/66** | 18/66 | 9/66 | ⛔ blocked; safety + strict regression |
 
 (ft_v1: 27/30 under sf-gates-3 on its own locked set — gate-comparable only,
 predates the suite.)
 
 ![Overall frozen-suite benchmark comparison](../assets/benchmark-overall.svg)
 
-![ft_v2 and ft_v4 safety and grounding gate comparison](../assets/benchmark-gates.svg)
+![ft_v2, ft_v4, and ft_v5 safety and grounding gate comparison](../assets/benchmark-gates.svg)
 
 ## What the iterations teach
 
@@ -118,13 +123,14 @@ predates the suite.)
    abstract; each mechanizes something a model actually did wrong once.
 3. **Honesty upgrades look like regressions.** Expect the headline number to
    fall every time the ruler improves; track the triple, not the number.
-4. **Aggregate gains cannot buy back a safety drop.** ft_v4 improves the
-   deterministic count and fixes protocol leakage, but one new triage coaching
-   failure is enough to block promotion unless a later run removes it.
+4. **Aggregate gains cannot buy back a safety drop.** ft_v5 has the best
+   deterministic count yet the worst strict result of ft_v2/ft_v4/ft_v5. One
+   triage regression still blocks promotion, and the judge reveals additional
+   refusal and coaching-quality losses hidden by deterministic gates.
 
 ## Current loop
 
-ft_v4 is closed and blocked. Iteration 5 data, weighted dataset, training, and
-deterministic scoring are complete; next is the two-pass judge verdict. The
-candidate improves s4 but already misses the unchanged s1 ship bar and exact
-`agen-v1-000232` replay requirement.
+ft_v5 is closed and blocked. The next loop should start from the exact strict
+losses and anti-over-refusal failures, retain the improved s4/s5 behavior, and
+must restore s1 to 10/10 before any candidate can be promoted. The baseline,
+default adapter, and frozen suite remain unchanged.

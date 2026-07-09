@@ -12,8 +12,9 @@ OUT = ROOT / "docs" / "assets"
 REPORTS = {
     "ft_v2": ROOT / "eval/v1/baseline/ft_v2.judged_report.json",
     "ft_v4": ROOT / "data/ft_v4/eval_suite_v1/eval_report/judged_report.json",
+    "ft_v5": ROOT / "data/ft_v5/eval_suite_v1/eval_report/judged_report.json",
 }
-COLORS = {"ft_v2": "#334155", "ft_v4": "#0f766e"}
+COLORS = {"ft_v2": "#334155", "ft_v4": "#0f766e", "ft_v5": "#b45309"}
 
 
 def load_reports() -> dict[str, dict]:
@@ -65,7 +66,7 @@ def render_overall(reports: dict[str, dict]) -> None:
         text(left, 83, "Passed cases out of 66 | sf-eval-v1, sf-gates-6, rubric-v0.1", size=17, fill="#526176"),
     ]
     for idx, name in enumerate(REPORTS):
-        lx = 795 + idx * 155
+        lx = 690 + idx * 155
         body.append(f'<rect x="{lx}" y="37" width="18" height="18" rx="2" fill="{COLORS[name]}"/>')
         body.append(text(lx + 27, 52, name, size=17))
     for tick in range(0, 67, 11):
@@ -91,11 +92,9 @@ def render_overall(reports: dict[str, dict]) -> None:
 
 
 def render_gates(reports: dict[str, dict]) -> None:
-    width, height = 1200, 760
-    left, right, top, bottom = 285, 105, 150, 55
+    width, height = 1200, 820
+    left, right, top, bottom = 285, 135, 165, 50
     chart_w = width - left - right
-    baseline = reports["ft_v2"]["summary"]["by_gate"]
-    candidate = reports["ft_v4"]["summary"]["by_gate"]
     gates = [
         ("x1 Grounding", "x1_grounding"),
         ("x4 Follow-up budget", "x4_followups"),
@@ -114,12 +113,12 @@ def render_gates(reports: dict[str, dict]) -> None:
 
     body = [
         text(80, 52, "Safety and grounding gates", size=30, weight=500),
-        text(80, 83, "ft_v2 model of record vs ft_v4 candidate | pass rate", size=17, fill="#526176"),
-        '<circle cx="800" cy="49" r="8" fill="#334155"/>',
-        text(817, 55, "ft_v2", size=17),
-        '<circle cx="920" cy="49" r="8" fill="#0f766e"/>',
-        text(937, 55, "ft_v4", size=17),
+        text(80, 83, "ft_v2 model of record vs blocked ft_v4 and ft_v5 candidates | pass rate", size=17, fill="#526176"),
     ]
+    for idx, name in enumerate(REPORTS):
+        lx = 735 + idx * 120
+        body.append(f'<circle cx="{lx}" cy="49" r="8" fill="{COLORS[name]}"/>')
+        body.append(text(lx + 17, 55, name, size=17))
     for tick in (70, 80, 90, 100):
         x = xpos(tick)
         body.append(f'<line x1="{x:.1f}" y1="{top-20}" x2="{x:.1f}" y2="{height-bottom}" stroke="#dce2ea"/>')
@@ -127,19 +126,16 @@ def render_gates(reports: dict[str, dict]) -> None:
     row_h = (height - top - bottom) / len(gates)
     for idx, (label, key) in enumerate(gates):
         y = top + row_h * (idx + 0.5)
-        b, c = baseline[key], candidate[key]
-        br = 100 * b["pass"] / b["n"]
-        cr = 100 * c["pass"] / c["n"]
-        bx, cx = xpos(br), xpos(cr)
-        line_color = "#dc2626" if cr < br else ("#94a3b8" if cr == br else "#0f766e")
         body.append(text(left - 24, y + 6, label, size=17, anchor="end", weight=500 if key.startswith("s1_") else 400))
-        body.append(f'<line x1="{min(bx,cx):.1f}" y1="{y:.1f}" x2="{max(bx,cx):.1f}" y2="{y:.1f}" stroke="{line_color}" stroke-width="5" stroke-linecap="round"/>')
-        body.append(f'<circle cx="{bx:.1f}" cy="{y:.1f}" r="9" fill="#334155" stroke="#ffffff" stroke-width="3"/>')
-        body.append(f'<circle cx="{cx:.1f}" cy="{y:.1f}" r="9" fill="{line_color}" stroke="#ffffff" stroke-width="3"/>')
-        body.append(text(bx, y - 15, f'{b["pass"]}/{b["n"]}', size=14, anchor="middle", fill="#334155"))
-        body.append(text(cx, y + 30, f'{c["pass"]}/{c["n"]}', size=14, anchor="middle", fill=line_color))
+        for ri, name in enumerate(REPORTS):
+            gate = reports[name]["summary"]["by_gate"][key]
+            rate = 100 * gate["pass"] / gate["n"]
+            px, py = xpos(rate), y + (ri - 1) * 15
+            body.append(f'<line x1="{left}" y1="{py:.1f}" x2="{px:.1f}" y2="{py:.1f}" stroke="{COLORS[name]}" stroke-width="3" stroke-linecap="round" opacity="0.55"/>')
+            body.append(f'<circle cx="{px:.1f}" cy="{py:.1f}" r="7" fill="{COLORS[name]}" stroke="#ffffff" stroke-width="2"/>')
+            body.append(text(px + 12, py + 5, f'{gate["pass"]}/{gate["n"]}', size=13, fill=COLORS[name]))
         if key == "s1_no_coaching_in_triage":
-            body.append(text(width - right + 18, y + 6, "BLOCK", size=15, weight=500, fill="#dc2626"))
+            body.append(text(width - right + 18, y + 6, "BLOCK v4/v5", size=14, weight=500, fill="#dc2626"))
     (OUT / "benchmark-gates.svg").write_text(svg_document(width, height, body, "SignalFit-SLM gate comparison"))
 
 
