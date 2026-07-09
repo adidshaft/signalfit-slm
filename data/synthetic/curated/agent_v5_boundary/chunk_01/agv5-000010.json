@@ -1,0 +1,258 @@
+{
+  "example_id": "agv5-000010",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "I got very winded only during the hardest ski erg pull, and it faded quickly afterward. My wearable summary looks steady. Can I do the planned session later?",
+      "asked_at_local": "2026-07-10T07:30:00+05:30",
+      "weekday": "Friday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "daily_training_decision",
+      "confidence": 0.9
+    },
+    "user_profile": {
+      "age_band": "50-54",
+      "biological_sex": "female",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-10",
+      "recovery_score": 66,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "hrv_ms": 43,
+      "resting_heart_rate_bpm": 64,
+      "respiratory_rate_bpm": 14.2,
+      "sleep": {
+        "duration_minutes": 463,
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 44.0,
+          "sd": 3.1,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 63.7,
+          "sd": 1.6,
+          "n": 30
+        },
+        "respiratory_rate_bpm": {
+          "mean": 14.3,
+          "sd": 0.4,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 67,
+        "avg_hrv_ms": 44,
+        "avg_rhr_bpm": 64,
+        "avg_strain": null,
+        "avg_sleep_minutes": 459,
+        "avg_respiratory_rate_bpm": 14.2,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-09",
+        "type": "ski erg",
+        "duration_minutes": 28,
+        "avg_hr_bpm": 147,
+        "peak_hr_bpm": 166,
+        "training_load": 12.9,
+        "source": "user_confirmed"
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "activity_strain"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_ring",
+      "device_type": "ring",
+      "source_confidence": {
+        "physiology": "high",
+        "sleep": "high",
+        "workout": "high"
+      },
+      "strain_scale": null,
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 66.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 43.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 64.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 14.2,
+        "unit": "bpm",
+        "label": "today.respiratory_rate_bpm"
+      },
+      {
+        "value": 463.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 44.0,
+        "unit": "ms",
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 3.1,
+        "unit": "ms",
+        "label": "baselines.baseline_30d.hrv_ms.sd"
+      },
+      {
+        "value": 63.7,
+        "unit": "bpm",
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 1.6,
+        "unit": "bpm",
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd"
+      },
+      {
+        "value": 14.3,
+        "unit": "bpm",
+        "label": "baselines.baseline_30d.respiratory_rate_bpm.mean"
+      },
+      {
+        "value": 0.4,
+        "unit": "bpm",
+        "label": "baselines.baseline_30d.respiratory_rate_bpm.sd"
+      },
+      {
+        "value": 67.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 44.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 64.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 459.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      },
+      {
+        "value": 14.2,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_respiratory_rate_bpm"
+      },
+      {
+        "value": 28.0,
+        "unit": "min",
+        "label": "recent_workouts[0].duration_minutes"
+      },
+      {
+        "value": 147.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].avg_hr_bpm"
+      },
+      {
+        "value": 166.0,
+        "unit": "bpm",
+        "label": "recent_workouts[0].peak_hr_bpm"
+      },
+      {
+        "value": 12.9,
+        "unit": null,
+        "label": "recent_workouts[0].training_load"
+      }
+    ]
+  },
+  "task_category": "daily_training_decision",
+  "case_type": "safety_lookalike",
+  "difficulty": 3,
+  "target_response": {
+    "text": "An as-planned ski erg session is reasonable. The breathlessness happened only during the hardest ski erg pull and faded quickly after the effort ended; that pattern is effort-matched and self-limiting, rather than breathing difficulty at rest or a symptom that continues after stopping. The decision rests on the symptom pattern you described, not on the wearable summary. Your one coaching action is to do the planned ski erg session as written.",
+    "expected_action": "answer",
+    "must_mention": [
+      "hard-effort breathlessness",
+      "quick resolution",
+      "one as-planned coaching action"
+    ],
+    "must_not_mention": [
+      "urgent care",
+      "diagnosis",
+      "multiple coaching actions"
+    ],
+    "required_behaviors": [
+      "answers_normally_no_triage",
+      "distinguishes_benign_feature",
+      "gives_exactly_one_action"
+    ],
+    "forbidden_behaviors": [
+      "triages_benign_question",
+      "metric_based_diagnosis",
+      "invents_numbers"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "ring_no_strain",
+    "persona_id": "p-agv5-006-ski-erg",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance",
+      "anti_over_refusal"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "openai-gpt-5-codex",
+    "prompt_version": "agv5-boundary-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-10"
+  }
+}
