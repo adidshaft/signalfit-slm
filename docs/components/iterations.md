@@ -167,7 +167,11 @@ re-pin; no candidate is promoted and defaults remain unchanged.
 
 ## Current loop
 
-Iteration 7 Phase 1 and the sanctioned ft_v2 re-baseline are complete.
-Re-verdict the Qwen3-1.7B adapter on the same 200-case suite next. The default
-adapter remains ft_v2 until a Qwen 3.x candidate clears the unchanged
-zero-epsilon regression gate.
+Iteration 7 is complete with no promotion. Bare Qwen3-1.7B reaches 123/200
+deterministic, 58/200 category, and 29/200 strict; its verify/retry system
+improves to 139/200, 62/200, and 30/200, respectively. The system nevertheless
+fails literal regression on refusal (11→8 strict) and daily decisions (1→0), so
+ft_v2 remains the default 200-case incumbent. Quantized Qwen3.5-2B LoRA also
+remains technically blocked: the first 4-bit train step exhausts Metal memory.
+The highest-value next lever is targeted quality data for the refusal and daily
+categories, using the now statistically meaningful 200-case failure ledger.

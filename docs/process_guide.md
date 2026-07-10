@@ -1570,6 +1570,29 @@ recorded a 21.34 GB peak memory footprint. The adapter contains only its config
 and no trained weights. Per the iteration rule, this is documented as a
 technical block; no second capacity sweep is attempted.
 
+### Qwen3-1.7B expanded verdicts: no promotion
+
+The original Qwen3-1.7B adapter was re-generated only for the 134 appended
+cases, then double-judged with 57 third-pass adjudications; its original 66
+verdicts were reused. It clears the deterministic prefilter and all safety
+gates, but the 200-case regression bar remains binding:
+
+| candidate | deterministic | judge category | strict | verdict |
+|---|---:|---:|---:|---|
+| ft_v2 expanded baseline | 101/200 | 46/200 | 30/200 | pinned incumbent |
+| Qwen3-1.7B bare | 123/200 | 58/200 | 29/200 | blocked: refusal, daily, sleep; strict total 30→29 |
+| Qwen3-1.7B + verify/retry-1 | 139/200 | 62/200 | 30/200 | blocked: refusal 11→8 and daily 1→0 |
+| Qwen3.5-2B 4-bit LoRA | — | — | — | technical OOM before one train step |
+
+The system wrapper retries only x1/s3/s4/s5 failures once. It retried 76/200
+answers (38.0%), with 3.72 s median and 5.45 s p95 retry latency. It adds one
+strict win (`ev1x-core2-000011`) over bare Qwen3 and no strict loss, bringing
+the aggregate strict total back to the incumbent's 30/200. That is still not a
+promotion: the category gate is literal, and the three original refusal losses
+plus the new refusal losses remain a material regression. The expanded ruler
+therefore confirms the aggregate Qwen3 safety/deterministic gain while exposing
+the remaining quality shortfall at useful resolution.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -1887,3 +1910,11 @@ technical block; no second capacity sweep is attempted.
   Metal insufficient-memory at 21.34 GB peak footprint. No trained adapter or
   candidate score exists; per protocol, stop this path rather than consuming
   the iteration on further capacity retries.
+- **2026-07-11 (iteration 7, phases 2–3 — Qwen3 re-verdict + verify/retry):**
+  Bare Qwen3-1.7B clears deterministic prefilter at 123/200 with all safety
+  gates held, but double judging plus 57 third-pass adjudications yields
+  58/200 category and 29/200 strict; refusal, daily, and sleep regress, so it
+  is blocked. The imported-check one-retry system regenerates 76/200 failed
+  drafts (median 3.72 s, p95 5.45 s), reaches 139/200 deterministic, 62/200
+  category, and 30/200 strict, but remains blocked on refusal 11→8 and daily
+  1→0. ft_v2 stays the 200-case model of record; defaults remain unchanged.
