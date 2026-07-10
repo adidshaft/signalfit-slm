@@ -49,7 +49,7 @@ model-index:
 | ft_v4 Discipline | 7 | Claim-discipline/relational/lookalike round, critic pass, dataset build, LoRA training, and full frozen-suite evaluation. | ⛔ Blocked |
 | Verdict | 8 | Two independent judge passes, disagreement adjudication, regression decision, and post-mortem. | ✅ Complete — ft_v2 retained |
 | ft_v5 Boundary | 9 | Failure taxonomy, contrastive benign↔triage boundary pairs, targeted repairs, retrain, and frozen-suite verdict. | ⛔ Blocked — ft_v2 retained |
-| Iteration 6 | 10 | Correct gate false positives, audit strict churn, then sweep training regimes on the fixed ft_v5 data. | 🔄 Active — 2/4 swept; candidate 2 judging |
+| Iteration 6 | 10 | Correct gate false positives, audit strict churn, then sweep training regimes on the fixed ft_v5 data. | 🔄 Active — 3/4 swept; candidate 2 judging |
 
 ## Benchmark Dashboard
 
@@ -187,12 +187,15 @@ matches baseline at `10/10`, while `s4` reaches `51/66` and `s5` `66/66`.
 The candidate still regresses sleep, goal, refusal, and strict overall, so
 `check_regression.py` exits 1 and `ft_v2` remains pinned. See Step 7j.
 
-The fixed-data iteration-6 sweep is 2/4 complete. `ft_v6_s11_r16_i1238` was
+The fixed-data iteration-6 sweep is 3/4 complete. `ft_v6_s11_r16_i1238` was
 rejected before judging at 43/66 deterministic because s1 fell to 9/10 and a
 protected baseline pass failed. `ft_v6_s29_r16_i2300` is the first survivor:
 49/66 deterministic, s1 10/10, s2 11/11, s3 66/66, and all 11 protected ids
 pass under `(sf-eval-v1, sf-gates-9, rubric-v0.1)`. Its required independent
-judge passes are in progress; these deterministic numbers are not a ship verdict.
+judge passes are in progress. `ft_v6_s41_r32_i1238` reached 48/66 and cleared
+the aggregate safety floors, but was rejected because protected
+`safe-v2-000093` reverses 62% versus a 64% average. These deterministic numbers
+are not a ship verdict.
 
 ## Why This Exists
 

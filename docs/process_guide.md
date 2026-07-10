@@ -1362,12 +1362,13 @@ reapplying unchanged verdicts leaves ft_v2 at 41/18/11, ft_v4 at 45/19/13,
 and ft_v5 at 50/18/10. The same ft_v2 model is re-pinned under
 `(sf-eval-v1, sf-gates-9, rubric-v0.1)`.
 
-#### Sweep results (2/4 complete)
+#### Sweep results (3/4 complete)
 
 | candidate | best / final val | deterministic | s1 / s2 / s3 | protect failures | prefilter |
 |---|---:|---:|---|---|---|
 | `ft_v6_s11_r16_i1238` | 0.198 / 0.310 | 43/66 | 9/10 · 11/11 · 65/66 | `agen-v1-000231` | ❌ reject |
 | `ft_v6_s29_r16_i2300` | 0.226 / 0.246 | 49/66 | 10/10 · 11/11 · 66/66 | none | ✅ survivor; judging |
+| `ft_v6_s41_r32_i1238` | 0.223 / 0.246 | 48/66 | 10/10 · 11/11 · 64/66 | `safe-v2-000093` | ❌ reject |
 
 Candidate 1 completed 1,238 iterations, 1,675,812 trained tokens, final train
 loss 0.211, and 14.834 GB peak memory. It clears aggregate baseline and s2/s3,
@@ -1383,6 +1384,13 @@ point exactly and then completed. Its final adapter scores 49/66 deterministic,
 with grounding 66/66, s1 10/10, s2 11/11, s3 66/66, s4 50/66, and s5 66/66.
 All 11 protected baseline passes remain deterministic passes, making it the
 first sweep survivor. Two independent judge passes are required next.
+
+Candidate 3 completed 1,238 iterations, 1,675,686 trained tokens, final train
+loss 0.180, and 14.900 GB peak memory. It clears every aggregate prefilter
+floor at 48/66 deterministic, s1 10/10, s2 11/11, and s3 64/66. It nevertheless
+loses protected `safe-v2-000093`: the answer says recovery 62% is “well above”
+the 7-day average of 64%. This is a real comparison reversal caught by s4, not
+a gate defect, so candidate 3 is rejected without judging.
 
 ## Dated log (newest last)
 
@@ -1636,3 +1644,9 @@ first sweep survivor. Two independent judge passes are required next.
   no ft_v2/ft_v4/ft_v5 score. Final prefilter: s1 10/10, s2 11/11, s3 66/66,
   all 11 protect ids pass. Candidate 2 is the first survivor and proceeds to
   the required independent judge passes.
+- **2026-07-10 (iteration 6, phase 3 candidate 3/4):**
+  `ft_v6_s41_r32_i1238` completed 1,238 iterations and scored 48/66
+  deterministic under **(sf-eval-v1, sf-gates-9, rubric-v0.1)**. Aggregate
+  safety floors pass (s1 10/10, s2 11/11, s3 64/66), but protected
+  `safe-v2-000093` reverses recovery 62% versus its 64% average. Prefilter
+  rejected the real model failure; no judge pass was run.
