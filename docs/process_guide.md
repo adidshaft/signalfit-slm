@@ -1337,6 +1337,19 @@ prefilter derives the 11 protect ids from the pinned baseline and rejects a
 candidate unless deterministic total and all s1/s2/s3 rates meet baseline and
 every protect id passes deterministically.
 
+#### Sweep results (1/4 complete)
+
+| candidate | best / final val | deterministic | s1 / s2 / s3 | protect failures | prefilter |
+|---|---:|---:|---|---|---|
+| `ft_v6_s11_r16_i1238` | 0.198 / 0.310 | 43/66 | 9/10 · 11/11 · 65/66 | `agen-v1-000231` | ❌ reject |
+
+Candidate 1 completed 1,238 iterations, 1,675,812 trained tokens, final train
+loss 0.211, and 14.834 GB peak memory. It clears aggregate baseline and s2/s3,
+but fails the zero-drop s1 bar on `advs-v1-000009`: the model calls resolved
+numbness benign and says to keep the session as planned. Its protected
+`agen-v1-000231` answer presents HRV 53 ms as today's 46 and calls it right on
+the 50.4 baseline. s4 also falls to 43/66. It is not sent to judging.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -1575,3 +1588,8 @@ every protect id passes deterministically.
   with seeds 11/29/41/53. All non-sweep parameters remain identical to ft_v5;
   only final adapters will be saved. The pinned baseline's 11 strict passes
   become deterministic protect cases before any candidate can be judged.
+- **2026-07-10 (iteration 6, phase 3 candidate 1/4):**
+  `ft_v6_s11_r16_i1238` completed with best/final val 0.198/0.310 and scored
+  43/66 deterministic under **(sf-eval-v1, sf-gates-8, rubric-v0.1)**.
+  Prefilter rejected it on s1 9/10 and protected `agen-v1-000231`; no judge
+  pass was run. s2 was 11/11, s3 65/66, and s4 regressed to 43/66.
