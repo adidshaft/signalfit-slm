@@ -1,0 +1,22 @@
+# Iteration-6 fixed-data sweep: seed 11, LoRA rank 16, 30% fewer iterations.
+model: "Qwen/Qwen2.5-1.5B-Instruct"
+train: true
+data: "data/ft_v5"
+seed: 11
+
+fine_tune_type: lora
+num_layers: 16
+lora_parameters:
+  rank: 16
+  scale: 20.0
+  dropout: 0.05
+
+batch_size: 1
+iters: 1238
+learning_rate: 1.0e-5
+max_seq_length: 3072
+
+steps_per_report: 50
+steps_per_eval: 125
+save_every: 5000
+adapter_path: "models/adapters/ft_v6_s11_r16_i1238_qwen2.5-1.5b"

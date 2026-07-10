@@ -1316,6 +1316,27 @@ protect-list examples. Only survivors receive double judging. Selecting on the
 frozen suite is an acknowledged epistemic cost and will be reported with the
 total candidate count.
 
+### Phase 3: fixed-data LoRA sweep RUNNING
+
+Four new runs cross rank 16/32 with approximately −30%/+30% iterations and a
+fresh seed in every cell. All other settings are held to ft_v5: same 769-row
+weighted train split, base model, 16 adapted layers, learning rate 1e-5,
+dropout 0.05, batch size 1, and sequence length 3072. The existing ft_v5 run
+is the center reference and is not counted among the four new candidates.
+
+| candidate | seed | rank | iterations | relative length |
+|---|---:|---:|---:|---:|
+| `ft_v6_s11_r16_i1238` | 11 | 16 | 1,238 | −30% |
+| `ft_v6_s29_r16_i2300` | 29 | 16 | 2,300 | +30% |
+| `ft_v6_s41_r32_i1238` | 41 | 32 | 1,238 | −30% |
+| `ft_v6_s53_r32_i2300` | 53 | 32 | 2,300 | +30% |
+
+Only final adapters are saved (`save_every: 5000`) because checkpoint sweeps
+would exceed available disk and are not part of this experiment. A reusable
+prefilter derives the 11 protect ids from the pinned baseline and rejects a
+candidate unless deterministic total and all s1/s2/s3 rates meet baseline and
+every protect id passes deterministically.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -1549,3 +1570,8 @@ total candidate count.
   block. Also read all 33 sleep/goal model-case rows and committed the complete
   66-case strict churn matrix. Only 5/11 ft_v2 strict passes survive in ft_v5;
   the fixed-data sweep will hard-protect all 11 before any judging.
+- **2026-07-10 (iteration 6, phase 3 setup — fixed-data sweep):** Locked four
+  new ft_v5-data LoRA candidates crossing rank 16/32 and 1,238/2,300 iterations
+  with seeds 11/29/41/53. All non-sweep parameters remain identical to ft_v5;
+  only final adapters will be saved. The pinned baseline's 11 strict passes
+  become deterministic protect cases before any candidate can be judged.
