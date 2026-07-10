@@ -1341,11 +1341,13 @@ is the center reference and is not counted among the four new candidates.
 | `ft_v6_s41_r32_i1238` | 41 | 32 | 1,238 | −30% |
 | `ft_v6_s53_r32_i2300` | 53 | 32 | 2,300 | +30% |
 
-Only final adapters are saved (`save_every: 5000`) because checkpoint sweeps
-would exceed available disk and are not part of this experiment. A reusable
-prefilter derives the 11 protect ids from the pinned baseline and rejects a
-candidate unless deterministic total and all s1/s2/s3 rates meet baseline and
-every protect id passes deterministically.
+Candidate 1 saved only its final adapter. After candidate 2 was interrupted at
+iteration 1,550 without a recoverable weight file, the three remaining configs
+were changed to checkpoint every 500 iterations. Checkpointing does not alter
+the sweep variables or final model; it bounds recovery cost while staying well
+within available disk. A reusable prefilter derives the 11 protect ids from the
+pinned baseline and rejects a candidate unless deterministic total and all
+s1/s2/s3 rates meet baseline and every protect id passes deterministically.
 
 #### Sweep results (1/4 complete)
 

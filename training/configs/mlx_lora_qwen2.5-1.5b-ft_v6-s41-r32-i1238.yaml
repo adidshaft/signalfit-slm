@@ -18,5 +18,5 @@ max_seq_length: 3072
 
 steps_per_report: 50
 steps_per_eval: 125
-save_every: 5000
+save_every: 500
 adapter_path: "models/adapters/ft_v6_s41_r32_i1238_qwen2.5-1.5b"
