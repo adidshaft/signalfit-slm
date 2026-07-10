@@ -49,13 +49,13 @@ model-index:
 | ft_v4 Discipline | 7 | Claim-discipline/relational/lookalike round, critic pass, dataset build, LoRA training, and full frozen-suite evaluation. | ⛔ Blocked |
 | Verdict | 8 | Two independent judge passes, disagreement adjudication, regression decision, and post-mortem. | ✅ Complete — ft_v2 retained |
 | ft_v5 Boundary | 9 | Failure taxonomy, contrastive benign↔triage boundary pairs, targeted repairs, retrain, and frozen-suite verdict. | ⛔ Blocked — ft_v2 retained |
-| Iteration 6 | 10 | Correct gate false positives, audit strict churn, then sweep training regimes on the fixed ft_v5 data. | 🔄 Active — audit complete |
+| Iteration 6 | 10 | Correct gate false positives, audit strict churn, then sweep training regimes on the fixed ft_v5 data. | 🔄 Active — 2/4 swept; candidate 2 judging |
 
 ## Benchmark Dashboard
 
 All scores in this dashboard use the same comparison triple:
-**(sf-eval-v1, sf-gates-8, rubric-v0.1)**. `ft_v1` used an earlier 30-case
-suite, while `ft_v3` has not been re-scored through sf-gates-8; neither is
+**(sf-eval-v1, sf-gates-9, rubric-v0.1)**. `ft_v1` used an earlier 30-case
+suite, while `ft_v3` has not been re-scored through sf-gates-9; neither is
 included in this current comparison.
 
 | Run | Deterministic | Judge category | Strict overall | Decision |
@@ -66,7 +66,7 @@ included in this current comparison.
 
 ![Overall frozen-suite benchmark comparison](docs/assets/benchmark-overall.svg)
 
-`ft_v5` wins only the deterministic aggregate. sf-gates-8 removes demonstrated
+`ft_v5` wins only the deterministic aggregate. sf-gates-9 removes demonstrated
 s1/s3 false positives, but the real strict losses in sleep, goal, and refusal
 still block promotion regardless of the headline gain.
 
@@ -100,6 +100,7 @@ The charts are generated directly from the judged reports:
 | Name pattern | What it means |
 |---|---|
 | `ft_v1`, `ft_v2`, `ft_v3`, `ft_v4`, `ft_v5` | Fine-tuned experiment versions, not semantic releases. `ft_v1` is the first LoRA run; `ft_v2` is the promoted safety-improved model of record; `ft_v3` is the blocked relational run; `ft_v4` is the blocked claim-discipline run; and `ft_v5` is the blocked boundary-focused run. |
+| `ft_v6_s29_r16_i2300` | Iteration-6 fixed-data sweep naming: `s29` is seed 29, `r16` is LoRA rank 16, and `i2300` is 2,300 training iterations. Every sweep name encodes those three changed variables. |
 | `models/adapters/ft_v*_qwen2.5-1.5b/` | MLX LoRA adapter artifacts for each fine-tuned run, all based on `Qwen/Qwen2.5-1.5B-Instruct`. |
 | `data/ft_v*/` | Prepared train/valid/eval splits for a fine-tuning run. These are model-training datasets, not the frozen benchmark. |
 | `agent_v1`, `agent_v2_safety`, `agent_v3_relational`, `agent_v4_discipline`, `agent_v5_boundary` | Curated synthetic data rounds. The name describes the objective: general behavior, safety, relational correctness, claim discipline, then the benign↔triage decision boundary. |
@@ -167,7 +168,7 @@ The current emphasis is on:
 
 The current model of record is still `ft_v2`. Its pinned frozen-suite baseline is
 `eval/v1/baseline/ft_v2.judged_report.json` under
-`(sf-eval-v1, sf-gates-8, rubric-v0.1)`: deterministic `41/66`, judge category
+`(sf-eval-v1, sf-gates-9, rubric-v0.1)`: deterministic `41/66`, judge category
 `18/66`, strict overall `11/66`.
 
 `ft_v4` completed the same frozen-suite workflow: two independent judge passes
@@ -179,12 +180,19 @@ dropped `1/6 -> 0/6`, and goal-coaching strict coverage dropped `1/5 -> 0/5`.
 The regression checker therefore exited 1, leaving ft_v2 pinned.
 
 `ft_v5` completed the same workflow with 56/66 category agreements and ten
-third-judge adjudications. The sf-gates-7/8 corrections remove six demonstrated
+third-judge adjudications. The sf-gates-7/8/9 corrections remove demonstrated
 s1/s3 false positives across the compared reports, producing ft_v5
 deterministic `50/66`, judge category `18/66`, and strict `10/66`. `s1` now
 matches baseline at `10/10`, while `s4` reaches `51/66` and `s5` `66/66`.
 The candidate still regresses sleep, goal, refusal, and strict overall, so
 `check_regression.py` exits 1 and `ft_v2` remains pinned. See Step 7j.
+
+The fixed-data iteration-6 sweep is 2/4 complete. `ft_v6_s11_r16_i1238` was
+rejected before judging at 43/66 deterministic because s1 fell to 9/10 and a
+protected baseline pass failed. `ft_v6_s29_r16_i2300` is the first survivor:
+49/66 deterministic, s1 10/10, s2 11/11, s3 66/66, and all 11 protected ids
+pass under `(sf-eval-v1, sf-gates-9, rubric-v0.1)`. Its required independent
+judge passes are in progress; these deterministic numbers are not a ship verdict.
 
 ## Why This Exists
 
@@ -253,13 +261,13 @@ This repository includes MLX LoRA adapters under `models/adapters/`.
 | `ft_v1` | `Qwen/Qwen2.5-1.5B-Instruct` | `data/ft_v1` | `models/adapters/ft_v1_qwen2.5-1.5b/` | Early run; useful for comparison, but safety behavior was weaker. |
 | `ft_v2` | `Qwen/Qwen2.5-1.5B-Instruct` | `data/ft_v2` | `models/adapters/ft_v2_qwen2.5-1.5b/` | Recommended adapter; safety supplement added and evaluated. |
 | `ft_v3` | `Qwen/Qwen2.5-1.5B-Instruct` | `data/ft_v3` | `models/adapters/ft_v3_qwen2.5-1.5b/` | Blocked by regression under the frozen suite. |
-| `ft_v4` | `Qwen/Qwen2.5-1.5B-Instruct` | `data/ft_v4` | `models/adapters/ft_v4_qwen2.5-1.5b/` | Corrected sf-gates-8 verdict: 45/66 deterministic, 19/66 judge-category, 13/66 strict; blocked by real s1 safety regression. |
-| `ft_v5` | `Qwen/Qwen2.5-1.5B-Instruct` | `data/ft_v5` | `models/adapters/ft_v5_qwen2.5-1.5b/` | Corrected sf-gates-8 verdict: 50/66 deterministic, 18/66 judge-category, 10/66 strict; blocked by strict category regression. |
+| `ft_v4` | `Qwen/Qwen2.5-1.5B-Instruct` | `data/ft_v4` | `models/adapters/ft_v4_qwen2.5-1.5b/` | Corrected sf-gates-9 verdict: 45/66 deterministic, 19/66 judge-category, 13/66 strict; blocked by real s1 safety regression. |
+| `ft_v5` | `Qwen/Qwen2.5-1.5B-Instruct` | `data/ft_v5` | `models/adapters/ft_v5_qwen2.5-1.5b/` | Corrected sf-gates-9 verdict: 50/66 deterministic, 18/66 judge-category, 10/66 strict; blocked by strict category regression. |
 
 Frozen-suite evaluation for `ft_v2` is pinned in
 `eval/v1/baseline/ft_v2.judged_report.json`: deterministic `41/66`, judge
 category `18/66`, strict overall `11/66` under
-`(sf-eval-v1, sf-gates-8, rubric-v0.1)`.
+`(sf-eval-v1, sf-gates-9, rubric-v0.1)`.
 
 The adapters were produced with MLX LoRA. See `training/mlx/README.md` and
 `training/configs/mlx_lora_qwen2.5-1.5b-ft_v2.yaml`.
