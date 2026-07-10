@@ -23,7 +23,7 @@ def load_reports() -> dict[str, dict]:
         (report["summary"]["gate_version"], report["summary"]["rubric_version"])
         for report in reports.values()
     }
-    if triples != {("sf-gates-6", "rubric-v0.1")}:
+    if triples != {("sf-gates-7", "rubric-v0.1")}:
         raise SystemExit(f"benchmark reports are not comparable: {sorted(triples)}")
     if {report["summary"]["count"] for report in reports.values()} != {66}:
         raise SystemExit("benchmark reports do not all cover 66 cases")
@@ -63,7 +63,7 @@ def render_overall(reports: dict[str, dict]) -> None:
     ]
     body = [
         text(left, 52, "Frozen-suite benchmark", size=30, weight=500),
-        text(left, 83, "Passed cases out of 66 | sf-eval-v1, sf-gates-6, rubric-v0.1", size=17, fill="#526176"),
+        text(left, 83, "Passed cases out of 66 | sf-eval-v1, sf-gates-7, rubric-v0.1", size=17, fill="#526176"),
     ]
     for idx, name in enumerate(REPORTS):
         lx = 690 + idx * 155
@@ -87,7 +87,7 @@ def render_overall(reports: dict[str, dict]) -> None:
             body.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{bar_w}" height="{bar_h:.1f}" rx="4" fill="{COLORS[name]}"/>')
             body.append(text(x + bar_w / 2, y - 10, f"{count}/66", size=16, anchor="middle", weight=500))
         body.append(text(center, top + chart_h + 42, label, size=18, anchor="middle", weight=500))
-    body.append(text(width / 2, height - 25, "Higher aggregate scores do not override a safety-gate regression.", size=17, anchor="middle", fill="#526176"))
+    body.append(text(width / 2, height - 25, "Higher aggregate scores do not override safety or strict-category regressions.", size=17, anchor="middle", fill="#526176"))
     (OUT / "benchmark-overall.svg").write_text(svg_document(width, height, body, "SignalFit-SLM overall benchmark"))
 
 
