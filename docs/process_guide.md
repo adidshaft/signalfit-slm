@@ -145,6 +145,16 @@ generate→gate→curate pipeline with zero marginal cost, just slower.
 **Lesson:** check the license per size — model families mix licenses across
 sizes (Qwen2.5: 1.5B Apache, 3B research-only).
 
+**Retrospective note (2026-07-10):** the selection only compared Qwen2.5 vs
+Qwen3 — Qwen3.5's small models (0.8B/2B/4B/9B, Apache-2.0, hybrid thinking)
+had shipped 2026-03-02 and were never evaluated. A process miss, not (yet) a
+proven wrong outcome: every failure to date was a data/eval problem no base
+swap would fix, and the harness is base-agnostic, so the correction is cheap —
+iteration 6 runs Qwen3.5-2B through the same data, suite, and regression bar
+as a named candidate (see HANDOFF.md). The lesson to keep: **re-scan the base
+landscape at every iteration boundary; a frozen suite makes re-basing a
+one-afternoon experiment, so there is no excuse for not checking.**
+
 ## Step 6 — Fine-tuning with LoRA on MLX (the manual procedure)
 
 LoRA trains small "adapter" matrices on top of frozen base weights — minutes on
