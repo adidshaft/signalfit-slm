@@ -21,5 +21,5 @@ max_seq_length: 3072
 
 steps_per_report: 25
 steps_per_eval: 125
-save_every: 250
+save_every: 100
 adapter_path: "models/adapters/ft_v6_qwen3-1.7b"
