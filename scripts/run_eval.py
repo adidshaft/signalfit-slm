@@ -42,7 +42,9 @@ REPO = Path(__file__).resolve().parent.parent
 #                  existing report — recalibrated and baseline re-pinned
 #   sf-gates-7  s1 triage coaching check made refusal-aware at clause level;
 #                  genuine coaching phrases remain unchanged
-GATE_VERSION = "sf-gates-7"
+#   sf-gates-8  s3 today-binding check recognizes explicit trend/baseline
+#                  scope, scale thresholds, and comparative deltas
+GATE_VERSION = "sf-gates-8"
 RUBRIC_VERSION = "rubric-v0.1"  # docs/eval_rubrics.md pin embedded in judge bundle
 
 NUM_UNIT = re.compile(
@@ -456,11 +458,46 @@ def comparative_arithmetic_errors(context: dict, answer: str) -> list[str]:
     return errors
 
 
+CURRENT_SCOPE = re.compile(r"\b(?:today|today'?s|current|this morning)\b", re.I)
+INHERITED_TREND_SCOPE = re.compile(
+    r"\b(?:7-day|weekly)\s+(?:trend|average|avg)\b|\baveraging\b",
+    re.I,
+)
+DIRECT_NONCURRENT_SCOPE = re.compile(
+    r"\b(?:7-day|weekly|30-day|baseline)\s+(?:average\s+|avg\s+)?$",
+    re.I,
+)
+DELTA_OR_THRESHOLD_SUFFIX = re.compile(
+    r"^\s*(?:(?:or|and)\s+)?(?:above|below|under|over|higher|lower|more|less)\b",
+    re.I,
+)
+
+
+def is_noncurrent_binding(answer: str, match: re.Match) -> bool:
+    """Identify a metric number that is explicitly not today's measurement."""
+    sentence_start = max(
+        answer.rfind(boundary, 0, match.start()) for boundary in ".!?;\n"
+    ) + 1
+    prefix = answer[sentence_start:match.start()]
+    suffix = answer[match.end():match.end() + 28]
+
+    if DIRECT_NONCURRENT_SCOPE.search(prefix):
+        return True
+    if DELTA_OR_THRESHOLD_SUFFIX.search(suffix):
+        return True
+
+    trend_positions = [m.start() for m in INHERITED_TREND_SCOPE.finditer(prefix)]
+    current_positions = [m.start() for m in CURRENT_SCOPE.finditer(prefix)]
+    return bool(trend_positions) and max(trend_positions) > max(current_positions, default=-1)
+
+
 def field_binding_errors(context: dict, answer: str) -> list[str]:
     errors = []
     for pattern, path in FIELD_BINDINGS:
         actual = dig(context, path)
         for m in pattern.finditer(answer):
+            if path[0] == "today" and is_noncurrent_binding(answer, m):
+                continue
             cited = float(m.group(1))
             if actual is None:
                 errors.append(f"cites null field {'.'.join(path)}: {m.group(0)!r}")

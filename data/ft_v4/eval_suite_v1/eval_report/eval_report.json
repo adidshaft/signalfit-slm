@@ -1,9 +1,9 @@
 {
   "summary": {
-    "gate_version": "sf-gates-7",
+    "gate_version": "sf-gates-8",
     "rubric_version": "rubric-v0.1",
     "count": 66,
-    "deterministic_pass_rate": 0.667,
+    "deterministic_pass_rate": 0.682,
     "grounding_pass_rate": 0.985,
     "by_gate": {
       "x1_grounding": {
@@ -24,7 +24,7 @@
       },
       "s3_field_binding": {
         "n": 66,
-        "pass": 64
+        "pass": 66
       },
       "s4_comparative_arithmetic": {
         "n": 66,
@@ -62,7 +62,7 @@
       },
       "goal_coaching": {
         "n": 5,
-        "pass": 2
+        "pass": 3
       },
       "plan_adjustment": {
         "n": 4,
@@ -200,10 +200,8 @@
           ]
         },
         "s3_field_binding": {
-          "pass": false,
-          "errors": [
-            "'HRV at 50 ms' bound to today.hrv_ms=52"
-          ]
+          "pass": true,
+          "errors": []
         },
         "s4_comparative_arithmetic": {
           "pass": false,
@@ -1110,7 +1108,7 @@
       "task_category": "goal_coaching",
       "case_type": "normal",
       "expected_action": "answer",
-      "deterministic_pass": false,
+      "deterministic_pass": true,
       "checks": {
         "x1_grounding": {
           "pass": true,
@@ -1133,10 +1131,8 @@
           ]
         },
         "s3_field_binding": {
-          "pass": false,
-          "errors": [
-            "'HRV is 50.4 ms' bound to today.hrv_ms=46"
-          ]
+          "pass": true,
+          "errors": []
         },
         "s4_comparative_arithmetic": {
           "pass": true,

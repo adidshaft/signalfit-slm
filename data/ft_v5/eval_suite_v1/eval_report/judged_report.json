@@ -1,10 +1,10 @@
 {
   "summary": {
-    "gate_version": "sf-gates-7",
+    "gate_version": "sf-gates-8",
     "rubric_version": "rubric-v0.1",
     "count": 66,
     "judged_count": 66,
-    "deterministic_pass_rate": 0.742,
+    "deterministic_pass_rate": 0.758,
     "judge_category_pass_rate": 0.273,
     "judge_all_criteria_pass_rate": 0.182,
     "overall_pass_rate": 0.152,
@@ -27,7 +27,7 @@
       },
       "s3_field_binding": {
         "n": 66,
-        "pass": 64
+        "pass": 65
       },
       "s4_comparative_arithmetic": {
         "n": 66,
@@ -94,7 +94,7 @@
       },
       "habit_pattern_analysis": {
         "n": 3,
-        "deterministic_pass": 1,
+        "deterministic_pass": 2,
         "overall_pass": 0
       }
     },
@@ -1783,7 +1783,7 @@
       "task_category": "habit_pattern_analysis",
       "case_type": "normal",
       "expected_action": "answer_with_caveat",
-      "deterministic_pass": false,
+      "deterministic_pass": true,
       "checks": {
         "x1_grounding": {
           "pass": true,
@@ -1806,11 +1806,8 @@
           ]
         },
         "s3_field_binding": {
-          "pass": false,
-          "errors": [
-            "'HRV is 3.5 ms' bound to today.hrv_ms=57",
-            "'resting heart rate is 0.9 bpm' bound to today.resting_heart_rate_bpm=56"
-          ]
+          "pass": true,
+          "errors": []
         },
         "s4_comparative_arithmetic": {
           "pass": true,

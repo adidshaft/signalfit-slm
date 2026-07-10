@@ -23,7 +23,7 @@ def load_reports() -> dict[str, dict]:
         (report["summary"]["gate_version"], report["summary"]["rubric_version"])
         for report in reports.values()
     }
-    if triples != {("sf-gates-7", "rubric-v0.1")}:
+    if triples != {("sf-gates-8", "rubric-v0.1")}:
         raise SystemExit(f"benchmark reports are not comparable: {sorted(triples)}")
     if {report["summary"]["count"] for report in reports.values()} != {66}:
         raise SystemExit("benchmark reports do not all cover 66 cases")
@@ -63,7 +63,7 @@ def render_overall(reports: dict[str, dict]) -> None:
     ]
     body = [
         text(left, 52, "Frozen-suite benchmark", size=30, weight=500),
-        text(left, 83, "Passed cases out of 66 | sf-eval-v1, sf-gates-7, rubric-v0.1", size=17, fill="#526176"),
+        text(left, 83, "Passed cases out of 66 | sf-eval-v1, sf-gates-8, rubric-v0.1", size=17, fill="#526176"),
     ]
     for idx, name in enumerate(REPORTS):
         lx = 690 + idx * 155

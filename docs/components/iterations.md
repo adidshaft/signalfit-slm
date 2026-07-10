@@ -89,7 +89,7 @@ Five generators and five independent critics accepted all 120: schema/gold
 gates 120/120 and pair invariants 36/36. The balanced boundary slice was
 repeated once in the 894-row mixture, then trained for all 1,769 iterations.
 
-The corrected sf-gates-7 verdict is **⛔ blocked**. ft_v5 reaches 49/66
+The corrected sf-gates-8 verdict is **⛔ blocked**. ft_v5 reaches 50/66
 deterministic, while
 double judging (56 agreements, ten adjudications) yields 18/66 category and
 10/66 strict. s4 improves to 51/66, s5 to 66/66, and the clause-aware s1 fix
@@ -100,24 +100,24 @@ than reliable judged quality, so ft_v2 remains the model of record.
 
 ## Iteration 6 — fixed-data candidate search — active
 
-sf-gates-7 corrects s1's refusal blindness at clause level without changing
-the forbidden coaching phrases. ft_v1 and ft_v4 true coaching failures remain
-caught; ft_v5's hard refusal now passes. The corrected ft_v5 score is 49/66
+sf-gates-7 corrects s1's refusal blindness; the follow-up safety audit finds
+five demonstrable s3 role-parser false positives and sf-gates-8 clears them
+without losing seven real safety hits. The corrected ft_v5 score is 50/66
 deterministic and 10/66 strict with s1 10/10, but real sleep, goal, refusal,
-and strict-overall regressions remain. Phase 2 audits per-example churn before
-the fixed-data LoRA regime sweep.
+and strict-overall regressions remain. Phase 2's 66-case churn matrix now
+defines the protect list for the fixed-data LoRA regime sweep.
 
-## Scoreboard — triple (sf-eval-v1, sf-gates-7, rubric-v0.1)
+## Scoreboard — triple (sf-eval-v1, sf-gates-8, rubric-v0.1)
 
 | model | deterministic | judge category | strict overall | verdict |
 |---|---:|---:|---:|---|
 | ft_v2 | 41/66 | 18/66 | **11/66** | pinned baseline, model of record |
-| ft_v4 | 44/66 | 19/66 | 13/66 | ⛔ blocked; s1 safety regression |
-| ft_v5 | **49/66** | 18/66 | 10/66 | ⛔ blocked; strict category regression |
+| ft_v4 | 45/66 | 19/66 | 13/66 | ⛔ blocked; s1 safety regression |
+| ft_v5 | **50/66** | 18/66 | 10/66 | ⛔ blocked; strict category regression |
 
 (ft_v1: 27/30 under sf-gates-3 on its own locked set — gate-comparable only,
 predates the suite. ft_v3's latest report is historical sf-gates-6 and is not
-included in this sf-gates-7 table.)
+included in this sf-gates-8 table.)
 
 ![Overall frozen-suite benchmark comparison](../assets/benchmark-overall.svg)
 
@@ -133,13 +133,13 @@ included in this sf-gates-7 table.)
    abstract; each mechanizes something a model actually did wrong once.
 3. **Honesty upgrades look like regressions.** Expect the headline number to
    fall every time the ruler improves; track the triple, not the number.
-4. **Aggregate gains cannot buy back strict regressions.** sf-gates-7 removes
-   ft_v5's false s1 blocker, but the judge still reveals refusal and coaching
-   losses hidden by its best-yet deterministic count.
+4. **Aggregate gains cannot buy back strict regressions.** sf-gates-8 removes
+   demonstrated s1/s3 false positives, but the judge still reveals refusal and
+   coaching losses hidden by ft_v5's best-yet deterministic count.
 
 ## Current loop
 
-Iteration 6 is active. s1 is corrected and ft_v5 now matches the baseline at
-10/10; the next phase audits exact strict churn and every safety hit before a
-fixed-data candidate sweep. The default adapter and frozen suite remain
-unchanged.
+Iteration 6 is active. The s1/s3 gate corrections and exact churn audit are
+complete; Phase 3 runs a fixed-data candidate sweep with all 11 ft_v2 strict
+passes as deterministic protect cases. The default adapter and frozen suite
+remain unchanged.

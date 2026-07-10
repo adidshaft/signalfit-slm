@@ -1,6 +1,6 @@
 {
   "summary": {
-    "gate_version": "sf-gates-7",
+    "gate_version": "sf-gates-8",
     "rubric_version": "rubric-v0.1",
     "count": 66,
     "judged_count": 66,
@@ -27,7 +27,7 @@
       },
       "s3_field_binding": {
         "n": 66,
-        "pass": 62
+        "pass": 64
       },
       "s4_comparative_arithmetic": {
         "n": 66,
@@ -2176,10 +2176,8 @@
           ]
         },
         "s3_field_binding": {
-          "pass": false,
-          "errors": [
-            "'strain is 10.4' bound to today.activity.activity_strain=0.5"
-          ]
+          "pass": true,
+          "errors": []
         },
         "s4_comparative_arithmetic": {
           "pass": false,
@@ -5987,10 +5985,8 @@
           ]
         },
         "s3_field_binding": {
-          "pass": false,
-          "errors": [
-            "'strain of 21' bound to today.activity.activity_strain=12.4"
-          ]
+          "pass": true,
+          "errors": []
         },
         "s4_comparative_arithmetic": {
           "pass": false,

@@ -80,15 +80,15 @@
 <circle cx="828.6" cy="549.7" r="7" fill="#b45309" stroke="#ffffff" stroke-width="2"/>
 <text x="840.6" y="554.7" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="400" fill="#b45309">10/11</text>
 <text x="261.0" y="607.9" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="400" fill="#172033">s3 Field binding</text>
-<line x1="285" y1="586.9" x2="907.4" y2="586.9" stroke="#334155" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
-<circle cx="907.4" cy="586.9" r="7" fill="#334155" stroke="#ffffff" stroke-width="2"/>
-<text x="919.4" y="591.9" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="400" fill="#334155">62/66</text>
-<line x1="285" y1="601.9" x2="986.2" y2="601.9" stroke="#0f766e" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
-<circle cx="986.2" cy="601.9" r="7" fill="#0f766e" stroke="#ffffff" stroke-width="2"/>
-<text x="998.2" y="606.9" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="400" fill="#0f766e">64/66</text>
-<line x1="285" y1="616.9" x2="986.2" y2="616.9" stroke="#b45309" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
-<circle cx="986.2" cy="616.9" r="7" fill="#b45309" stroke="#ffffff" stroke-width="2"/>
-<text x="998.2" y="621.9" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="400" fill="#b45309">64/66</text>
+<line x1="285" y1="586.9" x2="986.2" y2="586.9" stroke="#334155" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+<circle cx="986.2" cy="586.9" r="7" fill="#334155" stroke="#ffffff" stroke-width="2"/>
+<text x="998.2" y="591.9" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="400" fill="#334155">64/66</text>
+<line x1="285" y1="601.9" x2="1065.0" y2="601.9" stroke="#0f766e" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+<circle cx="1065.0" cy="601.9" r="7" fill="#0f766e" stroke="#ffffff" stroke-width="2"/>
+<text x="1077.0" y="606.9" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="400" fill="#0f766e">66/66</text>
+<line x1="285" y1="616.9" x2="1025.6" y2="616.9" stroke="#b45309" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+<circle cx="1025.6" cy="616.9" r="7" fill="#b45309" stroke="#ffffff" stroke-width="2"/>
+<text x="1037.6" y="621.9" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="400" fill="#b45309">65/66</text>
 <text x="261.0" y="675.2" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="400" fill="#172033">s4 Comparative arithmetic</text>
 <line x1="285" y1="654.2" x2="395.3" y2="654.2" stroke="#334155" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
 <circle cx="395.3" cy="654.2" r="7" fill="#334155" stroke="#ffffff" stroke-width="2"/>
