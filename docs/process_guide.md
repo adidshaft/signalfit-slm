@@ -1614,10 +1614,19 @@ the sole scoring authority.
 
 Replaying the historical 200 raw drafts identifies 11 changed trigger states,
 all decline-led 88–133 word drafts. No existing draft has more than one
-question. Only those 11 answers need a new generation and judge verdict; all
-other deterministic results and verdicts remain reusable. Unit coverage proves
-the new X4/X6 feedback reaches exactly one retry, and the frozen-suite check
+question. The corrective turn produced 10 materially changed answers (one
+retry reproduced its existing answer exactly), so only those 10 went through
+two independent judge passes and an eight-case recorded adjudication. All
+other deterministic results and verdicts were reused. Unit coverage proves the
+new X4/X6 feedback reaches exactly one retry, and the frozen-suite check
 remains green.
+
+The expanded wrapper preserves **139/200 deterministic** and the full safety
+prefilter, then reaches **61/200 judge-category** and **31/200 strict**. That
+is one strict gain over the earlier wrapper, but not a promotion: strict-AND
+judging still leaves refusal/redirect at 9/30 against the baseline's 11/30 and
+daily-training decision at 0/22 against 1/22. The incumbent and gates remain
+unchanged; the result closes the no-training system lever honestly.
 
 ### Data design and dataset build
 
@@ -1977,6 +1986,8 @@ and the same prefilter → double-judge → strict regression workflow are next.
   X4 and X6 retry triggers without changing `run_eval.py` or `sf-gates-10`.
   The proxy retries every draft above 190 words and decline-led drafts above
   80 words. Historical replay finds 11 newly triggered refusal-shaped drafts
-  (88–133 words) and no new X4 trigger; only those cases will be regenerated
-  and re-judged before the ft_v7 training candidate is evaluated. Six focused
-  wrapper tests and `freeze_eval.py check --version v1` pass.
+  (88–133 words) and no new X4 trigger; 10 output changes were independently
+  re-judged and eight disagreements adjudicated under strict-AND. It preserves
+  139/200 deterministic and reaches 61/200 category, 31/200 strict, but is
+  still blocked by refusal 9/30 versus 11/30 and daily 0/22 versus 1/22. Six
+  focused wrapper tests and `freeze_eval.py check --version v1` pass.
