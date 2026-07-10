@@ -1436,6 +1436,26 @@ promotion; ft_v2 remains the model of record. Per the user-directed protocol,
 the next phase is one Qwen3.5-2B capacity experiment rather than another
 Qwen2.5 regime sweep.
 
+### Phase 4: capacity experiment preflight
+
+The official `Qwen/Qwen3.5-2B` repository is Apache-2.0 at commit
+`15852e8c16360a2fea060d615a32b45270f8a8fc`; its snapshot is 4.571 GB. MLX-LM
+0.31.3 loads the architecture, and explicit `enable_thinking=false` produces a
+direct answer at 3.879 GB inference peak. However, the one-step LoRA smoke
+filled the 24 GB machine, forced severe swapping, and did not finish an
+optimizer step after several minutes. The process was stopped cleanly and only
+its newly downloaded cache removed. Training it locally would take days and is
+therefore unusable under the protocol.
+
+The documented fallback `Qwen/Qwen3-1.7B` is Apache-2.0 at commit
+`70d244cc86ccca08cf5af4e1e306ecf908b1ad5e`; no license exception is needed.
+Explicit non-thinking inference is clean (3.535 GB peak), and a one-step LoRA
+smoke completes at 0.277 it/s, 1,404 trained tokens, train loss 2.327, and
+10.292 GB peak memory. The full fallback run keeps the fixed ft_v5 data and
+ft_v5 recipe: seed 17, rank 16, 16 adapted layers, 1,769 iterations, learning
+rate 1e-5, dropout 0.05, and 3,072-token cap. Evaluation will pass
+`{"enable_thinking": false}` through the newly generic chat-template option.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -1711,3 +1731,10 @@ Qwen2.5 regime sweep.
   47/66 deterministic; candidate 4 is rejected without judging. The four-run
   fixed-data sweep is complete: one prefilter survivor, zero promotions, ft_v2
   retained. The mandatory single Qwen3.5-2B capacity experiment is next.
+- **2026-07-10 (iteration 6, phase 4 capacity preflight):** Official
+  Qwen3.5-2B is Apache-2.0 and works for explicit non-thinking inference, but
+  its LoRA optimizer smoke exhausted 24 GB and was aborted after several
+  minutes without completing one step. Per protocol, switched to the
+  Apache-2.0 Qwen3-1.7B fallback. Its direct-answer smoke and one-step LoRA
+  check pass at 0.277 it/s and 10.292 GB peak memory; the single full fallback
+  run uses the unchanged ft_v5 recipe and fixed dataset.

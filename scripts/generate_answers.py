@@ -60,6 +60,11 @@ def main() -> int:
     ap.add_argument("--model", default="Qwen/Qwen2.5-1.5B-Instruct")
     ap.add_argument("--adapter", default=None)
     ap.add_argument("--max-tokens", type=int, default=350)
+    ap.add_argument(
+        "--chat-template-config",
+        default="{}",
+        help='JSON object forwarded to apply_chat_template (for example {"enable_thinking":false})',
+    )
     ap.add_argument("-o", "--out", required=True)
     args = ap.parse_args()
     if bool(args.split_jsonl) == bool(args.examples):
@@ -70,13 +75,24 @@ def main() -> int:
     except ImportError:
         raise SystemExit("mlx-lm not installed: .venv/bin/pip install mlx-lm")
 
+    try:
+        chat_template_config = json.loads(args.chat_template_config)
+    except json.JSONDecodeError as exc:
+        ap.error(f"invalid --chat-template-config JSON: {exc.msg}")
+    if not isinstance(chat_template_config, dict):
+        ap.error("--chat-template-config must decode to a JSON object")
+
     prompts = example_prompts(args.examples) if args.examples else split_prompts(args.split_jsonl)
     model, tokenizer = load(args.model, adapter_path=args.adapter)
 
     out_path = Path(args.out)
     with out_path.open("w") as out:
         for example_id, messages in prompts:
-            prompt = tokenizer.apply_chat_template(messages, add_generation_prompt=True)
+            prompt = tokenizer.apply_chat_template(
+                messages,
+                add_generation_prompt=True,
+                **chat_template_config,
+            )
             answer = generate(model, tokenizer, prompt=prompt, max_tokens=args.max_tokens)
             out.write(json.dumps({"example_id": example_id, "answer": answer.strip()},
                                  ensure_ascii=False) + "\n")

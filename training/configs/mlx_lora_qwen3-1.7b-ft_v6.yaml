@@ -1,0 +1,25 @@
+# MLX LoRA fallback capacity experiment - SignalFit-SLM iteration 6
+# Inference must pass {"enable_thinking": false} to the tokenizer chat template.
+# Run: .venv/bin/python -m mlx_lm lora --config training/configs/mlx_lora_qwen3-1.7b-ft_v6.yaml
+
+model: "Qwen/Qwen3-1.7B"
+train: true
+data: "data/ft_v5"
+seed: 17
+
+fine_tune_type: lora
+num_layers: 16
+lora_parameters:
+  rank: 16
+  scale: 20.0
+  dropout: 0.05
+
+batch_size: 1
+iters: 1769
+learning_rate: 1.0e-5
+max_seq_length: 3072
+
+steps_per_report: 25
+steps_per_eval: 125
+save_every: 250
+adapter_path: "models/adapters/ft_v6_qwen3-1.7b"

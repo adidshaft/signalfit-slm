@@ -68,6 +68,11 @@ def main() -> int:
     parser.add_argument("--out-dir", default=None,
                         help="output directory; defaults to data/checks/<adapter>-timestamp")
     parser.add_argument("--max-tokens", type=int, default=350)
+    parser.add_argument(
+        "--chat-template-config",
+        default="{}",
+        help="JSON object forwarded to the tokenizer chat template",
+    )
     parser.add_argument("--verdicts", default=None,
                         help="optional judge verdict JSONL to apply after deterministic eval")
     parser.add_argument("--baseline", default="eval/v1/baseline/ft_v2.judged_report.json")
@@ -88,6 +93,7 @@ def main() -> int:
         "--model", args.model,
         "--adapter", args.adapter,
         "--max-tokens", str(args.max_tokens),
+        "--chat-template-config", args.chat_template_config,
         "-o", str(generations),
     ])
     run([

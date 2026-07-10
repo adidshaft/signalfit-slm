@@ -50,7 +50,7 @@ model-index:
 | Verdict | 8 | Two independent judge passes, disagreement adjudication, regression decision, and post-mortem. | ✅ Complete — ft_v2 retained |
 | ft_v5 Boundary | 9 | Failure taxonomy, contrastive benign↔triage boundary pairs, targeted repairs, retrain, and frozen-suite verdict. | ⛔ Blocked — ft_v2 retained |
 | Iteration 6 | 10 | Correct gate false positives, audit strict churn, then sweep training regimes on the fixed ft_v5 data. | ✅ Sweep 4/4 complete; no candidate shipped |
-| Capacity Check | 11 | Test Qwen3.5-2B once on the fixed protocol, then judge only if it clears the prefilter. | 🔄 Active |
+| Capacity Check | 11 | Test Qwen3.5-2B once, with the documented Qwen3-1.7B fallback if local training is unusable. | 🔄 Qwen3 fallback training |
 
 ## Benchmark Dashboard
 
@@ -203,6 +203,13 @@ are not a ship verdict. `ft_v6_s53_r32_i2300` reached 47/66, but protected
 `agen-v1-000231` calls HRV 46 ms close to its 50.4 ms average. A separate s4
 false positive on `advs-v1-000013` was fixed and calibrated as sf-gates-10;
 the genuine protected failure remains, so candidate 4 was not judged.
+
+The primary Qwen3.5-2B capacity candidate passed Apache-2.0, MLX load, and
+explicit non-thinking inference checks, but a one-step LoRA smoke exhausted
+the 24 GB machine and did not complete after several minutes. Its 4.57 GB cache
+was removed after the clean abort. The protocol fallback `Qwen/Qwen3-1.7B` is
+also Apache-2.0; it passes direct-answer inference and completes a LoRA step at
+0.277 it/s with 10.292 GB peak memory. The single fallback run is now active.
 
 ## Why This Exists
 
