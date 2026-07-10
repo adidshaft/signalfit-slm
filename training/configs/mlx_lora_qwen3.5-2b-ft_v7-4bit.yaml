@@ -1,0 +1,24 @@
+# Iteration 7 capacity experiment: LoRA on a pinned local 4-bit Qwen3.5-2B.
+# Completed targets use Qwen3.5's empty-think training template. Generation
+# must explicitly set {"enable_thinking": false}; this is not an MLX train flag.
+model: "models/bases/qwen3.5-2b-4bit-15852e8"
+train: true
+data: "data/ft_v5"
+seed: 17
+
+fine_tune_type: lora
+num_layers: 16
+lora_parameters:
+  rank: 16
+  scale: 20.0
+  dropout: 0.05
+
+batch_size: 1
+iters: 1769
+learning_rate: 1.0e-5
+max_seq_length: 3072
+
+steps_per_report: 25
+steps_per_eval: 125
+save_every: 250
+adapter_path: "models/adapters/ft_v7_qwen3.5-2b-4bit"

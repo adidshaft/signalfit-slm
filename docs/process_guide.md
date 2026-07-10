@@ -1557,6 +1557,19 @@ baseline, while `ft_v2_66case_sf-gates-10.judged_report.json` retains the old
 historical artifact. Only now can the Qwen3-1.7B adapter be re-verdicted against
 the expanded baseline.
 
+### Qwen3.5-2B quantized-base LoRA: technical block
+
+The prescribed 4-bit path was tested once rather than revisiting the failed
+bf16 run. The exact Apache-2.0 Qwen3.5-2B revision
+`15852e8c16360a2fea060d615a32b45270f8a8fc` was downloaded and converted to a
+local 4.503-bits-per-weight MLX base (1.0 GB). A one-step LoRA smoke used the
+unchanged ft_v5 recipe (r16, 16 layers, 3,072 tokens, seed 17) and loaded the
+dataset/model successfully, but Metal aborted before the train step with
+`Command buffer execution failed: Insufficient Memory`. `/usr/bin/time -l`
+recorded a 21.34 GB peak memory footprint. The adapter contains only its config
+and no trained weights. Per the iteration rule, this is documented as a
+technical block; no second capacity sweep is attempted.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -1867,3 +1880,10 @@ the expanded baseline.
   deterministic, 46/200 category, 30/200 strict; s1 18/18 and s2 17/19.
   The old 66-case report is retained as a historical artifact; no gate or
   candidate/default changed.
+- **2026-07-11 (iteration 7, phase 4 — quantized Qwen3.5-2B technical block):**
+  Pinned revision `15852e8…`, converted it to a 1.0 GB 4-bit MLX base, and ran
+  exactly one LoRA smoke using the unchanged ft_v5 recipe. Model/data loading
+  and validation completed, then the first train command buffer aborted with
+  Metal insufficient-memory at 21.34 GB peak footprint. No trained adapter or
+  candidate score exists; per protocol, stop this path rather than consuming
+  the iteration on further capacity retries.
