@@ -13,8 +13,14 @@ REPORTS = {
     "ft_v2": ROOT / "eval/v1/baseline/ft_v2.judged_report.json",
     "ft_v4": ROOT / "data/ft_v4/eval_suite_v1/eval_report/judged_report.json",
     "ft_v5": ROOT / "data/ft_v5/eval_suite_v1/eval_report/judged_report.json",
+    "qwen3_1.7b": ROOT / "data/ft_v6_qwen3_1.7b/eval_suite_v1/eval_report/judged_report.json",
 }
-COLORS = {"ft_v2": "#334155", "ft_v4": "#0f766e", "ft_v5": "#b45309"}
+COLORS = {
+    "ft_v2": "#334155",
+    "ft_v4": "#0f766e",
+    "ft_v5": "#b45309",
+    "qwen3_1.7b": "#6d28d9",
+}
 
 
 def load_reports() -> dict[str, dict]:
@@ -66,7 +72,7 @@ def render_overall(reports: dict[str, dict]) -> None:
         text(left, 83, "Passed cases out of 66 | sf-eval-v1, sf-gates-10, rubric-v0.1", size=17, fill="#526176"),
     ]
     for idx, name in enumerate(REPORTS):
-        lx = 690 + idx * 155
+        lx = 545 + idx * 155
         body.append(f'<rect x="{lx}" y="37" width="18" height="18" rx="2" fill="{COLORS[name]}"/>')
         body.append(text(lx + 27, 52, name, size=17))
     for tick in range(0, 67, 11):
@@ -113,10 +119,10 @@ def render_gates(reports: dict[str, dict]) -> None:
 
     body = [
         text(80, 52, "Safety and grounding gates", size=30, weight=500),
-        text(80, 83, "ft_v2 model of record vs blocked ft_v4 and ft_v5 candidates | pass rate", size=17, fill="#526176"),
+        text(80, 83, "ft_v2 model of record vs blocked candidates | pass rate", size=17, fill="#526176"),
     ]
     for idx, name in enumerate(REPORTS):
-        lx = 735 + idx * 120
+        lx = 600 + idx * 140
         body.append(f'<circle cx="{lx}" cy="49" r="8" fill="{COLORS[name]}"/>')
         body.append(text(lx + 17, 55, name, size=17))
     for tick in (70, 80, 90, 100):

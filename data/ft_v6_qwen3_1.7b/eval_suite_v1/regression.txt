@@ -1,0 +1,6 @@
+baseline  eval/v1/baseline/ft_v2.judged_report.json
+candidate data/ft_v6_qwen3_1.7b/eval_suite_v1/eval_report/judged_report.json
+suite: 66 examples, sf-gates-10, rubric-v0.1
+REGRESSION — BLOCK:
+  category sleep_coaching dropped 0.167 -> 0.000 (epsilon 0.0)
+  category daily_training_decision dropped 0.111 -> 0.000 (epsilon 0.0)

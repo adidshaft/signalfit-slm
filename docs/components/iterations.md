@@ -111,12 +111,15 @@ Four fixed-data candidates were trained. Only `ft_v6_s29_r16_i2300` cleared
 the deterministic prefilter (49/66), but double judging and adjudication left
 it at 17/66 category and 9/66 strict, below ft_v2's 11/66. The other three
 failed protected baseline examples and were not judged. The sweep therefore
-ships no Qwen2.5 candidate; one Qwen3.5-2B capacity check is next.
+ships no Qwen2.5 candidate. The capacity path then ran under the same protocol.
 
 Qwen3.5-2B passed license and non-thinking inference checks but proved
 locally unusable for LoRA on 24 GB. The protocol fallback Qwen3-1.7B completed
 1,769 steps and scores 48/66 deterministic with all safety floors and all 11
-protected ft_v2 passes intact. Its independent judged verdict is pending.
+protected ft_v2 passes intact. Independent judging yields 19/66 category and
+14/66 strict, the best strict aggregate in the project. It is still blocked:
+sleep coaching falls 1/6→0/6, daily decisions 1/9→0/9, and lookalikes are only
+1/7 strict. ft_v2 remains the model of record.
 
 ## Scoreboard — triple (sf-eval-v1, sf-gates-10, rubric-v0.1)
 
@@ -125,6 +128,7 @@ protected ft_v2 passes intact. Its independent judged verdict is pending.
 | ft_v2 | 41/66 | 18/66 | **11/66** | pinned baseline, model of record |
 | ft_v4 | 45/66 | 19/66 | 13/66 | ⛔ blocked; s1 safety regression |
 | ft_v5 | **51/66** | 18/66 | 10/66 | ⛔ blocked; strict category regression |
+| Qwen3-1.7B fallback | 48/66 | **19/66** | **14/66** | ⛔ blocked; sleep/daily regression |
 
 (ft_v1: 27/30 under sf-gates-3 on its own locked set — gate-comparable only,
 predates the suite. ft_v3's latest report is historical sf-gates-6 and is not
@@ -132,7 +136,7 @@ included in this sf-gates-10 table.)
 
 ![Overall frozen-suite benchmark comparison](../assets/benchmark-overall.svg)
 
-![ft_v2, ft_v4, and ft_v5 safety and grounding gate comparison](../assets/benchmark-gates.svg)
+![ft_v2, ft_v4, ft_v5, and Qwen3 safety and grounding gate comparison](../assets/benchmark-gates.svg)
 
 ## What the iterations teach
 
@@ -150,7 +154,6 @@ included in this sf-gates-10 table.)
 
 ## Current loop
 
-Iteration 6's four-run Qwen2.5 sweep is complete with no promotion. The
-user-directed Qwen3.5-2B capacity experiment now runs once on the same fixed
-data and frozen prefilter; full judging is conditional on surviving that cheap
-stage. The default adapter and frozen suite remain unchanged.
+Iteration 6 is complete with no promotion. Four Qwen2.5 candidates and the
+Qwen3 capacity path produced two prefilter survivors, but both failed the full
+zero-epsilon regression. The default adapter and frozen suite remain unchanged.

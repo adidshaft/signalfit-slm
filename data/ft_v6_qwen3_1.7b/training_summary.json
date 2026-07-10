@@ -11,5 +11,10 @@
   "last_recorded_train_loss_iteration": 1700,
   "license": "apache-2.0",
   "peak_memory_gb": 15.55,
+  "four_bit_repository_size_gb": 0.984,
+  "judged_category_passes": 19,
+  "judged_strict_passes": 14,
+  "regression_exit_code": 1,
+  "verdict": "blocked",
   "training_config": "training/configs/mlx_lora_qwen3-1.7b-ft_v6.yaml"
 }

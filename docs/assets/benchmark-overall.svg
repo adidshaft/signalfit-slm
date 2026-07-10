@@ -4,12 +4,14 @@
 <rect width="1200" height="650" fill="#ffffff"/>
 <text x="105.0" y="52.0" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="500" fill="#172033">Frozen-suite benchmark</text>
 <text x="105.0" y="83.0" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="400" fill="#526176">Passed cases out of 66 | sf-eval-v1, sf-gates-10, rubric-v0.1</text>
-<rect x="690" y="37" width="18" height="18" rx="2" fill="#334155"/>
-<text x="717.0" y="52.0" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="400" fill="#172033">ft_v2</text>
-<rect x="845" y="37" width="18" height="18" rx="2" fill="#0f766e"/>
-<text x="872.0" y="52.0" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="400" fill="#172033">ft_v4</text>
-<rect x="1000" y="37" width="18" height="18" rx="2" fill="#b45309"/>
-<text x="1027.0" y="52.0" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="400" fill="#172033">ft_v5</text>
+<rect x="545" y="37" width="18" height="18" rx="2" fill="#334155"/>
+<text x="572.0" y="52.0" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="400" fill="#172033">ft_v2</text>
+<rect x="700" y="37" width="18" height="18" rx="2" fill="#0f766e"/>
+<text x="727.0" y="52.0" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="400" fill="#172033">ft_v4</text>
+<rect x="855" y="37" width="18" height="18" rx="2" fill="#b45309"/>
+<text x="882.0" y="52.0" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="400" fill="#172033">ft_v5</text>
+<rect x="1010" y="37" width="18" height="18" rx="2" fill="#6d28d9"/>
+<text x="1037.0" y="52.0" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="400" fill="#172033">qwen3_1.7b</text>
 <line x1="105" y1="545.0" x2="1145" y2="545.0" stroke="#dce2ea"/>
 <text x="89.0" y="551.0" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="400" fill="#64748b">0</text>
 <line x1="105" y1="478.3" x2="1145" y2="478.3" stroke="#dce2ea"/>
@@ -24,26 +26,32 @@
 <text x="89.0" y="217.7" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="400" fill="#64748b">55</text>
 <line x1="105" y1="145.0" x2="1145" y2="145.0" stroke="#dce2ea"/>
 <text x="89.0" y="151.0" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="400" fill="#64748b">66</text>
-<rect x="177.3" y="296.5" width="58" height="248.5" rx="4" fill="#334155"/>
-<text x="206.3" y="286.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">41/66</text>
-<rect x="249.3" y="272.3" width="58" height="272.7" rx="4" fill="#0f766e"/>
-<text x="278.3" y="262.3" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">45/66</text>
-<rect x="321.3" y="235.9" width="58" height="309.1" rx="4" fill="#b45309"/>
-<text x="350.3" y="225.9" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">51/66</text>
+<rect x="141.3" y="296.5" width="58" height="248.5" rx="4" fill="#334155"/>
+<text x="170.3" y="286.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">41/66</text>
+<rect x="213.3" y="272.3" width="58" height="272.7" rx="4" fill="#0f766e"/>
+<text x="242.3" y="262.3" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">45/66</text>
+<rect x="285.3" y="235.9" width="58" height="309.1" rx="4" fill="#b45309"/>
+<text x="314.3" y="225.9" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">51/66</text>
+<rect x="357.3" y="254.1" width="58" height="290.9" rx="4" fill="#6d28d9"/>
+<text x="386.3" y="244.1" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">48/66</text>
 <text x="278.3" y="587.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="500" fill="#172033">Deterministic</text>
-<rect x="524.0" y="435.9" width="58" height="109.1" rx="4" fill="#334155"/>
-<text x="553.0" y="425.9" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">18/66</text>
-<rect x="596.0" y="429.8" width="58" height="115.2" rx="4" fill="#0f766e"/>
-<text x="625.0" y="419.8" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">19/66</text>
-<rect x="668.0" y="435.9" width="58" height="109.1" rx="4" fill="#b45309"/>
-<text x="697.0" y="425.9" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">18/66</text>
+<rect x="488.0" y="435.9" width="58" height="109.1" rx="4" fill="#334155"/>
+<text x="517.0" y="425.9" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">18/66</text>
+<rect x="560.0" y="429.8" width="58" height="115.2" rx="4" fill="#0f766e"/>
+<text x="589.0" y="419.8" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">19/66</text>
+<rect x="632.0" y="435.9" width="58" height="109.1" rx="4" fill="#b45309"/>
+<text x="661.0" y="425.9" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">18/66</text>
+<rect x="704.0" y="429.8" width="58" height="115.2" rx="4" fill="#6d28d9"/>
+<text x="733.0" y="419.8" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">19/66</text>
 <text x="625.0" y="587.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="500" fill="#172033">Judge category</text>
-<rect x="870.7" y="478.3" width="58" height="66.7" rx="4" fill="#334155"/>
-<text x="899.7" y="468.3" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">11/66</text>
-<rect x="942.7" y="466.2" width="58" height="78.8" rx="4" fill="#0f766e"/>
-<text x="971.7" y="456.2" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">13/66</text>
-<rect x="1014.7" y="484.4" width="58" height="60.6" rx="4" fill="#b45309"/>
-<text x="1043.7" y="474.4" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">10/66</text>
+<rect x="834.7" y="478.3" width="58" height="66.7" rx="4" fill="#334155"/>
+<text x="863.7" y="468.3" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">11/66</text>
+<rect x="906.7" y="466.2" width="58" height="78.8" rx="4" fill="#0f766e"/>
+<text x="935.7" y="456.2" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">13/66</text>
+<rect x="978.7" y="484.4" width="58" height="60.6" rx="4" fill="#b45309"/>
+<text x="1007.7" y="474.4" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">10/66</text>
+<rect x="1050.7" y="460.2" width="58" height="84.8" rx="4" fill="#6d28d9"/>
+<text x="1079.7" y="450.2" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="500" fill="#172033">14/66</text>
 <text x="971.7" y="587.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="500" fill="#172033">Strict overall</text>
 <text x="600.0" y="625.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="400" fill="#526176">Higher aggregate scores do not override safety or strict-category regressions.</text>
 </svg>

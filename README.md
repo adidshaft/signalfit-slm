@@ -50,7 +50,7 @@ model-index:
 | Verdict | 8 | Two independent judge passes, disagreement adjudication, regression decision, and post-mortem. | ✅ Complete — ft_v2 retained |
 | ft_v5 Boundary | 9 | Failure taxonomy, contrastive benign↔triage boundary pairs, targeted repairs, retrain, and frozen-suite verdict. | ⛔ Blocked — ft_v2 retained |
 | Iteration 6 | 10 | Correct gate false positives, audit strict churn, then sweep training regimes on the fixed ft_v5 data. | ✅ Sweep 4/4 complete; no candidate shipped |
-| Capacity Check | 11 | Test Qwen3.5-2B once, with the documented Qwen3-1.7B fallback if local training is unusable. | 🔄 Qwen3 fallback judging |
+| Capacity Check | 11 | Test Qwen3.5-2B once, with the documented Qwen3-1.7B fallback if local training is unusable. | ⛔ Complete; fallback blocked |
 
 ## Benchmark Dashboard
 
@@ -64,6 +64,7 @@ included in this current comparison.
 | `ft_v2` | 41/66 (62.1%) | 18/66 (27.3%) | 11/66 (16.7%) | ✅ Model of record |
 | `ft_v4` | 45/66 (68.2%) | **19/66 (28.8%)** | **13/66 (19.7%)** | ⛔ Blocked by safety regression |
 | `ft_v5` | **51/66 (77.3%)** | 18/66 (27.3%) | 10/66 (15.2%) | ⛔ Blocked by strict category regression |
+| `ft_v6_qwen3_1.7b` | 48/66 (72.7%) | **19/66 (28.8%)** | **14/66 (21.2%)** | ⛔ Blocked by sleep/daily regressions |
 
 ![Overall frozen-suite benchmark comparison](docs/assets/benchmark-overall.svg)
 
@@ -71,15 +72,15 @@ included in this current comparison.
 s1/s3 false positives, but the real strict losses in sleep, goal, and refusal
 still block promotion regardless of the headline gain.
 
-![ft_v2, ft_v4, and ft_v5 safety and grounding gate comparison](docs/assets/benchmark-gates.svg)
+![ft_v2, ft_v4, ft_v5, and Qwen3 safety and grounding gate comparison](docs/assets/benchmark-gates.svg)
 
-| Gate | ft_v2 | ft_v4 | ft_v5 | ft_v5 vs baseline |
-|---|---:|---:|---:|---|
-| `s1` no coaching in triage | **10/10** | 9/10 | **10/10** | ✅ matches baseline |
-| `s2` no protocol in refusal | 9/11 | **11/11** | 10/11 | ⬆️ +1 |
-| `s3` field binding | 64/66 | **66/66** | 65/66 | ⬆️ +1 |
-| `s4` comparative arithmetic | 49/66 | 49/66 | **52/66** | ⬆️ +3 |
-| `s5` claim discipline | 64/66 | 65/66 | **66/66** | ⬆️ +2 |
+| Gate | ft_v2 | ft_v4 | ft_v5 | Qwen3-1.7B |
+|---|---:|---:|---:|---:|
+| `s1` no coaching in triage | **10/10** | 9/10 | **10/10** | **10/10** |
+| `s2` no protocol in refusal | 9/11 | **11/11** | 10/11 | **11/11** |
+| `s3` field binding | 64/66 | **66/66** | 65/66 | 65/66 |
+| `s4` comparative arithmetic | 49/66 | 49/66 | **52/66** | 49/66 |
+| `s5` claim discipline | 64/66 | 65/66 | **66/66** | **66/66** |
 
 ```mermaid
 flowchart LR
@@ -103,6 +104,7 @@ The charts are generated directly from the judged reports:
 | `ft_v1`, `ft_v2`, `ft_v3`, `ft_v4`, `ft_v5` | Fine-tuned experiment versions, not semantic releases. `ft_v1` is the first LoRA run; `ft_v2` is the promoted safety-improved model of record; `ft_v3` is the blocked relational run; `ft_v4` is the blocked claim-discipline run; and `ft_v5` is the blocked boundary-focused run. |
 | `ft_v6_s29_r16_i2300` | Iteration-6 fixed-data sweep naming: `s29` is seed 29, `r16` is LoRA rank 16, and `i2300` is 2,300 training iterations. Every sweep name encodes those three changed variables. |
 | `ft_v6_qwen3.5_2b` | Iteration-6 capacity experiment: the suffix names the Qwen3.5 2B base family, not another Qwen2.5 sweep seed. |
+| `ft_v6_qwen3_1.7b` | Capacity fallback: Qwen3 1.7B, used only after Qwen3.5-2B proved locally untrainable. The dot is part of the public model size; the directory uses the same readable form. |
 | `models/adapters/ft_v*_qwen2.5-1.5b/` | MLX LoRA adapter artifacts for each fine-tuned run, all based on `Qwen/Qwen2.5-1.5B-Instruct`. |
 | `data/ft_v*/` | Prepared train/valid/eval splits for a fine-tuning run. These are model-training datasets, not the frozen benchmark. |
 | `agent_v1`, `agent_v2_safety`, `agent_v3_relational`, `agent_v4_discipline`, `agent_v5_boundary` | Curated synthetic data rounds. The name describes the objective: general behavior, safety, relational correctness, claim discipline, then the benign↔triage decision boundary. |
@@ -182,7 +184,7 @@ dropped `1/6 -> 0/6`, and goal-coaching strict coverage dropped `1/5 -> 0/5`.
 The regression checker therefore exited 1, leaving ft_v2 pinned.
 
 `ft_v5` completed the same workflow with 56/66 category agreements and ten
-third-judge adjudications. The sf-gates-7/8/9 corrections remove demonstrated
+third-judge adjudications. The sf-gates-7/8/9/10 corrections remove demonstrated
 s1/s3/s4 false positives across the compared reports, producing ft_v5
 deterministic `51/66`, judge category `18/66`, and strict `10/66`. `s1` now
 matches baseline at `10/10`, while `s4` reaches `52/66` and `s5` `66/66`.
@@ -213,7 +215,16 @@ also Apache-2.0; it passes direct-answer inference and completes a LoRA step at
 15.550 GB peak memory and best observed validation loss 0.236. It scores 48/66
 deterministic under `(sf-eval-v1, sf-gates-10, rubric-v0.1)`, with s1 10/10,
 s2 11/11, s3 65/66, and every one of ft_v2's 11 protected passes retained.
-The required independent double-judge workflow is active.
+Two independent judges agreed on 58/66 category decisions; a third judge
+adjudicated the eight disagreements. Final score: 19/66 category and 14/66
+strict. Despite improving strict aggregate, safety triage (7/10), and refusal
+(5/11), regression exits 1 because sleep coaching falls 1/6→0/6 and daily
+training decisions 1/9→0/9. Only 1/7 benign lookalikes passes strict. The
+candidate is blocked and ft_v2 remains the model of record.
+
+Actual MLX 4-bit repository sizes put the deployment tradeoff at 0.984 GB for
+Qwen3-1.7B versus 0.880 GB for Qwen2.5-1.5B ft_v2 (+0.104 GB, +11.8%). The
+Qwen3.5-2B 4-bit repository is 1.749 GB and was locally untrainable here.
 
 ## Why This Exists
 
