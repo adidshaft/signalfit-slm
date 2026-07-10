@@ -142,8 +142,10 @@ gate and rubric versions: 93 core coverage cases, 25 benign lookalikes, and
 review, full gold calibration (200/200), explicit s3/s4 mutation checks, and
 the frozen-suite contamination check. This is the pre-declared legal
 suite-expansion re-pin point: the table above is retained as the historical
-66-case record, while the next ft_v2 judgment establishes the new 200-case
-baseline. No candidate is promoted and defaults remain unchanged.
+66-case record. ft_v2 has now been re-baselined through two independent judge
+passes and 21 recorded third-pass adjudications: **101/200 deterministic,
+46/200 judge-category, 30/200 strict**. This is the sanctioned suite-growth
+re-pin; no candidate is promoted and defaults remain unchanged.
 
 ![Overall frozen-suite benchmark comparison](../assets/benchmark-overall.svg)
 
@@ -165,7 +167,7 @@ baseline. No candidate is promoted and defaults remain unchanged.
 
 ## Current loop
 
-Iteration 7 Phase 1 is complete. Re-baseline ft_v2 on the 134 new cases next,
-then re-verdict the Qwen3-1.7B adapter on the same 200-case suite. The default
+Iteration 7 Phase 1 and the sanctioned ft_v2 re-baseline are complete.
+Re-verdict the Qwen3-1.7B adapter on the same 200-case suite next. The default
 adapter remains ft_v2 until a Qwen 3.x candidate clears the unchanged
 zero-epsilon regression gate.

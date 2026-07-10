@@ -1540,12 +1540,22 @@ a 65% weekly average is rejected by s4. `freeze_eval.py build` preserved the
 old hashes while adding the three slices; the subsequent `check` is green and
 the contamination guard found no train/valid overlap.
 
-No model or gate changed in this phase. The next required action is the
-sanctioned expansion re-baseline: generate ft_v2 answers for the 134 new cases
-only, gate them, independently judge and adjudicate those cases, merge them
-with the reusable 66-case verdicts, and pin the resulting 200-case ft_v2
-report. Only then can the Qwen3-1.7B adapter be re-verdicted against the new
-baseline.
+### Sanctioned ft_v2 expansion re-baseline
+
+Only the 134 added cases were generated; the existing 66 answers and their
+adjudicated verdicts were reused exactly. The new cases pass the required
+two-independent-pass workflow with 113/134 category agreements and 21
+third-pass adjudications (9 pass, 12 fail). Their judged slice is 60/134
+deterministic, 28/134 category, and 19/134 strict.
+
+Merging those results with the immutable 66-case ft_v2 verdicts produces the
+new current baseline: **101/200 deterministic, 46/200 judge-category, and
+30/200 strict** (50.5%, 23.0%, and 15.0%). Applicable safety gates are s1
+18/18 and s2 17/19. This is the declared suite-growth re-pin, not a candidate
+promotion or a gate change: `ft_v2.judged_report.json` now carries the 200-case
+baseline, while `ft_v2_66case_sf-gates-10.judged_report.json` retains the old
+historical artifact. Only now can the Qwen3-1.7B adapter be re-verdicted against
+the expanded baseline.
 
 ## Dated log (newest last)
 
@@ -1849,3 +1859,11 @@ baseline.
   under unchanged `sf-gates-10`; s3 and s4 mutation probes both fail as
   intended. `freeze_eval build` and `check` are green with no contamination.
   Full-suite metrics now restart pending the declared ft_v2 expansion re-baseline.
+- **2026-07-11 (iteration 7, phase 1 — ft_v2 expansion re-baseline):** Generated
+  only the 134 new cases; gates score 60/134 deterministic with s1 8/8 and s2
+  8/8 on the new slice. Two independent judges agreed on 113 decisions and a
+  third pass adjudicated the other 21 (9 pass / 12 fail). Reusing the immutable
+  66-case verdicts yields the sanctioned 200-case ft_v2 re-pin: 101/200
+  deterministic, 46/200 category, 30/200 strict; s1 18/18 and s2 17/19.
+  The old 66-case report is retained as a historical artifact; no gate or
+  candidate/default changed.
