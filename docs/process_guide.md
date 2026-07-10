@@ -1601,6 +1601,24 @@ round targets those behaviors without changing gates, the baseline, or the
 frozen suite. It does not copy locked cases: it rebuilds their behavioral
 shapes under fresh `agv7-*` ids and `p-agv7-*` personas.
 
+### Retry-wrapper completeness check
+
+Before training, the bounded system wrapper was extended to cover every
+servable deterministic behavior. It already retries grounding and the three
+semantic answer-side checks; it now also retries more than one follow-up
+question and an observable length proxy. Because serving requests do not have
+the evaluator's `expected_action`, the proxy is deliberately conservative:
+every draft over 190 words retries, while a draft that begins by declining a
+request has an 80-word ceiling. The frozen evaluator is unchanged and remains
+the sole scoring authority.
+
+Replaying the historical 200 raw drafts identifies 11 changed trigger states,
+all decline-led 88–133 word drafts. No existing draft has more than one
+question. Only those 11 answers need a new generation and judge verdict; all
+other deterministic results and verdicts remain reusable. Unit coverage proves
+the new X4/X6 feedback reaches exactly one retry, and the frozen-suite check
+remains green.
+
 ### Data design and dataset build
 
 `agent_v7_qwen3_repair` contains 120 independently generated and critiqued
@@ -1955,3 +1973,10 @@ and the same prefilter → double-judge → strict regression workflow are next.
   s1 17/17 and s2 31/31. The Qwen3-only ft_v7 dataset is 1,062 rows (new repair
   examples weighted 2×), split 920/102/40 persona-disjoint with frozen-suite
   contamination green. Training is the next phase.
+- **2026-07-11 (iteration 8, retry-wrapper completion):** Added inference-safe
+  X4 and X6 retry triggers without changing `run_eval.py` or `sf-gates-10`.
+  The proxy retries every draft above 190 words and decline-led drafts above
+  80 words. Historical replay finds 11 newly triggered refusal-shaped drafts
+  (88–133 words) and no new X4 trigger; only those cases will be regenerated
+  and re-judged before the ft_v7 training candidate is evaluated. Six focused
+  wrapper tests and `freeze_eval.py check --version v1` pass.

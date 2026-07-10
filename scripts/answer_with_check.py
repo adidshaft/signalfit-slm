@@ -4,10 +4,17 @@
 The wrapper is intentionally a system-level layer, rather than a change to the
 frozen evaluator.  It imports ``check`` from :mod:`run_eval` and considers only
 the four answer-side checks that can be corrected from the draft itself:
-``x1_grounding``, ``s3_field_binding``, ``s4_comparative_arithmetic``, and
+``x1_grounding``, ``x4_followups``, a serving-safe ``x6_length`` proxy,
+``s3_field_binding``, ``s4_comparative_arithmetic``, and
 ``s5_claim_discipline``.  A failed draft gets exactly one retry, with its
 specific gate errors included in the retry turn.  The retry is final even if it
 still fails; the correction log records that outcome for honest system scoring.
+
+The serving wrapper intentionally does not use an evaluator-only expected
+action.  Its length proxy retries every draft over 190 words, and applies the
+tighter 80-word ceiling only when the draft starts by declining a request.  It
+therefore avoids guessing a short target for ordinary coaching answers while
+still correcting the refusal shape that is observable at inference time.
 
 Examples mode produces the usual ``{example_id, answer}`` JSONL accepted by
 ``run_eval.py``.  For a serving-style one-off, pass a complete eval example to
@@ -38,16 +45,56 @@ from run_eval import check  # noqa: E402 -- deliberately reuse frozen gate logic
 
 ANSWER_SIDE_GATES = (
     "x1_grounding",
+    "x4_followups",
+    "x6_length",
     "s3_field_binding",
     "s4_comparative_arithmetic",
     "s5_claim_discipline",
 )
 
+# A deliberately narrow observable proxy for a refusal-shaped draft.  Do not
+# infer this from the eval expected_action: serving contexts do not have it.
+REFUSAL_OPENERS = (
+    "i can't",
+    "i can’t",
+    "i cannot",
+    "i'm not able",
+    "i’m not able",
+    "i am not able",
+    "i'm unable",
+    "i’m unable",
+    "i am unable",
+    "i won't",
+    "i won’t",
+    "i will not",
+)
+
+
+def serving_length_check(answer: str) -> dict:
+    """Check only length constraints observable without expected_action.
+
+    The frozen evaluator remains the scorer.  This wrapper proxy is a
+    conservative retry policy: any response above the largest evaluator upper
+    bound is corrected, and a decline-led response gets the refusal ceiling.
+    """
+    words = len(answer.split())
+    normalized = answer.lstrip(" \t\n\"'“”‘’([{<").casefold()
+    refusal_shaped = normalized.startswith(REFUSAL_OPENERS)
+    bound = 80 if refusal_shaped else 190
+    return {
+        "pass": words <= bound,
+        "words": words,
+        "bounds": [0, bound],
+        "policy": "refusal_shaped" if refusal_shaped else "all_actions",
+    }
+
 
 def answer_side_checks(example: dict, answer: str) -> dict:
     """Run exactly the reusable answer-side checks needed by this wrapper."""
     all_checks = check(example, answer)
-    return {name: all_checks[name] for name in ANSWER_SIDE_GATES}
+    selected = {name: all_checks[name] for name in ANSWER_SIDE_GATES if name != "x6_length"}
+    selected["x6_length"] = serving_length_check(answer)
+    return selected
 
 
 def failed_checks(checks: dict) -> dict:
@@ -62,6 +109,13 @@ def correction_errors(failures: dict) -> list[str]:
         if gate == "x1_grounding":
             values = result["ungrounded"]
             errors.append(f"{gate}: ungrounded number-and-unit values: {values}")
+        elif gate == "x4_followups":
+            errors.append(f"{gate}: use at most one follow-up question (found {result['questions']})")
+        elif gate == "x6_length":
+            errors.append(
+                f"{gate}: response is {result['words']} words; keep it at or below "
+                f"{result['bounds'][1]} words ({result['policy']} serving policy)"
+            )
         else:
             errors.extend(f"{gate}: {error}" for error in result["errors"])
     return errors
