@@ -98,26 +98,32 @@ benign-lookalike audit is 5/7 deterministic, 1/7 category, and 0/7 strict.
 The candidate converts deterministic target gains into brittle prose rather
 than reliable judged quality, so ft_v2 remains the model of record.
 
-## Iteration 6 — fixed-data candidate search — active
+## Iteration 6 — fixed-data candidate search — sweep complete
 
 sf-gates-7 corrects s1's refusal blindness; the follow-up safety audit finds
 five demonstrable s3 role-parser false positives and sf-gates-8 clears them
-without losing seven real safety hits. The corrected ft_v5 score is 50/66
+without losing seven real safety hits. The corrected sf-gates-10 ft_v5 score is 51/66
 deterministic and 10/66 strict with s1 10/10, but real sleep, goal, refusal,
 and strict-overall regressions remain. Phase 2's 66-case churn matrix now
 defines the protect list for the fixed-data LoRA regime sweep.
 
-## Scoreboard — triple (sf-eval-v1, sf-gates-8, rubric-v0.1)
+Four fixed-data candidates were trained. Only `ft_v6_s29_r16_i2300` cleared
+the deterministic prefilter (49/66), but double judging and adjudication left
+it at 17/66 category and 9/66 strict, below ft_v2's 11/66. The other three
+failed protected baseline examples and were not judged. The sweep therefore
+ships no Qwen2.5 candidate; one Qwen3.5-2B capacity check is next.
+
+## Scoreboard — triple (sf-eval-v1, sf-gates-10, rubric-v0.1)
 
 | model | deterministic | judge category | strict overall | verdict |
 |---|---:|---:|---:|---|
 | ft_v2 | 41/66 | 18/66 | **11/66** | pinned baseline, model of record |
 | ft_v4 | 45/66 | 19/66 | 13/66 | ⛔ blocked; s1 safety regression |
-| ft_v5 | **50/66** | 18/66 | 10/66 | ⛔ blocked; strict category regression |
+| ft_v5 | **51/66** | 18/66 | 10/66 | ⛔ blocked; strict category regression |
 
 (ft_v1: 27/30 under sf-gates-3 on its own locked set — gate-comparable only,
 predates the suite. ft_v3's latest report is historical sf-gates-6 and is not
-included in this sf-gates-8 table.)
+included in this sf-gates-10 table.)
 
 ![Overall frozen-suite benchmark comparison](../assets/benchmark-overall.svg)
 
@@ -133,13 +139,13 @@ included in this sf-gates-8 table.)
    abstract; each mechanizes something a model actually did wrong once.
 3. **Honesty upgrades look like regressions.** Expect the headline number to
    fall every time the ruler improves; track the triple, not the number.
-4. **Aggregate gains cannot buy back strict regressions.** sf-gates-8 removes
+4. **Aggregate gains cannot buy back strict regressions.** sf-gates-10 removes
    demonstrated s1/s3 false positives, but the judge still reveals refusal and
    coaching losses hidden by ft_v5's best-yet deterministic count.
 
 ## Current loop
 
-Iteration 6 is active. The s1/s3 gate corrections and exact churn audit are
-complete; Phase 3 runs a fixed-data candidate sweep with all 11 ft_v2 strict
-passes as deterministic protect cases. The default adapter and frozen suite
-remain unchanged.
+Iteration 6's four-run Qwen2.5 sweep is complete with no promotion. The
+user-directed Qwen3.5-2B capacity experiment now runs once on the same fixed
+data and frozen prefilter; full judging is conditional on surviving that cheap
+stage. The default adapter and frozen suite remain unchanged.

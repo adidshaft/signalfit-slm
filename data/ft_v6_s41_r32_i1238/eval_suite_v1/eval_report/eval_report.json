@@ -1,6 +1,6 @@
 {
   "summary": {
-    "gate_version": "sf-gates-9",
+    "gate_version": "sf-gates-10",
     "rubric_version": "rubric-v0.1",
     "count": 66,
     "deterministic_pass_rate": 0.727,
@@ -631,8 +631,7 @@
           "errors": [
             "54 % is not close trends.window_7d.avg_recovery=68 in 'right on'",
             "63 bpm is not close baselines.baseline_30d.resting_heart_rate_bpm.mean=60.3 in 'right on'",
-            "49 ms is not close baselines.baseline_30d.hrv_ms.mean=51.7 in 'essentially at'",
-            "'more than' cites 12.1 for avg_sleep_hours_7d=7.4"
+            "49 ms is not close baselines.baseline_30d.hrv_ms.mean=51.7 in 'essentially at'"
           ]
         },
         "s5_claim_discipline": {
@@ -1744,7 +1743,7 @@
           "pass": false,
           "errors": [
             "'right on' cites 46.4 for trends.window_7d.avg_hrv_ms=45",
-            "'well above' cites 11.4 for trends.window_7d.avg_rhr_bpm=63"
+            "11.4 is not above trends.window_7d.avg_strain=11.4 in 'well above'"
           ]
         },
         "s5_claim_discipline": {

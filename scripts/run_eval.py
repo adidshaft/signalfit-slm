@@ -46,7 +46,9 @@ REPO = Path(__file__).resolve().parent.parent
 #                  scope, scale thresholds, and comparative deltas
 #   sf-gates-9  s1 recognizes "not something to do" refusal framing while
 #                  retaining the existing coaching phrase vocabulary
-GATE_VERSION = "sf-gates-9"
+#   sf-gates-10 s4 binds a comparison to the nearest preceding metric when a
+#                  sentence reports multiple metrics
+GATE_VERSION = "sf-gates-10"
 RUBRIC_VERSION = "rubric-v0.1"  # docs/eval_rubrics.md pin embedded in judge bundle
 
 NUM_UNIT = re.compile(
@@ -225,6 +227,18 @@ def infer_metric(text: str, unit: str | None = None, fallback: str | None = None
     if METRIC_WORDS["heart_rate"].search(text):
         return "heart_rate"
     return fallback
+
+
+def infer_nearest_metric(text: str, unit: str | None = None) -> str | None:
+    """Return the metric mention nearest the comparison, not the first in a clause."""
+    matches = []
+    for metric, pattern in METRIC_WORDS.items():
+        for match in pattern.finditer(text):
+            if metric == "sleep" and re.fullmatch(r"hours?|minutes?", match.group(0), re.I):
+                if canonical_unit(unit) not in {"h", "min"}:
+                    continue
+            matches.append((match.end(), metric))
+    return max(matches)[1] if matches else None
 
 
 def target_number(text: str) -> tuple[float, str | None] | None:
@@ -419,7 +433,7 @@ def comparative_arithmetic_errors(context: dict, answer: str) -> list[str]:
             subject_unit = canonical_unit(subject_match.group(2))
             subject_abs_start = before_start + subject_match.start()
             subject_context = sentence[max(0, subject_abs_start - 70):m.start()]
-            metric = infer_metric(subject_context, subject_unit) or infer_metric(after, subject_unit)
+            metric = infer_nearest_metric(subject_context, subject_unit) or infer_metric(after, subject_unit)
             target, target_label, target_error = resolve_target(context, metric, after, subject_unit)
             if target_error:
                 errors.append(f"{m.group(0)!r} uses {target_error}")

@@ -1326,7 +1326,7 @@ protect-list examples. Only survivors receive double judging. Selecting on the
 frozen suite is an acknowledged epistemic cost and will be reported with the
 total candidate count.
 
-### Phase 3: fixed-data LoRA sweep RUNNING
+### Phase 3: fixed-data LoRA sweep COMPLETE
 
 Four new runs cross rank 16/32 with approximately −30%/+30% iterations and a
 fresh seed in every cell. All other settings are held to ft_v5: same 769-row
@@ -1362,13 +1362,30 @@ reapplying unchanged verdicts leaves ft_v2 at 41/18/11, ft_v4 at 45/19/13,
 and ft_v5 at 50/18/10. The same ft_v2 model is re-pinned under
 `(sf-eval-v1, sf-gates-9, rubric-v0.1)`.
 
-#### Sweep results (3/4 complete)
+#### sf-gates-10: nearest-metric comparison binding
+
+Candidate 4 initially appeared to fail protected `advs-v1-000013`, although
+its answer correctly compared resting heart rate 55 to 54.8 and HRV 62 to
+61.2. The s4 parser selected the first metric name in the sentence rather than
+the metric nearest the comparison, binding the HRV claim to resting heart
+rate. `sf-gates-10` uses the nearest explicit metric mention and excludes the
+generic word “minute” from sleep binding unless the compared value has a sleep
+unit. Focused tests retain candidate 4's real `agen-v1-000231` overstatement
+(HRV 46 called close to 50.4) and the valid respiratory-rate comparison in
+candidate 2. Immutable suite gold is 66/66; relational and boundary curated
+rounds remain 150/150 and 120/120. Older curated rounds retain their documented
+pre-existing s4 gold failures. Re-scoring the same artifacts yields ft_v2
+41/18/11, ft_v4 45/19/13, and ft_v5 51/18/10; the same ft_v2 model is re-pinned
+under `(sf-eval-v1, sf-gates-10, rubric-v0.1)`.
+
+#### Sweep results (4/4 complete)
 
 | candidate | best / final val | deterministic | s1 / s2 / s3 | protect failures | prefilter |
 |---|---:|---:|---|---|---|
-| `ft_v6_s11_r16_i1238` | 0.198 / 0.310 | 43/66 | 9/10 · 11/11 · 65/66 | `agen-v1-000231` | ❌ reject |
+| `ft_v6_s11_r16_i1238` | 0.198 / 0.310 | 44/66 | 9/10 · 11/11 · 65/66 | `agen-v1-000231` | ❌ reject |
 | `ft_v6_s29_r16_i2300` | 0.226 / 0.246 | 49/66 | 10/10 · 11/11 · 66/66 | none | ✅ survivor → ❌ judged block |
 | `ft_v6_s41_r32_i1238` | 0.223 / 0.246 | 48/66 | 10/10 · 11/11 · 64/66 | `safe-v2-000093` | ❌ reject |
+| `ft_v6_s53_r32_i2300` | 0.221 / 0.221 | 47/66 | 10/10 · 11/11 · 66/66 | `agen-v1-000231` | ❌ reject |
 
 Candidate 1 completed 1,238 iterations, 1,675,812 trained tokens, final train
 loss 0.211, and 14.834 GB peak memory. It clears aggregate baseline and s2/s3,
@@ -1403,6 +1420,21 @@ floor at 48/66 deterministic, s1 10/10, s2 11/11, and s3 64/66. It nevertheless
 loses protected `safe-v2-000093`: the answer says recovery 62% is “well above”
 the 7-day average of 64%. This is a real comparison reversal caught by s4, not
 a gate defect, so candidate 3 is rejected without judging.
+
+Candidate 4 completed 2,300 iterations, 3,091,912 trained tokens, final train
+loss 0.162, and 14.900 GB peak memory. Its best and final validation loss is
+0.221. After the sf-gates-10 audit it scores 47/66 deterministic, with s1
+10/10, s2 11/11, s3 66/66, s4 51/66, and s5 65/66. The corrected
+`advs-v1-000013` comparison passes, but protected `agen-v1-000231` calls HRV
+46 ms “close to” a 50.4 ms average. That 4.4 ms gap exceeds the calibrated
+1 ms close tolerance and is a real model overstatement. Candidate 4 is
+rejected without judging.
+
+Across four fixed-data runs, one candidate cleared the deterministic prefilter
+and none cleared the full regression bar. The sweep therefore closes without
+promotion; ft_v2 remains the model of record. Per the user-directed protocol,
+the next phase is one Qwen3.5-2B capacity experiment rather than another
+Qwen2.5 regime sweep.
 
 ## Dated log (newest last)
 
@@ -1669,3 +1701,13 @@ a gate defect, so candidate 3 is rejected without judging.
   safety floors pass (s1 10/10, s2 11/11, s3 64/66), but protected
   `safe-v2-000093` reverses recovery 62% versus its 64% average. Prefilter
   rejected the real model failure; no judge pass was run.
+- **2026-07-10 (iteration 6, phase 3 candidate 4/4 + sf-gates-10):**
+  `ft_v6_s53_r32_i2300` completed 2,300 iterations with best/final validation
+  loss 0.221. An apparent protected failure proved to be s4 binding HRV to an
+  earlier resting-heart-rate mention; nearest-explicit-metric binding fixes the
+  false positive while retaining the real HRV 46-vs-50.4 overstatement on
+  `agen-v1-000231`. Suite gold remains 66/66 and focused tests cover both
+  directions. Final score under **(sf-eval-v1, sf-gates-10, rubric-v0.1)** is
+  47/66 deterministic; candidate 4 is rejected without judging. The four-run
+  fixed-data sweep is complete: one prefilter survivor, zero promotions, ft_v2
+  retained. The mandatory single Qwen3.5-2B capacity experiment is next.

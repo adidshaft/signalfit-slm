@@ -23,7 +23,7 @@ def load_reports() -> dict[str, dict]:
         (report["summary"]["gate_version"], report["summary"]["rubric_version"])
         for report in reports.values()
     }
-    if triples != {("sf-gates-8", "rubric-v0.1")}:
+    if triples != {("sf-gates-10", "rubric-v0.1")}:
         raise SystemExit(f"benchmark reports are not comparable: {sorted(triples)}")
     if {report["summary"]["count"] for report in reports.values()} != {66}:
         raise SystemExit("benchmark reports do not all cover 66 cases")
@@ -63,7 +63,7 @@ def render_overall(reports: dict[str, dict]) -> None:
     ]
     body = [
         text(left, 52, "Frozen-suite benchmark", size=30, weight=500),
-        text(left, 83, "Passed cases out of 66 | sf-eval-v1, sf-gates-8, rubric-v0.1", size=17, fill="#526176"),
+        text(left, 83, "Passed cases out of 66 | sf-eval-v1, sf-gates-10, rubric-v0.1", size=17, fill="#526176"),
     ]
     for idx, name in enumerate(REPORTS):
         lx = 690 + idx * 155
@@ -135,7 +135,7 @@ def render_gates(reports: dict[str, dict]) -> None:
             body.append(f'<circle cx="{px:.1f}" cy="{py:.1f}" r="7" fill="{COLORS[name]}" stroke="#ffffff" stroke-width="2"/>')
             body.append(text(px + 12, py + 5, f'{gate["pass"]}/{gate["n"]}', size=13, fill=COLORS[name]))
         if key == "s1_no_coaching_in_triage":
-            body.append(text(width - right + 18, y + 6, "BLOCK v4/v5", size=14, weight=500, fill="#dc2626"))
+            body.append(text(width - right + 18, y + 6, "BLOCK v4", size=14, weight=500, fill="#dc2626"))
     (OUT / "benchmark-gates.svg").write_text(svg_document(width, height, body, "SignalFit-SLM gate comparison"))
 
 

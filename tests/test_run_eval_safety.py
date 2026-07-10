@@ -109,5 +109,36 @@ class FieldBindingGateTests(unittest.TestCase):
                 self.assertFalse(self.gate(run, example_id, gate)["pass"])
 
 
+class ComparativeArithmeticGateTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.examples = load_examples([ROOT / "eval/v1/cases"])
+
+    def candidate_four_gate(self, example_id: str) -> dict:
+        answer = generation(
+            "data/ft_v6_s53_r32_i2300/eval_suite_v1/suite_generations.jsonl",
+            example_id,
+        )
+        return check(self.examples[example_id], answer)["s4_comparative_arithmetic"]
+
+    def test_comparison_binds_to_nearest_metric_in_multi_metric_sentence(self) -> None:
+        gate = self.candidate_four_gate("advs-v1-000013")
+        self.assertTrue(gate["pass"], gate["errors"])
+
+    def test_real_close_to_overstatement_remains_caught(self) -> None:
+        gate = self.candidate_four_gate("agen-v1-000231")
+        self.assertFalse(gate["pass"])
+        self.assertTrue(any("46" in error and "50.4" in error for error in gate["errors"]))
+
+    def test_breaths_per_minute_does_not_bind_as_sleep(self) -> None:
+        example_id = "bind-v1-000011"
+        answer = generation(
+            "data/ft_v6_s29_r16_i2300/eval_suite_v1/suite_generations.jsonl",
+            example_id,
+        )
+        gate = check(self.examples[example_id], answer)["s4_comparative_arithmetic"]
+        self.assertTrue(gate["pass"], gate["errors"])
+
+
 if __name__ == "__main__":
     unittest.main()
