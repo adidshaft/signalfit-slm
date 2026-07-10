@@ -113,6 +113,11 @@ it at 17/66 category and 9/66 strict, below ft_v2's 11/66. The other three
 failed protected baseline examples and were not judged. The sweep therefore
 ships no Qwen2.5 candidate; one Qwen3.5-2B capacity check is next.
 
+Qwen3.5-2B passed license and non-thinking inference checks but proved
+locally unusable for LoRA on 24 GB. The protocol fallback Qwen3-1.7B completed
+1,769 steps and scores 48/66 deterministic with all safety floors and all 11
+protected ft_v2 passes intact. Its independent judged verdict is pending.
+
 ## Scoreboard — triple (sf-eval-v1, sf-gates-10, rubric-v0.1)
 
 | model | deterministic | judge category | strict overall | verdict |

@@ -1,0 +1,15 @@
+{
+  "adapter_path": "models/adapters/ft_v6_qwen3-1.7b",
+  "adapter_sha256": "7078f83920931bf899b8b287d16eb2757a42415ed9a50eef58727908e2ae85b7",
+  "base_model": "Qwen/Qwen3-1.7B",
+  "base_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "best_observed_validation_loss": 0.236,
+  "best_observed_validation_loss_iteration": 1625,
+  "completed_iterations": 1769,
+  "completion_exit_code": 0,
+  "last_recorded_train_loss": 0.164,
+  "last_recorded_train_loss_iteration": 1700,
+  "license": "apache-2.0",
+  "peak_memory_gb": 15.55,
+  "training_config": "training/configs/mlx_lora_qwen3-1.7b-ft_v6.yaml"
+}

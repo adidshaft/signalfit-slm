@@ -1456,6 +1456,18 @@ ft_v5 recipe: seed 17, rank 16, 16 adapted layers, 1,769 iterations, learning
 rate 1e-5, dropout 0.05, and 3,072-token cap. Evaluation will pass
 `{"enable_thinking": false}` through the newly generic chat-template option.
 
+#### Qwen3-1.7B training and prefilter
+
+The fallback completed all 1,769 iterations with 15.550 GB peak memory. Best
+observed validation loss was 0.236 at iteration 1,625; the last recorded train
+loss before final save was 0.164 at iteration 1,700. The final adapter SHA-256
+is `7078f83920931bf899b8b287d16eb2757a42415ed9a50eef58727908e2ae85b7`.
+Explicit non-thinking generation over all 66 frozen cases scores 48/66
+deterministic, grounding 65/66, s1 10/10, s2 11/11, s3 65/66, s4 49/66, and
+s5 66/66 under `(sf-eval-v1, sf-gates-10, rubric-v0.1)`. It meets every
+aggregate safety floor and retains all 11 protected ft_v2 strict passes, so the
+prefilter exits 0. Two independent judge passes are required before a verdict.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -1738,3 +1750,9 @@ rate 1e-5, dropout 0.05, and 3,072-token cap. Evaluation will pass
   Apache-2.0 Qwen3-1.7B fallback. Its direct-answer smoke and one-step LoRA
   check pass at 0.277 it/s and 10.292 GB peak memory; the single full fallback
   run uses the unchanged ft_v5 recipe and fixed dataset.
+- **2026-07-11 (iteration 6, phase 4 fallback trained + prefilter):**
+  Qwen3-1.7B completed all 1,769 steps at 15.550 GB peak memory and best
+  observed validation loss 0.236. Explicit non-thinking evaluation scores
+  48/66 deterministic under **(sf-eval-v1, sf-gates-10, rubric-v0.1)**, with
+  s1 10/10, s2 11/11, s3 65/66, and all 11 ft_v2 protect cases retained.
+  Prefilter exits 0; two independent judge passes are running.

@@ -50,7 +50,7 @@ model-index:
 | Verdict | 8 | Two independent judge passes, disagreement adjudication, regression decision, and post-mortem. | ✅ Complete — ft_v2 retained |
 | ft_v5 Boundary | 9 | Failure taxonomy, contrastive benign↔triage boundary pairs, targeted repairs, retrain, and frozen-suite verdict. | ⛔ Blocked — ft_v2 retained |
 | Iteration 6 | 10 | Correct gate false positives, audit strict churn, then sweep training regimes on the fixed ft_v5 data. | ✅ Sweep 4/4 complete; no candidate shipped |
-| Capacity Check | 11 | Test Qwen3.5-2B once, with the documented Qwen3-1.7B fallback if local training is unusable. | 🔄 Qwen3 fallback training |
+| Capacity Check | 11 | Test Qwen3.5-2B once, with the documented Qwen3-1.7B fallback if local training is unusable. | 🔄 Qwen3 fallback judging |
 
 ## Benchmark Dashboard
 
@@ -209,7 +209,11 @@ explicit non-thinking inference checks, but a one-step LoRA smoke exhausted
 the 24 GB machine and did not complete after several minutes. Its 4.57 GB cache
 was removed after the clean abort. The protocol fallback `Qwen/Qwen3-1.7B` is
 also Apache-2.0; it passes direct-answer inference and completes a LoRA step at
-0.277 it/s with 10.292 GB peak memory. The single fallback run is now active.
+0.277 it/s with 10.292 GB peak memory. The full 1,769-step run completed at
+15.550 GB peak memory and best observed validation loss 0.236. It scores 48/66
+deterministic under `(sf-eval-v1, sf-gates-10, rubric-v0.1)`, with s1 10/10,
+s2 11/11, s3 65/66, and every one of ft_v2's 11 protected passes retained.
+The required independent double-judge workflow is active.
 
 ## Why This Exists
 
