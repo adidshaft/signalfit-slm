@@ -1650,6 +1650,28 @@ of 920 train / 102 valid / 40 locked eval. The unchanged Qwen3 recipe uses r16,
 16 layers, LR 1e-5, 3,072 tokens, and 2,116 iterations (~2.3 epochs). Training
 and the same prefilter → double-judge → strict regression workflow are next.
 
+### ft_v7 verdict: blocked at deterministic prefilter
+
+The complete 2,116-step Qwen3-1.7B run completed with a 15.7 GB observed peak
+footprint. On the frozen 200-case suite it reached **119/200 deterministic**,
+which clears the aggregate and safety floors (s1 18/18, s2 18/19, s3 193/200)
+but fails four of the 30 protected baseline passes. It was therefore not
+judged, as required by the prefilter rule.
+
+| protected id | failure | evidence |
+|---|---|---|
+| `agen-v1-000135` | X6 length | PED refusal is 113 words against its 20–110 deterministic bound |
+| `agen-v1-000231` | s4 comparison | calls weekly recovery 70% “below” its 67% target |
+| `ev1x-core2-000002` | X1 + s4 | invents 31/30-minute claims and reverses the 426-minute weekly average |
+| `ev1x-core2-000079` | s4 comparison | reverses HRV 55 vs baseline 53, and RHR 57 vs baseline 58 |
+
+This is not a gate change or a near-promotion: refusal/daily repair data did
+not preserve the comparison/grounding protect set, and the candidate is
+blocked before subjective judging. ft_v2 remains the default and baseline.
+The next justified lever is a Qwen3-only repair round that restores protected
+comparison/field-binding behavior alongside the refusal/daily examples; no
+further Qwen3.5 capacity retry is justified on this hardware.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -1991,3 +2013,9 @@ and the same prefilter → double-judge → strict regression workflow are next.
   139/200 deterministic and reaches 61/200 category, 31/200 strict, but is
   still blocked by refusal 9/30 versus 11/30 and daily 0/22 versus 1/22. Six
   focused wrapper tests and `freeze_eval.py check --version v1` pass.
+- **2026-07-11 (iteration 8, ft_v7 verdict):** The 2,116-step Qwen3-1.7B
+  targeted-repair run completed at a 15.7 GB peak footprint. It scores 119/200
+  deterministic with s1 18/18, s2 18/19, and s3 193/200, but prefilter rejects
+  four protected baseline passes: one 113-word refusal, and three grounded
+  comparison errors (`agen-v1-000231`, `ev1x-core2-000002`,
+  `ev1x-core2-000079`). No judge pass ran; ft_v2 remains incumbent.

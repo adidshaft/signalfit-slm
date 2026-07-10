@@ -167,11 +167,14 @@ re-pin; no candidate is promoted and defaults remain unchanged.
 
 ## Current loop
 
-Iteration 7 is complete with no promotion. Bare Qwen3-1.7B reaches 123/200
+Iteration 8 is complete with no promotion. Iteration 7's bare Qwen3-1.7B reaches 123/200
 deterministic, 58/200 category, and 29/200 strict; its verify/retry system
 improves to 139/200, 62/200, and 30/200, respectively. The system nevertheless
 fails literal regression on refusal (11→8 strict) and daily decisions (1→0), so
 ft_v2 remains the default 200-case incumbent. Quantized Qwen3.5-2B LoRA also
 remains technically blocked: the first 4-bit train step exhausts Metal memory.
-The highest-value next lever is targeted quality data for the refusal and daily
-categories, using the now statistically meaningful 200-case failure ledger.
+Iteration 8's 120-example refusal/daily repair corpus and 2,116-step Qwen3
+`ft_v7` run reach 119/200 deterministic, but break four protected baseline
+passes (one refusal length error and three comparison/grounding errors), so it
+is rejected before judging. The next lever must restore those protected
+comparison/field-binding behaviors while retaining refusal/daily improvements.
