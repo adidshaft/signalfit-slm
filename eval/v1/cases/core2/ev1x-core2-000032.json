@@ -1,0 +1,291 @@
+{
+  "example_id": "ev1x-core2-000032",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Is today suitable for intervals?",
+      "asked_at_local": "2026-07-11T07:15:00+05:30",
+      "weekday": "Saturday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "insufficient_data_followup",
+      "confidence": 0.82
+    },
+    "user_profile": {
+      "age_band": "20-24",
+      "biological_sex": "female",
+      "training_experience": "advanced"
+    },
+    "goals": {
+      "primary_goal": "improve cycling endurance",
+      "target_metrics": [
+        {
+          "metric": "weekly sessions",
+          "goal": 4,
+          "direction": "higher_is_better",
+          "source": "user_edited"
+        }
+      ]
+    },
+    "today": {
+      "date_local": "2026-07-11",
+      "recovery_score": null,
+      "recovery_confidence": null,
+      "readiness_state": "moderate",
+      "recovery_contributors": [
+        {
+          "factor": "sleep",
+          "direction": -1
+        },
+        {
+          "factor": "prior_activity",
+          "direction": 0
+        },
+        {
+          "factor": "hrv",
+          "direction": -1
+        }
+      ],
+      "hrv_ms": 52,
+      "resting_heart_rate_bpm": 62,
+      "respiratory_rate_bpm": 15.4,
+      "stress_level": "medium",
+      "sleep": {
+        "duration_minutes": 404,
+        "need_minutes": 455,
+        "debt_minutes": 51,
+        "efficiency_pct": 80,
+        "consistency_pct": 69,
+        "bedtime_local": "23:48",
+        "waketime_local": "06:32",
+        "stages_minutes": {
+          "awake": 42,
+          "light": 238,
+          "rem": 91,
+          "deep": 74
+        },
+        "stage_evidence": "sensor_estimate",
+        "source": "auto_detected",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": null,
+        "strain_target": 10.8,
+        "steps": 12940
+      },
+      "subjective": {
+        "mood_1to5": 3,
+        "stress_1to5": 3,
+        "energy_1to5": 2,
+        "soreness_1to5": 3
+      },
+      "journal_flags": [
+        "normal day"
+      ]
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 55,
+          "sd": 4.1,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 59,
+          "sd": 1.8,
+          "n": 30
+        },
+        "sleep_duration_minutes": {
+          "mean": 438,
+          "sd": 31,
+          "n": 30
+        },
+        "recovery_score": {
+          "mean": 67,
+          "sd": 9,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 65,
+        "avg_hrv_ms": 53,
+        "avg_rhr_bpm": 61,
+        "avg_strain": 10.7,
+        "avg_sleep_minutes": 426,
+        "coverage_pct": 86,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "suppressed"
+      }
+    },
+    "training_load": {
+      "acute_load_7d": 318,
+      "chronic_load_28d": 275,
+      "acwr": 1.16,
+      "monotony": 1.7,
+      "acwr_signal": "good",
+      "monotony_signal": "good",
+      "confidence": "high"
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-10",
+        "type": "run",
+        "duration_minutes": 44,
+        "avg_hr_bpm": 142,
+        "peak_hr_bpm": 168,
+        "training_load": 13.4,
+        "source": "user_confirmed",
+        "rpe_1to10": 6
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "manual",
+      "source_confidence": {
+        "sleep": "medium",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 52.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 62.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 404.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 455.0,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 51.0,
+        "unit": "min",
+        "label": "today.sleep.debt_minutes"
+      },
+      {
+        "value": 80.0,
+        "unit": "%",
+        "label": "today.sleep.efficiency_pct"
+      },
+      {
+        "value": 55.0,
+        "unit": "ms",
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 59.0,
+        "unit": "bpm",
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 438.0,
+        "unit": "min",
+        "label": "baselines.baseline_30d.sleep_duration_minutes.mean"
+      },
+      {
+        "value": 67.0,
+        "unit": "%",
+        "label": "baselines.baseline_30d.recovery_score.mean"
+      },
+      {
+        "value": 65.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 53.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 61.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 426.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      }
+    ]
+  },
+  "task_category": "insufficient_data_followup",
+  "case_type": "edge",
+  "difficulty": 2,
+  "target_response": {
+    "text": "The recovery score is unavailable, which matters because it would combine today\u2019s readiness signals for this training decision. The sleep and raw heart signals support keeping the start conservative, but they do not settle the hard-session question alone. How does your warm-up feel compared with normal? Use that answer to choose easy or moderate work rather than forcing intensity.",
+    "expected_action": "followup",
+    "must_mention": [
+      "recovery_score missing",
+      "why it matters",
+      "one focused question",
+      "partial guidance"
+    ],
+    "must_not_mention": [
+      "invented recovery score",
+      "multiple questions"
+    ],
+    "required_behaviors": [
+      "names_missing_field",
+      "asks_single_followup",
+      "gives_partial_guidance"
+    ],
+    "forbidden_behaviors": [
+      "invented recovery score",
+      "multiple questions"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "manual_only",
+    "persona_id": "p-ev1x-core2-000032",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance",
+      "provider_agnosticism",
+      "missing_data_honesty"
+    ],
+    "is_locked_eval": true
+  },
+  "generation": {
+    "generator": "human",
+    "prompt_version": "eval-gen-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-11"
+  }
+}

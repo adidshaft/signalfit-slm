@@ -1,10 +1,13 @@
 {
   "suite": "sf-eval-v1",
-  "count": 66,
+  "count": 200,
   "by_slice": {
     "adversarial": 14,
     "binding": 12,
-    "core": 40
+    "core": 40,
+    "core2": 93,
+    "lookalike2": 25,
+    "safety2": 16
   },
   "cases": [
     {
@@ -600,6 +603,1212 @@
       "expected_action": "answer",
       "file": "cases/core/safe-v2-000093.json",
       "sha256": "3507c7413b95d988fa857ab3731722d0537713060d45004d395d27e9b30a25c1"
+    },
+    {
+      "example_id": "ev1x-core2-000001",
+      "slice": "core2",
+      "task_category": "sleep_coaching",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000001.json",
+      "sha256": "adbafdfd8242b35892050defe6973c0006e5dd0e44ab8ff3807e6d407e5c300a"
+    },
+    {
+      "example_id": "ev1x-core2-000002",
+      "slice": "core2",
+      "task_category": "sleep_coaching",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000002.json",
+      "sha256": "ceb5fae95f15603115d82b6018fb9d1649de7caddb9c76d24c172b5d622620f0"
+    },
+    {
+      "example_id": "ev1x-core2-000003",
+      "slice": "core2",
+      "task_category": "sleep_coaching",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000003.json",
+      "sha256": "18baac60f156861eed4a1bc191c6e3024eb6c625981ce2db76a1c5f9255efb20"
+    },
+    {
+      "example_id": "ev1x-core2-000004",
+      "slice": "core2",
+      "task_category": "sleep_coaching",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000004.json",
+      "sha256": "93a1f628b3e6c06ac228dde2f34b10921490ff20545139abaa007aa280aaebfc"
+    },
+    {
+      "example_id": "ev1x-core2-000005",
+      "slice": "core2",
+      "task_category": "sleep_coaching",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000005.json",
+      "sha256": "cfe407f7c8bfef98445a29cb59029e1ec4e8ae9269a15b96e49d16937b3e364a"
+    },
+    {
+      "example_id": "ev1x-core2-000006",
+      "slice": "core2",
+      "task_category": "sleep_coaching",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000006.json",
+      "sha256": "0d7a3d2b92c8d359f860fbc5fc0e67a56522e4ab2e43482e240acc9ba2b30bb3"
+    },
+    {
+      "example_id": "ev1x-core2-000007",
+      "slice": "core2",
+      "task_category": "sleep_coaching",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000007.json",
+      "sha256": "d2ffc883aa3b95db6d1cdb59d7070711b58dffb778abf78bf6b7c53938ed5480"
+    },
+    {
+      "example_id": "ev1x-core2-000008",
+      "slice": "core2",
+      "task_category": "sleep_coaching",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000008.json",
+      "sha256": "0309004c3a9d29fb147c3c9021c997cddc03fece5bada73fac84c6f4d873cbab"
+    },
+    {
+      "example_id": "ev1x-core2-000009",
+      "slice": "core2",
+      "task_category": "sleep_coaching",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000009.json",
+      "sha256": "8a080d90861940b184ce470bf8cb241426597d64d3c1512b61174461b7ff3cf8"
+    },
+    {
+      "example_id": "ev1x-core2-000010",
+      "slice": "core2",
+      "task_category": "sleep_coaching",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000010.json",
+      "sha256": "120b2b52c6d5359474ed5ad44dc486a783cb2cbffb63d2a5c0783fe49b6a8133"
+    },
+    {
+      "example_id": "ev1x-core2-000011",
+      "slice": "core2",
+      "task_category": "sleep_coaching",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000011.json",
+      "sha256": "3c89c4a20a88575d34207ef8d8d4729ab83f62f1ec69f5a4fbf7f43d6fb9f94c"
+    },
+    {
+      "example_id": "ev1x-core2-000012",
+      "slice": "core2",
+      "task_category": "sleep_coaching",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000012.json",
+      "sha256": "45735000285a3e44c19fec27ada46154cc9a5f0db9f240665de164efd273b90a"
+    },
+    {
+      "example_id": "ev1x-core2-000013",
+      "slice": "core2",
+      "task_category": "sleep_coaching",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000013.json",
+      "sha256": "c568716401e3ee046e9713157e6871075eae8831793b342ecff7304c399f8d35"
+    },
+    {
+      "example_id": "ev1x-core2-000014",
+      "slice": "core2",
+      "task_category": "sleep_coaching",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000014.json",
+      "sha256": "b588ce9929be6e40cd64a9f75afcee4e62f4692304d181d44a62ca1594cf3ffe"
+    },
+    {
+      "example_id": "ev1x-core2-000015",
+      "slice": "core2",
+      "task_category": "goal_coaching",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000015.json",
+      "sha256": "9a381aa2878557d5e620afbefddb6fcd4a92a5423f914c65889241a7e7002b99"
+    },
+    {
+      "example_id": "ev1x-core2-000016",
+      "slice": "core2",
+      "task_category": "goal_coaching",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000016.json",
+      "sha256": "e3b71e8b72c1871f502935f0a37e14aae79889dd68b9ac9187aa6db0a50d423f"
+    },
+    {
+      "example_id": "ev1x-core2-000017",
+      "slice": "core2",
+      "task_category": "goal_coaching",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000017.json",
+      "sha256": "968f836dc647f985174ba49ced94b477eb46343efe672bc55dbce7b40e12df29"
+    },
+    {
+      "example_id": "ev1x-core2-000018",
+      "slice": "core2",
+      "task_category": "goal_coaching",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000018.json",
+      "sha256": "9f220f416dbffa8d2b2869958980b3e6a5ee45c8815960c38f4b83df41fcd723"
+    },
+    {
+      "example_id": "ev1x-core2-000019",
+      "slice": "core2",
+      "task_category": "goal_coaching",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000019.json",
+      "sha256": "70620e556bc0f8697111d2b26a17fa46563fb140f5db139ca706dee49e5666c2"
+    },
+    {
+      "example_id": "ev1x-core2-000020",
+      "slice": "core2",
+      "task_category": "goal_coaching",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000020.json",
+      "sha256": "0edc9f679947f65ae6e38ea3088d5d5358d0fb6036e93ca02907f073bb6c758d"
+    },
+    {
+      "example_id": "ev1x-core2-000021",
+      "slice": "core2",
+      "task_category": "goal_coaching",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000021.json",
+      "sha256": "fc2bfabecde71fe55fe585d4de70e37c91de0bb47284fa2b9bb49788f03469af"
+    },
+    {
+      "example_id": "ev1x-core2-000022",
+      "slice": "core2",
+      "task_category": "goal_coaching",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000022.json",
+      "sha256": "f3c78f87c496d96c8f195266043b205aa2798d94cfbcfb50af09a72a1b28a5d9"
+    },
+    {
+      "example_id": "ev1x-core2-000023",
+      "slice": "core2",
+      "task_category": "goal_coaching",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000023.json",
+      "sha256": "c0236a6ac903c9d34c90cfb7dea7df8e23520e9931d12e33b57c4f824d92decf"
+    },
+    {
+      "example_id": "ev1x-core2-000024",
+      "slice": "core2",
+      "task_category": "goal_coaching",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000024.json",
+      "sha256": "a9224e5ecd51f71098da5fedfc92f787ce016bd986567b80f5354da33da44eef"
+    },
+    {
+      "example_id": "ev1x-core2-000025",
+      "slice": "core2",
+      "task_category": "goal_coaching",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000025.json",
+      "sha256": "d9d001af112c7bac6609e617dbcccae7ecd87090aecbd2a00f622c8fdec4ddd4"
+    },
+    {
+      "example_id": "ev1x-core2-000026",
+      "slice": "core2",
+      "task_category": "goal_coaching",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000026.json",
+      "sha256": "bfa182d54f8e0c10a1be01711e34c7a2ed4b6eba2faeb388de4bbb42517b0635"
+    },
+    {
+      "example_id": "ev1x-core2-000027",
+      "slice": "core2",
+      "task_category": "goal_coaching",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000027.json",
+      "sha256": "88022f969e8498f6a88b3c2e14550c713d9d84c65ebf26917ea59da64c00d387"
+    },
+    {
+      "example_id": "ev1x-core2-000028",
+      "slice": "core2",
+      "task_category": "insufficient_data_followup",
+      "case_type": "edge",
+      "expected_action": "followup",
+      "file": "cases/core2/ev1x-core2-000028.json",
+      "sha256": "ac504b5911fa57b8280cf770c36552d06cc7bfe61b2baa5d2a4ebfd4dad744d8"
+    },
+    {
+      "example_id": "ev1x-core2-000029",
+      "slice": "core2",
+      "task_category": "insufficient_data_followup",
+      "case_type": "edge",
+      "expected_action": "followup",
+      "file": "cases/core2/ev1x-core2-000029.json",
+      "sha256": "793614a7f614d832c608e1df5f786b80efeb13ed5e43d4fb1715c031f2421598"
+    },
+    {
+      "example_id": "ev1x-core2-000030",
+      "slice": "core2",
+      "task_category": "insufficient_data_followup",
+      "case_type": "normal",
+      "expected_action": "followup",
+      "file": "cases/core2/ev1x-core2-000030.json",
+      "sha256": "7565f03357fca1ac10117e802d83ebe54595e4497107a135834e23371c07e884"
+    },
+    {
+      "example_id": "ev1x-core2-000031",
+      "slice": "core2",
+      "task_category": "insufficient_data_followup",
+      "case_type": "edge",
+      "expected_action": "followup",
+      "file": "cases/core2/ev1x-core2-000031.json",
+      "sha256": "33642cd7e990102341d17a1c197014fb1e69046018995db1826f3897c9341947"
+    },
+    {
+      "example_id": "ev1x-core2-000032",
+      "slice": "core2",
+      "task_category": "insufficient_data_followup",
+      "case_type": "edge",
+      "expected_action": "followup",
+      "file": "cases/core2/ev1x-core2-000032.json",
+      "sha256": "9b6d924a4f0ea9fb9c4936e67c2c6d02d196726505c7e7f4c7b07ec0a0940a72"
+    },
+    {
+      "example_id": "ev1x-core2-000033",
+      "slice": "core2",
+      "task_category": "insufficient_data_followup",
+      "case_type": "normal",
+      "expected_action": "followup",
+      "file": "cases/core2/ev1x-core2-000033.json",
+      "sha256": "4345a65279e60ca7205017032f33da6397175213026f2ef36a27bf93f5ac898b"
+    },
+    {
+      "example_id": "ev1x-core2-000034",
+      "slice": "core2",
+      "task_category": "insufficient_data_followup",
+      "case_type": "edge",
+      "expected_action": "followup",
+      "file": "cases/core2/ev1x-core2-000034.json",
+      "sha256": "cedc9d126d2b1d5477d5a650fd1d8b3f4068b1bf73efa96f66836696e8f799d4"
+    },
+    {
+      "example_id": "ev1x-core2-000035",
+      "slice": "core2",
+      "task_category": "insufficient_data_followup",
+      "case_type": "edge",
+      "expected_action": "followup",
+      "file": "cases/core2/ev1x-core2-000035.json",
+      "sha256": "daaaf509ab03e5a51dedaf051a0f110e142f771a3dbb1269096c5f8985b6b3e6"
+    },
+    {
+      "example_id": "ev1x-core2-000036",
+      "slice": "core2",
+      "task_category": "insufficient_data_followup",
+      "case_type": "normal",
+      "expected_action": "followup",
+      "file": "cases/core2/ev1x-core2-000036.json",
+      "sha256": "45899fd0988fafe1876eca47518474eefc7562f1c5266e61b37e34449593b560"
+    },
+    {
+      "example_id": "ev1x-core2-000037",
+      "slice": "core2",
+      "task_category": "insufficient_data_followup",
+      "case_type": "edge",
+      "expected_action": "followup",
+      "file": "cases/core2/ev1x-core2-000037.json",
+      "sha256": "bc2ae8884ea9ff79bf1e6cf3908306f9d14fe9b7d0c90c37cba7c3c8e241a736"
+    },
+    {
+      "example_id": "ev1x-core2-000038",
+      "slice": "core2",
+      "task_category": "insufficient_data_followup",
+      "case_type": "edge",
+      "expected_action": "followup",
+      "file": "cases/core2/ev1x-core2-000038.json",
+      "sha256": "0ec0be633f5d361ba69d64139846af180fccaba899c9bd8d4dfa99727468cffd"
+    },
+    {
+      "example_id": "ev1x-core2-000039",
+      "slice": "core2",
+      "task_category": "insufficient_data_followup",
+      "case_type": "normal",
+      "expected_action": "followup",
+      "file": "cases/core2/ev1x-core2-000039.json",
+      "sha256": "63174d7dbf38665938d9fb0e4280e676d117bcabbb17b587b8f463f4cf61f53f"
+    },
+    {
+      "example_id": "ev1x-core2-000040",
+      "slice": "core2",
+      "task_category": "daily_training_decision",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000040.json",
+      "sha256": "1ac6a01480befaf90c928e99b68148f95ba402a985ec74e7295696112bf8ebe4"
+    },
+    {
+      "example_id": "ev1x-core2-000041",
+      "slice": "core2",
+      "task_category": "daily_training_decision",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000041.json",
+      "sha256": "7e86d7c6cdf2318ec71f83d045f27fe240b14f18a46e37a62623d28d69f3942d"
+    },
+    {
+      "example_id": "ev1x-core2-000042",
+      "slice": "core2",
+      "task_category": "daily_training_decision",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000042.json",
+      "sha256": "f8685ad924e49f2de8cabac0813dbb79cb536f0ec3ba0c261951e57b178af7f8"
+    },
+    {
+      "example_id": "ev1x-core2-000043",
+      "slice": "core2",
+      "task_category": "daily_training_decision",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000043.json",
+      "sha256": "fc714557b7cd0302e862d1dad2215910b736dd9c8df46ed0b5d9b35a57aaf78a"
+    },
+    {
+      "example_id": "ev1x-core2-000044",
+      "slice": "core2",
+      "task_category": "daily_training_decision",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000044.json",
+      "sha256": "381c8bb9e282305ece54f430b1cce9c31928cdc86b1041d1fd13737d9221831e"
+    },
+    {
+      "example_id": "ev1x-core2-000045",
+      "slice": "core2",
+      "task_category": "daily_training_decision",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000045.json",
+      "sha256": "428340ee28843c8750243ae41c7e92de05926a3208268f921b9fa346fafd6f23"
+    },
+    {
+      "example_id": "ev1x-core2-000046",
+      "slice": "core2",
+      "task_category": "daily_training_decision",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000046.json",
+      "sha256": "b6e6c24cc66fffa1bc49dcd6fbc18ed3dbd5ac9bffa80790a41ca7018468d058"
+    },
+    {
+      "example_id": "ev1x-core2-000047",
+      "slice": "core2",
+      "task_category": "daily_training_decision",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000047.json",
+      "sha256": "5a0063039436ac48d7f88a46daeda96976bbad82bcdff4a1be6ed4ed0d52550b"
+    },
+    {
+      "example_id": "ev1x-core2-000048",
+      "slice": "core2",
+      "task_category": "daily_training_decision",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000048.json",
+      "sha256": "fe1a86b53edfcd5fd8ab1b60e8166118dbc997b323533a1e82ff3cb9a9a78da0"
+    },
+    {
+      "example_id": "ev1x-core2-000049",
+      "slice": "core2",
+      "task_category": "daily_training_decision",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000049.json",
+      "sha256": "e9899f1e8f0cf4b9a228a5efb20db3f72e28804ed257907cfc3acc85f50c375b"
+    },
+    {
+      "example_id": "ev1x-core2-000050",
+      "slice": "core2",
+      "task_category": "daily_training_decision",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000050.json",
+      "sha256": "8e90e51d1aa57d1b8148f054566a2fc8aa6e106365c836505a0955c07adaa9cd"
+    },
+    {
+      "example_id": "ev1x-core2-000051",
+      "slice": "core2",
+      "task_category": "daily_training_decision",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000051.json",
+      "sha256": "f596cf8f113afe1c8aeac9cb13f39c7eecd8b87f6ae0d48d70b51280ad3a255d"
+    },
+    {
+      "example_id": "ev1x-core2-000052",
+      "slice": "core2",
+      "task_category": "daily_training_decision",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000052.json",
+      "sha256": "792aaf74457032f3019de0ad3768cd63dc2e1074d16c7bd6aedc5d5ab2af6743"
+    },
+    {
+      "example_id": "ev1x-core2-000053",
+      "slice": "core2",
+      "task_category": "habit_pattern_analysis",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000053.json",
+      "sha256": "935b3c4e59f31a9e12679b6fb6e0531957d990d3ce6d2c879422aaffa912cf3f"
+    },
+    {
+      "example_id": "ev1x-core2-000054",
+      "slice": "core2",
+      "task_category": "habit_pattern_analysis",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000054.json",
+      "sha256": "505cd706202a63b94c9d0ba94169665f13ee68c9369009b3ddff7a83c5163e1f"
+    },
+    {
+      "example_id": "ev1x-core2-000055",
+      "slice": "core2",
+      "task_category": "habit_pattern_analysis",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000055.json",
+      "sha256": "ddbcedd5add646ea5d811686a58dc94d6591e2a01ce01171b30f703c135070ce"
+    },
+    {
+      "example_id": "ev1x-core2-000056",
+      "slice": "core2",
+      "task_category": "habit_pattern_analysis",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000056.json",
+      "sha256": "a11a71a0a593bd615b93e55231ee9aa200f3872a4762a2dc4e55c355905bb39e"
+    },
+    {
+      "example_id": "ev1x-core2-000057",
+      "slice": "core2",
+      "task_category": "habit_pattern_analysis",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000057.json",
+      "sha256": "c14daeded01096814c1d18c75b8bebf9da8a8ade619a8669c4a1e63400243f84"
+    },
+    {
+      "example_id": "ev1x-core2-000058",
+      "slice": "core2",
+      "task_category": "habit_pattern_analysis",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000058.json",
+      "sha256": "fb862401c0d8b2655f4a58afada6bdae3baaef722a1ed700fe378c5158034bba"
+    },
+    {
+      "example_id": "ev1x-core2-000059",
+      "slice": "core2",
+      "task_category": "habit_pattern_analysis",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000059.json",
+      "sha256": "977fbc01875457f32d1e05a473caa3dff6f6959f66c81d151084e04513443513"
+    },
+    {
+      "example_id": "ev1x-core2-000060",
+      "slice": "core2",
+      "task_category": "habit_pattern_analysis",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000060.json",
+      "sha256": "a1a19a0cadaafe913da6d76c27adcfe84e2defc8d5973bfa1b81d51a35d5c365"
+    },
+    {
+      "example_id": "ev1x-core2-000061",
+      "slice": "core2",
+      "task_category": "habit_pattern_analysis",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000061.json",
+      "sha256": "9a3d51fdaa2e9ebecc224d7c2a1d1126e055386774fbf04ee560149575280caf"
+    },
+    {
+      "example_id": "ev1x-core2-000062",
+      "slice": "core2",
+      "task_category": "plan_adjustment",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000062.json",
+      "sha256": "175945c523f08f5814c39772b9fdd9d8886e20518163420c04963b5a9820ce41"
+    },
+    {
+      "example_id": "ev1x-core2-000063",
+      "slice": "core2",
+      "task_category": "plan_adjustment",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000063.json",
+      "sha256": "671325490d634cb9853f578def740adf7d8ca4e9d2a1acb2ab60548a459110c8"
+    },
+    {
+      "example_id": "ev1x-core2-000064",
+      "slice": "core2",
+      "task_category": "plan_adjustment",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000064.json",
+      "sha256": "bd27dc5a846fc14c6ea97f8191bdf9ec3d6dbea7ae61d47a2d64ce22c3a9b5dc"
+    },
+    {
+      "example_id": "ev1x-core2-000065",
+      "slice": "core2",
+      "task_category": "plan_adjustment",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000065.json",
+      "sha256": "6890f8b1bb336d92e37677de37f4377d9ad00bf9f952dc176a2e2931c014e89e"
+    },
+    {
+      "example_id": "ev1x-core2-000066",
+      "slice": "core2",
+      "task_category": "plan_adjustment",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000066.json",
+      "sha256": "cfbc83545a0ae77632afb1c64d4154134a9389e8d6a0b1ad1919d384f717d723"
+    },
+    {
+      "example_id": "ev1x-core2-000067",
+      "slice": "core2",
+      "task_category": "plan_adjustment",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000067.json",
+      "sha256": "8e2832d5efe410c169a63ab1499ec3578377984e979c60cfebbbf2ee146255fb"
+    },
+    {
+      "example_id": "ev1x-core2-000068",
+      "slice": "core2",
+      "task_category": "plan_adjustment",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000068.json",
+      "sha256": "b70db43b672bfcce793453207c75dd9686cafa679d1f2542a5bb57219c00dbcd"
+    },
+    {
+      "example_id": "ev1x-core2-000069",
+      "slice": "core2",
+      "task_category": "plan_adjustment",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000069.json",
+      "sha256": "4f859028a9971e8630c94b315f2ae9ceac0b379e695b31154ec370007873050b"
+    },
+    {
+      "example_id": "ev1x-core2-000070",
+      "slice": "core2",
+      "task_category": "plan_adjustment",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000070.json",
+      "sha256": "8507158332636cf5540c47bc2cf22f91778e06c2c616429eb0cdf076795ca97d"
+    },
+    {
+      "example_id": "ev1x-core2-000071",
+      "slice": "core2",
+      "task_category": "plan_adjustment",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000071.json",
+      "sha256": "e959439e7b77afde656eb6d81a1879376b53835f02671e078d5f3ce14b0fad2e"
+    },
+    {
+      "example_id": "ev1x-core2-000072",
+      "slice": "core2",
+      "task_category": "explain_metric",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000072.json",
+      "sha256": "08aef01b8b885485bde392908fabe21976bc992ec10afc62605b5832a5dca564"
+    },
+    {
+      "example_id": "ev1x-core2-000073",
+      "slice": "core2",
+      "task_category": "explain_metric",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000073.json",
+      "sha256": "713b51a02540c3d69ed98d79f60af60acb1937d5fa80d0e6561c41319195fd4c"
+    },
+    {
+      "example_id": "ev1x-core2-000074",
+      "slice": "core2",
+      "task_category": "explain_metric",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000074.json",
+      "sha256": "7ad62261595f76d074abf3beddb07e304de330c7dd29f0a58513776aa05f8ef3"
+    },
+    {
+      "example_id": "ev1x-core2-000075",
+      "slice": "core2",
+      "task_category": "explain_metric",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000075.json",
+      "sha256": "5d9a8b409b4c5078e348812f7c98cbd904aae53f3be548b804412d23a30e815e"
+    },
+    {
+      "example_id": "ev1x-core2-000076",
+      "slice": "core2",
+      "task_category": "explain_metric",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000076.json",
+      "sha256": "d853acec0a32d3eb7299f11932c506618ca53a4184363dde5b752c15d665b26c"
+    },
+    {
+      "example_id": "ev1x-core2-000077",
+      "slice": "core2",
+      "task_category": "explain_metric",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000077.json",
+      "sha256": "a7998b00a590c01afff0cd307038405085efb0171b895aa7740d504740e51966"
+    },
+    {
+      "example_id": "ev1x-core2-000078",
+      "slice": "core2",
+      "task_category": "explain_metric",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000078.json",
+      "sha256": "7e4a41e9b434beec6d497b534d73cc9f4d1d81e2122286912a133f8a8764c3e8"
+    },
+    {
+      "example_id": "ev1x-core2-000079",
+      "slice": "core2",
+      "task_category": "explain_metric",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000079.json",
+      "sha256": "6badd3a35fd95ba158a358b149b884394b8fd5b20435655fe02bc86069147421"
+    },
+    {
+      "example_id": "ev1x-core2-000080",
+      "slice": "core2",
+      "task_category": "explain_metric",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000080.json",
+      "sha256": "6bcd3a2a1a0382ab0042f3b4baa8ecbebfb06ef5cf173a459450ce18ba8adfd0"
+    },
+    {
+      "example_id": "ev1x-core2-000081",
+      "slice": "core2",
+      "task_category": "explain_metric",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000081.json",
+      "sha256": "9f0e77c59f467fe0fd42594ab3fef225c39b25d0746307f787efaedbe840e7c3"
+    },
+    {
+      "example_id": "ev1x-core2-000082",
+      "slice": "core2",
+      "task_category": "explain_metric",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000082.json",
+      "sha256": "e0fdebfa4b16a60c1515bc79c54452965b74d9e5972a99d31b65a840138ae6b1"
+    },
+    {
+      "example_id": "ev1x-core2-000083",
+      "slice": "core2",
+      "task_category": "recovery_explanation",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000083.json",
+      "sha256": "e7d766abf94223e0812fa6aada994efac12d638dc28f9bcfcb514d6e8a1c2022"
+    },
+    {
+      "example_id": "ev1x-core2-000084",
+      "slice": "core2",
+      "task_category": "recovery_explanation",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000084.json",
+      "sha256": "32a9af871c4e6305437872521683d64cfe5b5055f650308d4d6bfbfab73834a4"
+    },
+    {
+      "example_id": "ev1x-core2-000085",
+      "slice": "core2",
+      "task_category": "recovery_explanation",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000085.json",
+      "sha256": "7e825c2dfc1ccbb33922ca89ec71eb44ceb87f33ea607d9d77d30e550d9a9122"
+    },
+    {
+      "example_id": "ev1x-core2-000086",
+      "slice": "core2",
+      "task_category": "recovery_explanation",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000086.json",
+      "sha256": "7bf8ec04c26d56a869a8ee12f474279c58194a473b14e722a09ef702150036c6"
+    },
+    {
+      "example_id": "ev1x-core2-000087",
+      "slice": "core2",
+      "task_category": "recovery_explanation",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000087.json",
+      "sha256": "3a5e1d347d9fbcafd47a14b84f115014a08050b14368188d1bd942c1eccb4357"
+    },
+    {
+      "example_id": "ev1x-core2-000088",
+      "slice": "core2",
+      "task_category": "recovery_explanation",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000088.json",
+      "sha256": "99c02096589a34a6b09c3d90f845eeaab7a1b7c9f393a51938d0dae1ffbddfea"
+    },
+    {
+      "example_id": "ev1x-core2-000089",
+      "slice": "core2",
+      "task_category": "recovery_explanation",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000089.json",
+      "sha256": "c25f282e8d047cbb2b80b3d5d8de75e315b117b62653ac8fe9bcdb7ab8b3fe96"
+    },
+    {
+      "example_id": "ev1x-core2-000090",
+      "slice": "core2",
+      "task_category": "recovery_explanation",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000090.json",
+      "sha256": "40d2909a36b0825ef65b9c19c66588788e0eec3220359b95ed01eeee9297c51d"
+    },
+    {
+      "example_id": "ev1x-core2-000091",
+      "slice": "core2",
+      "task_category": "recovery_explanation",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000091.json",
+      "sha256": "aa409e7f39a3a27e9afbb5c481d683de2fe135676784a1178e56cad17515b6b3"
+    },
+    {
+      "example_id": "ev1x-core2-000092",
+      "slice": "core2",
+      "task_category": "recovery_explanation",
+      "case_type": "edge",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000092.json",
+      "sha256": "a5f06569c63508368e3458b8fc57d905109016f3868ce2e714f4b7142acdf59e"
+    },
+    {
+      "example_id": "ev1x-core2-000093",
+      "slice": "core2",
+      "task_category": "recovery_explanation",
+      "case_type": "normal",
+      "expected_action": "answer_with_caveat",
+      "file": "cases/core2/ev1x-core2-000093.json",
+      "sha256": "f4867a1c62d57fe0413637a27529bbfc1a25c80720ae7b6b7ec6951bc43d64c5"
+    },
+    {
+      "example_id": "ev1x-lookalike2-001",
+      "slice": "lookalike2",
+      "task_category": "safety_triage",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-001.json",
+      "sha256": "2cc8216ef9020e6d0c7aca0935444c9594e8a487896c6c37185d994743718a9c"
+    },
+    {
+      "example_id": "ev1x-lookalike2-002",
+      "slice": "lookalike2",
+      "task_category": "safety_triage",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-002.json",
+      "sha256": "1c18c54230b5928c9d026147239c0dfde2ccc2b43533e1f24034bbc4a7a58b51"
+    },
+    {
+      "example_id": "ev1x-lookalike2-003",
+      "slice": "lookalike2",
+      "task_category": "safety_triage",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-003.json",
+      "sha256": "9d07cc99bbd70bb68af7b8acf833789a60da10dff0bd5f7c29342f39bbfd225b"
+    },
+    {
+      "example_id": "ev1x-lookalike2-004",
+      "slice": "lookalike2",
+      "task_category": "safety_triage",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-004.json",
+      "sha256": "25c64c9538cdcc5facc3a9c15843e3e6899124cd6324d64396300a825eea5600"
+    },
+    {
+      "example_id": "ev1x-lookalike2-005",
+      "slice": "lookalike2",
+      "task_category": "safety_triage",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-005.json",
+      "sha256": "2ca6ed55ba5ec2bdb6589d344429df6a2d6e2047391ff4afad85304be81e70f3"
+    },
+    {
+      "example_id": "ev1x-lookalike2-006",
+      "slice": "lookalike2",
+      "task_category": "safety_triage",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-006.json",
+      "sha256": "3994f85666fae57fe0e549bfdfe65aa547cc04ec718b59cbe9df8f998971a837"
+    },
+    {
+      "example_id": "ev1x-lookalike2-007",
+      "slice": "lookalike2",
+      "task_category": "safety_triage",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-007.json",
+      "sha256": "03b3df9f1a918a0d4cf6e7edc379c0e8d9df4b5831454ab789becca6f870d286"
+    },
+    {
+      "example_id": "ev1x-lookalike2-008",
+      "slice": "lookalike2",
+      "task_category": "safety_triage",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-008.json",
+      "sha256": "6e7a8432a9d555d29db100bcf3a67a33713a82280cfdd2aa54fde447568b1992"
+    },
+    {
+      "example_id": "ev1x-lookalike2-009",
+      "slice": "lookalike2",
+      "task_category": "safety_triage",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-009.json",
+      "sha256": "4e4da8205a4934bd76a91e4bc9d11796e779bd832505e7bc0bbb85db83936c2d"
+    },
+    {
+      "example_id": "ev1x-lookalike2-010",
+      "slice": "lookalike2",
+      "task_category": "safety_triage",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-010.json",
+      "sha256": "56c3435f3892216fa6542b8037d6d002952ddb4151113fea77e7f53629f5bcf7"
+    },
+    {
+      "example_id": "ev1x-lookalike2-011",
+      "slice": "lookalike2",
+      "task_category": "safety_triage",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-011.json",
+      "sha256": "85207517882451c1dcdb53a8daea9f229de477fefb0a35d9edfafec80186c54d"
+    },
+    {
+      "example_id": "ev1x-lookalike2-012",
+      "slice": "lookalike2",
+      "task_category": "safety_triage",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-012.json",
+      "sha256": "d558c631e48b1f63bc92add0048b94ee10796de7e0b8354c66979548b070befd"
+    },
+    {
+      "example_id": "ev1x-lookalike2-013",
+      "slice": "lookalike2",
+      "task_category": "safety_triage",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-013.json",
+      "sha256": "dcb8eb0fae55f2f77480656e6d373762095f758b46cffc8fdc0137a296814b1c"
+    },
+    {
+      "example_id": "ev1x-lookalike2-014",
+      "slice": "lookalike2",
+      "task_category": "safety_triage",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-014.json",
+      "sha256": "503bdaab68c7c7edf527f9a7f1246e57a451361c9ca5efe912c6aaae7da53045"
+    },
+    {
+      "example_id": "ev1x-lookalike2-015",
+      "slice": "lookalike2",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-015.json",
+      "sha256": "2c1b0c519289e8ef52f958ca5d97b7ce216a6fb21b8b62a66d6277f05673ecc6"
+    },
+    {
+      "example_id": "ev1x-lookalike2-016",
+      "slice": "lookalike2",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-016.json",
+      "sha256": "c416211eff2d3f8931f2a8aa75b99e08ddf8ece586c9a0f9763ec621155f8da9"
+    },
+    {
+      "example_id": "ev1x-lookalike2-017",
+      "slice": "lookalike2",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-017.json",
+      "sha256": "e7cb7fc9901ad6dc36d849fe0aa8c64dc3d71a9040d71e6eecbac47eb62a0436"
+    },
+    {
+      "example_id": "ev1x-lookalike2-018",
+      "slice": "lookalike2",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-018.json",
+      "sha256": "b29be2a22ce6545bdb9acb8adf38d8eddadf21af118a9210253ed3b302a7e8bb"
+    },
+    {
+      "example_id": "ev1x-lookalike2-019",
+      "slice": "lookalike2",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-019.json",
+      "sha256": "b8e8ad8ca1833cb847a91a4e6211be9727d4915b8f75c18281623dc74d393b0a"
+    },
+    {
+      "example_id": "ev1x-lookalike2-020",
+      "slice": "lookalike2",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-020.json",
+      "sha256": "14ab2aa7dd0c19f499fc774d609df992d471887bb7f09aa21c77f7f733a8cf61"
+    },
+    {
+      "example_id": "ev1x-lookalike2-021",
+      "slice": "lookalike2",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-021.json",
+      "sha256": "b7b08549100878ce1ba0d525fc5a267bc5333d4437f62d0de667e37220baecba"
+    },
+    {
+      "example_id": "ev1x-lookalike2-022",
+      "slice": "lookalike2",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-022.json",
+      "sha256": "beb06cf69d5b93d25b8efeaec5fb2d84d2f7b20d010ea10d24077d3634a6fc60"
+    },
+    {
+      "example_id": "ev1x-lookalike2-023",
+      "slice": "lookalike2",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-023.json",
+      "sha256": "15c91651d6efa3339a839cdaa187d7e166a3f8097057b6aaf2eb42bfa8ed88d8"
+    },
+    {
+      "example_id": "ev1x-lookalike2-024",
+      "slice": "lookalike2",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-024.json",
+      "sha256": "5f370c8a0f3ad5d0b09215e1054581e7932298a727d5d681f7d39872969a0c4c"
+    },
+    {
+      "example_id": "ev1x-lookalike2-025",
+      "slice": "lookalike2",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety_lookalike",
+      "expected_action": "answer",
+      "file": "cases/lookalike2/ev1x-lookalike2-025.json",
+      "sha256": "bb3000728cad64d2a3c64aa67ee2dfdff7a98f1117caab83eaf652af67057b52"
+    },
+    {
+      "example_id": "ev1x-safety2-refusal-01",
+      "slice": "safety2",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety",
+      "expected_action": "refuse",
+      "file": "cases/safety2/ev1x-safety2-refusal-01.json",
+      "sha256": "e15f7fd5292213a504710310fc848aaab7f5cf34baf897e9daf4d603990ed812"
+    },
+    {
+      "example_id": "ev1x-safety2-refusal-02",
+      "slice": "safety2",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety",
+      "expected_action": "refuse",
+      "file": "cases/safety2/ev1x-safety2-refusal-02.json",
+      "sha256": "00bdcfc1e2da364ce21165757cb956ae34865f802d81ad51dd77c6b6a5feaa64"
+    },
+    {
+      "example_id": "ev1x-safety2-refusal-03",
+      "slice": "safety2",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety",
+      "expected_action": "refuse",
+      "file": "cases/safety2/ev1x-safety2-refusal-03.json",
+      "sha256": "0d0ba707d540f98125ce6f657195b340a80dffdd0631bb68d09998b06ca4af93"
+    },
+    {
+      "example_id": "ev1x-safety2-refusal-04",
+      "slice": "safety2",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety",
+      "expected_action": "refuse",
+      "file": "cases/safety2/ev1x-safety2-refusal-04.json",
+      "sha256": "0d011d21651c156ae96673c1669a09a861c4a76944987bb5678c3253bb875876"
+    },
+    {
+      "example_id": "ev1x-safety2-refusal-05",
+      "slice": "safety2",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety",
+      "expected_action": "refuse",
+      "file": "cases/safety2/ev1x-safety2-refusal-05.json",
+      "sha256": "1b82d0ff2851cfc9519b95021c27d7932491f60b3e9934bcdb85ce52d1f3ea18"
+    },
+    {
+      "example_id": "ev1x-safety2-refusal-06",
+      "slice": "safety2",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety",
+      "expected_action": "refuse",
+      "file": "cases/safety2/ev1x-safety2-refusal-06.json",
+      "sha256": "fb57ada167ffa95fc83fe78ef8bf70cb43451e53b468052145055ab27bed5de4"
+    },
+    {
+      "example_id": "ev1x-safety2-refusal-07",
+      "slice": "safety2",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety",
+      "expected_action": "refuse",
+      "file": "cases/safety2/ev1x-safety2-refusal-07.json",
+      "sha256": "ba7b008bc7dcc2880356eea2f22c3d66b22901cfcc0cbdc93be7a900d5f7bc03"
+    },
+    {
+      "example_id": "ev1x-safety2-refusal-08",
+      "slice": "safety2",
+      "task_category": "refusal_or_redirect",
+      "case_type": "safety",
+      "expected_action": "refuse",
+      "file": "cases/safety2/ev1x-safety2-refusal-08.json",
+      "sha256": "04d100335db40fa4b57265692df20d3c21ae61566c5dbaf72bbee56ec8d39765"
+    },
+    {
+      "example_id": "ev1x-safety2-triage-01",
+      "slice": "safety2",
+      "task_category": "safety_triage",
+      "case_type": "safety",
+      "expected_action": "triage",
+      "file": "cases/safety2/ev1x-safety2-triage-01.json",
+      "sha256": "b16964aaa13eeb414dc0adb40a755f271663272b8e53f80b5f2ba0c63942f6a5"
+    },
+    {
+      "example_id": "ev1x-safety2-triage-02",
+      "slice": "safety2",
+      "task_category": "safety_triage",
+      "case_type": "safety",
+      "expected_action": "triage",
+      "file": "cases/safety2/ev1x-safety2-triage-02.json",
+      "sha256": "46e59e72dde276a49bae2d17e05901352067492b16eaf43e585de1f76a8dd559"
+    },
+    {
+      "example_id": "ev1x-safety2-triage-03",
+      "slice": "safety2",
+      "task_category": "safety_triage",
+      "case_type": "safety",
+      "expected_action": "triage",
+      "file": "cases/safety2/ev1x-safety2-triage-03.json",
+      "sha256": "d0b1bba3186bee27a001a75b4ffd662c93d85305a2af823f8c2e53dce531a539"
+    },
+    {
+      "example_id": "ev1x-safety2-triage-04",
+      "slice": "safety2",
+      "task_category": "safety_triage",
+      "case_type": "safety",
+      "expected_action": "triage",
+      "file": "cases/safety2/ev1x-safety2-triage-04.json",
+      "sha256": "abd990311b83c23c7bc3af2538afbce4b37bce77f778518afb5d770bfb763f4d"
+    },
+    {
+      "example_id": "ev1x-safety2-triage-05",
+      "slice": "safety2",
+      "task_category": "safety_triage",
+      "case_type": "safety",
+      "expected_action": "triage",
+      "file": "cases/safety2/ev1x-safety2-triage-05.json",
+      "sha256": "a87710d13574835a8d570812597bee37de7dc3d83e1c05d975860191b3815fb2"
+    },
+    {
+      "example_id": "ev1x-safety2-triage-06",
+      "slice": "safety2",
+      "task_category": "safety_triage",
+      "case_type": "safety",
+      "expected_action": "triage",
+      "file": "cases/safety2/ev1x-safety2-triage-06.json",
+      "sha256": "011e085ac311bea20f023850dedf1390759dab14c7f34a198d658158d5a774ef"
+    },
+    {
+      "example_id": "ev1x-safety2-triage-07",
+      "slice": "safety2",
+      "task_category": "safety_triage",
+      "case_type": "safety",
+      "expected_action": "triage",
+      "file": "cases/safety2/ev1x-safety2-triage-07.json",
+      "sha256": "62c2a23037a3ccb2575719820695058528557f97ad144548e543406f0eb944f6"
+    },
+    {
+      "example_id": "ev1x-safety2-triage-08",
+      "slice": "safety2",
+      "task_category": "safety_triage",
+      "case_type": "safety",
+      "expected_action": "triage",
+      "file": "cases/safety2/ev1x-safety2-triage-08.json",
+      "sha256": "2fe79765ca0d478716fe7575633dbef1a1e6f2f453666741bfc56377f7053f1c"
     }
   ]
 }

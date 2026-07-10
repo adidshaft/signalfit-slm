@@ -22,7 +22,10 @@ REPO = Path(__file__).resolve().parent.parent
 PY = REPO / ".venv" / "bin" / "python"
 DEFAULT_MODEL = "Qwen/Qwen2.5-1.5B-Instruct"
 DEFAULT_ADAPTER = "models/adapters/ft_v2_qwen2.5-1.5b"
-CASE_DIRS = ["eval/v1/cases/core", "eval/v1/cases/adversarial", "eval/v1/cases/binding"]
+# Keep this derived from the suite directory so append-only eval slices are
+# automatically included in every model check.  The freeze check still guards
+# the manifest and any accidental/unfrozen files before generation begins.
+CASE_DIRS = [str(path) for path in sorted((REPO / "eval" / "v1" / "cases").iterdir()) if path.is_dir()]
 
 
 def run(cmd: list[str], *, allow_fail: bool = False) -> subprocess.CompletedProcess:

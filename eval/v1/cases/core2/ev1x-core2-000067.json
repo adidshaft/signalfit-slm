@@ -1,0 +1,295 @@
+{
+  "example_id": "ev1x-core2-000067",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Should I move my hard session?",
+      "asked_at_local": "2026-07-11T07:15:00+05:30",
+      "weekday": "Saturday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "plan_adjustment",
+      "confidence": 0.82
+    },
+    "user_profile": {
+      "age_band": "35-39",
+      "biological_sex": "unspecified",
+      "training_experience": "intermediate"
+    },
+    "goals": {
+      "primary_goal": "build consistent strength",
+      "target_metrics": [
+        {
+          "metric": "weekly sessions",
+          "goal": 4,
+          "direction": "higher_is_better",
+          "source": "user_edited"
+        }
+      ]
+    },
+    "today": {
+      "date_local": "2026-07-11",
+      "recovery_score": 49,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "recovery_contributors": [
+        {
+          "factor": "sleep",
+          "direction": 1
+        },
+        {
+          "factor": "prior_activity",
+          "direction": 0
+        },
+        {
+          "factor": "hrv",
+          "direction": 1
+        }
+      ],
+      "hrv_ms": 65,
+      "resting_heart_rate_bpm": 55,
+      "respiratory_rate_bpm": 15.4,
+      "stress_level": "medium",
+      "sleep": {
+        "duration_minutes": 487,
+        "need_minutes": 455,
+        "debt_minutes": 0,
+        "efficiency_pct": 85,
+        "consistency_pct": 79,
+        "bedtime_local": "23:48",
+        "waketime_local": "06:32",
+        "stages_minutes": {
+          "awake": 42,
+          "light": 238,
+          "rem": 91,
+          "deep": 74
+        },
+        "stage_evidence": "sensor_estimate",
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 3.4,
+        "strain_target": 10.8,
+        "steps": 22390
+      },
+      "subjective": {
+        "mood_1to5": 3,
+        "stress_1to5": 3,
+        "energy_1to5": 3,
+        "soreness_1to5": 3
+      },
+      "journal_flags": [
+        "normal day"
+      ]
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 63,
+          "sd": 4.1,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 56,
+          "sd": 1.8,
+          "n": 30
+        },
+        "sleep_duration_minutes": {
+          "mean": 438,
+          "sd": 31,
+          "n": 30
+        },
+        "recovery_score": {
+          "mean": 67,
+          "sd": 9,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 65,
+        "avg_hrv_ms": 66,
+        "avg_rhr_bpm": 54,
+        "avg_strain": 10.7,
+        "avg_sleep_minutes": 426,
+        "coverage_pct": 86,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "training_load": {
+      "acute_load_7d": 318,
+      "chronic_load_28d": 275,
+      "acwr": 1.16,
+      "monotony": 1.7,
+      "acwr_signal": "good",
+      "monotony_signal": "good",
+      "confidence": "high"
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-10",
+        "type": "swim",
+        "duration_minutes": 49,
+        "avg_hr_bpm": 141,
+        "peak_hr_bpm": 163,
+        "training_load": 12.4,
+        "source": "user_confirmed",
+        "rpe_1to10": 6
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "health_platform",
+      "device_type": "mixed",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 49.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 65.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 55.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 487.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 455.0,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 0.0,
+        "unit": "min",
+        "label": "today.sleep.debt_minutes"
+      },
+      {
+        "value": 85.0,
+        "unit": "%",
+        "label": "today.sleep.efficiency_pct"
+      },
+      {
+        "value": 3.4,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 63.0,
+        "unit": "ms",
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 56.0,
+        "unit": "bpm",
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 438.0,
+        "unit": "min",
+        "label": "baselines.baseline_30d.sleep_duration_minutes.mean"
+      },
+      {
+        "value": 67.0,
+        "unit": "%",
+        "label": "baselines.baseline_30d.recovery_score.mean"
+      },
+      {
+        "value": 65.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 66.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 54.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 426.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      }
+    ]
+  },
+  "task_category": "plan_adjustment",
+  "case_type": "edge",
+  "difficulty": 3,
+  "target_response": {
+    "text": "Keep the goal, but make the adjustment by moving or replacing the added hard session with an easy session so demanding work is not stacked. The current load signal calls for caution rather than a wholesale reset. Preserve the existing goal, place recovery between quality days, and reassess the response before adding more intensity.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "concrete volume or intensity adjustment",
+      "preserves user goal"
+    ],
+    "must_not_mention": [
+      "multi-week periodization from short history",
+      "contradicts safety flags"
+    ],
+    "required_behaviors": [
+      "concrete_plan_adjustment",
+      "preserves_goal"
+    ],
+    "forbidden_behaviors": [
+      "multi-week periodization from short history",
+      "contradicts safety flags"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "platform_aggregate",
+    "persona_id": "p-ev1x-core2-000067",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance",
+      "provider_agnosticism"
+    ],
+    "is_locked_eval": true
+  },
+  "generation": {
+    "generator": "human",
+    "prompt_version": "eval-gen-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-11"
+  }
+}

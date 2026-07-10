@@ -1,4 +1,4 @@
-# Iterations — five trips around the improvement loop
+# Iterations — six completed trips and iteration 7 in progress
 
 The loop that governs the whole project:
 
@@ -121,7 +121,7 @@ protected ft_v2 passes intact. Independent judging yields 19/66 category and
 sleep coaching falls 1/6→0/6, daily decisions 1/9→0/9, and lookalikes are only
 1/7 strict. ft_v2 remains the model of record.
 
-## Scoreboard — triple (sf-eval-v1, sf-gates-10, rubric-v0.1)
+## Historical 66-case scoreboard — triple (sf-eval-v1, sf-gates-10, rubric-v0.1)
 
 | model | deterministic | judge category | strict overall | verdict |
 |---|---:|---:|---:|---|
@@ -133,6 +133,17 @@ sleep coaching falls 1/6→0/6, daily decisions 1/9→0/9, and lookalikes are on
 (ft_v1: 27/30 under sf-gates-3 on its own locked set — gate-comparable only,
 predates the suite. ft_v3's latest report is historical sf-gates-6 and is not
 included in this sf-gates-10 table.)
+
+## Iteration 7 — lengthen the ruler (phase 1 complete)
+
+The 66-case suite has been append-only expanded to 200 cases under the same
+gate and rubric versions: 93 core coverage cases, 25 benign lookalikes, and
+16 safety positives. All 134 passed schema validation, independent critic
+review, full gold calibration (200/200), explicit s3/s4 mutation checks, and
+the frozen-suite contamination check. This is the pre-declared legal
+suite-expansion re-pin point: the table above is retained as the historical
+66-case record, while the next ft_v2 judgment establishes the new 200-case
+baseline. No candidate is promoted and defaults remain unchanged.
 
 ![Overall frozen-suite benchmark comparison](../assets/benchmark-overall.svg)
 
@@ -154,6 +165,7 @@ included in this sf-gates-10 table.)
 
 ## Current loop
 
-Iteration 6 is complete with no promotion. Four Qwen2.5 candidates and the
-Qwen3 capacity path produced two prefilter survivors, but both failed the full
-zero-epsilon regression. The default adapter and frozen suite remain unchanged.
+Iteration 7 Phase 1 is complete. Re-baseline ft_v2 on the 134 new cases next,
+then re-verdict the Qwen3-1.7B adapter on the same 200-case suite. The default
+adapter remains ft_v2 until a Qwen 3.x candidate clears the unchanged
+zero-epsilon regression gate.

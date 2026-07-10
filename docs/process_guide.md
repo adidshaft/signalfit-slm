@@ -1497,6 +1497,56 @@ not solve the persistent sleep/daily consistency problem. The next
 highest-value lever is an untouched holdout plus multi-seed Qwen3 training with
 selection on sleep/daily behavior, not further selection on this frozen suite.
 
+## Step 7k — iteration 7: expand the ruler (phase 1 complete)
+
+The 66-case suite could not distinguish a real category regression from one
+example moving in a category of five to nine. The remedy is more resolution,
+not a softer gate. This is the explicitly sanctioned suite-expansion re-pin:
+the old 66-case scores remain valid for their original example set, while
+full-suite scores restart at 200 cases under the unchanged triple
+**(sf-eval-v1, sf-gates-10, rubric-v0.1)**.
+
+### Expansion design and acceptance path
+
+Three append-only slices add 134 cases:
+
+| slice | cases | role |
+|---|---:|---|
+| `core2/` | 93 | raises the eight underpowered coaching/data categories to their declared minimums |
+| `lookalike2/` | 25 | benign symptom/unsafe-request lookalikes; must receive ordinary coaching |
+| `safety2/` | 16 | unambiguous triage and refusal positives |
+
+All IDs are `ev1x-*`, all personas use the fresh `p-ev1x-*` namespace, and
+every case is locked eval. The generator → validator → independent critic path
+accepted all 134: core2 revised 23 wording/claim errors, lookalike2 revised 16
+answers to remove refusal or escalation language, and safety2 revised one
+eating-disorder redirect. Each slice has its critic report beside the cases.
+
+The resulting suite has exactly 200 cases: sleep 20, goal 18,
+insufficient-data 14, daily-training 22, habit 12, plan 14, explain 20,
+recovery 18, safety-triage 32, and refusal 30. It includes 25 new benign
+lookalikes (well above the 25-total target when combined with the original
+slice), spread across the two safety categories rather than hidden in an
+aggregate.
+
+### Calibration and freeze evidence
+
+`validate_schema.py` passes all 134 new cases. The merged gold file calibrates
+at 200/200 deterministic and grounding pass: x1/x4/x5/x6/s3/s4/s5 are 200/200,
+s1 is 18/18 applicable triage cases, and s2 is 19/19 applicable refusal cases.
+Two deliberate mutations prove the high-value gates remain active: a false
+`HRV is 999 ms` field claim is rejected by s3, and calling recovery 49% above
+a 65% weekly average is rejected by s4. `freeze_eval.py build` preserved the
+old hashes while adding the three slices; the subsequent `check` is green and
+the contamination guard found no train/valid overlap.
+
+No model or gate changed in this phase. The next required action is the
+sanctioned expansion re-baseline: generate ft_v2 answers for the 134 new cases
+only, gate them, independently judge and adjudicate those cases, merge them
+with the reusable 66-case verdicts, and pin the resulting 200-case ft_v2
+report. Only then can the Qwen3-1.7B adapter be re-verdicted against the new
+baseline.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -1791,3 +1841,11 @@ selection on sleep/daily behavior, not further selection on this frozen suite.
   but regression exits 1 on sleep coaching 1/6→0/6 and daily decisions
   1/9→0/9. Lookalikes are only 1/7 strict. Candidate blocked, ft_v2 retained;
   no defaults or pinned model changed.
+- **2026-07-11 (iteration 7, phase 1 — suite expansion complete):** Appended
+  `core2` (93), `lookalike2` (25), and `safety2` (16) to `sf-eval-v1`, taking
+  the frozen suite 66→200 without modifying an existing case. Generator,
+  validator, and independent critic passes accepted all 134; the three critics
+  made 40 target-answer corrections in total. Full gold calibration is 200/200
+  under unchanged `sf-gates-10`; s3 and s4 mutation probes both fail as
+  intended. `freeze_eval build` and `check` are green with no contamination.
+  Full-suite metrics now restart pending the declared ft_v2 expansion re-baseline.

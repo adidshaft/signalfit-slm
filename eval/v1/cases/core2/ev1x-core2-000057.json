@@ -1,0 +1,308 @@
+{
+  "example_id": "ev1x-core2-000057",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Does late caffeine seem to affect my recovery?",
+      "asked_at_local": "2026-07-11T07:15:00+05:30",
+      "weekday": "Saturday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "habit_pattern_analysis",
+      "confidence": 0.82
+    },
+    "user_profile": {
+      "age_band": "25-29",
+      "biological_sex": "male",
+      "training_experience": "beginner"
+    },
+    "goals": {
+      "primary_goal": "finish a local ten-kilometre race",
+      "target_metrics": [
+        {
+          "metric": "weekly sessions",
+          "goal": 4,
+          "direction": "higher_is_better",
+          "source": "user_edited"
+        }
+      ]
+    },
+    "today": {
+      "date_local": "2026-07-11",
+      "recovery_score": 63,
+      "recovery_confidence": "high",
+      "readiness_state": "moderate",
+      "recovery_contributors": [
+        {
+          "factor": "sleep",
+          "direction": 1
+        },
+        {
+          "factor": "prior_activity",
+          "direction": -1
+        },
+        {
+          "factor": "hrv",
+          "direction": 1
+        }
+      ],
+      "hrv_ms": 58,
+      "resting_heart_rate_bpm": 57,
+      "respiratory_rate_bpm": 15.4,
+      "stress_level": "medium",
+      "sleep": {
+        "duration_minutes": 445,
+        "need_minutes": 455,
+        "debt_minutes": 10,
+        "efficiency_pct": 90,
+        "consistency_pct": 69,
+        "bedtime_local": "23:48",
+        "waketime_local": "06:32",
+        "stages_minutes": {
+          "awake": 42,
+          "light": 238,
+          "rem": 91,
+          "deep": 74
+        },
+        "stage_evidence": "sensor_estimate",
+        "source": "auto_detected",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": 1.4,
+        "strain_target": 10.8,
+        "steps": 19690
+      },
+      "subjective": {
+        "mood_1to5": 3,
+        "stress_1to5": 3,
+        "energy_1to5": 3,
+        "soreness_1to5": 3
+      },
+      "journal_flags": [
+        "late work"
+      ]
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 56,
+          "sd": 4.1,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 58,
+          "sd": 1.8,
+          "n": 30
+        },
+        "sleep_duration_minutes": {
+          "mean": 438,
+          "sd": 31,
+          "n": 30
+        },
+        "recovery_score": {
+          "mean": 67,
+          "sd": 9,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 65,
+        "avg_hrv_ms": 59,
+        "avg_rhr_bpm": 56,
+        "avg_strain": 10.7,
+        "avg_sleep_minutes": 426,
+        "coverage_pct": 86,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "training_load": {
+      "acute_load_7d": 318,
+      "chronic_load_28d": 275,
+      "acwr": 1.16,
+      "monotony": 1.7,
+      "acwr_signal": "watch",
+      "monotony_signal": "good",
+      "confidence": "high"
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-10",
+        "type": "cycle",
+        "duration_minutes": 69,
+        "avg_hr_bpm": 131,
+        "peak_hr_bpm": 173,
+        "training_load": 14.4,
+        "source": "user_confirmed",
+        "rpe_1to10": 6
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_wearable",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "sleep": "high",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "habit_insights": [
+      {
+        "text": "Late caffeine entries are linked with lower next-morning recovery.",
+        "sample_days": 7,
+        "comparison_days": 85,
+        "effect": -5.0,
+        "metric": "recovery_score",
+        "confidence": "medium"
+      }
+    ],
+    "allowed_numbers": [
+      {
+        "value": 63.0,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 58.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 57.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 445.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 455.0,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 10.0,
+        "unit": "min",
+        "label": "today.sleep.debt_minutes"
+      },
+      {
+        "value": 90.0,
+        "unit": "%",
+        "label": "today.sleep.efficiency_pct"
+      },
+      {
+        "value": 1.4,
+        "unit": null,
+        "label": "today.activity.activity_strain"
+      },
+      {
+        "value": 56.0,
+        "unit": "ms",
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 58.0,
+        "unit": "bpm",
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 438.0,
+        "unit": "min",
+        "label": "baselines.baseline_30d.sleep_duration_minutes.mean"
+      },
+      {
+        "value": 67.0,
+        "unit": "%",
+        "label": "baselines.baseline_30d.recovery_score.mean"
+      },
+      {
+        "value": 65.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 59.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 56.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 426.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      }
+    ]
+  },
+  "task_category": "habit_pattern_analysis",
+  "case_type": "normal",
+  "difficulty": 3,
+  "target_response": {
+    "text": "The tagged late-caffeine days are linked with lower next-morning recovery than the comparison days, but this is a small sample rather than proof that caffeine caused the change. Work stress, bedtime, and the prior workout could also explain part of it. Keep tagging caffeine timing alongside those factors so the pattern can become more reliable before you make a strong rule.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "tagged and comparison sample",
+      "correlational language",
+      "alternative explanation"
+    ],
+    "must_not_mention": [
+      "causal claim",
+      "moralizing tone"
+    ],
+    "required_behaviors": [
+      "states_sample_size",
+      "uses_correlational_language",
+      "names_confound"
+    ],
+    "forbidden_behaviors": [
+      "causal claim",
+      "moralizing tone"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-ev1x-core2-000057",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance",
+      "provider_agnosticism",
+      "confidence_language"
+    ],
+    "is_locked_eval": true
+  },
+  "generation": {
+    "generator": "human",
+    "prompt_version": "eval-gen-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-11"
+  }
+}

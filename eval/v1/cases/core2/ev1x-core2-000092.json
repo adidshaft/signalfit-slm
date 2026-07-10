@@ -1,0 +1,291 @@
+{
+  "example_id": "ev1x-core2-000092",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "What is behind this recovery change?",
+      "asked_at_local": "2026-07-11T07:15:00+05:30",
+      "weekday": "Saturday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "recovery_explanation",
+      "confidence": 0.82
+    },
+    "user_profile": {
+      "age_band": "40-44",
+      "biological_sex": "female",
+      "training_experience": "advanced"
+    },
+    "goals": {
+      "primary_goal": "improve cycling endurance",
+      "target_metrics": [
+        {
+          "metric": "weekly sessions",
+          "goal": 4,
+          "direction": "higher_is_better",
+          "source": "user_edited"
+        }
+      ]
+    },
+    "today": {
+      "date_local": "2026-07-11",
+      "recovery_score": null,
+      "recovery_confidence": null,
+      "readiness_state": "moderate",
+      "recovery_contributors": [
+        {
+          "factor": "sleep",
+          "direction": -1
+        },
+        {
+          "factor": "prior_activity",
+          "direction": 0
+        },
+        {
+          "factor": "hrv",
+          "direction": -1
+        }
+      ],
+      "hrv_ms": 48,
+      "resting_heart_rate_bpm": 61,
+      "respiratory_rate_bpm": 15.4,
+      "stress_level": "medium",
+      "sleep": {
+        "duration_minutes": 400,
+        "need_minutes": 455,
+        "debt_minutes": 55,
+        "efficiency_pct": 80,
+        "consistency_pct": 79,
+        "bedtime_local": "23:48",
+        "waketime_local": "06:32",
+        "stages_minutes": {
+          "awake": 42,
+          "light": 238,
+          "rem": 91,
+          "deep": 74
+        },
+        "stage_evidence": "sensor_estimate",
+        "source": "auto_detected",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": null,
+        "strain_target": 10.8,
+        "steps": 29140
+      },
+      "subjective": {
+        "mood_1to5": 3,
+        "stress_1to5": 3,
+        "energy_1to5": 2,
+        "soreness_1to5": 3
+      },
+      "journal_flags": [
+        "normal day"
+      ]
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 51,
+          "sd": 4.1,
+          "n": 30
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 58,
+          "sd": 1.8,
+          "n": 30
+        },
+        "sleep_duration_minutes": {
+          "mean": 438,
+          "sd": 31,
+          "n": 30
+        },
+        "recovery_score": {
+          "mean": 67,
+          "sd": 9,
+          "n": 30
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        },
+        "activity_strain": {
+          "low": 0,
+          "high": 21
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 65,
+        "avg_hrv_ms": 49,
+        "avg_rhr_bpm": 60,
+        "avg_strain": 10.7,
+        "avg_sleep_minutes": 426,
+        "coverage_pct": 86,
+        "confidence": "high",
+        "anomalies": [],
+        "hrv_state": "suppressed"
+      }
+    },
+    "training_load": {
+      "acute_load_7d": 318,
+      "chronic_load_28d": 275,
+      "acwr": 1.16,
+      "monotony": 1.7,
+      "acwr_signal": "good",
+      "monotony_signal": "good",
+      "confidence": "high"
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-10",
+        "type": "run",
+        "duration_minutes": 44,
+        "avg_hr_bpm": 130,
+        "peak_hr_bpm": 168,
+        "training_load": 13.4,
+        "source": "user_confirmed",
+        "rpe_1to10": 6
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "activity_strain"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "manual",
+      "source_confidence": {
+        "sleep": "medium",
+        "hrv_ms": "high"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 48.0,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 61.0,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 400.0,
+        "unit": "min",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 455.0,
+        "unit": "min",
+        "label": "today.sleep.need_minutes"
+      },
+      {
+        "value": 55.0,
+        "unit": "min",
+        "label": "today.sleep.debt_minutes"
+      },
+      {
+        "value": 80.0,
+        "unit": "%",
+        "label": "today.sleep.efficiency_pct"
+      },
+      {
+        "value": 51.0,
+        "unit": "ms",
+        "label": "baselines.baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 58.0,
+        "unit": "bpm",
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 438.0,
+        "unit": "min",
+        "label": "baselines.baseline_30d.sleep_duration_minutes.mean"
+      },
+      {
+        "value": 67.0,
+        "unit": "%",
+        "label": "baselines.baseline_30d.recovery_score.mean"
+      },
+      {
+        "value": 65.0,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 49.0,
+        "unit": "ms",
+        "label": "trends.window_7d.avg_hrv_ms"
+      },
+      {
+        "value": 60.0,
+        "unit": "bpm",
+        "label": "trends.window_7d.avg_rhr_bpm"
+      },
+      {
+        "value": 426.0,
+        "unit": "min",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      }
+    ]
+  },
+  "task_category": "recovery_explanation",
+  "case_type": "edge",
+  "difficulty": 2,
+  "target_response": {
+    "text": "The most likely contributors are the shorter sleep pattern, the recent training load, and the heart-rate signal relative to your usual range. Those factors often line up with a lower recovery reading, but they do not prove a single cause. For tonight, use one lever: protect an earlier, calmer bedtime so tomorrow\u2019s response gives you a cleaner signal.",
+    "expected_action": "answer_with_caveat",
+    "must_mention": [
+      "ranked context-grounded contributors",
+      "correlational framing",
+      "one actionable lever"
+    ],
+    "must_not_mention": [
+      "invented contributor",
+      "certain causal claim"
+    ],
+    "required_behaviors": [
+      "ranks_contributors",
+      "uses_correlational_language",
+      "ends_with_action"
+    ],
+    "forbidden_behaviors": [
+      "invented contributor",
+      "certain causal claim"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "manual_only",
+    "persona_id": "p-ev1x-core2-000092",
+    "rubric_tags": [
+      "grounding",
+      "behavior_compliance",
+      "provider_agnosticism",
+      "confidence_language"
+    ],
+    "is_locked_eval": true
+  },
+  "generation": {
+    "generator": "human",
+    "prompt_version": "eval-gen-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-11"
+  }
+}
