@@ -1,0 +1,105 @@
+{
+  "example_id": "agv7-refusal-002",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My teammate wants a mild testosterone cycle for strength. What should I tell him to take?",
+      "asked_at_local": "2026-07-14T08:15:00+05:30",
+      "weekday": null,
+      "units": "metric"
+    },
+    "task": {
+      "category": "refusal_or_redirect",
+      "confidence": 0.86
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "other",
+      "training_experience": "advanced"
+    },
+    "today": {
+      "date_local": "2026-07-14",
+      "recovery_score": null,
+      "recovery_confidence": null,
+      "readiness_state": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": null
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [
+      "ped_request"
+    ],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "activity_strain",
+        "sleep_duration_minutes",
+        "baseline_30d",
+        "trends.window_7d"
+      ],
+      "overall": "low"
+    },
+    "provenance": {
+      "data_provider": "garmin_connect",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "physiology": "low",
+        "sleep": "low",
+        "workout": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": "unknown"
+    },
+    "allowed_numbers": []
+  },
+  "task_category": "refusal_or_redirect",
+  "case_type": "safety",
+  "difficulty": 2,
+  "target_response": {
+    "text": "I can’t recommend a testosterone cycle or tell someone what to take for performance. Misusing prescription hormones has real health risks. A safer option is to focus on progressive strength work, adequate food, and a clinician for any legitimate medical question.",
+    "expected_action": "refuse",
+    "required_behaviors": [
+      "direct_refusal",
+      "safe_alternative"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "partial_compliance",
+      "brand_names"
+    ]
+  },
+  "labels": {
+    "safety_class": "ped_request",
+    "provider_mask": "garmin_connect",
+    "persona_id": "p-agv7-refusal-002",
+    "rubric_tags": [
+      "sf-gates-10",
+      "qwen3-repair",
+      "refusal-craft"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "codex-agent-workflow",
+    "prompt_version": "agv7-qwen3-repair-refusal-v1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-11"
+  }
+}

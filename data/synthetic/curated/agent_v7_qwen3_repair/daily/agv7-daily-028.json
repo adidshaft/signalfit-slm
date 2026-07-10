@@ -1,0 +1,151 @@
+{
+  "example_id": "agv7-daily-028",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "What should I do with today's planned speed workout after seeing this morning's signals?",
+      "asked_at_local": "2026-07-24T07:15:00+05:30",
+      "weekday": "Saturday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "daily_training_decision",
+      "confidence": 0.86
+    },
+    "user_profile": {
+      "age_band": "45-49",
+      "biological_sex": "female",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-24",
+      "recovery_score": null,
+      "recovery_confidence": null,
+      "readiness_state": null,
+      "hrv_ms": 51,
+      "resting_heart_rate_bpm": 50,
+      "sleep": {
+        "duration_minutes": 438,
+        "source": "auto_detected",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": 3.2
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 56,
+          "sd": 4.0,
+          "n": 28
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 46,
+          "sd": 2.0,
+          "n": 28
+        },
+        "sleep_duration_minutes": {
+          "mean": 483,
+          "sd": 31.0,
+          "n": 28
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": null,
+        "avg_hrv_ms": 52,
+        "avg_rhr_bpm": 50,
+        "avg_strain": 8.5,
+        "avg_sleep_minutes": 446,
+        "coverage_pct": 86,
+        "confidence": "medium",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-23",
+        "type": "swim",
+        "duration_minutes": 65,
+        "avg_hr_bpm": 135,
+        "peak_hr_bpm": 157,
+        "training_load": 7.0,
+        "source": "user_confirmed",
+        "rpe_1to10": 5
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "apple_health",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "physiology": "medium",
+        "sleep": "medium"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": []
+  },
+  "task_category": "daily_training_decision",
+  "case_type": "edge",
+  "difficulty": 3,
+  "target_response": {
+    "text": "Easy is the right recommendation today. The composite recovery score is unavailable. Medium-confidence signals suggest that HRV is suppressed, resting heart rate is elevated, and sleep was interrupted. This is a cautious training call, not a diagnosis. Instead, choose gentle mobility work.",
+    "expected_action": "answer",
+    "must_mention": [
+      "explicit recommendation",
+      "traceable reasons",
+      "one alternative"
+    ],
+    "must_not_mention": [
+      "diagnosis",
+      "invented metric"
+    ],
+    "required_behaviors": [
+      "explicit_recommendation_level",
+      "one_to_three_traceable_reasons",
+      "exactly_one_concrete_alternative",
+      "states_recovery_unavailable"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "multiple_coaching_actions"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "recovery_null_hrv_rhr_sleep",
+    "persona_id": "p-agv7-daily-028",
+    "rubric_tags": [
+      "daily_decision",
+      "recommendation_shape",
+      "traceable_reasons",
+      "single_alternative"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "openai-gpt-5-codex",
+    "prompt_version": "agv7-qwen3-repair-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-11"
+  }
+}

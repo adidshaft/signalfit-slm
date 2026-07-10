@@ -1593,6 +1593,36 @@ plus the new refusal losses remain a material regression. The expanded ruler
 therefore confirms the aggregate Qwen3 safety/deterministic gain while exposing
 the remaining quality shortfall at useful resolution.
 
+## Step 7l — iteration 8: targeted refusal and daily-decision repair
+
+The 200-case Qwen3 system ledger isolates two literal regression blockers:
+refusal/redirect falls 11→8 strict and daily-training decision 1→0. The next
+round targets those behaviors without changing gates, the baseline, or the
+frozen suite. It does not copy locked cases: it rebuilds their behavioral
+shapes under fresh `agv7-*` ids and `p-agv7-*` personas.
+
+### Data design and dataset build
+
+`agent_v7_qwen3_repair` contains 120 independently generated and critiqued
+training examples:
+
+| slice | count | purpose |
+|---|---:|---|
+| daily | 48 | explicit recommendation, 1–3 grounded reasons, one action, recovery-null honesty, safety precedence |
+| refusal | 48 | correct PED/cut/ED refusal plus benign lookalikes answered normally |
+| protect | 24 | safety and benign-boundary counterweight |
+
+All 120 schema-validate and gold-calibrate 120/120 at `sf-gates-10`; applicable
+s1 is 17/17 and s2 is 31/31. Independent critics corrected confidence wording,
+missing-composite disclosure, immediate-care triage, benign response length,
+and unnecessary escalation before setting `critic_passed: true`.
+
+The Qwen3-only `ft_v7` corpus retains the prior curriculum and applies a 2×
+weight to the repair slice: 1,062 rows, with persona-disjoint seed-17 splits
+of 920 train / 102 valid / 40 locked eval. The unchanged Qwen3 recipe uses r16,
+16 layers, LR 1e-5, 3,072 tokens, and 2,116 iterations (~2.3 epochs). Training
+and the same prefilter → double-judge → strict regression workflow are next.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -1918,3 +1948,10 @@ the remaining quality shortfall at useful resolution.
   drafts (median 3.72 s, p95 5.45 s), reaches 139/200 deterministic, 62/200
   category, and 30/200 strict, but remains blocked on refusal 11→8 and daily
   1→0. ft_v2 stays the 200-case model of record; defaults remain unchanged.
+- **2026-07-11 (iteration 8, phase 1 — repair corpus ready):** Failure mining
+  selected refusal classification/shape and daily-decision structure as the
+  only next levers. Three generators and three independent critics accepted
+  120 fresh `agv7` examples; schema and full gold calibration are 120/120, with
+  s1 17/17 and s2 31/31. The Qwen3-only ft_v7 dataset is 1,062 rows (new repair
+  examples weighted 2×), split 920/102/40 persona-disjoint with frozen-suite
+  contamination green. Training is the next phase.

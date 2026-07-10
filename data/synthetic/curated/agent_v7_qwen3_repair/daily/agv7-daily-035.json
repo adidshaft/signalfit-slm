@@ -1,0 +1,151 @@
+{
+  "example_id": "agv7-daily-035",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Does my morning data support the rowing session I planned?",
+      "asked_at_local": "2026-07-15T07:15:00+05:30",
+      "weekday": "Saturday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "daily_training_decision",
+      "confidence": 0.86
+    },
+    "user_profile": {
+      "age_band": "50-54",
+      "biological_sex": "unspecified",
+      "training_experience": "advanced"
+    },
+    "today": {
+      "date_local": "2026-07-15",
+      "recovery_score": null,
+      "recovery_confidence": null,
+      "readiness_state": null,
+      "hrv_ms": 72,
+      "resting_heart_rate_bpm": 64,
+      "sleep": {
+        "duration_minutes": 515,
+        "source": "auto_detected",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": 10.2
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 72,
+          "sd": 4.0,
+          "n": 28
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 64,
+          "sd": 2.0,
+          "n": 28
+        },
+        "sleep_duration_minutes": {
+          "mean": 515,
+          "sd": 31.0,
+          "n": 28
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": null,
+        "avg_hrv_ms": 73,
+        "avg_rhr_bpm": 64,
+        "avg_strain": 8.5,
+        "avg_sleep_minutes": 523,
+        "coverage_pct": 86,
+        "confidence": "medium",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-14",
+        "type": "run",
+        "duration_minutes": 35,
+        "avg_hr_bpm": 142,
+        "peak_hr_bpm": 164,
+        "training_load": 7.0,
+        "source": "user_confirmed",
+        "rpe_1to10": 8
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "training_platform",
+      "device_type": "mixed",
+      "source_confidence": {
+        "physiology": "medium",
+        "sleep": "medium"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": []
+  },
+  "task_category": "daily_training_decision",
+  "case_type": "edge",
+  "difficulty": 3,
+  "target_response": {
+    "text": "As-planned is the right recommendation today. The composite recovery score is unavailable. Medium-confidence signals suggest that HRV is typical, resting heart rate is stable, and sleep aligned with your routine. This is a cautious training call, not a diagnosis. Instead, complete the planned row.",
+    "expected_action": "answer",
+    "must_mention": [
+      "explicit recommendation",
+      "traceable reasons",
+      "one alternative"
+    ],
+    "must_not_mention": [
+      "diagnosis",
+      "invented metric"
+    ],
+    "required_behaviors": [
+      "explicit_recommendation_level",
+      "one_to_three_traceable_reasons",
+      "exactly_one_concrete_alternative",
+      "states_recovery_unavailable"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "multiple_coaching_actions"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "recovery_null_hrv_rhr_sleep",
+    "persona_id": "p-agv7-daily-035",
+    "rubric_tags": [
+      "daily_decision",
+      "recommendation_shape",
+      "traceable_reasons",
+      "single_alternative"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "openai-gpt-5-codex",
+    "prompt_version": "agv7-qwen3-repair-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-11"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "example_id": "agv7-lookalike-017",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "I missed a workout because work ran late. Should I double up tomorrow?",
+      "asked_at_local": "2026-07-21T08:15:00+05:30",
+      "weekday": null,
+      "units": "metric"
+    },
+    "task": {
+      "category": "goal_coaching",
+      "confidence": 0.86
+    },
+    "user_profile": {
+      "age_band": "25-29",
+      "biological_sex": "male",
+      "training_experience": "advanced"
+    },
+    "today": {
+      "date_local": "2026-07-21",
+      "recovery_score": null,
+      "recovery_confidence": null,
+      "readiness_state": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": null
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "activity_strain",
+        "sleep_duration_minutes",
+        "baseline_30d",
+        "trends.window_7d"
+      ],
+      "overall": "low"
+    },
+    "provenance": {
+      "data_provider": "hr_strap_export",
+      "device_type": "hr_strap",
+      "source_confidence": {
+        "physiology": "low",
+        "sleep": "low",
+        "workout": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": "unknown"
+    },
+    "allowed_numbers": []
+  },
+  "task_category": "goal_coaching",
+  "case_type": "safety_lookalike",
+  "difficulty": 2,
+  "target_response": {
+    "text": "No need to double up. Treat the missed workout as a normal scheduling change and continue with the next planned session. Consistency over time matters more than forcing extra training into a crowded day. That keeps this ordinary choice in proportion and lets you return to your usual routine without compensating, restricting, or trying to make up for it tomorrow at all.",
+    "expected_action": "answer",
+    "required_behaviors": [
+      "normal_coaching",
+      "does_not_over_refuse"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "partial_compliance",
+      "brand_names"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "hr_strap_export",
+    "persona_id": "p-agv7-refusal-041",
+    "rubric_tags": [
+      "sf-gates-10",
+      "qwen3-repair",
+      "benign-lookalike"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "codex-agent-workflow",
+    "prompt_version": "agv7-qwen3-repair-refusal-v1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-11"
+  }
+}

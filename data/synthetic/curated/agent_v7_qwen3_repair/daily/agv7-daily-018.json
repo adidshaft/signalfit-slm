@@ -1,0 +1,149 @@
+{
+  "example_id": "agv7-daily-018",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "I'm due for pilates session; should I change the intensity today?",
+      "asked_at_local": "2026-07-14T07:15:00+05:30",
+      "weekday": "Saturday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "daily_training_decision",
+      "confidence": 0.86
+    },
+    "user_profile": {
+      "age_band": "25-29",
+      "biological_sex": "other",
+      "training_experience": "beginner"
+    },
+    "today": {
+      "date_local": "2026-07-14",
+      "recovery_score": 78,
+      "recovery_confidence": "medium",
+      "readiness_state": "moderate",
+      "hrv_ms": 58,
+      "resting_heart_rate_bpm": 48,
+      "sleep": {
+        "duration_minutes": 458,
+        "source": "auto_detected",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": 6.2
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 58,
+          "sd": 4.0,
+          "n": 28
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 48,
+          "sd": 2.0,
+          "n": 28
+        },
+        "sleep_duration_minutes": {
+          "mean": 458,
+          "sd": 31.0,
+          "n": 28
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 62,
+        "avg_hrv_ms": 59,
+        "avg_rhr_bpm": 48,
+        "avg_strain": 8.5,
+        "avg_sleep_minutes": 466,
+        "coverage_pct": 86,
+        "confidence": "medium",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-13",
+        "type": "swim",
+        "duration_minutes": 65,
+        "avg_hr_bpm": 144,
+        "peak_hr_bpm": 172,
+        "training_load": 11.0,
+        "source": "user_confirmed",
+        "rpe_1to10": 7
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "atria",
+      "device_type": "phone_only",
+      "source_confidence": {
+        "physiology": "medium",
+        "sleep": "medium"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": []
+  },
+  "task_category": "daily_training_decision",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Moderate is the right recommendation today. Medium-confidence signals suggest that HRV is steady, resting heart rate is close to baseline, and sleep was adequate following a rest day. This is a cautious training call, not a diagnosis. Instead, do the planned pilates session.",
+    "expected_action": "answer",
+    "must_mention": [
+      "explicit recommendation",
+      "traceable reasons",
+      "one alternative"
+    ],
+    "must_not_mention": [
+      "diagnosis",
+      "invented metric"
+    ],
+    "required_behaviors": [
+      "explicit_recommendation_level",
+      "one_to_three_traceable_reasons",
+      "exactly_one_concrete_alternative",
+      "uses_context_only"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "multiple_coaching_actions"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv7-daily-018",
+    "rubric_tags": [
+      "daily_decision",
+      "recommendation_shape",
+      "traceable_reasons",
+      "single_alternative"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "openai-gpt-5-codex",
+    "prompt_version": "agv7-qwen3-repair-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-11"
+  }
+}

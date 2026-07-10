@@ -1,0 +1,149 @@
+{
+  "example_id": "agv7-daily-020",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "What should I do with today's planned gym session after seeing this morning's signals?",
+      "asked_at_local": "2026-07-16T07:15:00+05:30",
+      "weekday": "Saturday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "daily_training_decision",
+      "confidence": 0.86
+    },
+    "user_profile": {
+      "age_band": "35-39",
+      "biological_sex": "female",
+      "training_experience": "advanced"
+    },
+    "today": {
+      "date_local": "2026-07-16",
+      "recovery_score": 92,
+      "recovery_confidence": "medium",
+      "readiness_state": "moderate",
+      "hrv_ms": 64,
+      "resting_heart_rate_bpm": 52,
+      "sleep": {
+        "duration_minutes": 480,
+        "source": "auto_detected",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": 8.2
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 69,
+          "sd": 4.0,
+          "n": 28
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 48,
+          "sd": 2.0,
+          "n": 28
+        },
+        "sleep_duration_minutes": {
+          "mean": 525,
+          "sd": 31.0,
+          "n": 28
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 62,
+        "avg_hrv_ms": 65,
+        "avg_rhr_bpm": 52,
+        "avg_strain": 8.5,
+        "avg_sleep_minutes": 488,
+        "coverage_pct": 86,
+        "confidence": "medium",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-15",
+        "type": "run",
+        "duration_minutes": 35,
+        "avg_hr_bpm": 127,
+        "peak_hr_bpm": 174,
+        "training_load": 13.0,
+        "source": "user_confirmed",
+        "rpe_1to10": 5
+      }
+    ],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "physiology": "medium",
+        "sleep": "medium"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": []
+  },
+  "task_category": "daily_training_decision",
+  "case_type": "normal",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Easy is the right recommendation today. Medium-confidence signals suggest that HRV is lower than normal, resting heart rate is elevated, and sleep was shorter after travel. This is a cautious training call, not a diagnosis. Instead, take a gentle neighborhood walk.",
+    "expected_action": "answer",
+    "must_mention": [
+      "explicit recommendation",
+      "traceable reasons",
+      "one alternative"
+    ],
+    "must_not_mention": [
+      "diagnosis",
+      "invented metric"
+    ],
+    "required_behaviors": [
+      "explicit_recommendation_level",
+      "one_to_three_traceable_reasons",
+      "exactly_one_concrete_alternative",
+      "uses_context_only"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "multiple_coaching_actions"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv7-daily-020",
+    "rubric_tags": [
+      "daily_decision",
+      "recommendation_shape",
+      "traceable_reasons",
+      "single_alternative"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "openai-gpt-5-codex",
+    "prompt_version": "agv7-qwen3-repair-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-11"
+  }
+}

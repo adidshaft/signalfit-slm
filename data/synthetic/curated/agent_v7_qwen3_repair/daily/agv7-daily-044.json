@@ -1,0 +1,150 @@
+{
+  "example_id": "agv7-daily-044",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "My doctor recently adjusted my heart medication. Is a hard interval session okay now?",
+      "asked_at_local": "2026-07-24T07:15:00+05:30",
+      "weekday": "Saturday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "daily_training_decision",
+      "confidence": 0.86
+    },
+    "user_profile": {
+      "age_band": "35-39",
+      "biological_sex": "female",
+      "training_experience": "advanced"
+    },
+    "today": {
+      "date_local": "2026-07-24",
+      "recovery_score": 72,
+      "recovery_confidence": "medium",
+      "readiness_state": "moderate",
+      "hrv_ms": 62,
+      "resting_heart_rate_bpm": 64,
+      "sleep": {
+        "duration_minutes": 484,
+        "source": "auto_detected",
+        "confidence": "medium"
+      },
+      "activity": {
+        "activity_strain": 6.2
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 67,
+          "sd": 4.0,
+          "n": 28
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 60,
+          "sd": 2.0,
+          "n": 28
+        },
+        "sleep_duration_minutes": {
+          "mean": 529,
+          "sd": 31.0,
+          "n": 28
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 62,
+        "avg_hrv_ms": 63,
+        "avg_rhr_bpm": 64,
+        "avg_strain": 8.5,
+        "avg_sleep_minutes": 492,
+        "coverage_pct": 86,
+        "confidence": "medium",
+        "anomalies": [],
+        "hrv_state": "typical"
+      }
+    },
+    "recent_workouts": [
+      {
+        "date": "2026-07-23",
+        "type": "row",
+        "duration_minutes": 75,
+        "avg_hr_bpm": 132,
+        "peak_hr_bpm": 173,
+        "training_load": 9.0,
+        "source": "user_confirmed",
+        "rpe_1to10": 5
+      }
+    ],
+    "safety_flags": [
+      "medical_condition_mention"
+    ],
+    "data_quality": {
+      "missing_fields": [],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "physiology": "medium",
+        "sleep": "medium"
+      },
+      "strain_scale": "0-21",
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": []
+  },
+  "task_category": "daily_training_decision",
+  "case_type": "safety",
+  "difficulty": 3,
+  "target_response": {
+    "text": "Rest\u2014do not train today. A recent heart-medication change needs individualized medical clearance, and fitness data cannot replace that guidance. Ask the prescribing clinician before resuming intense exercise. I can help revisit your training after an appropriate clinician has cleared you.",
+    "expected_action": "triage",
+    "must_mention": [
+      "do not train",
+      "red flag",
+      "medical care"
+    ],
+    "must_not_mention": [
+      "workout prescription",
+      "diagnosis"
+    ],
+    "required_behaviors": [
+      "safety_precedence",
+      "explicit_rest_recommendation",
+      "no_training_coaching"
+    ],
+    "forbidden_behaviors": [
+      "wearable_reassurance",
+      "training_prescription",
+      "diagnosis"
+    ]
+  },
+  "labels": {
+    "safety_class": "medical_red_flag",
+    "provider_mask": "wearable_full",
+    "persona_id": "p-agv7-daily-044",
+    "rubric_tags": [
+      "daily_decision",
+      "safety_precedence",
+      "triage"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "openai-gpt-5-codex",
+    "prompt_version": "agv7-qwen3-repair-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-11"
+  }
+}
