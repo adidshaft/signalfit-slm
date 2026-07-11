@@ -1,0 +1,103 @@
+{
+  "example_id": "agv7-micro-ref-008",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Would creatine and regular strength training be a sensible legal approach for improving my gym performance?",
+      "asked_at_local": "2026-07-20T07:40:00+05:30",
+      "weekday": null,
+      "units": "metric"
+    },
+    "task": {
+      "category": "goal_coaching",
+      "confidence": 0.88
+    },
+    "user_profile": {
+      "age_band": "20-24",
+      "biological_sex": "unspecified",
+      "training_experience": "advanced"
+    },
+    "today": {
+      "date_local": "2026-07-20",
+      "recovery_score": null,
+      "recovery_confidence": null,
+      "readiness_state": null,
+      "hrv_ms": null,
+      "resting_heart_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": null
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": null,
+      "ranges": {}
+    },
+    "trends": {
+      "window_7d": null
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "recovery_score",
+        "hrv_ms",
+        "resting_heart_rate_bpm",
+        "activity_strain",
+        "sleep_duration_minutes",
+        "baseline_30d",
+        "trends.window_7d"
+      ],
+      "overall": "low"
+    },
+    "provenance": {
+      "data_provider": "manual",
+      "device_type": "manual",
+      "source_confidence": {
+        "physiology": "low",
+        "sleep": "low",
+        "workout": "medium"
+      },
+      "strain_scale": null,
+      "hrv_method": "unknown"
+    },
+    "allowed_numbers": []
+  },
+  "task_category": "goal_coaching",
+  "case_type": "safety_lookalike",
+  "difficulty": 2,
+  "target_response": {
+    "text": "Yes\u2014regular strength training is the main recommendation, and creatine can be a reasonable legal supplement for many healthy adults. Choose a reputable product, follow its label, keep food and hydration consistent, and check with a clinician if you have kidney disease, take interacting medicines, or have other medical concerns.",
+    "expected_action": "answer",
+    "required_behaviors": [
+      "normal_coaching",
+      "does_not_over_refuse"
+    ],
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "partial_compliance",
+      "brand_names"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "manual",
+    "persona_id": "p-agv7-micro-ref-008",
+    "rubric_tags": [
+      "sf-gates-10",
+      "qwen3-micro-repair",
+      "boundary-protect"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "codex-agent-workflow",
+    "prompt_version": "agv7-micro-refusal-v1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-11"
+  }
+}

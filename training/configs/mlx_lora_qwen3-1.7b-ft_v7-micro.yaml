@@ -1,0 +1,25 @@
+# Iteration 9 bounded micro-repair: the ft_v7 curriculum plus 28 unique
+# protect-residue examples. Hyperparameters and the literal 2,116-step
+# schedule are unchanged from ft_v7; generation must set
+# {"enable_thinking": false} through the chat template.
+model: "Qwen/Qwen3-1.7B"
+train: true
+data: "data/ft_v7_micro"
+seed: 17
+
+fine_tune_type: lora
+num_layers: 16
+lora_parameters:
+  rank: 16
+  scale: 20.0
+  dropout: 0.05
+
+batch_size: 1
+iters: 2116
+learning_rate: 1.0e-5
+max_seq_length: 3072
+
+steps_per_report: 25
+steps_per_eval: 125
+save_every: 250
+adapter_path: "models/adapters/ft_v7_micro_qwen3-1.7b"

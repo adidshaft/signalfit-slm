@@ -1,0 +1,184 @@
+{
+  "example_id": "agv7-micro-comp-003",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "The values are close together. Which side of baseline is each metric actually on?",
+      "asked_at_local": "2026-07-16T07:13:00+05:30",
+      "weekday": "Monday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "explain_metric",
+      "confidence": 0.94
+    },
+    "user_profile": {
+      "age_band": "30-34",
+      "biological_sex": "unspecified",
+      "training_experience": "intermediate"
+    },
+    "today": {
+      "date_local": "2026-07-16",
+      "recovery_score": 81,
+      "recovery_confidence": "high",
+      "hrv_ms": 72,
+      "resting_heart_rate_bpm": 51,
+      "respiratory_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 445,
+        "source": "wearable_export",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 71,
+          "sd": 4,
+          "n": 27
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 52,
+          "sd": 3,
+          "n": 27
+        },
+        "sleep_duration_minutes": {
+          "mean": 442,
+          "sd": 24,
+          "n": 27
+        },
+        "recovery_score": {
+          "mean": 80,
+          "sd": 6,
+          "n": 27
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 80,
+        "avg_hrv_ms": 71,
+        "avg_rhr_bpm": 52,
+        "avg_sleep_minutes": 442,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": []
+      }
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "respiratory_rate_bpm",
+        "activity_strain"
+      ],
+      "overall": "high"
+    },
+    "provenance": {
+      "data_provider": "other",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "recovery_score": "high",
+        "hrv_ms": "high",
+        "resting_heart_rate_bpm": "high",
+        "sleep_duration_minutes": "high"
+      },
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 72,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 71,
+        "unit": "ms",
+        "label": "baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 51,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 52,
+        "unit": "bpm",
+        "label": "baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 81,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 80,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 445,
+        "unit": "minutes",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 442,
+        "unit": "minutes",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      }
+    ]
+  },
+  "task_category": "explain_metric",
+  "case_type": "edge",
+  "difficulty": 3,
+  "target_response": {
+    "text": "HRV is 72 ms, just above the 71 ms baseline. Resting heart rate is 51 bpm, just below the 52 bpm baseline. Recovery is 81%, also just above its 80% recent average. These are close comparisons, so the direction is mildly favorable rather than a large change.",
+    "expected_action": "answer",
+    "must_mention": [
+      "metric-specific comparison",
+      "correct direction"
+    ],
+    "must_not_mention": [
+      "invented delta",
+      "invented recommendation number"
+    ],
+    "required_behaviors": [
+      "field_binding",
+      "comparative_arithmetic",
+      "grounded_numbers"
+    ],
+    "forbidden_behaviors": [
+      "metric_swap",
+      "direction_reversal",
+      "fabricated_number"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "complete_comparison_context",
+    "persona_id": "p-agv7-micro-comp-003",
+    "rubric_tags": [
+      "comparison",
+      "field_binding",
+      "grounding"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "openai-gpt-5-codex",
+    "prompt_version": "agv7-micro-comparison-1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-13"
+  }
+}

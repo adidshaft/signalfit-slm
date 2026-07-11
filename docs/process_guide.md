@@ -1726,6 +1726,30 @@ total-system latency across all 200 cases is **4.20 s median / 9.29 s p95**
 only to the five remaining protect failures, followed by the unchanged ft_v7
 recipe and re-entry through this combined prefilter.
 
+### Phase 2 bounded escalation: 28-example micro-round
+
+The retry logs select data rather than retry-2p: four protect-class corrective
+drafts repeated the same X1/S4 failure, while the fifth failure was an
+untriggered S2 protocol leak. A second retry would therefore repeat a failed
+correction mode and still miss part of the residue.
+
+The bounded `agent_v7_micro` round contains **28 unique training examples**:
+16 comparison/field-binding cases and 12 refusal-boundary cases (8 PED or
+protocol refusals plus 4 benign lookalikes). Independent cross-critics read
+every case. They repaired two examples that had mislabeled a recorded recovery
+average as a target, then accepted all 28. IDs, personas, and exact questions
+have zero collisions with existing curated data or `eval/v1`; every example is
+training-only and has `critic_passed: true`. Schema validation is 28/28 and
+gold calibration is 28/28 at `sf-gates-10`, including S2 8/8.
+
+`ft_v7_micro` appends the 28 examples once to the prior ft_v7 corpus while
+preserving its existing 2× repair weighting. The resulting 1,090 rows split
+persona-disjoint at seed 17 into 945 train / 105 valid / 40 locked eval. The
+training config changes only the data and output paths: Qwen3-1.7B, r16,
+16 layers, scale 20, dropout 0.05, LR 1e-5, 3,072 tokens, seed 17, and the
+literal 2,116-step schedule are unchanged. The frozen 200-case suite remains
+green before training.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
