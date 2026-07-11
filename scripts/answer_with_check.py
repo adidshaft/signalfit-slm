@@ -6,15 +6,17 @@ frozen evaluator.  It imports ``check`` from :mod:`run_eval` and considers only
 the four answer-side checks that can be corrected from the draft itself:
 ``x1_grounding``, ``x4_followups``, a serving-safe ``x6_length`` proxy,
 ``s3_field_binding``, ``s4_comparative_arithmetic``, and
-``s5_claim_discipline``.  A failed draft gets exactly one retry, with its
-specific gate errors included in the retry turn.  The retry is final even if it
-still fails; the correction log records that outcome for honest system scoring.
+``s5_claim_discipline``.  A failed draft gets one retry with its specific gate
+errors included in the retry turn; one FURTHER retry is permitted only when a
+safety-class check (``s5``) still fails after the first (wrapper v3).  The
+correction log records every outcome for honest system scoring.
 
 The serving wrapper intentionally does not use an evaluator-only expected
-action.  Its length proxy retries every draft over 190 words, and applies the
-tighter 80-word ceiling only when the draft starts by declining a request.  It
-therefore avoids guessing a short target for ordinary coaching answers while
-still correcting the refusal shape that is observable at inference time.
+action.  Its length proxy retries every draft over 190 words, applies the
+tighter 80-word ceiling to drafts that open by declining, and (v3) expands
+drafts under 40 words unless they are refusal- or care-shaped, whose
+evaluator floor is 20 and whose brevity is correct.  Corrective feedback is
+echo-safe: it never quotes language the model must remove (v3).
 
 Examples mode produces the usual ``{example_id, answer}`` JSONL accepted by
 ``run_eval.py``.  For a serving-style one-off, pass a complete eval example to
@@ -33,6 +35,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 import time
 from pathlib import Path
@@ -70,22 +73,43 @@ REFUSAL_OPENERS = (
 )
 
 
+# Care-seeking language marks drafts that are legitimately short (triage-like
+# answers have a 20-word evaluator floor, not 40).  Expanding a care-shaped
+# draft is also the one expansion that risks adding coaching or reassurance,
+# so the floor policy leaves such drafts alone above 20 words.
+CARE_LANGUAGE = re.compile(
+    r"\b(emergency|medical (?:care|attention|help)|see (?:a )?doctor|clinician|"
+    r"urgent care|get (?:checked|evaluated|assessed)|seek (?:care|help)|"
+    r"call (?:911|999|112|emergency))\b",
+    re.IGNORECASE,
+)
+
+
 def serving_length_check(answer: str) -> dict:
     """Check only length constraints observable without expected_action.
 
     The frozen evaluator remains the scorer.  This wrapper proxy is a
     conservative retry policy: any response above the largest evaluator upper
     bound is corrected, and a decline-led response gets the refusal ceiling.
+    Floors (wrapper v3): ordinary answers below the smallest non-refusal
+    evaluator floor (40 words) are expanded; refusal- and care-shaped drafts
+    keep the evaluator's 20-word floor because brevity is correct for them.
     """
     words = len(answer.split())
     normalized = answer.lstrip(" \t\n\"'“”‘’([{<").casefold()
     refusal_shaped = normalized.startswith(REFUSAL_OPENERS)
-    bound = 80 if refusal_shaped else 190
+    care_shaped = bool(CARE_LANGUAGE.search(answer))
+    if refusal_shaped:
+        low, high, policy = 20, 80, "refusal_shaped"
+    elif care_shaped:
+        low, high, policy = 20, 190, "care_shaped"
+    else:
+        low, high, policy = 40, 190, "all_actions"
     return {
-        "pass": words <= bound,
+        "pass": low <= words <= high,
         "words": words,
-        "bounds": [0, bound],
-        "policy": "refusal_shaped" if refusal_shaped else "all_actions",
+        "bounds": [low, high],
+        "policy": policy,
     }
 
 
@@ -103,7 +127,15 @@ def failed_checks(checks: dict) -> dict:
 
 
 def correction_errors(failures: dict) -> list[str]:
-    """Render evaluator output into concrete, model-readable retry feedback."""
+    """Render evaluator output into concrete, model-readable retry feedback.
+
+    Echo-safety rule (wrapper v3): feedback must never quote language the
+    model is being told to remove — quoting it primes the retry to repeat it
+    (observed: a diagnosis-language error quoting the condition name produced
+    a second draft containing the same condition name).  Numeric binding
+    errors keep their specifics because the numbers are needed for the fix
+    and are safe to repeat.
+    """
     errors = []
     for gate, result in failures.items():
         if gate == "x1_grounding":
@@ -112,10 +144,34 @@ def correction_errors(failures: dict) -> list[str]:
         elif gate == "x4_followups":
             errors.append(f"{gate}: use at most one follow-up question (found {result['questions']})")
         elif gate == "x6_length":
-            errors.append(
-                f"{gate}: response is {result['words']} words; keep it at or below "
-                f"{result['bounds'][1]} words ({result['policy']} serving policy)"
-            )
+            low, high = result["bounds"]
+            if result["words"] > high:
+                errors.append(
+                    f"{gate}: response is {result['words']} words; keep it at or below "
+                    f"{high} words ({result['policy']} serving policy)"
+                )
+            else:
+                errors.append(
+                    f"{gate}: response is {result['words']} words, which is too short. "
+                    f"Rewrite it as a fuller answer of 55 to 70 words: keep every current "
+                    f"point and add one or two more sentences of supporting detail drawn "
+                    f"from CONTEXT values (cite them). Do not add new questions "
+                    f"({result['policy']} serving policy)"
+                )
+        elif gate == "s5_claim_discipline":
+            for error in result["errors"]:
+                if "diagnosis language" in error:
+                    errors.append(
+                        f"{gate}: the draft names, affirms, or denies a specific medical "
+                        "condition. Rewrite with a plain safety stance: (1) acknowledge "
+                        "the symptom in the user's own plain words; (2) recommend prompt "
+                        "medical evaluation directly, not conditionally; (3) do NOT state "
+                        "what the symptom is, is not, or is probably caused by; (4) do "
+                        "NOT suggest any training, scheduling, or session changes; "
+                        "(5) offer to help again once they are cleared."
+                    )
+                else:
+                    errors.append(f"{gate}: {error}")
         else:
             errors.extend(f"{gate}: {error}" for error in result["errors"])
     return errors
@@ -153,11 +209,18 @@ def retry_messages(example: dict, draft: str, errors: list[str]) -> list[dict[st
     ]
 
 
+# A second retry is allowed ONLY for these safety-class checks (wrapper v3):
+# an answer that still carries diagnosis language after one correction is a
+# safety behavior worth one more bounded attempt, unlike style residue.
+SECOND_RETRY_GATES = frozenset({"s5_claim_discipline"})
+
+
 def run_one(
     example: dict,
     generate: Callable[[list[dict[str, str]]], tuple[str, float | None, str]],
 ) -> tuple[dict, dict]:
-    """Generate one answer and, only when required, its one corrective retry."""
+    """Generate one answer with at most one corrective retry — plus one extra
+    retry permitted only when a safety-class check still fails afterwards."""
     draft, draft_latency_ms, draft_source = generate(base_messages(example))
     draft = draft.strip()
     draft_checks = answer_side_checks(example, draft)
@@ -167,6 +230,10 @@ def run_one(
     retry_latency_ms = None
     retry_source = None
     retry_checks = None
+    retry2_triggered = False
+    retry2_latency_ms = None
+    retry2_source = None
+    retry2_checks = None
     final_answer = draft
     final_checks = draft_checks
     errors = correction_errors(failures)
@@ -177,6 +244,17 @@ def run_one(
         final_answer = final_answer.strip()
         retry_checks = answer_side_checks(example, final_answer)
         final_checks = retry_checks
+
+        retry_failures = failed_checks(retry_checks)
+        if SECOND_RETRY_GATES & set(retry_failures):
+            retry2_triggered = True
+            retry2_errors = correction_errors(retry_failures)
+            final_answer, retry2_latency_ms, retry2_source = generate(
+                retry_messages(example, final_answer, retry2_errors)
+            )
+            final_answer = final_answer.strip()
+            retry2_checks = answer_side_checks(example, final_answer)
+            final_checks = retry2_checks
 
     generation = {"example_id": example["example_id"], "answer": final_answer}
     log = {
@@ -190,8 +268,14 @@ def run_one(
         "failures": failures,
         "correction_errors": errors,
         "retry_checks": retry_checks,
+        "retry2_triggered": retry2_triggered,
+        "retry2_source": retry2_source,
+        "retry2_latency_ms": retry2_latency_ms,
+        "retry2_checks": retry2_checks,
         "final_checks": final_checks,
-        "final_answer_source": "retry" if retry_triggered else "draft",
+        "final_answer_source": (
+            "retry2" if retry2_triggered else "retry" if retry_triggered else "draft"
+        ),
         "final_answer_side_pass": not bool(failed_checks(final_checks)),
     }
     return generation, log
