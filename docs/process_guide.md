@@ -1672,6 +1672,29 @@ The next justified lever is a Qwen3-only repair round that restores protected
 comparison/field-binding behavior alongside the refusal/daily examples; no
 further Qwen3.5 capacity retry is justified on this hardware.
 
+## Step 7m — iteration 9: combine ft_v7 with bounded verification
+
+Iteration 8 left two complementary artifacts that had not been evaluated as a
+single system: the ft_v7 adapter learned refusal/daily repair behavior but
+missed four deterministic protect cases, while the one-retry wrapper corrected
+deterministic draft failures and reached the best strict aggregate (31/200) but
+still missed the refusal/daily category bar. Iteration 9 composes them without
+changing the frozen suite, gates, rubric, or incumbent baseline.
+
+The prefilter now accepts an optional second judged protect report. Its first
+set remains ft_v2's 30 strict passes; the second set is exactly the retry
+system's 16 strict gains over ft_v2. A candidate must preserve both sets
+deterministically, in addition to the aggregate and s1/s2/s3 floors, before any
+judge sees it. Focused tests prove the original single-protect behavior is
+unchanged and that a lost secondary gain rejects the candidate.
+
+The previous authorized disk cleanup removed the final ft_v7 adapter and both
+Qwen3.5 artifacts before this iteration objective arrived. Recovery therefore
+re-runs the committed seed-17 ft_v7 recipe unchanged. The exact pinned
+Qwen3.5-2B revision (`15852e8c…`) was downloaded, converted back to the
+documented 4.503-bit local base, and its 4.3 GB source cache removed; the 1.0 GB
+converted base is retained. No Qwen3.5 training is attempted.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -2019,3 +2042,11 @@ further Qwen3.5 capacity retry is justified on this hardware.
   four protected baseline passes: one 113-word refusal, and three grounded
   comparison errors (`agen-v1-000231`, `ev1x-core2-000002`,
   `ev1x-core2-000079`). No judge pass ran; ft_v2 remains incumbent.
+- **2026-07-11 (iteration 9, setup and artifact recovery):** Defined the
+  combined `ft_v7 + verify/retry-1` system and added a second deterministic
+  protect set containing the retry system's 16 strict gains over ft_v2, while
+  retaining the original 30 ft_v2 strict protects and all aggregate/safety
+  floors. The prior cleanup had removed ft_v7 and both Qwen3.5 artifacts, so
+  the exact committed ft_v7 recipe is being reconstructed. Restored the pinned
+  Qwen3.5-2B revision as the documented 1.0 GB / 4.503-bit local base, removed
+  its 4.3 GB source cache, and made no Qwen3.5 training attempt.
