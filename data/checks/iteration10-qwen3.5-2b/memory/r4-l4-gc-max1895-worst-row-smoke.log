@@ -1,0 +1,65 @@
+Loading configuration file training/configs/mlx_lora_qwen3.5-2b-ft_v7-micro-i10-r4l4.yaml
+Loading pretrained model
+Loading datasets
+Training
+Trainable parameters: 0.037% (0.701M/1881.825M)
+Starting training..., iters: 1
+Calculating loss...:   0%|          | 0/1 [00:00<?, ?it/s]Calculating loss...: 100%|██████████| 1/1 [00:01<00:00,  1.28s/it]Calculating loss...: 100%|██████████| 1/1 [00:01<00:00,  1.28s/it]
+[WARNING] Some sequences are longer than 1895 tokens. The longest sentence 2248 will be truncated to 1895. Consider pre-splitting your data to save memory.
+Iter 1: Val loss 1.339, Val took 1.295s
+libc++abi: terminating due to uncaught exception of type std::runtime_error: [METAL] Command buffer execution failed: Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+[Amans-MacBook-Pro:88321] *** Process received signal ***
+[Amans-MacBook-Pro:88321] Signal: Abort trap: 6 (6)
+[Amans-MacBook-Pro:88321] Signal code:  (0)
+[Amans-MacBook-Pro:88321] [ 0] 0   libsystem_platform.dylib            0x000000019d0c8144 _sigtramp + 56
+[Amans-MacBook-Pro:88321] [ 1] 0   libsystem_pthread.dylib             0x000000019d0bd978 pthread_kill + 296
+[Amans-MacBook-Pro:88321] [ 2] 0   libsystem_c.dylib                   0x000000019cfc0398 abort + 148
+[Amans-MacBook-Pro:88321] [ 3] 0   libc++abi.dylib                     0x000000019d074304 _ZN10__cxxabiv116__shim_type_infoD1Ev + 0
+[Amans-MacBook-Pro:88321] [ 4] 0   libc++abi.dylib                     0x000000019d061660 _ZL28demangling_terminate_handlerv + 272
+[Amans-MacBook-Pro:88321] [ 5] 0   libobjc.A.dylib                     0x000000019cc56118 _ZL15_objc_terminatev + 172
+[Amans-MacBook-Pro:88321] [ 6] 0   libc++abi.dylib                     0x000000019d0712b0 _ZSt11__terminatePFvvE + 16
+[Amans-MacBook-Pro:88321] [ 7] 0   libc++abi.dylib                     0x000000019d0737bc __cxa_get_exception_ptr + 0
+[Amans-MacBook-Pro:88321] [ 8] 0   libc++abi.dylib                     0x000000019d06018c __cxa_get_globals + 0
+[Amans-MacBook-Pro:88321] [ 9] 0   libmlx.dylib                        0x000000010bc163e4 _ZN3mlx4core3gpu11check_errorEPN3MTL13CommandBufferE + 244
+[Amans-MacBook-Pro:88321] [10] 0   libmlx.dylib                        0x000000010bc15bf4 ___ZN3MTL13CommandBuffer19addCompletedHandlerERKNSt3__18functionIFvPS0_EEE_block_invoke + 48
+[Amans-MacBook-Pro:88321] [11] 0   Metal                               0x00000001a9bae8e0 MTLDispatchListApply + 52
+[Amans-MacBook-Pro:88321] [12] 0   Metal                               0x00000001a9baed40 -[_MTLCommandBuffer didCompleteWithStartTime:endTime:error:] + 680
+[Amans-MacBook-Pro:88321] [13] 0   IOGPU                               0x00000001c549b474 -[IOGPUMetalCommandBuffer didCompleteWithStartTime:endTime:error:] + 240
+[Amans-MacBook-Pro:88321] [14] 0   Metal                               0x00000001a9bae978 -[_MTLCommandQueue commandBufferDidComplete:startTime:completionTime:error:] + 108
+[Amans-MacBook-Pro:88321] [15] 0   IOGPU                               0x00000001c549cbcc __62-[IOGPUMetalCommandBuffer fillCommandBufferArgs:commandQueue:]_block_invoke.52 + 176
+[Amans-MacBook-Pro:88321] [16] 0   IOGPU                               0x00000001c54a809c IOGPUNotificationQueueDispatchAvailableCompletionNotifications + 136
+[Amans-MacBook-Pro:88321] [17] 0   IOGPU                               0x00000001c54a81ac __IOGPUNotificationQueueSetDispatchQueue_block_invoke + 64
+[Amans-MacBook-Pro:88321] [18] 0   libdispatch.dylib                   0x000000019cf16644 _dispatch_client_callout4 + 16
+[Amans-MacBook-Pro:88321] [19] 0   libdispatch.dylib                   0x000000019cf18fe0 _dispatch_mach_msg_invoke + 480
+[Amans-MacBook-Pro:88321] [20] 0   libdispatch.dylib                   0x000000019cf04e84 _dispatch_lane_serial_drain + 332
+[Amans-MacBook-Pro:88321] [21] 0   libdispatch.dylib                   0x000000019cf19d38 _dispatch_mach_invoke + 472
+[Amans-MacBook-Pro:88321] [22] 0   libdispatch.dylib                   0x000000019cf04e84 _dispatch_lane_serial_drain + 332
+[Amans-MacBook-Pro:88321] [23] 0   libdispatch.dylib                   0x000000019cf05b54 _dispatch_lane_invoke + 448
+[Amans-MacBook-Pro:88321] [24] 0   libdispatch.dylib                   0x000000019cf04e84 _dispatch_lane_serial_drain + 332
+[Amans-MacBook-Pro:88321] [25] 0   libdispatch.dylib                   0x000000019cf05b1c _dispatch_lane_invoke + 392
+[Amans-MacBook-Pro:88321] [26] 0   libdispatch.dylib                   0x000000019cf0ffc0 _dispatch_root_queue_drain_deferred_wlh + 284
+[Amans-MacBook-Pro:88321] [27] 0   libdispatch.dylib                   0x000000019cf0f8c4 _dispatch_workloop_worker_thread + 720
+[Amans-MacBook-Pro:88321] [28] 0   libsystem_pthread.dylib             0x000000019d0b9f98 _pthread_wqthread + 292
+[Amans-MacBook-Pro:88321] [29] 0   libsystem_pthread.dylib             0x000000019d0b8cd8 start_wqthread + 8
+[Amans-MacBook-Pro:88321] *** End of error message ***
+time: command terminated abnormally
+       30.40 real        21.74 user         2.77 sys
+          4431609856  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              341035  page reclaims
+                3190  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   1  messages sent
+                   0  messages received
+                   1  signals received
+                4570  voluntary context switches
+               91972  involuntary context switches
+        245093118714  instructions retired
+         97409124346  cycles elapsed
+         21214220368  peak memory footprint
+/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:475: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-bdtoifjw'}
+  warnings.warn(

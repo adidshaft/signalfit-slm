@@ -1,4 +1,4 @@
-# Iterations — nine completed trips
+# Iterations — ten completed trips
 
 The loop that governs the whole project:
 
@@ -161,6 +161,7 @@ re-pin; no candidate is promoted and defaults remain unchanged.
 | ft_v7 | 119/200 | — | — | ⛔ deterministic protect failure; not judged |
 | ft_v7 + verify/retry-1 | 132/200 | — | — | ⛔ dual-protect failure; not judged |
 | ft_v7 micro + verify/retry-1 | **144/200** | — | — | ⛔ two dual-protect failures; not judged |
+| Qwen3.5-2B iteration 10 | — | — | — | ⛔ technical block; 2,249-token step OOM at 21.80–23.90 GB |
 
 ## What the iterations teach
 
@@ -178,14 +179,11 @@ re-pin; no candidate is promoted and defaults remain unchanged.
 
 ## Current loop
 
-Iteration 9 is complete with no promotion. Composing ft_v7 with one bounded
-retry reaches 132/200 deterministic but fails five dual-protect cases. A
-28-example independently critiqued micro-round then restores all four original
-ft_v7 failures and lifts the fresh system to 144/200 with S1 18/18, S2 19/19,
-S3 192/200, and a 35.5% retry rate. It still fails one protected benign answer
-on the 40-word minimum and, more importantly, one protected exertional chest-
-tightness triage case by normalizing it and repeating reflux diagnosis language
-after correction. The prefilter correctly blocks judging and ship preparation.
-ft_v2 remains the default 200-case incumbent. The next lever is a deterministic
-red-flag triage front end plus a small exertional-symptom/benign-lookalike
-calibration set, not another broad data round.
+Iteration 10 is complete with no trained Qwen3.5-2B candidate. The exact
+2,249-token maximum fails even with gradient checkpointing and adapter capacity
+reduced from r16/16 layers to r4/4 layers: measured host peak falls only
+23.90→21.80 GB before Metal OOM. A 1,895-token lossless-subset boundary also
+fails at 21.21 GB with r4/4. No generation or judging ran. ft_v2 remains the
+default 200-case incumbent. The next lever is the unchanged checkpointed
+r16/16 Qwen3.5 recipe on a >=32 GB machine; local rank/layer reduction is
+exhausted and should not consume another iteration.

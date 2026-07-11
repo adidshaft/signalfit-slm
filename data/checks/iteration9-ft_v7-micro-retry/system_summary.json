@@ -1,0 +1,65 @@
+{
+  "count": 200,
+  "retry_count": 71,
+  "retry_rate": 0.355,
+  "latency": {
+    "draft_all_cases": {
+      "n": 200,
+      "median_ms": 3580.0,
+      "p95_ms": 7370.5,
+      "percentile_method": "linear interpolation at (n-1)*p"
+    },
+    "retry_retried_cases_only": {
+      "n": 71,
+      "median_ms": 3984.6,
+      "p95_ms": 8258.0,
+      "percentile_method": "linear interpolation at (n-1)*p"
+    },
+    "total_system_all_cases": {
+      "n": 200,
+      "median_ms": 4129.6,
+      "p95_ms": 12723.0,
+      "percentile_method": "linear interpolation at (n-1)*p"
+    }
+  },
+  "protected_cases": {
+    "agen-v1-000135": {
+      "previous_deterministic_pass": true,
+      "current_deterministic_pass": true,
+      "flipped_fail_to_pass": false,
+      "retry_triggered": false,
+      "draft_failed_checks": [],
+      "final_wrapper_checks_pass": true,
+      "final_eval_failed_gates": []
+    },
+    "agen-v1-000231": {
+      "previous_deterministic_pass": false,
+      "current_deterministic_pass": true,
+      "flipped_fail_to_pass": true,
+      "retry_triggered": false,
+      "draft_failed_checks": [],
+      "final_wrapper_checks_pass": true,
+      "final_eval_failed_gates": []
+    },
+    "ev1x-core2-000002": {
+      "previous_deterministic_pass": false,
+      "current_deterministic_pass": true,
+      "flipped_fail_to_pass": true,
+      "retry_triggered": false,
+      "draft_failed_checks": [],
+      "final_wrapper_checks_pass": true,
+      "final_eval_failed_gates": []
+    },
+    "ev1x-core2-000079": {
+      "previous_deterministic_pass": false,
+      "current_deterministic_pass": true,
+      "flipped_fail_to_pass": true,
+      "retry_triggered": true,
+      "draft_failed_checks": [
+        "s4_comparative_arithmetic"
+      ],
+      "final_wrapper_checks_pass": true,
+      "final_eval_failed_gates": []
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "base_model": "Qwen/Qwen3.5-2B",
+  "revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+  "local_base": "models/bases/qwen3.5-2b-4bit-15852e8",
+  "machine_memory_bytes": 25769803776,
+  "mlx_version": "0.31.2",
+  "mlx_lm_version": "0.31.3",
+  "dataset": "data/ft_v7_micro",
+  "train_count": 945,
+  "train_token_p95": 2157,
+  "train_token_max": 2249,
+  "valid_count": 105,
+  "valid_token_max": 2248,
+  "gradient_checkpointing": true,
+  "attempts": [
+    {"rank": 16, "layers": 16, "tokens": 450, "trainable_parameters": 11213000, "peak_footprint_bytes": 9512177120, "outcome": "step_completed"},
+    {"rank": 16, "layers": 16, "tokens": 2249, "trainable_parameters": 11213000, "peak_footprint_bytes": 23899741504, "outcome": "metal_oom"},
+    {"rank": 8, "layers": 8, "tokens": 2249, "trainable_parameters": 2803000, "peak_footprint_bytes": 22647395704, "outcome": "metal_oom"},
+    {"rank": 4, "layers": 4, "tokens": 2249, "trainable_parameters": 701000, "peak_footprint_bytes": 21799948968, "outcome": "metal_oom"},
+    {"rank": 16, "layers": 16, "tokens": 1895, "trainable_parameters": 11213000, "peak_footprint_bytes": 23056652984, "outcome": "metal_oom"},
+    {"rank": 4, "layers": 4, "tokens": 1895, "trainable_parameters": 701000, "peak_footprint_bytes": 21214220368, "outcome": "metal_oom"}
+  ],
+  "verdict": "technical_block_no_candidate"
+}

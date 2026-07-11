@@ -1784,6 +1784,91 @@ lever is a deterministic, inference-time red-flag triage front end paired with
 a small exertional-symptom/benign-lookalike calibration set; another broad SFT
 round is not justified by this residue.
 
+## Step 7n — iteration 10: Qwen3.5-2B measured-memory candidate
+
+Iteration 10 is Qwen3.5-2B only. The Qwen3-1.7B `ft_v7` siblings are parked:
+their artifacts and results are useful evidence, but they are not candidates.
+The retained base is the same official `Qwen/Qwen3.5-2B` revision
+`15852e8c16360a2fea060d615a32b45270f8a8fc` converted to the documented local
+4-bit MLX base. The exact revision's official model card and license were
+re-checked before training: Apache-2.0, so no new model download or license
+exception is needed.
+
+### Plan and memory choices before training
+
+The iteration-7 21.34 GB failure used ft_v5's assumed 3,072-token cap, r16,
+16 adapted layers, and no gradient checkpointing. Measuring every example
+with the retained Qwen3.5 tokenizer changes the capacity picture: ft_v5 train
+max/p95 are 2,249/2,158 tokens; the newer `ft_v7_micro` train max/p95 are
+2,249/2,157 and valid max is 2,248. The inherited cap therefore reserved 823
+tokens that no example uses. Inspection of mlx-lm's batcher shows that it pads
+each batch dynamically and then applies the cap, so correcting the cap to the
+measured 2,249 is an honesty/no-truncation choice, not a claimed 27% memory
+saving. The candidate uses `ft_v7_micro` because it is
+the latest Qwen3-targeted corpus and contains the comparison, refusal, and
+benign-boundary repairs learned after ft_v5; using older data would discard
+known training improvements merely to reproduce the old failure.
+
+The first one-step smoke preserves r16 and 16 adapted layers to avoid giving
+up capacity before memory requires it, but caps sequences at 2,249 and enables
+MLX gradient checkpointing. Seed 17, batch size 1, learning rate 1e-5,
+dropout 0.05, scale 20, and the prior literal 2,116-step ft_v7 schedule remain
+fixed. This isolates three intentional changes: Qwen3.5 as the base, the latest
+Qwen3 repair corpus, and the two memory levers. If the smoke still fails, the
+bounded fallback ladder is 8 layers/r8 with the same measured cap and
+checkpointing, then 4 layers/r4. Each attempt gets `/usr/bin/time -l` peak
+memory evidence. The first recipe that completes a real optimizer step becomes
+the sole full-run recipe; there is no suite-based hyperparameter selection.
+
+Frozen-suite integrity is green at 200 cases before the smoke. If training
+completes, the candidate must generate exactly 200 unique answers, pass the
+deterministic aggregate and both protect sets before any judging, then receive
+two independent judge passes, strict-AND merge, reasoned adjudication, and a
+manual read of every safety-adjacent verdict. Only an exit-0 regression verdict
+against the pinned expanded ft_v2 report can promote it. Promotion alone
+authorizes pin/default changes and fuse -> 4-bit quantize -> full-system
+re-evaluation; a prefilter or regression failure stops those steps.
+
+### Measured outcome: technical block, no candidate
+
+The ordinary seed-1842 smoke completed one 450-token step at 5.119 GB MLX
+peak / 9.51 GB host peak, proving that model loading, checkpointing, optimizer
+construction, and adapter saving all work. That result was not accepted as a
+capacity proof because it did not exercise the measured maximum. A diagnostic
+dataset then forced the exact 2,249-token `rel-v3-000063` training row through
+one optimizer step. Every no-truncation recipe failed in Metal before the step
+completed:
+
+| recipe | trainable parameters | host peak footprint | result |
+|---|---:|---:|---|
+| r16 / 16 layers / checkpointed / 2,249 | 11.213M | 23.90 GB | OOM |
+| r8 / 8 layers / checkpointed / 2,249 | 2.803M | 22.65 GB | OOM |
+| r4 / 4 layers / checkpointed / 2,249 | 0.701M | 21.80 GB | OOM |
+
+This 16x adapter-parameter reduction saves only 2.10 GB, confirming that
+sequence activations dominate. One final lossless-subset probe tested the
+longest row at or below 2,048 tokens: `agv4-000049` is 1,895 tokens. Such a
+subset would retain 806/945 train and 94/105 valid rows, discarding 14.7% and
+10.5% respectively rather than truncating target answers. Even that row fails
+at 23.06 GB for r16/16 and 21.21 GB for r4/4. Aggressively truncating targets,
+dropping the relational slice, or training a one-layer adapter would no longer
+be a credible candidate recipe, so the hardware path stops here.
+
+All six raw `/usr/bin/time -l` logs are retained under
+`data/checks/iteration10-qwen3.5-2b/memory/`; diagnostic datasets and partial
+adapters were removed. The frozen suite re-check remains green at 200 cases.
+Because no honest full adapter exists, the verdict chain ends at the technical
+gate: no suite generations, deterministic prefilter, agent judging,
+regression check, promotion, fusion, or quantized re-evaluation ran. ft_v2,
+its pinned report, serving defaults, gates, and rubric remain unchanged.
+
+The next iteration should move this exact pinned Qwen3.5-2B recipe to a
+machine with materially more unified/GPU memory (32 GB is the practical
+minimum indicated by a 23.90 GB measured peak plus OS/runtime headroom), then
+start with r16/16, checkpointing, and the measured 2,249-token cap. Do not spend
+another local iteration on rank/layer reductions: the memory curve already
+shows they cannot buy enough headroom without destroying useful capacity.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -2172,3 +2257,14 @@ round is not justified by this residue.
   proposal) is therefore required, with leakage-safe calibration: tune the
   detector ONLY on curated training-data triage/lookalike examples, verify
   once against the suite.
+- **2026-07-11 (iteration 10 — Qwen3.5-2B measured-memory verdict):** Rechecked
+  the exact `15852e8…` Qwen3.5-2B license as Apache-2.0 and measured the latest
+  Qwen3-targeted corpus with its retained tokenizer (train max/p95
+  2,249/2,157; valid max 2,248). Gradient checkpointing makes a 450-token r16
+  step succeed at 5.119 GB MLX peak, but the real 2,249-token maximum OOMs at
+  23.90 GB (r16/16), 22.65 GB (r8/8), and 21.80 GB (r4/4). Even a lossless
+  <=2,048-token subset's 1,895-token maximum OOMs at 23.06 GB r16/16 and
+  21.21 GB r4/4. No credible full adapter trained, so the verdict chain stops
+  before generation/prefilter/judging; ft_v2 and every serving/eval pin remain
+  unchanged. Next iteration: run the checkpointed r16/16 recipe on >=32 GB,
+  not another capacity-reduced retry on this 24 GB machine.

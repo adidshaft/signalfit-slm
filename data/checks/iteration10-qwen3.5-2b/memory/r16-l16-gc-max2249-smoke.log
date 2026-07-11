@@ -1,0 +1,29 @@
+Loading configuration file training/configs/mlx_lora_qwen3.5-2b-ft_v7-micro-i10.yaml
+Loading pretrained model
+Loading datasets
+Training
+Trainable parameters: 0.596% (11.213M/1881.825M)
+Starting training..., iters: 1
+Calculating loss...:   0%|          | 0/1 [00:00<?, ?it/s]Calculating loss...: 100%|██████████| 1/1 [00:01<00:00,  1.83s/it]Calculating loss...: 100%|██████████| 1/1 [00:01<00:00,  1.83s/it]
+Iter 1: Val loss 1.380, Val took 1.846s
+Iter 1: Train loss 3.080, Learning Rate 1.000e-05, It/sec 0.103, Tokens/sec 46.281, Trained Tokens 450, Peak mem 5.119 GB
+Iter 1: Saved adapter weights to models/adapters/ft_v8_qwen3.5-2b-4bit-i10/adapters.safetensors and models/adapters/ft_v8_qwen3.5-2b-4bit-i10/0000001_adapters.safetensors.
+Saved final weights to models/adapters/ft_v8_qwen3.5-2b-4bit-i10/adapters.safetensors.
+       14.03 real         6.95 user         1.87 sys
+          2505129984  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              316919  page reclaims
+                1402  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   1  messages sent
+                   0  messages received
+                   0  signals received
+                2911  voluntary context switches
+               60893  involuntary context switches
+         89452773063  instructions retired
+         35747596021  cycles elapsed
+          9512177120  peak memory footprint

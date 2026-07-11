@@ -1,0 +1,23 @@
+# Iteration 10 final bounded fallback after r16/l16 and r8/l8 longest-row OOMs.
+model: "models/bases/qwen3.5-2b-4bit-15852e8"
+train: true
+data: "data/ft_v7_micro"
+seed: 17
+
+fine_tune_type: lora
+num_layers: 4
+lora_parameters:
+  rank: 4
+  scale: 20.0
+  dropout: 0.05
+
+batch_size: 1
+iters: 2116
+learning_rate: 1.0e-5
+max_seq_length: 2249
+grad_checkpoint: true
+
+steps_per_report: 25
+steps_per_eval: 125
+save_every: 250
+adapter_path: "models/adapters/ft_v8_qwen3.5-2b-4bit-i10-r4l4"

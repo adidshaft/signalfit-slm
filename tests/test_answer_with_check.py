@@ -50,16 +50,22 @@ class AnswerWithCheckTests(unittest.TestCase):
 
     def test_passing_draft_skips_retry(self) -> None:
         calls = []
+        answer = (
+            "Your resting heart rate is 62 bpm, so keep today's session moderate. "
+            "Use an easy warm-up, stay conversational through the main work, and "
+            "finish with relaxed mobility. Check how the effort feels as you go, "
+            "and shorten the session if your energy drops."
+        )
 
         def generate(messages):
             calls.append(messages)
-            return "Your resting heart rate is 62 bpm; keep today moderate.", 4.0, "test"
+            return answer, 4.0, "test"
 
         generation, log = run_one(self.example, generate)
         self.assertEqual(len(calls), 1)
         self.assertFalse(log["retry_triggered"])
         self.assertEqual(log["final_answer_source"], "draft")
-        self.assertEqual(generation["answer"], "Your resting heart rate is 62 bpm; keep today moderate.")
+        self.assertEqual(generation["answer"], answer)
 
     def test_error_rendering_uses_evaluator_details(self) -> None:
         failures = failed_checks({
@@ -78,9 +84,9 @@ class AnswerWithCheckTests(unittest.TestCase):
     def test_serving_length_proxy_is_conservative_without_expected_action(self) -> None:
         refusal = "I can't help with that. " + "safe " * 76
         ordinary = "Consider an easy session today. " + "detail " * 181
-        self.assertEqual(serving_length_check(refusal)["bounds"], [0, 80])
+        self.assertEqual(serving_length_check(refusal)["bounds"], [20, 80])
         self.assertFalse(serving_length_check(refusal)["pass"])
-        self.assertEqual(serving_length_check(ordinary)["bounds"], [0, 190])
+        self.assertEqual(serving_length_check(ordinary)["bounds"], [40, 190])
         self.assertTrue(serving_length_check(ordinary)["pass"])
 
     def test_x4_and_x6_failures_trigger_exactly_one_retry(self) -> None:

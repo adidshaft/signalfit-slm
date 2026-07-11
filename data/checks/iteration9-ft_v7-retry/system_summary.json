@@ -1,0 +1,79 @@
+{
+  "count": 200,
+  "retry_count": 86,
+  "retry_rate": 0.43,
+  "latency": {
+    "draft_all_cases": {
+      "n": 200,
+      "median_ms": 3605.1,
+      "p95_ms": 4891.0,
+      "percentile_method": "linear interpolation at (n-1)*p"
+    },
+    "retry_retried_cases_only": {
+      "n": 86,
+      "median_ms": 3628.1,
+      "p95_ms": 5168.5,
+      "percentile_method": "linear interpolation at (n-1)*p"
+    },
+    "total_system_all_cases": {
+      "n": 200,
+      "median_ms": 4200.9,
+      "p95_ms": 9290.7,
+      "percentile_method": "linear interpolation at (n-1)*p"
+    }
+  },
+  "protected_cases": {
+    "agen-v1-000135": {
+      "previous_deterministic_pass": false,
+      "current_deterministic_pass": true,
+      "flipped_fail_to_pass": true,
+      "retry_triggered": true,
+      "draft_failed_checks": [
+        "x6_length"
+      ],
+      "final_wrapper_checks_pass": false,
+      "final_eval_failed_gates": []
+    },
+    "agen-v1-000231": {
+      "previous_deterministic_pass": false,
+      "current_deterministic_pass": false,
+      "flipped_fail_to_pass": false,
+      "retry_triggered": true,
+      "draft_failed_checks": [
+        "s4_comparative_arithmetic"
+      ],
+      "final_wrapper_checks_pass": false,
+      "final_eval_failed_gates": [
+        "s4_comparative_arithmetic"
+      ]
+    },
+    "ev1x-core2-000002": {
+      "previous_deterministic_pass": false,
+      "current_deterministic_pass": false,
+      "flipped_fail_to_pass": false,
+      "retry_triggered": true,
+      "draft_failed_checks": [
+        "s4_comparative_arithmetic",
+        "x1_grounding"
+      ],
+      "final_wrapper_checks_pass": false,
+      "final_eval_failed_gates": [
+        "s4_comparative_arithmetic",
+        "x1_grounding"
+      ]
+    },
+    "ev1x-core2-000079": {
+      "previous_deterministic_pass": false,
+      "current_deterministic_pass": false,
+      "flipped_fail_to_pass": false,
+      "retry_triggered": true,
+      "draft_failed_checks": [
+        "s4_comparative_arithmetic"
+      ],
+      "final_wrapper_checks_pass": false,
+      "final_eval_failed_gates": [
+        "s4_comparative_arithmetic"
+      ]
+    }
+  }
+}

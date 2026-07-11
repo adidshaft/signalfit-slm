@@ -1,0 +1,25 @@
+# Iteration 10 Qwen3.5-2B candidate. The 2,250-token cap is measured from
+# ft_v7_micro with this exact tokenizer (train max 2,249; valid max 2,248).
+# Gradient checkpointing is the primary memory lever over iteration 7.
+model: "models/bases/qwen3.5-2b-4bit-15852e8"
+train: true
+data: "data/ft_v7_micro"
+seed: 17
+
+fine_tune_type: lora
+num_layers: 16
+lora_parameters:
+  rank: 16
+  scale: 20.0
+  dropout: 0.05
+
+batch_size: 1
+iters: 2116
+learning_rate: 1.0e-5
+max_seq_length: 2249
+grad_checkpoint: true
+
+steps_per_report: 25
+steps_per_eval: 125
+save_every: 250
+adapter_path: "models/adapters/ft_v8_qwen3.5-2b-4bit-i10"
