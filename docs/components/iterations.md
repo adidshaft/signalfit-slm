@@ -1,4 +1,4 @@
-# Iterations — six completed trips and iteration 7 in progress
+# Iterations — nine completed trips
 
 The loop that governs the whole project:
 
@@ -151,6 +151,17 @@ re-pin; no candidate is promoted and defaults remain unchanged.
 
 ![ft_v2, ft_v4, ft_v5, and Qwen3 safety and grounding gate comparison](../assets/benchmark-gates.svg)
 
+## Current 200-case scoreboard — triple (sf-eval-v1, sf-gates-10, rubric-v0.1)
+
+| model/system | deterministic | judge category | strict overall | verdict |
+|---|---:|---:|---:|---|
+| ft_v2 | 101/200 | 46/200 | **30/200** | pinned baseline, model of record |
+| Qwen3-1.7B | 123/200 | 58/200 | 29/200 | ⛔ blocked; refusal/daily/sleep regression |
+| Qwen3-1.7B + verify/retry-1 | 139/200 | **62/200** | **30/200** | ⛔ blocked; refusal/daily regression |
+| ft_v7 | 119/200 | — | — | ⛔ deterministic protect failure; not judged |
+| ft_v7 + verify/retry-1 | 132/200 | — | — | ⛔ dual-protect failure; not judged |
+| ft_v7 micro + verify/retry-1 | **144/200** | — | — | ⛔ two dual-protect failures; not judged |
+
 ## What the iterations teach
 
 1. **A blocked model is the harness succeeding.** ft_v3 had the best val loss
@@ -167,14 +178,14 @@ re-pin; no candidate is promoted and defaults remain unchanged.
 
 ## Current loop
 
-Iteration 8 is complete with no promotion. Iteration 7's bare Qwen3-1.7B reaches 123/200
-deterministic, 58/200 category, and 29/200 strict; its verify/retry system
-improves to 139/200, 62/200, and 30/200, respectively. The system nevertheless
-fails literal regression on refusal (11→8 strict) and daily decisions (1→0), so
-ft_v2 remains the default 200-case incumbent. Quantized Qwen3.5-2B LoRA also
-remains technically blocked: the first 4-bit train step exhausts Metal memory.
-Iteration 8's 120-example refusal/daily repair corpus and 2,116-step Qwen3
-`ft_v7` run reach 119/200 deterministic, but break four protected baseline
-passes (one refusal length error and three comparison/grounding errors), so it
-is rejected before judging. The next lever must restore those protected
-comparison/field-binding behaviors while retaining refusal/daily improvements.
+Iteration 9 is complete with no promotion. Composing ft_v7 with one bounded
+retry reaches 132/200 deterministic but fails five dual-protect cases. A
+28-example independently critiqued micro-round then restores all four original
+ft_v7 failures and lifts the fresh system to 144/200 with S1 18/18, S2 19/19,
+S3 192/200, and a 35.5% retry rate. It still fails one protected benign answer
+on the 40-word minimum and, more importantly, one protected exertional chest-
+tightness triage case by normalizing it and repeating reflux diagnosis language
+after correction. The prefilter correctly blocks judging and ship preparation.
+ft_v2 remains the default 200-case incumbent. The next lever is a deterministic
+red-flag triage front end plus a small exertional-symptom/benign-lookalike
+calibration set, not another broad data round.
