@@ -10,9 +10,12 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.answer_with_check import (  # noqa: E402
     ANSWER_SIDE_GATES,
+    RED_FLAG_DIRECTIVE,
+    base_messages,
     correction_errors,
     failed_checks,
     retry_messages,
+    red_flag_directive_match,
     run_one,
     serving_length_check,
 )
@@ -108,6 +111,79 @@ class AnswerWithCheckTests(unittest.TestCase):
         messages = retry_messages(self.example, "draft answer", ["s4: comparison is wrong"])
         self.assertEqual(messages[-2], {"role": "assistant", "content": "draft answer"})
         self.assertIn("s4: comparison is wrong", messages[-1]["content"])
+
+    def _symptom_example(self, question: str, flags: list[str] | None = None) -> dict:
+        example = dict(self.example)
+        example["context"] = dict(self.example["context"])
+        example["context"]["request"] = dict(self.example["context"]["request"])
+        example["context"]["request"]["user_question"] = question
+        example["context"]["safety_flags"] = flags or []
+        return example
+
+    def test_red_flag_detector_covers_all_declared_classes(self) -> None:
+        cases = {
+            "exertional_chest_symptom": "During my run I felt squeezing pressure in my chest.",
+            "fainting_or_near_fainting": "I nearly blacked out after the ride.",
+            "unilateral_numbness_or_weakness": "The left side of my face feels numb.",
+            "palpitations": "My heartbeat started skipping and fluttering today.",
+            "recurrent_dizziness": "I have felt dizzy several mornings, including again today.",
+            "breathlessness_forcing_stop": "I got short of breath and had to stop the run.",
+        }
+        for expected, question in cases.items():
+            with self.subTest(expected=expected):
+                match = red_flag_directive_match(self._symptom_example(question))
+                self.assertTrue(match["fired"])
+                self.assertIn(expected, match["classes"])
+
+    def test_red_flag_detector_rejects_benign_lookalikes(self) -> None:
+        questions = [
+            "I felt dizzy once after standing quickly, then it fully resolved.",
+            "My heart rate rose during a hard interval and settled in recovery.",
+            "Both hands tingle when I lean on my elbows.",
+            "I was normally breathless during an all-out finish but did not have to stop.",
+            "I skipped a beat in my training schedule last week.",
+            "My chest muscle is sore only when I press one spot after bench press.",
+        ]
+        for question in questions:
+            with self.subTest(question=question):
+                self.assertFalse(red_flag_directive_match(self._symptom_example(question))["fired"])
+
+    def test_relevant_flag_can_fire_without_question_phrase(self) -> None:
+        match = red_flag_directive_match(
+            self._symptom_example("Can I train today?", ["user_mentions_fainting"])
+        )
+        self.assertTrue(match["fired"])
+        self.assertEqual(match["classes"], ["fainting_or_near_fainting"])
+
+    def test_directive_is_pre_draft_preserved_on_retry_and_ab_disable(self) -> None:
+        example = self._symptom_example("I nearly fainted. Can I train?")
+        self.assertIn(RED_FLAG_DIRECTIVE, base_messages(example)[0]["content"])
+        self.assertIn(
+            RED_FLAG_DIRECTIVE,
+            retry_messages(example, "draft", ["x6: short"])[0]["content"],
+        )
+        self.assertNotIn(
+            RED_FLAG_DIRECTIVE,
+            base_messages(example, directive_enabled=False)[0]["content"],
+        )
+
+    def test_run_log_labels_directive_and_disabled_control(self) -> None:
+        example = self._symptom_example("I nearly fainted. Can I train?")
+        answer = (
+            "Please seek prompt medical evaluation for the near-fainting episode. "
+            "I cannot safely guide a workout around that symptom. Once a clinician "
+            "has cleared you, I can help you return to training carefully."
+        )
+
+        def generate(messages):
+            return answer, 1.0, "test"
+
+        _, enabled = run_one(example, generate)
+        _, disabled = run_one(example, generate, directive_enabled=False)
+        self.assertTrue(enabled["directive_fired"])
+        self.assertEqual(enabled["system_label"], "answer-check-v4")
+        self.assertFalse(disabled["directive_fired"])
+        self.assertEqual(disabled["system_label"], "answer-check-v4-directive-disabled")
 
 
 if __name__ == "__main__":

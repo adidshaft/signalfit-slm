@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate SignalFit answers with one bounded answer-side correction retry.
+"""Generate SignalFit answers with a pre-draft safety directive and bounded retries.
 
 The wrapper is intentionally a system-level layer, rather than a change to the
 frozen evaluator.  It imports ``check`` from :mod:`run_eval` and considers only
@@ -83,6 +83,128 @@ CARE_LANGUAGE = re.compile(
     r"call (?:911|999|112|emergency))\b",
     re.IGNORECASE,
 )
+
+
+SYSTEM_LABEL = "answer-check-v4"
+SYSTEM_LABEL_DIRECTIVE_DISABLED = "answer-check-v4-directive-disabled"
+RED_FLAG_DIRECTIVE = (
+    "SAFETY STANCE DIRECTIVE: Acknowledge the symptom plainly. Recommend prompt "
+    "medical evaluation directly, not conditionally. Do not suggest training, "
+    "scheduling, sessions, exercise modifications, or a return-to-training plan. "
+    "Never name, affirm, or deny any medical condition. Offer help with training "
+    "only after the user has medical clearance."
+)
+
+_CHEST_SYMPTOM = re.compile(
+    r"\b(?:chest|breastbone)\b.{0,45}\b(?:tight(?:ness)?|pain|pressure|squeez(?:e|ing)|heavy)\b"
+    r"|\b(?:tight(?:ness)?|pain|pressure|squeez(?:e|ing)|heavy)\b.{0,45}\b(?:chest|breastbone)\b",
+    re.IGNORECASE,
+)
+_EXERTIONAL_CONTEXT = re.compile(
+    r"\b(?:during|while|midway|halfway|on|after)\b.{0,35}\b(?:run|ride|swim|row|"
+    r"interval|workout|session|training|exercise|effort|climb|stairs?|hike|lift|"
+    r"deadlift|squat|spin|erg|jog|cycle|walking? uphill)\b|\b(?:effort|exercise|"
+    r"exertion|training|workout|session|run|ride|swim|interval)s?\b.{0,35}\b"
+    r"(?:chest|breastbone)\b",
+    re.IGNORECASE,
+)
+_FAINTING = re.compile(
+    r"\b(?:faint(?:ed|ing)?|near(?:ly)? faint(?:ed|ing)?|almost faint(?:ed|ing)?|"
+    r"black(?:ed|ing)? out|pass(?:ed|ing)? out|about to pass out|nearly passed out|"
+    r"almost passed out|vision (?:went|turned) (?:dark|gr[ae]y)|vision tunneled|"
+    r"vision went spotty)\b",
+    re.IGNORECASE,
+)
+_NEGATED_FAINTING = re.compile(
+    r"\b(?:without (?:feeling )?faint|did not faint|didn['’]?t faint|not faint|never fainted)\b",
+    re.IGNORECASE,
+)
+_UNILATERAL = re.compile(
+    r"\b(?:one side of (?:my |the )?(?:face|body)|(?:left|right) (?:arm|leg|face|side))\b"
+    r".{0,45}\b(?:numb(?:ness)?|weak(?:ness)?|tingl(?:e|ing))\b"
+    r"|\b(?:numb(?:ness)?|weak(?:ness)?|tingl(?:e|ing))\b.{0,45}\b"
+    r"(?:one side|left (?:arm|leg|face|side)|right (?:arm|leg|face|side))\b",
+    re.IGNORECASE,
+)
+_PALPITATIONS = re.compile(
+    r"\b(?:I (?:have|had|felt|noticed) palpitations?|my palpitations?|flutter(?:ing)?|skipp(?:ed|ing) beats?|heartbeat (?:is |was |"
+    r"started )?(?:skipping|fluttering)|heart (?:is |was |started )?(?:skipping|"
+    r"fluttering)|irregular (?:heartbeat|pounding)|heart (?:racing|pounding) while "
+    r"(?:resting|lying|sitting))\b",
+    re.IGNORECASE,
+)
+_PERSISTENT_HEART_ANOMALY = re.compile(
+    r"\b(?:heart|heartbeat)\b.{0,35}\b(?:raced|racing|sped up|pounded|pounding)\b"
+    r".{0,80}\b(?:stayed|still|has not settled|hasn['’]?t settled|continued|long after|"
+    r"while (?:I was )?(?:resting|sitting|lying))\b"
+    r"|\b(?:heart|heartbeat)\b.{0,55}\b(?:raced|racing|sped up|pounded|pounding)\b"
+    r".{0,30}\b(?:at rest|while (?:I was )?(?:resting|sitting|lying))\b",
+    re.IGNORECASE,
+)
+_DIZZINESS = re.compile(r"\b(?:dizz(?:y|iness)|lightheaded|room (?:was|is) spinning)\b", re.IGNORECASE)
+_RECURRENT = re.compile(
+    r"\b(?:again|twice|several|multiple|recurrent(?:ly)?|repeated(?:ly)?|keeps? "
+    r"(?:happening|getting)|every time|on and off|second time|third (?:time|day)|"
+    r"several mornings)\b",
+    re.IGNORECASE,
+)
+_BREATHLESSNESS = re.compile(
+    r"\b(?:short of breath|breathless(?:ness)?|struggl(?:e|ed|ing) to breathe|"
+    r"trouble breathing|hard to breathe|breathing (?:was |is |remained )?(?:difficult|hard)|"
+    r"couldn['’]?t catch my breath|can['’]?t catch my breath|gasping)\b",
+    re.IGNORECASE,
+)
+_FORCED_STOP = re.compile(
+    r"\b(?:had to (?:stop|sit|lie down)|forced (?:me )?to stop|couldn['’]?t continue|"
+    r"could not continue|bail(?:ed)?|grab(?:bed)? (?:the )?(?:lane rope|wall))\b",
+    re.IGNORECASE,
+)
+_AT_REST = re.compile(r"\b(?:at rest|while resting|sitting|lying in bed|on the couch|at my desk)\b", re.IGNORECASE)
+
+
+def red_flag_directive_match(example: dict) -> dict:
+    """Detect the six pre-declared symptom classes from serving-visible input."""
+    context = example.get("context", {})
+    question = context.get("request", {}).get("user_question", "")
+    flags = {
+        str(value).casefold()
+        for value in context.get("safety_flags", [])
+        if isinstance(value, str)
+    }
+    classes: list[str] = []
+    evidence: list[str] = []
+
+    if "user_mentions_chest_pain" in flags or (
+        _CHEST_SYMPTOM.search(question) and _EXERTIONAL_CONTEXT.search(question)
+    ):
+        classes.append("exertional_chest_symptom")
+        evidence.append("chest safety flag" if "user_mentions_chest_pain" in flags else "question chest+exertion pattern")
+    if "user_mentions_fainting" in flags or (
+        _FAINTING.search(question) and not _NEGATED_FAINTING.search(question)
+    ):
+        classes.append("fainting_or_near_fainting")
+        evidence.append("fainting safety flag" if "user_mentions_fainting" in flags else "question fainting pattern")
+    if _UNILATERAL.search(question):
+        classes.append("unilateral_numbness_or_weakness")
+        evidence.append("question unilateral neurologic pattern")
+    if _PALPITATIONS.search(question) or _PERSISTENT_HEART_ANOMALY.search(question):
+        classes.append("palpitations")
+        evidence.append("question palpitation pattern")
+    if _DIZZINESS.search(question) and _RECURRENT.search(question):
+        classes.append("recurrent_dizziness")
+        evidence.append("question dizziness+recurrence pattern")
+    if "user_mentions_breathing_difficulty" in flags or (
+        _BREATHLESSNESS.search(question)
+        and (_FORCED_STOP.search(question) or _AT_REST.search(question))
+    ):
+        classes.append("breathlessness_forcing_stop")
+        evidence.append("breathing safety flag" if "user_mentions_breathing_difficulty" in flags else "question breathlessness+stop/rest pattern")
+
+    return {"fired": bool(classes), "classes": classes, "evidence": evidence}
+
+
+def system_label(directive_enabled: bool) -> str:
+    return SYSTEM_LABEL if directive_enabled else SYSTEM_LABEL_DIRECTIVE_DISABLED
 
 
 def serving_length_check(answer: str) -> dict:
@@ -177,7 +299,7 @@ def correction_errors(failures: dict) -> list[str]:
     return errors
 
 
-def base_messages(example: dict) -> list[dict[str, str]]:
+def base_messages(example: dict, directive_enabled: bool = True) -> list[dict[str, str]]:
     context = json.dumps(
         model_input_context(example["context"]),
         separators=(",", ":"),
@@ -185,16 +307,25 @@ def base_messages(example: dict) -> list[dict[str, str]]:
         ensure_ascii=False,
     )
     question = example["context"]["request"]["user_question"]
+    match = red_flag_directive_match(example)
+    prompt = SYSTEM_PROMPT
+    if directive_enabled and match["fired"]:
+        prompt = f"{prompt}\n\n{RED_FLAG_DIRECTIVE}"
     return [
-        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "system", "content": prompt},
         {"role": "user", "content": f"CONTEXT:\n{context}\n\nQUESTION: {question}"},
     ]
 
 
-def retry_messages(example: dict, draft: str, errors: list[str]) -> list[dict[str, str]]:
+def retry_messages(
+    example: dict,
+    draft: str,
+    errors: list[str],
+    directive_enabled: bool = True,
+) -> list[dict[str, str]]:
     """Append a correction turn without changing the original task context."""
     feedback = "\n".join(f"- {error}" for error in errors)
-    return base_messages(example) + [
+    return base_messages(example, directive_enabled=directive_enabled) + [
         {"role": "assistant", "content": draft},
         {
             "role": "user",
@@ -218,10 +349,15 @@ SECOND_RETRY_GATES = frozenset({"s5_claim_discipline"})
 def run_one(
     example: dict,
     generate: Callable[[list[dict[str, str]]], tuple[str, float | None, str]],
+    directive_enabled: bool = True,
 ) -> tuple[dict, dict]:
     """Generate one answer with at most one corrective retry — plus one extra
     retry permitted only when a safety-class check still fails afterwards."""
-    draft, draft_latency_ms, draft_source = generate(base_messages(example))
+    directive_match = red_flag_directive_match(example)
+    directive_fired = directive_enabled and directive_match["fired"]
+    draft, draft_latency_ms, draft_source = generate(
+        base_messages(example, directive_enabled=directive_enabled)
+    )
     draft = draft.strip()
     draft_checks = answer_side_checks(example, draft)
     failures = failed_checks(draft_checks)
@@ -239,7 +375,7 @@ def run_one(
     errors = correction_errors(failures)
     if retry_triggered:
         final_answer, retry_latency_ms, retry_source = generate(
-            retry_messages(example, draft, errors)
+            retry_messages(example, draft, errors, directive_enabled=directive_enabled)
         )
         final_answer = final_answer.strip()
         retry_checks = answer_side_checks(example, final_answer)
@@ -250,7 +386,12 @@ def run_one(
             retry2_triggered = True
             retry2_errors = correction_errors(retry_failures)
             final_answer, retry2_latency_ms, retry2_source = generate(
-                retry_messages(example, final_answer, retry2_errors)
+                retry_messages(
+                    example,
+                    final_answer,
+                    retry2_errors,
+                    directive_enabled=directive_enabled,
+                )
             )
             final_answer = final_answer.strip()
             retry2_checks = answer_side_checks(example, final_answer)
@@ -259,6 +400,11 @@ def run_one(
     generation = {"example_id": example["example_id"], "answer": final_answer}
     log = {
         "example_id": example["example_id"],
+        "system_label": system_label(directive_enabled),
+        "directive_enabled": directive_enabled,
+        "directive_fired": directive_fired,
+        "directive_match_classes": directive_match["classes"],
+        "directive_match_evidence": directive_match["evidence"],
         "retry_triggered": retry_triggered,
         "draft_source": draft_source,
         "retry_source": retry_source,
@@ -378,6 +524,11 @@ def main() -> int:
     parser.add_argument("--retries", type=Path, help="injected retry answer JSONL (test/replay mode)")
     parser.add_argument("-o", "--out", type=Path, required=True, help="final {example_id,answer} JSONL")
     parser.add_argument("--correction-log", type=Path, help="per-answer correction log JSONL")
+    parser.add_argument(
+        "--disable-red-flag-directive",
+        action="store_true",
+        help="A/B control: run wrapper v4 correction without the pre-draft directive",
+    )
     args = parser.parse_args()
 
     try:
@@ -403,6 +554,7 @@ def main() -> int:
     log_path = args.correction_log or default_log_path(args.out)
     log_path.parent.mkdir(parents=True, exist_ok=True)
     retry_count = 0
+    directive_fire_count = 0
     with args.out.open("w") as out_file, log_path.open("w") as log_file:
         for example in examples:
             example_id = example["example_id"]
@@ -416,8 +568,13 @@ def main() -> int:
                     return injected[example_id], None, "injected"
                 return mlx_generate(messages)
 
-            generation, log = run_one(example, generate)
+            generation, log = run_one(
+                example,
+                generate,
+                directive_enabled=not args.disable_red_flag_directive,
+            )
             retry_count += int(log["retry_triggered"])
+            directive_fire_count += int(log["directive_fired"])
             out_file.write(json.dumps(generation, ensure_ascii=False) + "\n")
             log_file.write(json.dumps(log, ensure_ascii=False) + "\n")
             print(
@@ -427,6 +584,11 @@ def main() -> int:
     print(f"-> {args.out}")
     print(f"correction log -> {log_path}")
     print(f"retry rate: {retry_count}/{len(examples)} ({retry_count / len(examples):.1%})")
+    print(
+        f"directive fire rate: {directive_fire_count}/{len(examples)} "
+        f"({directive_fire_count / len(examples):.1%}); "
+        f"system={system_label(not args.disable_red_flag_directive)}"
+    )
     return 0
 
 

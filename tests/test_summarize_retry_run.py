@@ -22,6 +22,9 @@ class SummarizeRetryRunTests(unittest.TestCase):
                 "retry_latency_ms": 30,
                 "failures": {"s4": {"pass": False}},
                 "final_answer_side_pass": True,
+                "retry2_triggered": True,
+                "retry2_latency_ms": 40,
+                "directive_fired": True,
             },
         }
         previous = {
@@ -40,7 +43,9 @@ class SummarizeRetryRunTests(unittest.TestCase):
 
         self.assertEqual(result["retry_count"], 1)
         self.assertEqual(result["retry_rate"], 0.5)
-        self.assertEqual(result["latency"]["total_system_all_cases"]["median_ms"], 30.0)
+        self.assertEqual(result["latency"]["total_system_all_cases"]["median_ms"], 50.0)
+        self.assertEqual(result["retry2_count"], 1)
+        self.assertEqual(result["directive_fire_rate"], 0.5)
         self.assertTrue(result["protected_cases"]["b"]["flipped_fail_to_pass"])
         self.assertEqual(result["protected_cases"]["b"]["draft_failed_checks"], ["s4"])
 

@@ -1956,6 +1956,43 @@ safety stance worse. Keep it as the no-new-hardware fallback only: calibrate
 the directive exclusively on curated training triage/lookalike examples,
 freeze it, then inspect its one allowed suite verification without rule edits.
 
+### Step 7p — iteration 12: wrapper v4 promotion attempt
+
+The base question is closed locally: Qwen3-1.7B is the only viable candidate
+base on this 24 GB machine. Iteration 12 therefore changes no model weights.
+It adds one pre-generation safety control to wrapper v3, calibrates that
+control without suite leakage, then runs both existing ft_v7 siblings through
+the unchanged frozen promotion pipeline.
+
+**Phase 1 — pre-generation red-flag directive.** Wrapper v4 detects six
+pre-declared symptom families from serving-visible question text and
+`context.safety_flags`: exertional chest symptoms, fainting/near-fainting,
+unilateral numbness/weakness, palpitations, recurrent dizziness, and
+breathlessness that forces stopping (with at-rest difficulty retained as the
+more conservative adjacent presentation). A fire appends a fixed safety stance
+to the system turn before the first draft: acknowledge plainly, recommend
+prompt medical evaluation directly, give no training/session/scheduling
+suggestions, never affirm/deny/name a condition, and offer training help only
+after medical clearance. The identical system stance remains on all bounded
+retry turns.
+
+The A/B control is `--disable-red-flag-directive`. Logs label enabled runs
+`answer-check-v4` and controls `answer-check-v4-directive-disabled`, and record
+fire classes/evidence. The run summarizer now includes second-retry latency
+(previous v3 summaries understated total latency when retry2 fired) plus
+directive fire count/rate.
+
+Leakage-safe calibration used `data/ft_v7/all.jsonl.manifest.json` as the
+authority, deduplicated weighted rows, and excluded all 40 `is_locked_eval`
+sources. Its positive ledger contains 108 nonlocked safety-triage examples in
+the declared/adjacent symptom families. Its mandatory negative ledger contains
+124 nonlocked benign examples: 27 agent-v2 lookalikes (three locked siblings
+excluded), all 25 agv4 chunk-05 rows, 36 benign agv5 contrastive pair sides,
+and 36 agv7 repair lookalikes. No eval question was opened while tuning.
+Training confusion matrix is **TP 108 / FN 0 / FP 0 / TN 124**. Thirteen
+wrapper/summarizer unit tests pass. The detector file SHA-256 is recorded with
+the calibration output; rules are now frozen before the single suite check.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -2374,3 +2411,11 @@ freeze it, then inspect its one allowed suite verification without rule edits.
   judging ran. ft_v2 remains pinned. Iteration 12 recommendation: move the
   proven Qwen3.5-2B recipe to >=32 GB hardware; retain Qwen3-1.7B plus a
   curated-only, one-shot-verified red-flag directive as the fallback.
+- **2026-07-12 (iteration 12, Phase 1 — wrapper v4 frozen):** Added the
+  pre-draft safety-stance directive, explicit enabled/disabled system labels,
+  A/B flag, fire evidence, retry-preserved stance, and corrected retry2/
+  directive latency aggregation. Calibration used only nonlocked curated
+  ft_v7-lineage data: 108 requested-family triage positives and 124 named
+  benign negatives score TP 108 / FN 0 / FP 0 / TN 124. All 13 focused tests
+  pass. Detector rules and their SHA-256 are frozen before the suite is read;
+  Phase 2 begins with the one allowed suite-question verification.

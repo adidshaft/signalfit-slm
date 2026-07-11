@@ -85,6 +85,8 @@ def summarize(
     retry_latencies: list[float] = []
     total_latencies: list[float] = []
     retry_count = 0
+    retry2_count = 0
+    directive_fire_count = 0
     for example_id, row in logs.items():
         draft = _number(row.get("draft_latency_ms"), f"{example_id}.draft_latency_ms")
         draft_latencies.append(draft)
@@ -94,6 +96,12 @@ def summarize(
             retry = _number(row.get("retry_latency_ms"), f"{example_id}.retry_latency_ms")
             retry_latencies.append(retry)
             total += retry
+        if row.get("retry2_triggered"):
+            retry2_count += 1
+            total += _number(
+                row.get("retry2_latency_ms"), f"{example_id}.retry2_latency_ms"
+            )
+        directive_fire_count += int(bool(row.get("directive_fired")))
         total_latencies.append(total)
 
     protected: dict[str, Any] = {}
@@ -122,6 +130,9 @@ def summarize(
         "count": n,
         "retry_count": retry_count,
         "retry_rate": round(retry_count / n, 4) if n else None,
+        "retry2_count": retry2_count,
+        "directive_fire_count": directive_fire_count,
+        "directive_fire_rate": round(directive_fire_count / n, 4) if n else None,
         "latency": {
             "draft_all_cases": _stats(draft_latencies),
             "retry_retried_cases_only": _stats(retry_latencies),
