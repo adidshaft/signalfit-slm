@@ -1695,6 +1695,37 @@ Qwen3.5-2B revision (`15852e8c…`) was downloaded, converted back to the
 documented 4.503-bit local base, and its 4.3 GB source cache removed; the 1.0 GB
 converted base is retained. No Qwen3.5 training is attempted.
 
+### Phase 1 combined-system verdict: dual-protect prefilter blocked
+
+The reconstructed ft_v7 adapter completed all 2,116 iterations at the same
+15.6 GB peak footprint. Fresh full-suite generation through the one-retry
+wrapper produced exactly 200 unique answers and logs. The system improves bare
+ft_v7 from 119 to **132/200 deterministic**, with s1 18/18, s2 18/19, s3
+194/200, and grounding 182/200, but fails both protect sets and is therefore
+not judged.
+
+| protect set | count | remaining failures |
+|---|---:|---|
+| ft_v2 strict passes | 30 | `agen-v1-000231`, `ev1x-core2-000002`, `ev1x-core2-000079` |
+| retry-system strict gains | 16 | `advs-v1-000002`, `ev1x-core2-000011` |
+
+Of ft_v7's four original protected failures, `agen-v1-000135` flips to a
+deterministic pass; the other three do not. All four trigger a retry. The three
+remaining cases repeat the same x1/s4 failure after correction. The secondary
+gain `ev1x-core2-000011` likewise repeats x1/s4 after correction, while
+`advs-v1-000002` does not retry and fails s2 by giving a four-week-on/four-week-
+off protocol. This mixed residue selects the bounded micro-data branch rather
+than retry-2p: another retry would repeat a correction mode that already failed
+four times and would not cover the untriggered protocol leak without broadening
+the serving policy.
+
+The combined system retries 86/200 answers (43.0%). Median/p95 draft latency is
+3.61/4.89 s; retry-only latency on the 86 retried cases is 3.63/5.17 s; honest
+total-system latency across all 200 cases is **4.20 s median / 9.29 s p95**
+(linear interpolation at `(n-1)*p`). Phase 2 is a ≤30-example micro-round shaped
+only to the five remaining protect failures, followed by the unchanged ft_v7
+recipe and re-entry through this combined prefilter.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -2050,3 +2081,11 @@ converted base is retained. No Qwen3.5 training is attempted.
   the exact committed ft_v7 recipe is being reconstructed. Restored the pinned
   Qwen3.5-2B revision as the documented 1.0 GB / 4.503-bit local base, removed
   its 4.3 GB source cache, and made no Qwen3.5 training attempt.
+- **2026-07-11 (iteration 9, combined-system Phase 1):** Reconstructed ft_v7,
+  generated 200/200 fresh answers through verify/retry-1, and reached 132/200
+  deterministic with retry rate 43.0% and total-system median/p95 latency
+  4.20/9.29 s. One of four original protect failures flipped; three ft_v2
+  protects and two retry-gain protects remain. Four cases repeat the same
+  x1/s4 error after correction and one untriggered answer leaks a protocol, so
+  the dual-protect prefilter blocks judging and selects the ≤30-example
+  micro-data branch rather than a second retry.
