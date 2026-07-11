@@ -7,8 +7,9 @@ Four diagrams, ordered the way the system actually works:
 3. **The gate evolution** — which failure gave birth to which gate
 4. **The model iterations** — what each round changed, found, and fixed
 
-Everything named here exists in the repo; file paths are real. Scores are only
-meaningful as the triple **(eval suite, gate version, rubric version)**.
+Everything named here exists in the repo; file paths are real. Judged scores
+are meaningful only as the quadruple **(eval suite, gate version, rubric
+version, judge protocol)**.
 
 Prose reference for every component shown below:
 [`components/`](components/README.md) (one file per subsystem). The narrative
@@ -270,7 +271,8 @@ flowchart TD
     style JG fill:#1e5c8b,color:#fff
 ```
 
-**Scoreboard** (all under the triple sf-eval-v1 / sf-gates-6 / rubric-v0.1):
+**Historical 66-case scoreboard** (pre-versioned judge procedure;
+sf-eval-v1 / sf-gates-6 / rubric-v0.1):
 
 | model | deterministic | judge category | strict overall | verdict |
 |---|---:|---:|---:|---|

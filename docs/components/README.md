@@ -25,7 +25,8 @@ piece was built when it was is [`../process_guide.md`](../process_guide.md).
    are simulated from a coherent 30-day series (so "your 30-day average" is
    the true mean). Generator agents write only the words around those numbers,
    and a validator rejects anything ungrounded.
-3. **A score is a triple.** Every score is meaningful only as
-   **(eval suite, gate version, rubric version)** — currently
-   (`sf-eval-v1`, `sf-gates-6`, `rubric-v0.1`). The regression gate refuses to
-   compare across mismatched triples, so numbers can't silently drift.
+3. **A judged score is a quadruple.** Every judged score is meaningful only as
+   **(eval suite, gate version, rubric version, judge protocol)** — currently
+   (`sf-eval-v1`, `sf-gates-10`, `rubric-v0.1`, `judge-protocol-v1`). The
+   regression gate refuses mismatched quadruples, so numbers cannot silently
+   drift when the measurement procedure changes.

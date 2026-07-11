@@ -24,13 +24,13 @@ model-index:
           type: synthetic
         metrics:
           - type: deterministic_pass_rate
-            value: 0.621
+            value: 0.505
             name: Deterministic pass rate
           - type: judge_category_pass_rate
-            value: 0.273
+            value: 0.230
             name: Judge category pass rate
           - type: strict_overall_pass_rate
-            value: 0.167
+            value: 0.150
             name: Strict overall pass rate
 ---
 
@@ -51,10 +51,35 @@ model-index:
 | ft_v5 Boundary | 9 | Failure taxonomy, contrastive benign↔triage boundary pairs, targeted repairs, retrain, and frozen-suite verdict. | ⛔ Blocked — ft_v2 retained |
 | Iteration 6 | 10 | Correct gate false positives, audit strict churn, then sweep training regimes on the fixed ft_v5 data. | ✅ Sweep 4/4 complete; no candidate shipped |
 | Capacity Check | 11 | Test Qwen3.5-2B once, with the documented Qwen3-1.7B fallback if local training is unusable. | ⛔ Complete; fallback blocked |
+| Expanded Suite | 12 | Expand the immutable suite to 200 cases and re-pin ft_v2 through the pre-versioned judge procedure. | ✅ Complete — ft_v2 101/46/30 |
+| Qwen Repair | 13 | Qwen3 repair data, bounded verify/retry systems, and dual-protect prefilters. | ⛔ Complete — no promotion |
+| Gemma Preflight | 14 | Test `google/gemma-4-E2B-it` before training or judging spend. | ⛔ Technical block — mlx-lm load unsupported |
+| Wrapper v4 | 15 | Curated-only red-flag directive plus full promotion attempt. | ⛔ Blocked — refusal/safety/goal regression |
+| Judge Protocol v1 | 16 | Version and repair the judge instrument, then re-score candidate and ft_v2 symmetrically. | ⛔ Measurement block — ft_v2 agreement 38% |
 
-## Benchmark Dashboard
+## Current truth (2026-07-12)
 
-All scores in this dashboard use the same comparison triple:
+ft_v2 remains the serving default and model of record. Under the historical
+pre-versioned 200-case judge procedure it scores 101 deterministic, 46 judge
+category, and 30 strict. Iteration 12's ft_v7-micro + wrapper-v4 reaches
+147/67/35 but remains blocked by refusal 11→10, safety triage 14→12, and goal
+coaching 1→0.
+
+Iteration 13 does **not** replace those verdicts. `judge-protocol-v1` improved
+candidate inter-judge agreement from 104/200 (52%) to 164/200 (82%), but the
+required symmetric ft_v2 pass collapsed to 76/200 (38%), with a 49-point judge
+pass-rate gap. The protocol is recorded as experimental and untrusted: no new
+baseline was pinned, no regression verdict was run, and no model, serving
+default, fused artifact, or quantized artifact changed.
+
+| iteration-13 raw measurement | judge A category | judge B category | agreement | decision |
+|---|---:|---:|---:|---|
+| ft_v7-micro + wrapper-v4 | 87/200 | 83/200 | 164/200 (82%) | candidate-side trust gate passed |
+| ft_v2 unchanged answers | 165/200 | 67/200 | 76/200 (38%) | **protocol failed; stop** |
+
+## Historical 66-case Benchmark Dashboard
+
+All scores in this historical dashboard use the same pre-versioned comparison triple:
 **(sf-eval-v1, sf-gates-10, rubric-v0.1)**. `ft_v1` used an earlier 30-case
 suite, while `ft_v3` has not been re-scored through sf-gates-10; neither is
 included in this current comparison.
@@ -108,9 +133,10 @@ The charts are generated directly from the judged reports:
 | `models/adapters/ft_v*_qwen2.5-1.5b/` | MLX LoRA adapter artifacts for each fine-tuned run, all based on `Qwen/Qwen2.5-1.5B-Instruct`. |
 | `data/ft_v*/` | Prepared train/valid/eval splits for a fine-tuning run. These are model-training datasets, not the frozen benchmark. |
 | `agent_v1`, `agent_v2_safety`, `agent_v3_relational`, `agent_v4_discipline`, `agent_v5_boundary` | Curated synthetic data rounds. The name describes the objective: general behavior, safety, relational correctness, claim discipline, then the benign↔triage decision boundary. |
-| `eval/v1` or `sf-eval-v1` | The frozen evaluation suite. Scores are comparable only when the suite, gate version, and rubric version all match. |
+| `eval/v1` or `sf-eval-v1` | The frozen evaluation suite. Judged scores are comparable only when suite, gates, rubric, and judge protocol all match. |
 | `sf-gates-1`, `sf-gates-2`, ... | Deterministic gate versions in `scripts/run_eval.py`. Each bump means the scoring rules changed and old scores must not be compared directly. |
 | `rubric-v0.1` | Human/agent judge rubric version. Judge scores are only comparable when this also matches. |
+| `judge-protocol-v1` | Experimental iteration-13 judge execution protocol. It failed the symmetric ft_v2 trust gate and is not promotion-eligible. |
 | `core`, `adversarial`, `binding` | Frozen eval slices: normal coaching cases, safety/jailbreak-style probes, and field-binding arithmetic probes. |
 | `agen-*`, `safe-*`, `advs-*`, `bind-*`, `rel-*` | Example ID prefixes. They roughly mean agent-generated training/eval cases, safety supplement cases, adversarial eval cases, binding eval cases, and relational training cases. |
 | `suite_generations.jsonl` | Model answers for the full frozen suite. |

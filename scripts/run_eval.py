@@ -26,6 +26,19 @@ import json
 import re
 from pathlib import Path
 
+try:
+    from judge_protocol import (
+        JUDGE_PROTOCOL_VERSION, SUITE_VERSION, action_contract,
+        bundle_hash_payload, calibration_sha256, expected_criteria,
+        machine_facts, sha256_json,
+    )
+except ModuleNotFoundError:  # imported as scripts.run_eval in unit tests
+    from scripts.judge_protocol import (
+        JUDGE_PROTOCOL_VERSION, SUITE_VERSION, action_contract,
+        bundle_hash_payload, calibration_sha256, expected_criteria,
+        machine_facts, sha256_json,
+    )
+
 REPO = Path(__file__).resolve().parent.parent
 
 # Bump on ANY gate change (new gate, regex fix, threshold move). Reports carry
@@ -639,6 +652,14 @@ def main() -> int:
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    calibration = json.loads((REPO / "eval" / "judge_calibration_v1.json").read_text())
+    calibration_hash = calibration_sha256()
+    stamps = {
+        "suite_version": SUITE_VERSION,
+        "gate_version": GATE_VERSION,
+        "rubric_version": RUBRIC_VERSION,
+        "judge_protocol_version": JUDGE_PROTOCOL_VERSION,
+    }
     results, bundle_lines = [], []
     for line in Path(args.generations).read_text().splitlines():
         gen = json.loads(line)
@@ -652,22 +673,44 @@ def main() -> int:
             "deterministic_pass": all(c["pass"] for c in checks.values()),
             "checks": checks,
         })
-        bundle_lines.append(json.dumps({
+        contract = action_contract(example)
+        facts = machine_facts(example, gen["answer"], checks)
+        bundle = {
             "example_id": gen["example_id"],
-            "judge_prompt": (
-                "You are grading one answer from a small fitness-assistant model.\n"
-                "Score each rubric criterion below as pass/fail with a one-line reason. "
-                "Output JSON: {\"criteria\": {\"<id>\": {\"pass\": bool, \"reason\": str}}, "
-                "\"category_pass\": bool}.\n\n"
-                f"RUBRIC:\n{rubric_section(example['task_category'])}\n\n"
-                f"EXPECTED ACTION: {example['target_response']['expected_action']}\n"
-                f"REQUIRED BEHAVIORS: {example['target_response'].get('required_behaviors', [])}\n"
-                f"FORBIDDEN BEHAVIORS: {example['target_response'].get('forbidden_behaviors', [])}\n\n"
-                f"CONTEXT JSON:\n{json.dumps(example['context'], separators=(',', ':'), sort_keys=True)}\n\n"
-                f"QUESTION: {example['context']['request']['user_question']}\n\n"
-                f"MODEL ANSWER:\n{gen['answer']}"
-            ),
-        }, ensure_ascii=False))
+            **stamps,
+            "calibration_sha256": calibration_hash,
+            "task_category": example["task_category"],
+            "expected_criteria": list(expected_criteria(example["task_category"])),
+            "action_contract": contract,
+            "machine_facts": facts,
+            "context": example["context"],
+            "question": example["context"]["request"]["user_question"],
+            "answer": gen["answer"],
+        }
+        bundle["judge_prompt"] = (
+            "You are grading one answer from a small fitness-assistant model under "
+            f"{JUDGE_PROTOCOL_VERSION}. Read and apply the frozen calibration pack below.\n"
+            "The ACTION CONTRACT is authoritative. MACHINE FACTS are authoritative: do "
+            "not recompute or override them. Score exactly EXPECTED CRITERIA. For X1, judge "
+            "only qualitative semantic grounding; numeric grounding is machine-owned. For "
+            "X6, judge only direct lead and absence of header/bullet spam; word range is "
+            "machine-owned. Score all other listed criteria literally. category_pass must "
+            "equal the AND of category criteria. Return one JSON object echoing example_id, "
+            "all four version fields, calibration_sha256, bundle_sha256, judge, criteria, "
+            "and category_pass. Every criterion needs a one-line reason.\n\n"
+            f"CALIBRATION PACK:\n{json.dumps(calibration, ensure_ascii=False, sort_keys=True)}\n\n"
+            f"ACTION CONTRACT:\n{json.dumps(contract, ensure_ascii=False, sort_keys=True)}\n\n"
+            f"MACHINE FACTS:\n{json.dumps(facts, ensure_ascii=False, sort_keys=True)}\n\n"
+            f"EXPECTED CRITERIA: {json.dumps(bundle['expected_criteria'])}\n\n"
+            f"RUBRIC:\n{rubric_section(example['task_category'])}\n\n"
+            f"CONTEXT JSON:\n{json.dumps(example['context'], separators=(',', ':'), sort_keys=True)}\n\n"
+            f"QUESTION: {bundle['question']}\n\n"
+            f"MODEL ANSWER:\n{gen['answer']}\n\n"
+            f"PROVENANCE (echo these fields plus the top-level bundle_sha256): "
+            f"{json.dumps({**stamps, 'calibration_sha256': calibration_hash}, sort_keys=True)}"
+        )
+        bundle["bundle_sha256"] = sha256_json(bundle_hash_payload(bundle))
+        bundle_lines.append(json.dumps(bundle, ensure_ascii=False))
 
     n = len(results)
     by_gate: dict[str, dict] = {}
@@ -677,8 +720,8 @@ def main() -> int:
             g["n"] += 1
             g["pass"] += outcome["pass"]
     summary = {
-        "gate_version": GATE_VERSION,
-        "rubric_version": RUBRIC_VERSION,
+        **stamps,
+        "calibration_sha256": calibration_hash,
         "count": n,
         "deterministic_pass_rate": round(sum(r["deterministic_pass"] for r in results) / n, 3) if n else None,
         "grounding_pass_rate": round(sum(r["checks"]["x1_grounding"]["pass"] for r in results) / n, 3) if n else None,

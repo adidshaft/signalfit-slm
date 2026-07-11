@@ -45,13 +45,14 @@ def default_out_dir(adapter: str) -> Path:
 def print_summary(report_path: Path) -> None:
     report = json.loads(report_path.read_text())
     summary = report["summary"]
-    triple = (
-        "sf-eval-v1",
+    quadruple = (
+        summary["suite_version"],
         summary["gate_version"],
         summary["rubric_version"],
+        summary["judge_protocol_version"],
     )
     print("\nSummary")
-    print(f"  triple: {triple}")
+    print(f"  quadruple: {quadruple}")
     print(f"  count: {summary['count']}")
     print(f"  deterministic_pass_rate: {summary['deterministic_pass_rate']}")
     if "overall_pass_rate" in summary:
@@ -116,6 +117,7 @@ def main() -> int:
         run([
             str(PY), "scripts/apply_judge.py",
             "--report", str(eval_dir / "eval_report.json"),
+            "--bundle", str(eval_dir / "judge_bundle.jsonl"),
             "--verdicts", args.verdicts,
             "--out", str(judged_report),
         ])

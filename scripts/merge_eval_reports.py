@@ -3,7 +3,7 @@
 
 This is for a sanctioned eval-suite expansion: old case results stay immutable
 and newly generated/judged slice reports are merged into one comparable report.
-All inputs must carry the same gate and rubric stamps and may not overlap IDs.
+All inputs must carry the same score quadruple and may not overlap IDs.
 """
 from __future__ import annotations
 
@@ -11,6 +11,11 @@ import argparse
 import json
 import sys
 from pathlib import Path
+
+try:
+    from judge_protocol import VERSION_KEYS
+except ModuleNotFoundError:
+    from scripts.judge_protocol import VERSION_KEYS
 
 
 def load(path: Path) -> dict:
@@ -27,7 +32,11 @@ def main() -> int:
     args = ap.parse_args()
 
     reports = [load(Path(raw)) for raw in args.reports]
-    stamps = {(r["summary"].get("gate_version"), r["summary"].get("rubric_version")) for r in reports}
+    for index, report in enumerate(reports):
+        for key in VERSION_KEYS:
+            if not isinstance(report["summary"].get(key), str) or not report["summary"][key]:
+                sys.exit(f"report {index} has missing/invalid {key}")
+    stamps = {tuple(r["summary"][key] for key in VERSION_KEYS) for r in reports}
     if len(stamps) != 1:
         sys.exit(f"cannot merge mismatched report versions: {sorted(stamps)}")
 
@@ -42,7 +51,7 @@ def main() -> int:
             results.append(result)
     results.sort(key=lambda r: r["example_id"])
 
-    gate_version, rubric_version = next(iter(stamps))
+    stamp = next(iter(stamps))
     n = len(results)
     by_gate: dict[str, dict[str, int]] = {}
     by_category: dict[str, dict[str, int]] = {}
@@ -62,8 +71,8 @@ def main() -> int:
     if any_judged and len(judged) != n:
         sys.exit(f"cannot merge partly judged report: {len(judged)}/{n} have verdicts")
     summary: dict[str, object] = {
-        "gate_version": gate_version,
-        "rubric_version": rubric_version,
+        **dict(zip(VERSION_KEYS, stamp)),
+        "calibration_sha256": reports[0]["summary"].get("calibration_sha256"),
         "count": n,
         "deterministic_pass_rate": round(sum(bool(r["deterministic_pass"]) for r in results) / n, 3) if n else None,
         "grounding_pass_rate": round(sum(bool(r["checks"]["x1_grounding"]["pass"]) for r in results) / n, 3) if n else None,

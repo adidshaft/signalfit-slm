@@ -1,0 +1,26 @@
+{
+  "count": 200,
+  "category_agreement_count": 76,
+  "category_agreement_rate": 0.38,
+  "category_confusion": {
+    "both_pass": 54,
+    "both_fail": 22,
+    "a_pass_b_fail": 111,
+    "a_fail_b_pass": 13
+  },
+  "pass_a_rate": 0.825,
+  "pass_b_rate": 0.335,
+  "pass_rate_gap": 0.49,
+  "cohen_kappa": -0.021,
+  "criterion_agreement_count": 1237,
+  "criterion_count": 1654,
+  "criterion_agreement_rate": 0.7479,
+  "suite_version": "sf-eval-v1",
+  "gate_version": "sf-gates-10",
+  "rubric_version": "rubric-v0.1",
+  "judge_protocol_version": "judge-protocol-v1",
+  "judge_a": "iteration13-baseline-judge-a",
+  "judge_b": "iteration13-baseline-judge-b",
+  "fully_agreed_count": 2,
+  "adjudication_count": 198
+}

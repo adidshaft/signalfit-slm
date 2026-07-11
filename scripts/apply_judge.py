@@ -14,9 +14,9 @@ judge_bundle.jsonl — a frontier model, an agent, or a human):
      "category_pass": bool,
      "judge": str}          # who judged, e.g. "agent-fable-5-agent"
 
-An example's overall_pass = deterministic_pass AND category_pass. The judged
-report keeps the gate/rubric version stamps from the input report; regression
-checks (scripts/check_regression.py) refuse to compare across versions.
+An example's overall_pass = deterministic_pass AND category_pass AND every
+cross-cutting criterion. The judged report keeps the full score quadruple;
+verdict and exact-answer bundle provenance must match before scoring.
 """
 from __future__ import annotations
 
@@ -25,24 +25,79 @@ import json
 import sys
 from pathlib import Path
 
+try:
+    from judge_protocol import VERSION_KEYS, validate_stamp, validate_verdict
+    from merge_judgments import load_bundles
+except ModuleNotFoundError:  # imported as scripts.apply_judge in tests
+    from scripts.judge_protocol import VERSION_KEYS, validate_stamp, validate_verdict
+    from scripts.merge_judgments import load_bundles
+
+
+def synthesize_criteria(verdict_criteria: dict, facts: dict) -> dict:
+    """Combine qualitative judge work with authoritative mechanical subchecks."""
+    final_criteria = dict(verdict_criteria)
+    qualitative_x1 = final_criteria["X1"]
+    numeric_x1 = facts["numeric_grounding"]
+    final_criteria["X1"] = {
+        "pass": bool(qualitative_x1["pass"] and numeric_x1["pass"]),
+        "reason": (
+            f"machine numeric_grounding={numeric_x1['pass']}; "
+            f"qualitative: {qualitative_x1['reason']}"
+        ),
+    }
+    final_criteria["X4"] = {
+        "pass": bool(facts["followup_budget"]["pass"]),
+        "reason": f"machine question_count={facts['followup_budget']['questions']}",
+    }
+    final_criteria["X5"] = {
+        "pass": bool(facts["brand_check"]["pass"]),
+        "reason": f"machine brand_matches={facts['brand_check']['found']}",
+    }
+    qualitative_x6 = final_criteria["X6"]
+    length_x6 = facts["rubric_word_range"]
+    final_criteria["X6"] = {
+        "pass": bool(qualitative_x6["pass"] and length_x6["pass"]),
+        "reason": (
+            f"machine word_range={length_x6['word_count']} in {length_x6['bounds']} "
+            f"=> {length_x6['pass']}; qualitative: {qualitative_x6['reason']}"
+        ),
+    }
+    return final_criteria
+
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--report", required=True)
     ap.add_argument("--verdicts", required=True)
+    ap.add_argument("--bundle", required=True,
+                    help="judge bundle used to bind verdicts to exact answers")
     ap.add_argument("--out", required=True)
     ap.add_argument("--allow-missing", action="store_true",
                     help="tolerate examples without a verdict (default: error)")
     args = ap.parse_args()
 
     report = json.loads(Path(args.report).read_text())
+    bundles = load_bundles(args.bundle)
+    try:
+        validate_stamp(report["summary"], next(iter(bundles.values())), "report.summary")
+    except (ValueError, StopIteration) as exc:
+        sys.exit(str(exc))
+    if report["summary"].get("calibration_sha256") != next(iter(bundles.values())).get("calibration_sha256"):
+        sys.exit("report.summary calibration_sha256 mismatch")
     verdicts: dict[str, dict] = {}
-    for line in Path(args.verdicts).read_text().splitlines():
+    for line_number, line in enumerate(Path(args.verdicts).read_text().splitlines(), 1):
         if not line.strip():
             continue
         v = json.loads(line)
         if v["example_id"] in verdicts:
             sys.exit(f"duplicate verdict for {v['example_id']}")
+        bundle = bundles.get(v["example_id"])
+        if bundle is None:
+            sys.exit(f"verdict for {v['example_id']} has no bundle row")
+        try:
+            validate_verdict(v, bundle, f"{args.verdicts}:{line_number}")
+        except ValueError as exc:
+            sys.exit(str(exc))
         verdicts[v["example_id"]] = v
 
     known = {r["example_id"] for r in report["results"]}
@@ -53,19 +108,29 @@ def main() -> int:
     if missing and not args.allow_missing:
         sys.exit(f"{len(missing)} examples lack a verdict (use --allow-missing to score anyway): "
                  f"{sorted(missing)[:5]}{'...' if len(missing) > 5 else ''}")
+    if set(bundles) != known:
+        sys.exit(
+            f"bundle/report coverage mismatch: bundle-only={sorted(set(bundles)-known)[:5]} "
+            f"report-only={sorted(known-set(bundles))[:5]}"
+        )
 
     results = []
     for r in report["results"]:
         v = verdicts.get(r["example_id"])
         merged = dict(r)
+        final_criteria = None
+        if v is not None:
+            facts = bundles[r["example_id"]]["machine_facts"]
+            final_criteria = synthesize_criteria(v["criteria"], facts)
         # criteria_pass is the strict bar (rubric roll-up: cross_cutting AND
         # category): an answer with a judge-confirmed false qualitative claim
         # (X1) fails overall even when its category criteria all pass.
         merged["judge"] = None if v is None else {
             "judge": v.get("judge"),
             "category_pass": v["category_pass"],
-            "criteria_pass": all(c["pass"] for c in v["criteria"].values()),
-            "criteria": v["criteria"],
+            "criteria_pass": all(c["pass"] for c in final_criteria.values()),
+            "criteria": final_criteria,
+            "bundle_sha256": v["bundle_sha256"],
         }
         merged["overall_pass"] = bool(
             r["deterministic_pass"] and v and v["category_pass"]
@@ -75,8 +140,8 @@ def main() -> int:
     judged = [r for r in results if r["judge"] is not None]
     n = len(results)
     summary = {
-        "gate_version": report["summary"]["gate_version"],
-        "rubric_version": report["summary"]["rubric_version"],
+        **{key: report["summary"][key] for key in VERSION_KEYS},
+        "calibration_sha256": report["summary"]["calibration_sha256"],
         "count": n,
         "judged_count": len(judged),
         "deterministic_pass_rate": report["summary"]["deterministic_pass_rate"],

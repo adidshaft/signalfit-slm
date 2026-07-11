@@ -151,7 +151,7 @@ re-pin; no candidate is promoted and defaults remain unchanged.
 
 ![ft_v2, ft_v4, ft_v5, and Qwen3 safety and grounding gate comparison](../assets/benchmark-gates.svg)
 
-## Current 200-case scoreboard — triple (sf-eval-v1, sf-gates-10, rubric-v0.1)
+## Historical 200-case scoreboard — pre-versioned judge procedure
 
 | model/system | deterministic | judge category | strict overall | verdict |
 |---|---:|---:|---:|---|
@@ -164,6 +164,9 @@ re-pin; no candidate is promoted and defaults remain unchanged.
 | Qwen3.5-2B iteration 10 | — | — | — | ⛔ technical block; 2,249-token step OOM at 21.80–23.90 GB |
 | Gemma 4 E2B iteration 11 | — | — | — | ⛔ technical block; mlx-lm load unsupported |
 | ft_v7 micro + wrapper v4 | **147/200** | **67/200** | **35/200** | ⛔ blocked; refusal/safety/goal regression |
+
+These recorded verdicts predate a pinned judge-protocol version. They remain
+historical evidence and are not relabeled as `judge-protocol-v1`.
 
 ## Iteration 11 — Gemma 4 E2B preflight — technical block
 
@@ -205,6 +208,34 @@ the old chest-tightness coaching stance, but the answer still says it cannot
 rule out “anything cardiac,” short of literal directive compliance. ft_v2
 remains pinned and no ship preparation ran.
 
+## Iteration 13 — judge protocol v1 — measurement blocked
+
+`judge-protocol-v1` keeps `sf-eval-v1`, `sf-gates-10`, and `rubric-v0.1`
+unchanged while adding expected-action binding, authoritative machine facts,
+calibration and exact-answer hashes, exact criterion coverage, code-derived
+roll-ups, and criterion-level adjudication. The candidate again clears
+prefilter at 147/200 with all 30 + 16 protects.
+
+| symmetric protocol run | judge A category | judge B category | agreement | kappa | pass-rate gap |
+|---|---:|---:|---:|---:|---:|
+| ft_v7-micro + wrapper-v4 | 87/200 | 83/200 | **164/200 (82%)** | 0.632 | 2 points |
+| ft_v2 unchanged answers | 165/200 | 67/200 | **76/200 (38%)** | -0.021 | 49 points |
+
+The baseline result triggers the hard stop. Judge A fails qualitative X1 on
+all 200 baseline answers with one generic reason while making near-blanket
+category decisions; every structural validator still passes. Thus v1 proves
+provenance but not semantic judge competence. The candidate's assembled
+83-category/54-strict report is retained only as provisional evidence. ft_v2
+is not adjudicated or re-pinned, no regression verdict runs, and no model or
+serving artifact changes.
+
+Iteration 14 should not train. It should use the same two blinded judge
+sessions for both systems in randomized/interleaved order, require a perfect
+scored non-suite qualification, require answer/context evidence for failures,
+reject generic repeated reasons and degenerate criterion patterns, and demand
+>=80% agreement, kappa >=0.60, and <=10-point pass gap on each system before
+adjudication.
+
 ## What the iterations teach
 
 1. **A blocked model is the harness succeeding.** ft_v3 had the best val loss
@@ -214,18 +245,17 @@ remains pinned and no ship preparation ran.
 2. **Every gate is a fossilized failure.** None of s1–s5 was designed in the
    abstract; each mechanizes something a model actually did wrong once.
 3. **Honesty upgrades look like regressions.** Expect the headline number to
-   fall every time the ruler improves; track the triple, not the number.
+   fall every time the ruler improves; track the full score quadruple, not the
+   number.
 4. **Aggregate gains cannot buy back strict regressions.** sf-gates-10 removes
    demonstrated s1/s3 false positives, but the judge still reveals refusal and
    coaching losses hidden by ft_v5's best-yet deterministic count.
 
 ## Current loop
 
-Iteration 12 closes the local Qwen3 promotion attempt without a promotion.
-Wrapper v4 plus ft_v7 micro has the best aggregate in the project but fails
-three zero-tolerance category floors. The 19 lost ft_v2 strict cases separate
-into ten judge-noise errors, seven genuine architecture/serving-shape errors,
-and two data/behavior errors. Iteration 13 should first make judge execution
-reliable (literal X6 checking and expected-action-aware benign lookalikes),
-then use a small targeted Qwen3 round for the genuine refusal, symptom-naming,
-metric-relation, and safety-shape residue. ft_v2 remains the default incumbent.
+Iteration 13 shows that machine facts and hashes are not enough: the same
+protocol can agree at 82% on one answer distribution and collapse to 38% on
+another judge pool. The measurement layer remains the bottleneck. Iteration 14
+must qualify and pair judges before suite access; no targeted Qwen repair is
+justified until that instrument yields a symmetric trustworthy verdict. ft_v2
+remains the default incumbent.

@@ -1,11 +1,11 @@
 # Models
 
 This directory contains MLX LoRA adapter artifacts and run notes for
-SignalFit-SLM. The recommended upload/run is still `ft_v2_qwen2.5-1.5b`;
-`ft_v4_qwen2.5-1.5b` completed evaluation but was blocked by a triage-safety
-regression and is not promoted. `ft_v5_qwen2.5-1.5b` is also blocked: its
-deterministic score improves after the sf-gates-7/8 corrections, but strict
-judged quality still regresses.
+SignalFit-SLM. The recommended upload/run remains
+`ft_v2_qwen2.5-1.5b`. Iteration 12's ft_v7-micro + wrapper-v4 candidate is not
+promoted, and iteration 13 did not create a trustworthy replacement verdict:
+its experimental judge protocol failed the symmetric ft_v2 agreement gate.
+No adapter, fused model, quantized model, or serving default changed.
 
 ## Base model selection (2026-07-05)
 
@@ -47,3 +47,6 @@ judged quality still regresses.
 | 2026-07-11 | ft_v7 Qwen3-1.7B repair | Qwen3-1.7B | ft_v7 (920 train / 102 valid / 40 eval; 120 repair rows repeated 2×) | deterministic 119/200; prefilter reject | Full 2,116-step r16 run, 15.7 GB observed peak. Aggregate/safety floors clear (s1 18/18, s2 18/19, s3 193/200), but four of 30 protected ft_v2 cases fail: one X6 refusal length and three X1/s4 comparison errors. No judging or promotion. |
 | 2026-07-11 | ft_v7 micro + verify/retry-1 | Qwen3-1.7B system | ft_v7 plus 28 unique residue examples (945 train / 105 valid / 40 eval) | deterministic 144/200; dual-protect reject | Full unchanged 2,116-step r16 run, final val 0.373, 15.55 GB peak. The fresh system fixes all four original ft_v7 protect failures and retries 71/200 (35.5%; all-case 4.13/12.72 s median/p95), but loses protected benign length case `ev1x-lookalike2-001` and safety-critical triage case `advs-v1-000007`. No judge, promotion, fusion, or quantization; ft_v2 retained. |
 | 2026-07-11 | iteration 10 Qwen3.5-2B measured-memory ladder | Qwen3.5-2B @ `15852e8` local 4-bit | ft_v7_micro measured at train max/p95 2,249/2,157 tokens | technical block; no candidate score | Apache-2.0 reverified. With gradient checkpointing, the true 2,249-token maximum OOMs at 23.90 GB r16/16, 22.65 GB r8/8, and 21.80 GB r4/4. A lossless-subset 1,895-token row still OOMs at 23.06 GB r16/16 and 21.21 GB r4/4. No credible full adapter trained; evaluation stops before prefilter/judging and ft_v2 remains pinned. |
+| 2026-07-12 | iteration 11 Gemma 4 E2B preflight | Gemma 4 E2B @ `9dbdf8a` | no training | technical block; no candidate score | Apache-2.0, 5,123,178,979 raw / 2.3B effective parameters. Native template renders, but mlx-lm 0.31.3 cannot load 60 K/V and K-norm tensors in layers 15–34. Hard stop before optimizer step, quantization, training, or judging. |
+| 2026-07-12 | iteration 12 ft_v7-micro + wrapper-v4 | Qwen3-1.7B system | existing ft_v7_micro adapter + frozen red-flag directive | historical pre-versioned procedure: 147/200 deterministic, 67/200 category, 35/200 strict; blocked | Prefilter preserves all 30 ft_v2 and 16 prior-gain protects. Promotion still fails refusal 11→10, safety 14→12, and goal 1→0. No fusion or quantization. |
+| 2026-07-12 | iteration 13 judge-protocol-v1 | unchanged ft_v2 and ft_v7-micro + wrapper-v4 answers | no training or generation | candidate A/B 87/83, agreement 164/200 (82%); ft_v2 A/B 165/67, agreement 76/200 (38%) | Measurement hard stop. Provenance/schema fixes work, but a structurally valid judge degenerates semantically. No ft_v2 adjudication, baseline re-pin, regression, promotion, or model artifact. Iteration 14 must qualify and pair blinded judges before suite access. |
