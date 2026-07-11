@@ -42,22 +42,27 @@ class SweepCandidateCLITests(unittest.TestCase):
         self.baseline = report(judged=True)
         self.candidate = report(judged=False)
 
-    def run_cli(self, baseline: dict, candidate: dict) -> tuple[int, dict]:
+    def run_cli(
+        self, baseline: dict, candidate: dict, additional: dict | None = None
+    ) -> tuple[int, dict]:
         with tempfile.TemporaryDirectory() as directory:
             baseline_path = Path(directory) / "baseline.json"
             candidate_path = Path(directory) / "candidate.json"
             baseline_path.write_text(json.dumps(baseline))
             candidate_path.write_text(json.dumps(candidate))
+            argv = [
+                "--baseline",
+                str(baseline_path),
+                "--candidate",
+                str(candidate_path),
+            ]
+            if additional is not None:
+                additional_path = Path(directory) / "additional.json"
+                additional_path.write_text(json.dumps(additional))
+                argv.extend(["--additional-protect-report", str(additional_path)])
             stdout = io.StringIO()
             with redirect_stdout(stdout):
-                exit_code = main(
-                    [
-                        "--baseline",
-                        str(baseline_path),
-                        "--candidate",
-                        str(candidate_path),
-                    ]
-                )
+                exit_code = main(argv)
         return exit_code, json.loads(stdout.getvalue())
 
     def test_survivor(self) -> None:
@@ -68,6 +73,20 @@ class SweepCandidateCLITests(unittest.TestCase):
         self.assertTrue(all(gate["pass"] for gate in result["gate_comparisons"].values()))
         self.assertEqual(result["protect_count"], 1)
         self.assertEqual(result["protect_failures"], [])
+        self.assertEqual(result["secondary_protect_count"], 0)
+
+    def test_additional_strict_gain_is_protected(self) -> None:
+        additional = copy.deepcopy(self.baseline)
+        additional["results"][1]["overall_pass"] = True
+
+        exit_code, result = self.run_cli(
+            self.baseline, self.candidate, additional
+        )
+
+        self.assertEqual(exit_code, 1)
+        self.assertFalse(result["survivor"])
+        self.assertEqual(result["secondary_protect_count"], 1)
+        self.assertEqual(result["secondary_protect_failures"], ["unprotected"])
 
     def test_aggregate_rejection(self) -> None:
         self.candidate["summary"]["deterministic_pass_rate"] = 0.49

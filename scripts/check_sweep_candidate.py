@@ -100,7 +100,7 @@ def _validate_report(
 
 
 def evaluate_candidate(
-    baseline: Any, candidate: Any
+    baseline: Any, candidate: Any, additional_protect: Any | None = None
 ) -> dict[str, Any]:
     """Compare parsed reports and return the prefilter's JSON-serializable result."""
     baseline_summary, baseline_results = _validate_report(
@@ -109,6 +109,12 @@ def evaluate_candidate(
     candidate_summary, candidate_results = _validate_report(
         candidate, "candidate", require_judged=False
     )
+    additional_summary = None
+    additional_results = None
+    if additional_protect is not None:
+        additional_summary, additional_results = _validate_report(
+            additional_protect, "additional_protect", require_judged=True
+        )
 
     versions: dict[str, dict[str, Any]] = {}
     comparison_errors: list[str] = []
@@ -123,6 +129,15 @@ def evaluate_candidate(
         }
         if not matches:
             comparison_errors.append(f"{key} mismatch")
+        if additional_summary is not None:
+            additional_matches = additional_summary[key] == baseline_version
+            versions[f"additional_protect_{key}"] = {
+                "baseline": baseline_version,
+                "additional_protect": additional_summary[key],
+                "match": additional_matches,
+            }
+            if not additional_matches:
+                comparison_errors.append(f"additional protect {key} mismatch")
 
     baseline_ids = set(baseline_results)
     candidate_ids = set(candidate_results)
@@ -131,6 +146,8 @@ def evaluate_candidate(
     coverage_matches = not baseline_only and not candidate_only
     if not coverage_matches:
         comparison_errors.append("example ID coverage mismatch")
+    if additional_results is not None and set(additional_results) != baseline_ids:
+        comparison_errors.append("additional protect example ID coverage mismatch")
 
     gate_comparisons: dict[str, dict[str, Any]] = {}
     baseline_rate = _rate(
@@ -166,11 +183,25 @@ def evaluate_candidate(
         if example_id not in candidate_results
         or not candidate_results[example_id]["deterministic_pass"]
     ]
+    secondary_protect_ids: list[str] = []
+    if additional_results is not None:
+        secondary_protect_ids = sorted(
+            example_id
+            for example_id, result in additional_results.items()
+            if result["overall_pass"] and not baseline_results[example_id]["overall_pass"]
+        )
+    secondary_protect_failures = [
+        example_id
+        for example_id in secondary_protect_ids
+        if example_id not in candidate_results
+        or not candidate_results[example_id]["deterministic_pass"]
+    ]
     comparable = not comparison_errors
     survivor = (
         comparable
         and all(comparison["pass"] for comparison in gate_comparisons.values())
         and not protect_failures
+        and not secondary_protect_failures
     )
     return {
         "survivor": survivor,
@@ -184,6 +215,8 @@ def evaluate_candidate(
         "gate_comparisons": gate_comparisons,
         "protect_count": len(protect_ids),
         "protect_failures": protect_failures,
+        "secondary_protect_count": len(secondary_protect_ids),
+        "secondary_protect_failures": secondary_protect_failures,
         "errors": comparison_errors,
     }
 
@@ -207,12 +240,24 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--candidate", required=True, help="deterministic or judged candidate report"
     )
+    parser.add_argument(
+        "--additional-protect-report",
+        help=(
+            "optional judged report whose strict gains over the baseline become "
+            "a second deterministic protect set"
+        ),
+    )
     args = parser.parse_args(argv)
 
     try:
         result = evaluate_candidate(
             _load_report(args.baseline, "baseline"),
             _load_report(args.candidate, "candidate"),
+            (
+                _load_report(args.additional_protect_report, "additional protect")
+                if args.additional_protect_report
+                else None
+            ),
         )
     except ReportError as exc:
         result = {
@@ -220,6 +265,7 @@ def main(argv: list[str] | None = None) -> int:
             "comparable": False,
             "gate_comparisons": {},
             "protect_failures": [],
+            "secondary_protect_failures": [],
             "errors": [str(exc)],
         }
         print(json.dumps(result, sort_keys=True))
