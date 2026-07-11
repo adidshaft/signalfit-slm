@@ -1869,6 +1869,93 @@ start with r16/16, checkpointing, and the measured 2,249-token cap. Do not spend
 another local iteration on rank/layer reductions: the memory curve already
 shows they cannot buy enough headroom without destroying useful capacity.
 
+### Step 7o — iteration 11: Gemma 4 E2B preflight before judging spend
+
+Iteration 11 tests one new base, `google/gemma-4-E2B-it`; Qwen3.5-0.8B is
+excluded because its expected ceiling is below the already-parked Qwen3-1.7B
+anchor. The run is deliberately gated before any training or judging spend:
+
+1. preserve the immutable 200-case suite and expanded ft_v2 promotion bar;
+2. pin the exact per-size Hub revision and license;
+3. prove that current mlx-lm can load the architecture, render the unchanged
+   `sf-chat-1` / `sft-sys-1` conversation through Gemma's native chat template,
+   and generate a direct answer with thinking disabled;
+4. measure the architecture's raw versus effective parameter counts, then run
+   exactly one optimizer step with gradient checkpointing on the tokenizer-
+   measured 2,249-token worst ft_v7_micro row, recording `/usr/bin/time -l`
+   peak footprint using the iteration-10 method; and
+5. convert the exact base to MLX 4-bit and record bytes versus the approximate
+   1.3 GB iPhone budget.
+
+Missing architecture support or an OOM on that required step is a hard stop:
+document the evidence, do not train, generate, prefilter, judge, change
+defaults, or re-pin anything. If the preflight passes, train one full-current-
+dataset candidate using the ft_v7_micro lineage and an architecture-justified
+recipe; validation loss remains diagnostic only. Before judging, the candidate
+must pass the unchanged aggregate gates and both protect sets: all 30 expanded
+ft_v2 strict passes plus the 16 strict gains from the prior Qwen3 retry system.
+Only a survivor receives two independent judge passes, strict-AND merging,
+recorded adjudication, safety-adjacent answer reads, `apply_judge`, and
+`check_regression` against the pinned expanded ft_v2 report. Promotion alone
+authorizes default changes, fusion, 4-bit conversion, and a fresh full-suite
+evaluation of the quantized system.
+
+Phase 0 opened from clean tracked state at commit
+`e8b3fe8d36b1d7ede7471e905994bb87c8b35a09`. Cleanup removed only generated
+Python bytecode, an empty ignored `.agent/` directory, and the reproducible
+1.0 GB iteration-10 Qwen3.5 base. The active environment, all baseline/anchor
+adapters, tracked evidence, and off-limits `data/real_world/` files were
+preserved. `freeze_eval.py check --version v1` passed: 200 hashes match and
+no train/valid contamination exists.
+
+The exact Hub repo reports Apache-2.0 at revision
+`9dbdf8a839e4e9e0eb56ed80cc8886661d3817cf`; the model card's standing
+per-size accounting is 5.1B total parameters including embeddings and 2.3B
+effective parameters. The single BF16 weight blob is 10,246,621,918 bytes.
+Environment: MLX 0.31.2, mlx-lm 0.31.3, Transformers 5.13.0, and
+huggingface-hub 1.22.0. Support, prompt, memory, and quantization results follow
+as they are measured; none is inferred from the model card.
+
+**Phase 0 result — hard technical stop.** Safetensors header enumeration gives
+an exact stored count of 5,123,178,979 parameter elements, consistent with the
+card's rounded 5.1B raw / 2.3B effective distinction. The unchanged chat
+messages render correctly: Gemma's native system turn contains `sft-sys-1`,
+the user turn contains the exact sorted compact `CONTEXT` and `QUESTION`, the
+generation turn is present, and `enable_thinking=false` adds no `<|think|>`
+trigger. That proves tokenizer/template compatibility only.
+
+The required actual load fails on MLX 0.31.2 / mlx-lm 0.31.3 before a token can
+be generated. `mlx_lm.load()` reports 60 checkpoint parameters absent from
+the constructed model: `self_attn.k_norm.weight`, `k_proj.weight`, and
+`v_proj.weight` across language layers 15–34. This is a checkpoint/
+implementation support mismatch, not an OOM. The failed load process reached
+only 82,920,216 bytes peak footprint; no optimizer step exists, so there is no
+honest 2,249-token training-memory measurement. The hard kill rule therefore
+forbids the planned 4-bit conversion too; no artifact footprint exists to
+compare with the 1.3 GB iPhone budget. Both absences are recorded explicitly,
+not estimated, in `data/checks/iteration11-gemma4-e2b/preflight/`.
+
+The verdict chain ends here: license/revision pass; template-only render pass;
+mlx-lm load/direct-answer support fail; optimizer memory and 4-bit footprint
+not attempted; Phases 1–4 do not run. Frozen cases, gates, rubric, ft_v2 pin,
+adapters, and serving defaults remain unchanged.
+
+| iteration-11 comparison | deterministic | judge category | strict overall | decision |
+|---|---:|---:|---:|---|
+| Gemma 4 E2B | — | — | — | technical block at mlx-lm load; no candidate |
+| parked Qwen3-1.7B bare | 123/200 | 58/200 | 29/200 | blocked on refusal/daily/sleep regression |
+| ft_v2 pinned baseline | 101/200 | 46/200 | 30/200 | incumbent promotion bar |
+
+Iteration 12 should use a 32 GB-or-larger Apple-Silicon machine for the already
+shelf-ready, pinned Qwen3.5-2B r16/16 checkpointed recipe at the measured
+2,249-token cap. That path has already passed license and direct-answer support
+and is blocked only by local capacity. The alternative—parked Qwen3-1.7B plus
+a pre-generation red-flag directive—starts from known refusal/daily/sleep
+regressions and a wrapper history where syntactically cleaner retries made a
+safety stance worse. Keep it as the no-new-hardware fallback only: calibrate
+the directive exclusively on curated training triage/lookalike examples,
+freeze it, then inspect its one allowed suite verification without rule edits.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -2268,3 +2355,22 @@ shows they cannot buy enough headroom without destroying useful capacity.
   before generation/prefilter/judging; ft_v2 and every serving/eval pin remain
   unchanged. Next iteration: run the checkpointed r16/16 recipe on >=32 GB,
   not another capacity-reduced retry on this 24 GB machine.
+- **2026-07-12 (iteration 11, Phase 0 opened):** Cleaned only stale generated
+  bytecode, an empty ignored directory, and the reproducible 1.0 GB Qwen3.5
+  base; preserved the environment, ft_v2/Qwen3 adapters, ledgers, and
+  off-limits real-world files. Frozen eval is green at 200 cases. Pinned exact
+  Gemma repo revision `9dbdf8a839e4e9e0eb56ed80cc8886661d3817cf` and verified
+  its per-size card license as Apache-2.0. Card accounting is 5.1B raw
+  including embeddings versus 2.3B effective; the BF16 weights are
+  10,246,621,918 bytes. Architecture, direct-answer, one-step memory, and
+  4-bit footprint checks are next under the hard-stop protocol in Step 7o.
+- **2026-07-12 (iteration 11, Phase 0 hard stop):** Exact safetensors count is
+  5,123,178,979 raw elements versus the card's 2.3B effective. sf-chat-1
+  renders through the native template with thinking disabled, but mlx-lm
+  0.31.3 cannot load the checkpoint: 60 K/V projection and K-norm tensors in
+  layers 15–34 are absent from its constructed model. The failed load peaks at
+  only 82,920,216 bytes; it is a support error, not a training-memory result.
+  Per the kill rule, no optimizer step, quantization, training, evaluation, or
+  judging ran. ft_v2 remains pinned. Iteration 12 recommendation: move the
+  proven Qwen3.5-2B recipe to >=32 GB hardware; retain Qwen3-1.7B plus a
+  curated-only, one-shot-verified red-flag directive as the fallback.

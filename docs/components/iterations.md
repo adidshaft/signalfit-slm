@@ -1,4 +1,4 @@
-# Iterations — ten completed trips
+# Iterations — eleven completed trips
 
 The loop that governs the whole project:
 
@@ -162,6 +162,29 @@ re-pin; no candidate is promoted and defaults remain unchanged.
 | ft_v7 + verify/retry-1 | 132/200 | — | — | ⛔ dual-protect failure; not judged |
 | ft_v7 micro + verify/retry-1 | **144/200** | — | — | ⛔ two dual-protect failures; not judged |
 | Qwen3.5-2B iteration 10 | — | — | — | ⛔ technical block; 2,249-token step OOM at 21.80–23.90 GB |
+| Gemma 4 E2B iteration 11 | — | — | — | ⛔ technical block; mlx-lm load unsupported |
+
+## Iteration 11 — Gemma 4 E2B preflight — technical block
+
+The exact `google/gemma-4-E2B-it` repository was checked at revision
+`9dbdf8a839e4e9e0eb56ed80cc8886661d3817cf`: Apache-2.0, 5,123,178,979 raw
+stored parameters (5.1B rounded including embeddings) and 2.3B effective by
+the model card, with a 10,246,621,918-byte BF16 weight blob. The unchanged
+sf-chat-1 prompt renders through the native template with thinking disabled.
+
+Actual support fails before generation: mlx-lm 0.31.3 rejects 60 checkpoint
+K/V projection and K-norm tensors across language layers 15–34 as absent from
+its implementation. The failed load has an 82,920,216-byte peak footprint;
+that is not an optimizer-step result. The hard kill rule therefore stopped the
+iteration before the required 2,249-token LoRA step, 4-bit conversion,
+training, prefilter, or judging. No score, adapter, or quantized artifact
+exists, and ft_v2 remains unchanged.
+
+| iteration-11 comparison | deterministic | judge category | strict overall | verdict |
+|---|---:|---:|---:|---|
+| Gemma 4 E2B | — | — | — | unsupported load; no candidate |
+| parked Qwen3-1.7B bare | 123/200 | 58/200 | 29/200 | blocked: refusal/daily/sleep |
+| ft_v2 | 101/200 | 46/200 | **30/200** | pinned baseline / model of record |
 
 ## What the iterations teach
 
@@ -179,11 +202,10 @@ re-pin; no candidate is promoted and defaults remain unchanged.
 
 ## Current loop
 
-Iteration 10 is complete with no trained Qwen3.5-2B candidate. The exact
-2,249-token maximum fails even with gradient checkpointing and adapter capacity
-reduced from r16/16 layers to r4/4 layers: measured host peak falls only
-23.90→21.80 GB before Metal OOM. A 1,895-token lossless-subset boundary also
-fails at 21.21 GB with r4/4. No generation or judging ran. ft_v2 remains the
-default 200-case incumbent. The next lever is the unchanged checkpointed
-r16/16 Qwen3.5 recipe on a >=32 GB machine; local rank/layer reduction is
-exhausted and should not consume another iteration.
+Iteration 11 stops at a Gemma 4 E2B mlx-lm support mismatch, so no optimizer,
+footprint, or quality result exists and ft_v2 remains the default 200-case
+incumbent. Iteration 12 should run the unchanged checkpointed r16/16 Qwen3.5
+recipe on a >=32 GB machine at the measured 2,249-token cap. If such hardware
+is unavailable, the lower-confidence fallback is parked Qwen3-1.7B plus a
+pre-generation red-flag directive calibrated only on curated training
+triage/lookalike examples, then frozen before its single suite verification.
