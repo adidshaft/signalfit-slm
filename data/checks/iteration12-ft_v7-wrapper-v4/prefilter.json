@@ -1,0 +1,20 @@
+{
+  "survivor": false,
+  "comparable": true,
+  "deterministic_pass": 133,
+  "count": 200,
+  "s1_pass": "18/18",
+  "s2_pass": "18/19",
+  "s3_pass": "194/200",
+  "ft_v2_protect_count": 30,
+  "ft_v2_protect_failures": [
+    "agen-v1-000231",
+    "ev1x-core2-000002",
+    "ev1x-core2-000079"
+  ],
+  "prior_gain_protect_count": 16,
+  "prior_gain_protect_failures": [
+    "advs-v1-000002",
+    "ev1x-core2-000011"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "count": 200,
+  "confusion_matrix": {
+    "tp": 14,
+    "fn": 1,
+    "fp": 1,
+    "tn": 184
+  },
+  "positive_recall": 0.9333333333333333,
+  "negative_specificity": 0.9945945945945946,
+  "detector_file": "scripts/answer_with_check.py",
+  "detector_sha256": "83fe557ac190c7a10855754aafb1c4dd672383f283bd0dca8f904443a772478c"
+}

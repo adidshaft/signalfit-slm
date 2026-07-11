@@ -1,0 +1,29 @@
+{
+  "count": 200,
+  "retry_count": 85,
+  "retry_rate": 0.425,
+  "retry2_count": 0,
+  "directive_fire_count": 15,
+  "directive_fire_rate": 0.075,
+  "latency": {
+    "draft_all_cases": {
+      "n": 200,
+      "median_ms": 4221.9,
+      "p95_ms": 7144.5,
+      "percentile_method": "linear interpolation at (n-1)*p"
+    },
+    "retry_retried_cases_only": {
+      "n": 85,
+      "median_ms": 4605.9,
+      "p95_ms": 7134.1,
+      "percentile_method": "linear interpolation at (n-1)*p"
+    },
+    "total_system_all_cases": {
+      "n": 200,
+      "median_ms": 4694.8,
+      "p95_ms": 13559.9,
+      "percentile_method": "linear interpolation at (n-1)*p"
+    }
+  },
+  "protected_cases": {}
+}

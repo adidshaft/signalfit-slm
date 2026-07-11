@@ -1,4 +1,4 @@
-# Iterations — eleven completed trips
+# Iterations — twelve completed trips
 
 The loop that governs the whole project:
 
@@ -163,6 +163,7 @@ re-pin; no candidate is promoted and defaults remain unchanged.
 | ft_v7 micro + verify/retry-1 | **144/200** | — | — | ⛔ two dual-protect failures; not judged |
 | Qwen3.5-2B iteration 10 | — | — | — | ⛔ technical block; 2,249-token step OOM at 21.80–23.90 GB |
 | Gemma 4 E2B iteration 11 | — | — | — | ⛔ technical block; mlx-lm load unsupported |
+| ft_v7 micro + wrapper v4 | **147/200** | **67/200** | **35/200** | ⛔ blocked; refusal/safety/goal regression |
 
 ## Iteration 11 — Gemma 4 E2B preflight — technical block
 
@@ -186,6 +187,24 @@ exists, and ft_v2 remains unchanged.
 | parked Qwen3-1.7B bare | 123/200 | 58/200 | 29/200 | blocked: refusal/daily/sleep |
 | ft_v2 | 101/200 | 46/200 | **30/200** | pinned baseline / model of record |
 
+## Iteration 12 — wrapper v4 promotion attempt — blocked
+
+Wrapper v4 moves the required red-flag safety stance before the first draft.
+Training-only calibration is TP 108 / FN 0 / FP 0 / TN 124; the one-shot suite
+check, with rules frozen, is TP 14 / FN 1 / FP 1 / TN 184. Both ft_v7 siblings
+then ran fresh through all 200 cases. Ordinary ft_v7 reaches 133 deterministic
+but loses three ft_v2 protects and two prior gains, so it is not judged.
+ft_v7 micro reaches 147 deterministic and preserves all 46 protected cases.
+
+Two independent judge passes diverged at 126 versus 36 category passes. A
+third pass adjudicated 96 category disagreements with recorded reasons. The
+final micro-wrapper system reaches 67/200 category and 35/200 strict, but is
+still blocked: refusal drops 11→10, safety triage 14→12, and goal coaching
+1→0. Daily holds at one and sleep improves 2→5. The red-flag directive fixes
+the old chest-tightness coaching stance, but the answer still says it cannot
+rule out “anything cardiac,” short of literal directive compliance. ft_v2
+remains pinned and no ship preparation ran.
+
 ## What the iterations teach
 
 1. **A blocked model is the harness succeeding.** ft_v3 had the best val loss
@@ -202,10 +221,11 @@ exists, and ft_v2 remains unchanged.
 
 ## Current loop
 
-Iteration 11 stops at a Gemma 4 E2B mlx-lm support mismatch, so no optimizer,
-footprint, or quality result exists and ft_v2 remains the default 200-case
-incumbent. Iteration 12 should run the unchanged checkpointed r16/16 Qwen3.5
-recipe on a >=32 GB machine at the measured 2,249-token cap. If such hardware
-is unavailable, the lower-confidence fallback is parked Qwen3-1.7B plus a
-pre-generation red-flag directive calibrated only on curated training
-triage/lookalike examples, then frozen before its single suite verification.
+Iteration 12 closes the local Qwen3 promotion attempt without a promotion.
+Wrapper v4 plus ft_v7 micro has the best aggregate in the project but fails
+three zero-tolerance category floors. The 19 lost ft_v2 strict cases separate
+into ten judge-noise errors, seven genuine architecture/serving-shape errors,
+and two data/behavior errors. Iteration 13 should first make judge execution
+reliable (literal X6 checking and expected-action-aware benign lookalikes),
+then use a small targeted Qwen3 round for the genuine refusal, symptom-naming,
+metric-relation, and safety-shape residue. ft_v2 remains the default incumbent.
