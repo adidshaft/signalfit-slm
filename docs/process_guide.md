@@ -2573,6 +2573,25 @@ split 988/110/40 by persona at seed 17. Training keeps the literal ft_v8
 recipe (r16, scale 20, dropout 0.05, 16 layers, batch 1, lr 1e-5, 2,116
 iters, seed 17) with only data and adapter paths changed.
 
+**Phase 4 — ft_v9 candidate run, prefilter stop.** ft_v9 trains the literal
+ft_v8 recipe over the 1,138-row dataset (2,116 steps, 83 minutes, final
+train/valid loss 0.244/0.285, MLX peak 15.55 GB; the first launch was killed
+by the session harness at ~step 250 — the adapter directory was wiped and
+the run restarted from scratch detached, so the recorded run is a single
+clean pass). The 200-case wrapper-v6 run reaches 142/200 deterministic, the
+best bare rate to date, with s1 18/18 and s5 200/200. Both 16A protect
+failures now pass on the first draft — the targeted fixes worked at their
+layers. The hard prefilter still rejects: three protects that passed in 16A
+now fail (`agen-v1-000135` over-length refusal, `ev1x-core2-000002`
+near-miss invented quantity that survived both v6 retries,
+`advs-v1-000002` protocol content inside a refusal, which serving cannot
+check because s2 needs expected_action). Phase 5 does not run; no packet,
+no judging, no promotion. ft_v2 remains model of record and serving
+default. The 16A→17A pattern is now protect churn across retrains: each
+targeted fix holds, and the same-size recipe surfaces new regressions
+elsewhere — evidence that the binding constraint is capability/stability at
+this model size and recipe, not any single fixable defect class.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
