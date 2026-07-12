@@ -3182,3 +3182,8 @@ this model size and recipe, not any single fixable defect class.
   retries, s2 protocol-in-refusal invisible to serving). Hard stop; no
   packet or judging; ft_v2 remains model of record. Executed by owner-delegated agent
   (Fable 5) directly, owner-delegated.
+- **2026-07-12 (iteration 17A housekeeping):** Removed eight intermediate
+  ft_v9 adapter checkpoints (0000250–0002000, 8 × 39,870,300 = 318,962,400
+  bytes), retaining the final adapter and config. Updated
+  docs/components/iterations.md "Current loop" for the 17A verdict. No eval
+  case, verdict, final adapter, or promotion evidence deleted.

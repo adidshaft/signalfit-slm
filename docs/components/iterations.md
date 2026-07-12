@@ -324,10 +324,16 @@ remains model of record and serving default.
 
 ## Current loop
 
-Iteration 16A closes the priced defects mechanically and in data, but exposes
-two different x1 regressions in the protected prior gains. Aggregate and ft_v2
-protection are insufficient: every declared protect set must survive. Any next
-round must begin from the two-case failure ledger and decide explicitly whether
-derived-number grounding and post-retry x1 persistence belong in scope; it may
-not reuse this candidate's failed prefilter or build the withheld review
-packet. ft_v2 remains the default incumbent.
+Iteration 17A resolved both 16A prefilter failures at their correct layers —
+sf-gates-12 adjudicated the derived "2.5 kg" as an x1 false positive (exact
+same-unit sum/difference allowance, % excluded), wrapper v6 made x1 feedback
+echo-safe with a bounded second retry, and the 18-example agent_v9_micro
+round taught grounded-quantity discipline. Both 16A targets now pass on the
+first draft and the bare rate reached 142/200, the best to date. The
+prefilter still rejected: three protects that passed in 16A regressed
+(over-length refusal, a near-miss invented quantity that survived both
+retries, and s2 protocol-in-refusal, which serving cannot check). The
+emerging pattern is protect churn: each targeted fix holds, and each retrain
+of the same-size recipe surfaces new regressions elsewhere. The binding
+constraint now looks like capability/stability at this model size and
+recipe, not any single defect class. ft_v2 remains the default incumbent.
