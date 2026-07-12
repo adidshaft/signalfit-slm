@@ -1,0 +1,417 @@
+{
+  "count": 1080,
+  "failures": [
+    {
+      "example_id": "agen-v1-000012",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "'above' cites 49.5 for trends.window_7d.avg_hrv_ms=47"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000012.json"
+    },
+    {
+      "example_id": "agen-v1-000021",
+      "failures": {
+        "s5_claim_discipline": {
+          "errors": [
+            "false missing-data claim for metric_baselines: 'Without a composite score, HRV against your own baseline'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000021.json"
+    },
+    {
+      "example_id": "agen-v1-000023",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "\"Today's\" misbinds weekly recovery average 69%",
+            "'above' cites 55.6 for trends.window_7d.avg_hrv_ms=58"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000023.json"
+    },
+    {
+      "example_id": "agen-v1-000027",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "'well above' cites 51 for baselines.baseline_30d.resting_heart_rate_bpm.mean=54"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000027.json"
+    },
+    {
+      "example_id": "agen-v1-000050",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "50 ms is not close baselines.baseline_30d.hrv_ms.mean=51.5 in 'essentially on'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000050.json"
+    },
+    {
+      "example_id": "agen-v1-000063",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "51 ms is not close baselines.baseline_30d.hrv_ms.mean=53.5 in 'close to'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000063.json"
+    },
+    {
+      "example_id": "agen-v1-000069",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "45 ms is not close baselines.baseline_30d.hrv_ms.mean=46.3 in 'right on'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000069.json"
+    },
+    {
+      "example_id": "agen-v1-000080",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "63 bpm is not close baselines.baseline_30d.resting_heart_rate_bpm.mean=61.3 in 'close to'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000080.json"
+    },
+    {
+      "example_id": "agen-v1-000091",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "56 ms is not close baselines.baseline_30d.hrv_ms.mean=57.2 in 'essentially on'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000091.json"
+    },
+    {
+      "example_id": "agen-v1-000106",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "60 ms is not close baselines.baseline_30d.hrv_ms.mean=58.4 in 'right on'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000106.json"
+    },
+    {
+      "example_id": "agen-v1-000116",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "'under' cites 3 for baselines.baseline_30d.hrv_ms.mean=51.6"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000116.json"
+    },
+    {
+      "example_id": "agen-v1-000144",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "58 ms is not close baselines.baseline_30d.hrv_ms.mean=60.1 in 'close to'",
+            "'over' cites 56.6 for trends.window_7d.avg_rhr_bpm=58"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000144.json"
+    },
+    {
+      "example_id": "agen-v1-000155",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "7.1 h is not close avg_sleep_hours_7d=7.4 in 'close to'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000155.json"
+    },
+    {
+      "example_id": "agen-v1-000163",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "62 ms is not close baselines.baseline_30d.hrv_ms.mean=63.9 in 'close to'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000163.json"
+    },
+    {
+      "example_id": "agen-v1-000166",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "'essentially on' cites 48 for trends.window_7d.avg_hrv_ms=45"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000166.json"
+    },
+    {
+      "example_id": "agen-v1-000182",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "66 % is not close baselines.baseline_30d.hrv_ms.mean=51 in 'right on'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000182.json"
+    },
+    {
+      "example_id": "agen-v1-000196",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "54 ms is not close baselines.baseline_30d.hrv_ms.mean=56.4 in 'right on'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000196.json"
+    },
+    {
+      "example_id": "agen-v1-000207",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "'above' cites 60 for baselines.baseline_30d.hrv_ms.mean=55.4"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000207.json"
+    },
+    {
+      "example_id": "agen-v1-000211",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "62 bpm is not close baselines.baseline_30d.resting_heart_rate_bpm.mean=60.9 in 'close to'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000211.json"
+    },
+    {
+      "example_id": "agen-v1-000228",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "'below' cites 62 for baselines.baseline_30d.resting_heart_rate_bpm.mean=59.7"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000228.json"
+    },
+    {
+      "example_id": "agen-v1-000249",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "64 ms is not close baselines.baseline_30d.hrv_ms.mean=65.7 in 'close to'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000249.json"
+    },
+    {
+      "example_id": "agen-v1-000257",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "'right on' cites 480 for trends.window_7d.avg_rhr_bpm=61"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000257.json"
+    },
+    {
+      "example_id": "agen-v1-000270",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "53 bpm is not close baselines.baseline_30d.resting_heart_rate_bpm.mean=54.3 in 'right on'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000270.json"
+    },
+    {
+      "example_id": "agen-v1-000275",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "7 h is not close avg_sleep_hours_7d=7.5 in 'close to'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000275.json"
+    },
+    {
+      "example_id": "agen-v1-000297",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "61 bpm is not close baselines.baseline_30d.resting_heart_rate_bpm.mean=59.6 in 'close to'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v1/agen-v1-000297.json"
+    },
+    {
+      "example_id": "agv4-000030",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "'a touch over' cites 15.9 for avg_sleep_hours_7d=7.2"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v4_discipline/chunk_02/agv4-000030.json"
+    },
+    {
+      "example_id": "safe-v2-000073",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "46 ms is not close baselines.baseline_30d.hrv_ms.mean=47.6 in 'right on'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v2_safety/safe-v2-000073.json"
+    },
+    {
+      "example_id": "safe-v2-000088",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "'under' cites 58 for trends.window_7d.avg_hrv_ms=55"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v2_safety/safe-v2-000088.json"
+    },
+    {
+      "example_id": "safe-v2-000099",
+      "failures": {
+        "s5_claim_discipline": {
+          "errors": [
+            "diagnosis language in triage: 'is near-fainting'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/agent_v2_safety/safe-v2-000099.json"
+    },
+    {
+      "example_id": "seed-v0-000026",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "67 % is not above goals.target_metrics[0].green_at=67 in 'above'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/seed_v0/seed-v0-000026_goal_coaching.json"
+    },
+    {
+      "example_id": "seed-v0-000027",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "67 % is not below goals.target_metrics[0].green_at=67 in 'below'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/seed_v0/seed-v0-000027_goal_coaching.json"
+    },
+    {
+      "example_id": "seed-v0-000028",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "67 % is not below goals.target_metrics[0].green_at=67 in 'below'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/seed_v0/seed-v0-000028_goal_coaching.json"
+    },
+    {
+      "example_id": "seed-v0-000029",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "67 % is not below goals.target_metrics[0].green_at=67 in 'below'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/seed_v0/seed-v0-000029_goal_coaching.json"
+    },
+    {
+      "example_id": "seed-v0-000030",
+      "failures": {
+        "s4_comparative_arithmetic": {
+          "errors": [
+            "67 % is not above goals.target_metrics[0].green_at=67 in 'above'"
+          ],
+          "pass": false
+        }
+      },
+      "source": "data/synthetic/curated/seed_v0/seed-v0-000030_goal_coaching.json"
+    }
+  ],
+  "gate_version": "sf-gates-13",
+  "passed": 1046
+}
