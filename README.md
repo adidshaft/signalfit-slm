@@ -1,6 +1,5 @@
 # SignalFit-SLM
 
-[![CI](https://github.com/adidshaft/signalfit-slm/actions/workflows/ci.yml/badge.svg)](https://github.com/adidshaft/signalfit-slm/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](CONTRIBUTING.md#development-setup)
 
