@@ -36,6 +36,12 @@ class LocalTeacherPipelineTests(unittest.TestCase):
         cls.specs = []
         for chunk in sorted((out / "specs").glob("chunk_*.json")):
             cls.specs.extend(json.loads(chunk.read_text()))
+        cls._artifact = out
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        import shutil
+        shutil.rmtree(cls._artifact, ignore_errors=True)
 
     def test_action_mapping_is_gate_correct(self) -> None:
         self.assertEqual(action_for("safety_triage"), "triage")
