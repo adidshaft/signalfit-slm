@@ -133,7 +133,10 @@ came from correctly diagnosing *why* candidates kept failing:
   `sf-gates-13` — the gate, not the model.
 
 The full dated history is in [`docs/process_guide.md`](docs/process_guide.md);
-the component map is in [`docs/pipeline_map.md`](docs/pipeline_map.md).
+the component map is in [`docs/pipeline_map.md`](docs/pipeline_map.md). The
+detailed stage log, naming conventions, per-iteration benchmark numbers, and
+the full adapter table are archived in
+[`docs/project_history.md`](docs/project_history.md).
 
 ## Repository layout
 
@@ -176,4 +179,4 @@ gate sequence a new candidate must pass.
 
 ## Contact
 
-Maintainer: adidshaft <adidshaft@gmail.com>
+Maintainer: [@adidshaft](https://x.com/adidshaft)
