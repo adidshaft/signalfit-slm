@@ -10,6 +10,9 @@ when. Written for a reader who wants to *repeat* this on their own project.
 - [`components/`](components/README.md) — reference docs for **every
   component**, one focused file per subsystem (contracts, data factory,
   dataset & training, eval harness, serving, iterations).
+- [`distillation_plan.md`](distillation_plan.md) — the $0 path to a stable
+  fine-tuned model: local teacher + gate filter to scale training data from
+  ~1k to 5–8k rows, then multi-seed selection.
 
 ---
 
