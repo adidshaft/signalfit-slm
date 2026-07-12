@@ -2,10 +2,13 @@
 # 18-example agent_v10_micro round. Literal schedule and all LoRA
 # hyperparameters remain unchanged; generation must set
 # {"enable_thinking": false}.
+# seed 29 chosen: seed-29 alone fixed the refusal-length protect (agen-v1-000135,
+# 129->101 words); ft_v10 adds sleep-field coverage + crisp refusals to also fix
+# ev1x-core2-000002 and advs-v1-000002. Stacks the proven seed with the data fix.
 model: "Qwen/Qwen3-1.7B"
 train: true
 data: "data/ft_v10_qwen3_1.7b"
-seed: 17
+seed: 29
 
 fine_tune_type: lora
 num_layers: 16
