@@ -55,6 +55,15 @@ def main() -> int:
             sys.exit(f"BLOCK: {key} mismatch (baseline {bs.get(key)!r} vs candidate {cs.get(key)!r}) "
                      f"— re-score both through one version before comparing")
 
+    if bs.get("judge_protocol_version") == "judge-protocol-v2":
+        for key in ("paired_run_id", "trust_receipt_sha256", "qualification_pack_sha256"):
+            if not bs.get(key) or bs.get(key) != cs.get(key):
+                sys.exit(
+                    f"BLOCK: judge-protocol-v2 {key} mismatch — both systems require one trusted paired run"
+                )
+        if bs.get("judged_system") != "ft_v2" or cs.get("judged_system") != "candidate":
+            sys.exit("BLOCK: judge-protocol-v2 baseline/candidate system labels are invalid")
+
     base_judged = isinstance(bs.get("overall_pass_rate"), (int, float))
     cand_judged = isinstance(cs.get("overall_pass_rate"), (int, float))
     if base_judged != cand_judged:

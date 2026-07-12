@@ -21,28 +21,30 @@ verdict and exact-answer bundle provenance must match before scoring.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import sys
 from pathlib import Path
 
 try:
-    from judge_protocol import VERSION_KEYS, validate_stamp, validate_verdict
-    from merge_judgments import load_bundles
+    from judge_protocol import VERSION_KEYS
+    from merge_judgments import load_bundles, protocol_for_bundle
 except ModuleNotFoundError:  # imported as scripts.apply_judge in tests
-    from scripts.judge_protocol import VERSION_KEYS, validate_stamp, validate_verdict
-    from scripts.merge_judgments import load_bundles
+    from scripts.judge_protocol import VERSION_KEYS
+    from scripts.merge_judgments import load_bundles, protocol_for_bundle
 
 
 def synthesize_criteria(verdict_criteria: dict, facts: dict) -> dict:
     """Combine qualitative judge work with authoritative mechanical subchecks."""
     final_criteria = dict(verdict_criteria)
     qualitative_x1 = final_criteria["X1"]
+    x1_reason = qualitative_x1.get("reason") or qualitative_x1.get("explanation") or "qualitative pass"
     numeric_x1 = facts["numeric_grounding"]
     final_criteria["X1"] = {
         "pass": bool(qualitative_x1["pass"] and numeric_x1["pass"]),
         "reason": (
             f"machine numeric_grounding={numeric_x1['pass']}; "
-            f"qualitative: {qualitative_x1['reason']}"
+            f"qualitative: {x1_reason}"
         ),
     }
     final_criteria["X4"] = {
@@ -54,12 +56,13 @@ def synthesize_criteria(verdict_criteria: dict, facts: dict) -> dict:
         "reason": f"machine brand_matches={facts['brand_check']['found']}",
     }
     qualitative_x6 = final_criteria["X6"]
+    x6_reason = qualitative_x6.get("reason") or qualitative_x6.get("explanation") or "qualitative pass"
     length_x6 = facts["rubric_word_range"]
     final_criteria["X6"] = {
         "pass": bool(qualitative_x6["pass"] and length_x6["pass"]),
         "reason": (
             f"machine word_range={length_x6['word_count']} in {length_x6['bounds']} "
-            f"=> {length_x6['pass']}; qualitative: {qualitative_x6['reason']}"
+            f"=> {length_x6['pass']}; qualitative: {x6_reason}"
         ),
     }
     return final_criteria
@@ -74,12 +77,30 @@ def main() -> int:
     ap.add_argument("--out", required=True)
     ap.add_argument("--allow-missing", action="store_true",
                     help="tolerate examples without a verdict (default: error)")
+    ap.add_argument("--trust-receipt")
+    ap.add_argument("--system", choices=("ft_v2", "candidate"))
     args = ap.parse_args()
 
     report = json.loads(Path(args.report).read_text())
     bundles = load_bundles(args.bundle)
+    protocol = protocol_for_bundle(next(iter(bundles.values())))
+    trust = None
+    if protocol.JUDGE_PROTOCOL_VERSION == "judge-protocol-v2":
+        if args.allow_missing:
+            sys.exit("judge-protocol-v2 forbids --allow-missing")
+        if not args.trust_receipt or not args.system:
+            sys.exit("judge-protocol-v2 apply requires --trust-receipt and --system")
+        trust = json.loads(Path(args.trust_receipt).read_text())
+        try:
+            protocol.validate_trust_receipt(trust, args.system)
+        except ValueError as exc:
+            sys.exit(f"judge-protocol-v2 apply blocked: {exc}")
+        expected_bundle_hash = trust.get("source_bundle_sha256", {}).get(args.system)
+        actual_bundle_hash = hashlib.sha256(Path(args.bundle).read_bytes()).hexdigest()
+        if expected_bundle_hash != actual_bundle_hash:
+            sys.exit("bundle does not match trusted run receipt")
     try:
-        validate_stamp(report["summary"], next(iter(bundles.values())), "report.summary")
+        protocol.validate_stamp(report["summary"], next(iter(bundles.values())), "report.summary")
     except (ValueError, StopIteration) as exc:
         sys.exit(str(exc))
     if report["summary"].get("calibration_sha256") != next(iter(bundles.values())).get("calibration_sha256"):
@@ -95,7 +116,7 @@ def main() -> int:
         if bundle is None:
             sys.exit(f"verdict for {v['example_id']} has no bundle row")
         try:
-            validate_verdict(v, bundle, f"{args.verdicts}:{line_number}")
+            protocol.validate_verdict(v, bundle, f"{args.verdicts}:{line_number}")
         except ValueError as exc:
             sys.exit(str(exc))
         verdicts[v["example_id"]] = v
@@ -113,6 +134,11 @@ def main() -> int:
             f"bundle/report coverage mismatch: bundle-only={sorted(set(bundles)-known)[:5]} "
             f"report-only={sorted(known-set(bundles))[:5]}"
         )
+    if protocol.JUDGE_PROTOCOL_VERSION == "judge-protocol-v2":
+        try:
+            protocol.validate_batch(verdicts, bundles, "apply")
+        except ValueError as exc:
+            sys.exit(str(exc))
 
     results = []
     for r in report["results"]:
@@ -142,6 +168,15 @@ def main() -> int:
     summary = {
         **{key: report["summary"][key] for key in VERSION_KEYS},
         "calibration_sha256": report["summary"]["calibration_sha256"],
+        **(
+            {
+                "qualification_pack_sha256": report["summary"]["qualification_pack_sha256"],
+                "paired_run_id": trust["run_id"],
+                "trust_receipt_sha256": hashlib.sha256(Path(args.trust_receipt).read_bytes()).hexdigest(),
+                "judged_system": args.system,
+            }
+            if trust is not None else {}
+        ),
         "count": n,
         "judged_count": len(judged),
         "deterministic_pass_rate": report["summary"]["deterministic_pass_rate"],

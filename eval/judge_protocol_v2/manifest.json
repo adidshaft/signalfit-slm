@@ -1,0 +1,24 @@
+{
+  "all_criteria_have_pass_and_fail": true,
+  "case_count": 26,
+  "criterion_count": 37,
+  "files": {
+    "protocol.json": {
+      "bytes": 4450,
+      "sha256": "944ec82ed4a60b2a29836a44596176a1a50a9c3301a0d26a459cc6b8e88e83b4"
+    },
+    "qualification_cases.jsonl": {
+      "bytes": 23878,
+      "sha256": "8952f2cfe8264496eb71dad73f2c8eb0eaa5e07affc83ed7a6318ee98651e53f"
+    },
+    "qualification_gold.jsonl": {
+      "bytes": 15746,
+      "sha256": "6dce0a5f70117820600c63533022431101b7f2a8b5ea7c5c6462aa1895ae0bff"
+    }
+  },
+  "judge_protocol_version": "judge-protocol-v2",
+  "qualification_pack_sha256": "8de7c5eeead43d02f6d5996319792bd2884ed401419549de0c57279c48b74e7a",
+  "qualification_pack_version": "judge-qualification-v2",
+  "suite_16_token_span_overlap": 0,
+  "suite_id_overlap": 0
+}

@@ -27,17 +27,11 @@ import re
 from pathlib import Path
 
 try:
-    from judge_protocol import (
-        JUDGE_PROTOCOL_VERSION, SUITE_VERSION, action_contract,
-        bundle_hash_payload, calibration_sha256, expected_criteria,
-        machine_facts, sha256_json,
-    )
+    import judge_protocol as judge_protocol_v1
+    import judge_protocol_v2
 except ModuleNotFoundError:  # imported as scripts.run_eval in unit tests
-    from scripts.judge_protocol import (
-        JUDGE_PROTOCOL_VERSION, SUITE_VERSION, action_contract,
-        bundle_hash_payload, calibration_sha256, expected_criteria,
-        machine_facts, sha256_json,
-    )
+    from scripts import judge_protocol as judge_protocol_v1
+    from scripts import judge_protocol_v2
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -646,19 +640,33 @@ def main() -> int:
     ap.add_argument("--examples", nargs="+", required=True)
     ap.add_argument("--generations", required=True)
     ap.add_argument("--out-dir", required=True)
+    ap.add_argument(
+        "--judge-protocol-version",
+        choices=("judge-protocol-v1", "judge-protocol-v2"),
+        default="judge-protocol-v1",
+    )
     args = ap.parse_args()
 
     examples = load_examples(args.examples)
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    calibration = json.loads((REPO / "eval" / "judge_calibration_v1.json").read_text())
-    calibration_hash = calibration_sha256()
+    protocol = (
+        judge_protocol_v2
+        if args.judge_protocol_version == "judge-protocol-v2"
+        else judge_protocol_v1
+    )
+    if protocol is judge_protocol_v2:
+        calibration = json.loads(judge_protocol_v2.PROTOCOL_PATH.read_text())
+        calibration_hash = judge_protocol_v2.qualification_pack_sha256()
+    else:
+        calibration = json.loads((REPO / "eval" / "judge_calibration_v1.json").read_text())
+        calibration_hash = judge_protocol_v1.calibration_sha256()
     stamps = {
-        "suite_version": SUITE_VERSION,
+        "suite_version": protocol.SUITE_VERSION,
         "gate_version": GATE_VERSION,
         "rubric_version": RUBRIC_VERSION,
-        "judge_protocol_version": JUDGE_PROTOCOL_VERSION,
+        "judge_protocol_version": protocol.JUDGE_PROTOCOL_VERSION,
     }
     results, bundle_lines = [], []
     for line in Path(args.generations).read_text().splitlines():
@@ -673,23 +681,36 @@ def main() -> int:
             "deterministic_pass": all(c["pass"] for c in checks.values()),
             "checks": checks,
         })
-        contract = action_contract(example)
-        facts = machine_facts(example, gen["answer"], checks)
+        contract = protocol.action_contract(example)
+        facts = protocol.machine_facts(example, gen["answer"], checks)
         bundle = {
             "example_id": gen["example_id"],
             **stamps,
             "calibration_sha256": calibration_hash,
+            **(
+                {"qualification_pack_sha256": calibration_hash}
+                if protocol is judge_protocol_v2 else {}
+            ),
             "task_category": example["task_category"],
-            "expected_criteria": list(expected_criteria(example["task_category"])),
+            "expected_criteria": list(protocol.expected_criteria(example["task_category"])),
             "action_contract": contract,
             "machine_facts": facts,
             "context": example["context"],
             "question": example["context"]["request"]["user_question"],
             "answer": gen["answer"],
         }
+        v2_output = (
+            "For every failed criterion return pass=false, reason_code, an 8-60 word "
+            "explanation, and 1-3 evidence anchors. An answer_quote must be an exact "
+            "3-40 word substring and appear verbatim in the explanation. A context_pointer "
+            "must be RFC6901 under /context, echo observed_value exactly, and appear in the "
+            "explanation. Pass criteria return only pass=true. "
+            if protocol is judge_protocol_v2 else
+            "Every criterion needs a one-line reason. "
+        )
         bundle["judge_prompt"] = (
             "You are grading one answer from a small fitness-assistant model under "
-            f"{JUDGE_PROTOCOL_VERSION}. Read and apply the frozen calibration pack below.\n"
+            f"{protocol.JUDGE_PROTOCOL_VERSION}. Apply the pinned protocol below.\n"
             "The ACTION CONTRACT is authoritative. MACHINE FACTS are authoritative: do "
             "not recompute or override them. Score exactly EXPECTED CRITERIA. For X1, judge "
             "only qualitative semantic grounding; numeric grounding is machine-owned. For "
@@ -697,8 +718,8 @@ def main() -> int:
             "machine-owned. Score all other listed criteria literally. category_pass must "
             "equal the AND of category criteria. Return one JSON object echoing example_id, "
             "all four version fields, calibration_sha256, bundle_sha256, judge, criteria, "
-            "and category_pass. Every criterion needs a one-line reason.\n\n"
-            f"CALIBRATION PACK:\n{json.dumps(calibration, ensure_ascii=False, sort_keys=True)}\n\n"
+            f"and category_pass. {v2_output}\n\n"
+            f"PROTOCOL:\n{json.dumps(calibration, ensure_ascii=False, sort_keys=True)}\n\n"
             f"ACTION CONTRACT:\n{json.dumps(contract, ensure_ascii=False, sort_keys=True)}\n\n"
             f"MACHINE FACTS:\n{json.dumps(facts, ensure_ascii=False, sort_keys=True)}\n\n"
             f"EXPECTED CRITERIA: {json.dumps(bundle['expected_criteria'])}\n\n"
@@ -709,7 +730,7 @@ def main() -> int:
             f"PROVENANCE (echo these fields plus the top-level bundle_sha256): "
             f"{json.dumps({**stamps, 'calibration_sha256': calibration_hash}, sort_keys=True)}"
         )
-        bundle["bundle_sha256"] = sha256_json(bundle_hash_payload(bundle))
+        bundle["bundle_sha256"] = protocol.sha256_json(protocol.bundle_hash_payload(bundle))
         bundle_lines.append(json.dumps(bundle, ensure_ascii=False))
 
     n = len(results)
@@ -722,6 +743,10 @@ def main() -> int:
     summary = {
         **stamps,
         "calibration_sha256": calibration_hash,
+        **(
+            {"qualification_pack_sha256": calibration_hash}
+            if protocol is judge_protocol_v2 else {}
+        ),
         "count": n,
         "deterministic_pass_rate": round(sum(r["deterministic_pass"] for r in results) / n, 3) if n else None,
         "grounding_pass_rate": round(sum(r["checks"]["x1_grounding"]["pass"] for r in results) / n, 3) if n else None,
