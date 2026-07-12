@@ -4,6 +4,68 @@ A running journal of the procedure, kept current every iteration. Read top to
 bottom to learn the full pipeline; the dated log at the end tracks what happened
 when. Written for a reader who wants to *repeat* this on their own project.
 
+## How to read this guide
+
+This document is intentionally a single-page book: it starts with the reusable
+method, then records the messy experiment history that led to the current
+model. If you only want to use or extend the project, read the first two
+sections and the shipping notes. If you want to understand every promotion
+decision, use the iteration chapters and dated log.
+
+## Table of contents
+
+### Orientation
+
+- [The big picture](#the-big-picture)
+- [Step 1: Schema first, model later](#step-1--schema-first-model-later)
+- [Step 2: Decide what good means before training](#step-2--decide-what-good-means-before-training)
+- [Step 3: The data pipeline](#step-3--the-data-pipeline-scripts)
+- [Step 4: Seed data now, teacher model next](#step-4--seed-data-now-teacher-model-next)
+- [Step 4b: Scaling data generation without a paid API](#step-4b--scaling-data-generation-without-a-paid-api-agent-workflow)
+- [Step 5: Base model selection](#step-5--base-model-selection)
+
+### Build, Evaluate, Ship
+
+- [Step 6: Fine-tuning with LoRA on MLX](#step-6--fine-tuning-with-lora-on-mlx-the-manual-procedure)
+- [Step 6b: Dependency reality check](#step-6b--dependency-reality-check-learned-the-hard-way)
+- [Step 7: Evaluation](#step-7--evaluation)
+- [Step 8: Export for iOS](#step-8--export-for-ios-mlx-compatible-for-the-atria-app)
+- [Promotion procedure](promotion_procedure.md)
+- [Testing guide](testing_guide.md)
+
+### Evaluation Loop
+
+- [Closing the eval-to-data loop](#step-7b--closing-the-eval-to-data-loop-phase-2a)
+- [Real-data reality check](#step-7c--real-data-reality-check-phase-2b-begins)
+- [Building the real eval harness](#step-7d--building-the-real-eval-harness-phase-2b-part-1)
+- [Targeted data round](#step-7e--phase-2b-targeted-data-round)
+- [ft_v3 retrain verdict](#step-7f--ft_v3-retrain-verdict)
+- [Claim-discipline gate](#step-7g--sf-gates-5-claim-discipline-gate)
+- [agv4 data round and ft_v4 block](#step-7h--agv4-data-round--sf-gates-6-phase-2b-ft_v4-blocked)
+- [agv5 boundary round](#step-7i--agv5-boundary-round-iteration-5)
+
+### Candidate Search
+
+- [Fixed-data candidate search](#step-7j--fixed-data-candidate-search-iteration-6)
+- [Expand the ruler](#step-7k--iteration-7-expand-the-ruler-phase-1-complete)
+- [Targeted refusal and daily-decision repair](#step-7l--iteration-8-targeted-refusal-and-daily-decision-repair)
+- [Combine ft_v7 with bounded verification](#step-7m--iteration-9-combine-ft_v7-with-bounded-verification)
+- [Qwen3.5-2B measured-memory candidate](#step-7n--iteration-10-qwen35-2b-measured-memory-candidate)
+- [Gemma 4 E2B preflight](#step-7o--iteration-11-gemma-4-e2b-preflight-before-judging-spend)
+- [Wrapper v4 promotion attempt](#step-7p--iteration-12-wrapper-v4-promotion-attempt)
+
+### Judging, Owner Review, and Final Promotion
+
+- [Repair the judge instrument](#step-7q--iteration-13-repair-the-judge-instrument-then-re-verdict)
+- [Qualify and pair the judge](#step-7r--iteration-14-qualify-and-pair-the-judge-before-re-verdict)
+- [Owner-declared human difference review](#step-7s--iteration-15a-owner-declared-human-difference-review)
+- [Owner-review verdict and repair scope](#step-7t--iteration-15b-owner-review-verdict-and-repair-scope)
+- [Scoped repair and prefilter stop](#step-7u--iteration-16a-scoped-repair-prefilter-stop)
+- [Grounded-quantity repair](#step-7v--iteration-17a-x1-derivation-allowance-grounded-quantity-repair)
+- [Serving-layer repair](#step-7w--iteration-18a-serving-layer-repair-of-a-frozen-adapter)
+- [Sleep-field root cause and final fix](#step-7x--root-cause-sleep-field-coverage-gap-and-the-agent_v10-fix)
+- [Dated log](#dated-log-newest-last)
+
 **Companions to this guide:**
 - [`pipeline_map.md`](pipeline_map.md) — the whole system in four Mermaid
   diagrams (data factory, scoring machine, gate evolution, model iterations).
