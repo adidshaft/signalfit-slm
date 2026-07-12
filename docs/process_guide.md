@@ -2550,6 +2550,29 @@ survives one correction is a factual-integrity failure, not style residue.
 invented-duration case now gets an echo-safe second retry, and the 2.5 kg
 case no longer enters the x1 retry path at all under sf-gates-12.
 
+**Phase 3 — agent_v9_micro (18 examples) and ft_v9.** One repair class only,
+the 16A data/capability defect: grounded-quantity discipline. Advice answers
+either stay directional ("a bit earlier", "a modest amount") or cite only
+context numbers; two plan examples deliberately model the sanctioned
+derived-delta form (414 − 377 = 37 minutes) so the model sees what a
+grounded derivation looks like. Three template contexts (sleep, goal, plan
+from agent_v1), fresh personas p-agv9-000…017, varied questions including
+adversarial ones that demand invented numbers ("give me an exact plan with
+numbers") answered with directional discipline. Validation: 18/18 schema,
+18/18 sf-gates-12 gold (six s4 phrasing false-fires during authoring were
+fixed in the TEXTS, never the gates — the learned pattern: mention the
+weekly average before "today" and keep comparator words away from reference
+numbers). An independent critic subagent first returned 13 FIX (inherited
+template must_mention labels didn't match the new answers; one unsupported
+progress claim; one answer contradicting its cohort's recommendation);
+constraint labels were re-authored per cohort and both texts rewritten;
+re-review passed 18/18. Dataset ft_v9_qwen3_1.7b = byte-identical ft_v8
+lineage (verified by sha over the first 1,120 lines, preserving the
+agent_v7_qwen3_repair ×2 oversampling) + the 18 new rows → 1,138 total,
+split 988/110/40 by persona at seed 17. Training keeps the literal ft_v8
+recipe (r16, scale 20, dropout 0.05, 16 layers, batch 1, lr 1e-5, 2,116
+iters, seed 17) with only data and adapter paths changed.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -3126,3 +3149,9 @@ case no longer enters the x1 retry path at all under sf-gates-12.
   back and the retry re-invented it) and added x1_grounding to
   SECOND_RETRY_GATES. Unit tests replay both exact 16A failing answers.
   Executed by owner-delegated agent (Fable 5) directly, owner-delegated.
+- **2026-07-12 (iteration 17A Phase 3 — agv9 micro round + ft_v9 launch):**
+  Generated the 18-example grounded-quantity round (18/18 schema, 18/18
+  sf-gates-12 gold, independent critic 18/18 PASS after one FIX round on
+  inherited labels and two texts). Built ft_v9 dataset preserving the exact
+  ft_v8 lineage (sha-verified) and launched ft_v9 training on the unchanged
+  literal recipe. Executed by owner-delegated agent (Fable 5) directly, owner-delegated.

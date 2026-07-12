@@ -1,0 +1,281 @@
+{
+  "case_type": "edge",
+  "context": {
+    "allowed_numbers": [
+      {
+        "label": "today.recovery_score",
+        "unit": "%",
+        "value": 68.0
+      },
+      {
+        "label": "today.hrv_ms",
+        "unit": "ms",
+        "value": 60.0
+      },
+      {
+        "label": "today.resting_heart_rate_bpm",
+        "unit": "bpm",
+        "value": 56.0
+      },
+      {
+        "label": "today.sleep.duration_minutes",
+        "unit": "min",
+        "value": 377.0
+      },
+      {
+        "label": "baselines.baseline_30d.hrv_ms.mean",
+        "unit": null,
+        "value": 59.3
+      },
+      {
+        "label": "baselines.baseline_30d.hrv_ms.sd",
+        "unit": null,
+        "value": 5.4
+      },
+      {
+        "label": "baselines.baseline_30d.hrv_ms.n",
+        "unit": null,
+        "value": 30.0
+      },
+      {
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.mean",
+        "unit": null,
+        "value": 56.7
+      },
+      {
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.sd",
+        "unit": null,
+        "value": 1.5
+      },
+      {
+        "label": "baselines.baseline_30d.resting_heart_rate_bpm.n",
+        "unit": null,
+        "value": 30.0
+      },
+      {
+        "label": "baselines.ranges.recovery_score.low",
+        "unit": null,
+        "value": 0.0
+      },
+      {
+        "label": "baselines.ranges.recovery_score.high",
+        "unit": null,
+        "value": 100.0
+      },
+      {
+        "label": "baselines.ranges.activity_strain.low",
+        "unit": null,
+        "value": 0.0
+      },
+      {
+        "label": "baselines.ranges.activity_strain.high",
+        "unit": null,
+        "value": 21.0
+      },
+      {
+        "label": "trends.window_7d.avg_recovery",
+        "unit": "%",
+        "value": 68.0
+      },
+      {
+        "label": "trends.window_7d.avg_hrv_ms",
+        "unit": "ms",
+        "value": 60.0
+      },
+      {
+        "label": "trends.window_7d.avg_rhr_bpm",
+        "unit": "bpm",
+        "value": 56.0
+      },
+      {
+        "label": "trends.window_7d.avg_strain",
+        "unit": null,
+        "value": 11.2
+      },
+      {
+        "label": "trends.window_7d.avg_sleep_minutes",
+        "unit": "min",
+        "value": 414.0
+      },
+      {
+        "label": "trends.window_7d.coverage_pct",
+        "unit": "%",
+        "value": 100.0
+      },
+      {
+        "label": "recent_workouts[0].duration_minutes",
+        "unit": "min",
+        "value": 32.0
+      },
+      {
+        "label": "recent_workouts[0].avg_hr_bpm",
+        "unit": "bpm",
+        "value": 154.0
+      },
+      {
+        "label": "recent_workouts[0].peak_hr_bpm",
+        "unit": "bpm",
+        "value": 174.0
+      },
+      {
+        "label": "recent_workouts[0].training_load",
+        "unit": null,
+        "value": 17.6
+      },
+      {
+        "label": "sleep_duration_hours",
+        "unit": "h",
+        "value": 6.3
+      },
+      {
+        "label": "avg_sleep_hours_7d",
+        "unit": "h",
+        "value": 6.9
+      }
+    ],
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 59.3,
+          "n": 30,
+          "sd": 5.4
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 56.7,
+          "n": 30,
+          "sd": 1.5
+        }
+      },
+      "ranges": {
+        "activity_strain": {
+          "high": 21,
+          "low": 0
+        },
+        "recovery_score": {
+          "high": 100,
+          "low": 0
+        }
+      }
+    },
+    "data_quality": {
+      "missing_fields": [
+        "activity_strain",
+        "steps",
+        "sleep_stages_minutes",
+        "respiratory_rate_bpm"
+      ],
+      "overall": "medium"
+    },
+    "provenance": {
+      "data_provider": "generic_ring",
+      "device_type": "ring",
+      "hrv_method": "rmssd",
+      "source_confidence": {
+        "hrv_ms": "high",
+        "sleep": "high"
+      },
+      "strain_scale": null
+    },
+    "recent_workouts": [
+      {
+        "avg_hr_bpm": 154,
+        "date": "2026-07-04",
+        "duration_minutes": 32,
+        "peak_hr_bpm": 174,
+        "source": "user_confirmed",
+        "training_load": 17.6,
+        "type": "swim"
+      }
+    ],
+    "request": {
+      "asked_at_local": "2026-07-05T07:30:00+02:00",
+      "units": "metric",
+      "user_question": "is one bad night of sleep enough reason to change this week's plan?",
+      "weekday": "Sunday"
+    },
+    "safety_flags": [],
+    "schema_version": "sf-context-1",
+    "task": {
+      "category": "plan_adjustment"
+    },
+    "today": {
+      "activity": {
+        "activity_strain": null
+      },
+      "date_local": "2026-07-05",
+      "hrv_ms": 60,
+      "readiness_state": "high",
+      "recovery_confidence": "high",
+      "recovery_score": 68,
+      "resting_heart_rate_bpm": 56,
+      "sleep": {
+        "confidence": "high",
+        "duration_minutes": 377,
+        "source": "auto_detected"
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "anomalies": [],
+        "avg_hrv_ms": 60,
+        "avg_recovery": 68,
+        "avg_rhr_bpm": 56,
+        "avg_sleep_minutes": 414,
+        "avg_strain": 11.2,
+        "confidence": "high",
+        "coverage_pct": 100,
+        "hrv_state": "typical"
+      }
+    },
+    "user_profile": {
+      "age_band": "40-44",
+      "biological_sex": "male"
+    }
+  },
+  "difficulty": 2,
+  "example_id": "agv9-micro-017",
+  "generation": {
+    "created_at": "2026-07-12",
+    "critic_passed": true,
+    "generator": "agent-agent-workflow",
+    "human_reviewed": false,
+    "prompt_version": "agv9-micro-v1"
+  },
+  "labels": {
+    "is_locked_eval": false,
+    "persona_id": "p-agv9-017",
+    "provider_mask": "ring_no_strain",
+    "rubric_tags": [
+      "sf-gates-12",
+      "iteration17-micro",
+      "plan_adjustment",
+      "grounded-quantity"
+    ],
+    "safety_class": "none"
+  },
+  "schema_version": "sf-train-1",
+  "target_response": {
+    "expected_action": "answer",
+    "forbidden_behaviors": [
+      "invents_numbers",
+      "population_stats_as_personal",
+      "reflexive_rest_recommendation"
+    ],
+    "must_mention": [
+      "recovery 68% in line with weekly average",
+      "sleep 377 minutes vs 414-minute weekly average",
+      "no added volume until sleep recovers"
+    ],
+    "must_not_mention": [
+      "activity strain value",
+      "respiratory rate"
+    ],
+    "required_behaviors": [
+      "weighs_conflicting_signals",
+      "gives_explicit_recommendation_level",
+      "stays_directional_when_no_number_available"
+    ],
+    "text": "Usually not — one short night justifies caution about additions, not a rewrite. Your recovery is holding at 68% today, matching the weekly average of 68%, so the base plan stands. Last night's 377 minutes against your 414-minute weekly average is worth respecting at the margins: keep the scheduled sessions, drop the idea of extra volume for a day or two, and let the weekly averages, not a single night, drive any structural change."
+  },
+  "task_category": "plan_adjustment"
+}
