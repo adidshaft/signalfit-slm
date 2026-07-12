@@ -10,6 +10,12 @@ grounded, portable, and safe enough to run locally.
 The current model is based on Qwen3-1.7B, fine-tuned with LoRA, wrapped with
 deterministic safety and grounding checks, and exported as a 4-bit MLX build.
 
+## Example Conversations
+
+| Training guidance | Sleep insight | Sleep detail |
+|---|---|---|
+| <img src="benchmarks/human_queries/screenshots/training-coach.png" alt="SignalFit training coach conversation" width="280"> | <img src="benchmarks/human_queries/screenshots/sleep-coach-wide.png" alt="SignalFit sleep coach conversation" width="280"> | <img src="benchmarks/human_queries/screenshots/sleep-coach-compact.png" alt="SignalFit detailed sleep coach conversation" width="280"> |
+
 ## What It Can Do
 
 - Answer questions like "should I train hard today?", "why is my recovery low?",
