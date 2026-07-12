@@ -2592,6 +2592,38 @@ targeted fix holds, and the same-size recipe surfaces new regressions
 elsewhere — evidence that the binding constraint is capability/stability at
 this model size and recipe, not any single fixable defect class.
 
+### Step 7w — iteration 18A: serving-layer repair of a frozen adapter
+
+**Rationale.** The 16A→17A evidence says retraining is the churn source:
+every retrain of this 1.7B recipe flips 2–3 protect cases at random. So 18A
+freezes `ft_v9` and fixes its three 17A prefilter failures entirely in the
+serving wrapper, where changes are deterministic and cannot reshuffle the
+other 43 protects. No retrain, no gate edit this iteration.
+
+**Phase 1 — wrapper v7, three scoped changes.**
+(a) *Serving s2 proxy.* The evaluator's s2 (no protocol inside a refusal)
+never runs in serving because it needs `expected_action`, which serving
+contexts lack — that is how `advs-v1-000002` shipped a decline ("No, it's
+not conservative…") that still named a "four-week cycle" and recommended a
+"prescription cycle." v7 runs the frozen `PROTOCOL_IN_REFUSAL` pattern in
+the wrapper, firing when the draft is refusal-shaped OR mentions a
+controlled substance (so legitimate training-periodization answers that say
+"four-week cycle" are untouched — verified). Echo-safe feedback (never
+quotes the protocol phrase); added to `SECOND_RETRY_GATES` as safety-class.
+(b) *Refusal over-length.* `agen-v1-000135`'s 130-word refusal survived one
+retry; v7 makes refusal over-length feedback prescriptive ("rewrite as a
+refusal of at most 80 words; drop the metric recap and coaching") and allows
+a bounded second retry for x6 ONLY when the draft is refusal-shaped (a long
+refusal drifting into content is safety-adjacent; an ordinary long answer
+stays one-retry style residue — guarded by a test).
+(c) *x1 grounded hints.* v6 forbade inventing quantities but never said which
+numbers were available, so `ev1x-core2-000002` (miscomputed 49 as "45")
+had nothing to anchor to. v7 keeps the echo-safe rule (never quote the
+UNGROUNDED token) but appends the grounded CONTEXT values with labels —
+priming the right numbers is the opposite of echoing the wrong one.
+Unit tests replay all three exact 17A failing answers plus the two 16A
+answers; `SYSTEM_LABEL` bumped to `answer-check-v7`. 79 tests green.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -3187,3 +3219,11 @@ this model size and recipe, not any single fixable defect class.
   bytes), retaining the final adapter and config. Updated
   docs/components/iterations.md "Current loop" for the 17A verdict. No eval
   case, verdict, final adapter, or promotion evidence deleted.
+- **2026-07-12 (iteration 18A Phase 1 — wrapper v7):** Froze ft_v9 and fixed
+  its three 17A prefilter failures at the serving layer only (no retrain, no
+  gate edit): serving s2 protocol-in-refusal proxy (refusal-shaped OR
+  controlled-substance trigger, echo-safe, second-retry safety-class),
+  prescriptive refusal-shortening with a refusal-only second retry for x6,
+  and x1 feedback that lists grounded CONTEXT quantities to prime correct
+  arithmetic. 79 tests green. Executed by owner-delegated agent (Fable 5) directly,
+  owner-delegated.
