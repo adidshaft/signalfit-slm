@@ -1,0 +1,13 @@
+{
+  "status": "quarantined",
+  "quarantined_at_utc": "2026-07-12T03:43:41Z",
+  "run_id": "iteration14-paired-v2-run2",
+  "failed_session": "session-a",
+  "failed_shard": "02",
+  "failed_example_id": "blind-de088ac8aa812b491e6e",
+  "failure": "S1 used reason_code contradicted without the required context_pointer evidence anchor",
+  "output_sha256": "7e4ae254da289c56e170f6cdb3e8a7abeb38db40ab70bedeb1460eab7f8fa5a8",
+  "downstream_scoring_permitted": false,
+  "selective_retry_permitted": false,
+  "replacement_run": "iteration14-paired-v2-run3"
+}

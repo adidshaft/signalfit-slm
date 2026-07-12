@@ -1,0 +1,14 @@
+{
+  "input_sha256": "8397fee0e06b8f2a3da3a06ca849c45881248a76be17422913887cbf628cac8c",
+  "judge": "iteration14-run2-judge-b",
+  "output_sha256": "fc747bca72e57c5ec530804f343a50ff3cfc46e8599444bcd284da53e5f95f8d",
+  "previous_shard_receipt_sha256": null,
+  "qualification_receipt_sha256": "15d1b5fe2ff1f53c69558016be38ac902705d4663ccb9f8129cb50f8540c5211",
+  "receipt_sha256": "13ac0c67d057905f328de3746efde281a661e3f8534ed6cdc5d325d0c66222a0",
+  "run_id": "iteration14-paired-v2-run2",
+  "sentinel_count": 2,
+  "session_id": "session-b",
+  "shard_id": "00",
+  "suite_count": 20,
+  "valid": true
+}

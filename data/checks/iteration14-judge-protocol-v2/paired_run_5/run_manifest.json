@@ -1,0 +1,24 @@
+{
+  "manifest_sha256": "3c6a8acd24e2a52e70f832eb04882f309f730c7a30b3156d80c492637d119d9e",
+  "pairs_per_shard": 10,
+  "qualification_pack_sha256": "8de7c5eeead43d02f6d5996319792bd2884ed401419549de0c57279c48b74e7a",
+  "run_id": "iteration14-paired-v2-run5",
+  "seed": 1406,
+  "sessions": [
+    "session-a",
+    "session-b"
+  ],
+  "shard_count": 20,
+  "source_bundle_paths": {
+    "candidate": "data/checks/iteration14-judge-protocol-v2/systems/candidate/eval_report/judge_bundle.jsonl",
+    "ft_v2": "data/checks/iteration14-judge-protocol-v2/systems/ft_v2/eval_report/judge_bundle.jsonl"
+  },
+  "source_bundle_sha256": {
+    "candidate": "e630c5905cd3b32c15b1a214e0bce76d24028d46026a7b6a767b9c0e034f49cd",
+    "ft_v2": "66e3f293cca7b8bca14000644ef8052f4588644fe4b8861d699de2031932a56f"
+  },
+  "systems": [
+    "ft_v2",
+    "candidate"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "input_sha256": "6a30aadac92f03eabff6186510879d000a4aafeac8615eb3900b4452145ced29",
+  "judge": "iteration14-run4-judge-b",
+  "output_sha256": "beac845d0c9f164d38a427560770e2dd8b58a579c0ee099e9449e78686828f9a",
+  "previous_shard_receipt_sha256": null,
+  "qualification_receipt_sha256": "9969526e2b051c5d9891c4b9bb4056bc16f693b4edd229d7377bf85c369d9135",
+  "receipt_sha256": "45e3dcc5841a11045ecb1720459254f3df677cf113a705d3d0092ed34c3ad79e",
+  "run_id": "iteration14-paired-v2-run4",
+  "sentinel_count": 2,
+  "session_id": "session-b",
+  "shard_id": "00",
+  "suite_count": 20,
+  "valid": true,
+  "validated_output_sha256": {
+    "candidate": "1632c3e710427cd1db9435b9c43c2683cfa51ff5c1fdb40badade1efef5a71a5",
+    "ft_v2": "d5d832146823e87d0944cefa3bc928f1df7f322b7dbb5fa4c964c9064f4867f4"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "shard_id": "00",
+  "systems": {
+    "candidate": {
+      "category_agreement_count": 7,
+      "category_agreement_rate": 0.7,
+      "category_confusion": {
+        "a_fail_b_pass": 1,
+        "a_pass_b_fail": 2,
+        "both_fail": 2,
+        "both_pass": 5
+      },
+      "cohen_kappa": 0.3478,
+      "count": 10,
+      "criterion_agreement_count": 79,
+      "criterion_agreement_rate": 0.9294,
+      "criterion_count": 85,
+      "pass_a_rate": 0.7,
+      "pass_b_rate": 0.6,
+      "pass_rate_gap": 0.1,
+      "raw_category_agreement_rate": 0.7,
+      "raw_cohen_kappa": 0.3478260869565216,
+      "raw_pass_rate_gap": 0.09999999999999998
+    },
+    "ft_v2": {
+      "category_agreement_count": 8,
+      "category_agreement_rate": 0.8,
+      "category_confusion": {
+        "a_fail_b_pass": 1,
+        "a_pass_b_fail": 1,
+        "both_fail": 5,
+        "both_pass": 3
+      },
+      "cohen_kappa": 0.5833,
+      "count": 10,
+      "criterion_agreement_count": 81,
+      "criterion_agreement_rate": 0.9529,
+      "criterion_count": 85,
+      "pass_a_rate": 0.4,
+      "pass_b_rate": 0.4,
+      "pass_rate_gap": 0.0,
+      "raw_category_agreement_rate": 0.8,
+      "raw_cohen_kappa": 0.5833333333333334,
+      "raw_pass_rate_gap": 0.0
+    }
+  }
+}

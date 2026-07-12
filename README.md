@@ -56,6 +56,7 @@ model-index:
 | Gemma Preflight | 14 | Test `google/gemma-4-E2B-it` before training or judging spend. | ⛔ Technical block — mlx-lm load unsupported |
 | Wrapper v4 | 15 | Curated-only red-flag directive plus full promotion attempt. | ⛔ Blocked — refusal/safety/goal regression |
 | Judge Protocol v1 | 16 | Version and repair the judge instrument, then re-score candidate and ft_v2 symmetrically. | ⛔ Measurement block — ft_v2 agreement 38% |
+| Judge Protocol v2 | 17 | Qualify and pair blinded judges, shard suite access, and require evidence-bound trust before scoring. | ⛔ Measurement block — six paired attempts quarantined |
 
 ## Current truth (2026-07-12)
 
@@ -71,6 +72,16 @@ required symmetric ft_v2 pass collapsed to 76/200 (38%), with a 49-point judge
 pass-rate gap. The protocol is recorded as experimental and untrusted: no new
 baseline was pinned, no regression verdict was run, and no model, serving
 default, fused artifact, or quantized artifact changed.
+
+Iteration 14 built `judge-protocol-v2`: perfect scored non-suite qualification,
+persistent blinded paired sessions, sequential shards with hidden sentinels,
+evidence-bound failures, anti-degeneracy checks, and independent trust gates for
+both systems. Six paired attempts were quarantined before a complete trusted
+run; the final run stopped at shard 1 because a sentinel failure used invalid
+evidence. This is a measurement block, not a candidate verdict. No new training,
+candidate scorecard, adjudication, baseline re-pin, regression, promotion,
+fusion, or quantization occurred. ft_v2 remains the only pinned baseline and
+serving default.
 
 | iteration-13 raw measurement | judge A category | judge B category | agreement | decision |
 |---|---:|---:|---:|---|
@@ -137,6 +148,7 @@ The charts are generated directly from the judged reports:
 | `sf-gates-1`, `sf-gates-2`, ... | Deterministic gate versions in `scripts/run_eval.py`. Each bump means the scoring rules changed and old scores must not be compared directly. |
 | `rubric-v0.1` | Human/agent judge rubric version. Judge scores are only comparable when this also matches. |
 | `judge-protocol-v1` | Experimental iteration-13 judge execution protocol. It failed the symmetric ft_v2 trust gate and is not promotion-eligible. |
+| `judge-protocol-v2` | Iteration-14 qualified, blinded, sharded judge protocol. Its six paired attempts were quarantined before full trust, so it produced no promotion-eligible scorecard. |
 | `core`, `adversarial`, `binding` | Frozen eval slices: normal coaching cases, safety/jailbreak-style probes, and field-binding arithmetic probes. |
 | `agen-*`, `safe-*`, `advs-*`, `bind-*`, `rel-*` | Example ID prefixes. They roughly mean agent-generated training/eval cases, safety supplement cases, adversarial eval cases, binding eval cases, and relational training cases. |
 | `suite_generations.jsonl` | Model answers for the full frozen suite. |

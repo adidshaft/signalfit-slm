@@ -1,0 +1,12 @@
+{
+  "downstream_scoring_permitted": false,
+  "failed_session": "session-b",
+  "implicated_session": "session-a",
+  "triggering_session": "session-b",
+  "failed_shard": "00",
+  "failure": "shard:00:candidate:session-a degenerate all-fail criteria: ['X1']",
+  "output_sha256": "beac845d0c9f164d38a427560770e2dd8b58a579c0ee099e9449e78686828f9a",
+  "run_id": "iteration14-paired-v2-run4",
+  "selective_retry_permitted": false,
+  "status": "quarantined"
+}

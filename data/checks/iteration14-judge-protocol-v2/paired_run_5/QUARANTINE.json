@@ -1,0 +1,10 @@
+{
+  "downstream_scoring_permitted": false,
+  "failed_session": "session-a",
+  "failed_shard": "01",
+  "failure": "shard:01:session-a repeated generic failure explanations: [('X1', '<evidence> contradicts <evidence> whose observed value is null')]",
+  "output_sha256": "6a189f2a0aa2dd01598a17d2f9a814403ac89769e3738df24d31bd1fc421586c",
+  "run_id": "iteration14-paired-v2-run5",
+  "selective_retry_permitted": false,
+  "status": "quarantined"
+}

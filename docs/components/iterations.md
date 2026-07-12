@@ -236,6 +236,33 @@ reject generic repeated reasons and degenerate criterion patterns, and demand
 >=80% agreement, kappa >=0.60, and <=10-point pass gap on each system before
 adjudication.
 
+## Iteration 14 — judge protocol v2 — measurement blocked
+
+`judge-protocol-v2` implements that measurement plan without new training. It
+adds a scored synthetic non-suite qualification pack with a perfect-pass gate,
+the same two persistent blinded sessions across both systems, randomized paired
+rows, sequential shard unlocks with chained receipts and hidden sentinels,
+evidence-bound failure verdicts, anti-repetition and anti-degeneracy checks,
+and independent trust gates for ft_v2 and the candidate before adjudication.
+
+Six paired attempts were quarantined before a complete trusted run. The final
+attempt, run 6, reached shard 1 and was rejected because a hidden-sentinel
+failure supplied invalid evidence. Quarantine is the protocol working: no
+partial run, selective retry, or untrusted judgments were converted into model
+scores.
+
+The iteration therefore ends at the measurement gate. It produces no candidate
+scorecard, adjudication, baseline re-pin, regression result, promotion, serving
+change, fusion, or quantized artifact. ft_v2 remains the only pinned baseline,
+model of record, and serving default.
+
+Iteration 15 should improve deterministic judge-executor ergonomics before any
+model or data change: provide canonical sentinel verdict emission from the
+executor, validate it locally before submission, and make schema/evidence
+failures immediately actionable while preserving the blinded, paired, sharded
+trust contract. Only after that executor can complete a fully trusted run should
+the project resume candidate comparison or training work.
+
 ## What the iterations teach
 
 1. **A blocked model is the harness succeeding.** ft_v3 had the best val loss
@@ -253,9 +280,10 @@ adjudication.
 
 ## Current loop
 
-Iteration 13 shows that machine facts and hashes are not enough: the same
-protocol can agree at 82% on one answer distribution and collapse to 38% on
-another judge pool. The measurement layer remains the bottleneck. Iteration 14
-must qualify and pair judges before suite access; no targeted Qwen repair is
-justified until that instrument yields a symmetric trustworthy verdict. ft_v2
-remains the default incumbent.
+Iteration 14 shows that qualification, pairing, sharding, sentinels, and semantic
+guards can correctly refuse unusable judge output, but the executor still cannot
+reliably complete the protocol. The measurement layer remains the bottleneck.
+Iteration 15 should add deterministic judge-executor ergonomics and canonical
+sentinel emission before any model or data change; no targeted Qwen repair is
+justified until the instrument yields a complete symmetric trusted verdict.
+ft_v2 remains the default incumbent.

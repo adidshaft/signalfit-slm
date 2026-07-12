@@ -1,0 +1,14 @@
+{
+  "case_count": 26,
+  "decision_correct": 240,
+  "decision_total": 240,
+  "gold_evidence_validated": true,
+  "input_sha256": "c7dc6a79fca35fbd456d25216966f46ba988ef873d2e0daa4b14652e2eb526eb",
+  "judge": "iteration14-run6-judge-b",
+  "output_sha256": "3fafa1526db26a28e8287c0e9ad2c56bbc6e9ae05392c7ee54a4b31aa7a4a834",
+  "qualification_pack_sha256": "8de7c5eeead43d02f6d5996319792bd2884ed401419549de0c57279c48b74e7a",
+  "qualified": true,
+  "receipt_sha256": "c83cb99133f0f0c20aa87f25922e7481149378264d25fc25632060f470f90973",
+  "run_id": "iteration14-paired-v2-run6",
+  "session_id": "session-b"
+}

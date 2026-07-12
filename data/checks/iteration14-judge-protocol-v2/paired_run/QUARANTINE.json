@@ -1,0 +1,10 @@
+{
+  "downstream_scoring_permitted": false,
+  "failed_session": "session-b",
+  "failed_shard": "00",
+  "failure": "repeated normalized generic failure explanations for X1, X2, and G1",
+  "output_sha256": "04fe34a07db088220b45b8717c77dcec847e06f03e95467c431a0943dbc31ee7",
+  "run_id": "iteration14-paired-v2",
+  "selective_retry_permitted": false,
+  "status": "quarantined"
+}

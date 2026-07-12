@@ -129,3 +129,59 @@ qualification before suite access; require answer quotes or context pointers
 for every failure; reject repeated generic reasons and degenerate criterion
 patterns; and pass >=80% agreement, kappa >=0.60, and <=10-point pass-rate gap
 separately on both systems before adjudication.
+
+## Judge protocol v2 (implemented; measurement blocked)
+
+`judge-protocol-v2` implements those requirements without changing
+`sf-eval-v1`, `sf-gates-10`, or `rubric-v0.1`. The same two persistent,
+blinded sessions receive ft_v2 and candidate answers in independently
+randomized order across 20 chained shards. Each shard contains ten matched
+case pairs (20 suite answers) plus two hidden qualification sentinels. System
+labels and source paths are removed from the judge inputs.
+
+Suite access is locked behind a frozen 26-case synthetic qualification pack
+with pass/fail coverage for all 37 judge-owned criteria. A session must score
+240/240 with valid gold-bound evidence before shard 0 is disclosed. Every
+failed suite criterion requires an allowed reason code, an evidence-specific
+8–60 word explanation, and one to three machine-verified answer quotes and/or
+`/context` pointers; contradictions require both. Repeated explanations or
+evidence sets, blanket criterion failures, invalid sentinels, stale hashes,
+broken receipt chains, and overwrite/retry attempts fail closed. A failed
+session quarantines the whole paired attempt: selective repair is forbidden.
+
+Agreement is recorded at shard scale for diagnosis, but only exact
+200-case-per-system coverage may open the final trust gate. Both ft_v2 and the
+candidate must independently reach at least 80% raw category agreement,
+Cohen's kappa at least 0.60, and a pass-rate gap no greater than 10 points.
+Merge, adjudication, `apply_judge`, baseline re-pin, and regression additionally
+require the trusted paired-run receipt.
+
+Six paired attempts were retained rather than repaired:
+
+| attempt | last accepted point | quarantine trigger |
+|---|---|---|
+| 1 (`paired_run/`) | qualification only | session B repeated generic X1, X2, and G1 failure templates in shard 0 |
+| 2 | shards 0–1 | session A used `contradicted` without the required context pointer in shard 2 |
+| 3 | shard 0 | session A's shard-1 hidden sentinel used non-gold D2/D3 evidence |
+| 4 | qualification only | shard-0 audit found session A failed X1 on all ten candidate rows |
+| 5 | shard 0 | session A repeated one normalized X1 contradiction explanation three times in shard 1 |
+| 6 | shard 0 | session B's shard-1 hidden sentinel used an answer quote outside the frozen D3 gold anchors |
+
+Run 6 was the predeclared final operational attempt. Both fresh sessions
+qualified at 240/240; receipt SHAs are
+`abdf637c770bae1faaa2f684d1b8554e80a9029286def6980f9db0022bfc78da`
+and
+`c83cb99133f0f0c20aa87f25922e7481149378264d25fc25632060f470f90973`.
+Its valid shard 0 was diagnostic-only: both systems had 9/10 category
+agreement, kappa 0.7368, and a 10-point pass-rate gap. Session A passed shard
+1, but session B's hidden-sentinel evidence failed, so the controller
+quarantined the run before shard-1 agreement.
+
+There are therefore **no trusted 200-case v2 statistics, no v2 scorecards,
+no regression verdict, and no promotion result**. The historical ft_v2
+101/46/30 report remains the only pinned baseline; no serving, fusion, or
+quantized-evaluation work was authorized. Iteration 15 should keep the models,
+rubric, suite, gates, evidence rules, and trust thresholds frozen and harden
+the execution layer: use a structured judge executor with deterministic
+evidence selection and local pre-submission validation, rather than another
+round of manually assembled free-form JSON or fresh-session judge shopping.

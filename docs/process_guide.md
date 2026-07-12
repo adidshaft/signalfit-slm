@@ -2150,6 +2150,218 @@ for failures; rejection of generic repeated reasons and degenerate
 all-pass/all-fail criterion patterns; then >=80% agreement, kappa >=0.60, and
 <=10-point pass-rate gap on each system before any adjudication or re-pin.
 
+### Step 7r — iteration 14: qualify and pair the judge before re-verdict
+
+Iteration 14 changes no model answer, gate, rubric, or frozen case. It builds
+`judge-protocol-v2` specifically around the v1 failure: identity hashes proved
+which answer was judged, but not that the judge read it. V2 therefore makes
+competence and symmetric exposure machine-enforced prerequisites.
+
+The frozen non-suite qualification pack contains 26 hand-authored synthetic
+cases: one clean and one compound-fail case for each category, two benign
+lookalikes, and isolated X2/X3/X6/X7 traps. Its hidden gold covers pass and
+fail for all 37 judge-owned criteria. Exact criterion vectors, category ANDs,
+allowed reason codes, and evidence anchors are scored automatically; anything
+below perfect blocks suite access. Pack validation finds zero eval IDs and
+zero shared 16-token spans against eval questions, target answers, or either
+system's stored answers. Pack SHA-256 is
+`8de7c5eeead43d02f6d5996319792bd2884ed401419549de0c57279c48b74e7a`.
+
+Every failed criterion now requires a permitted reason code, an 8–60 word
+explanation, and one to three verifiable anchors: an exact answer quote and/or
+an RFC6901 `/context` pointer with the exact observed value. Contradictions
+require both. Batch validation rejects the same normalized failure explanation
+or evidence set reused three times and any criterion failed across all eight
+or more exposures. Constant judge margins make kappa undefined and fail trust;
+they can no longer produce the v1 false `1.0` result.
+
+The paired run is deterministic at seed 1402. The same persistent sessions A
+and B each receive both systems through 20 neutral shards. Each shard has ten
+matched case pairs (20 suite answers), randomized independently per session,
+with paired answers separated and all system/path labels removed. Two hidden
+qualification sentinels are interleaved per shard. Shard 0 remains physically
+locked until the session earns a perfect 26-case qualification receipt; every
+later shard requires the previous valid sentinel/semantic receipt. A session
+failure invalidates the shard rather than allowing selective retry.
+
+Only after exact 200/system coverage may the controller compute trust
+independently for ft_v2 and the candidate: raw category agreement >=80%, kappa
+>=0.60, and pass-rate gap <=10 points. Either failure stops before merge,
+adjudication, `apply_judge`, baseline re-pin, or regression. A trusted run
+receipt is required downstream. Initial and post-build frozen-suite checks are
+green at 200 hashes with no train/valid contamination; deterministic reports
+reproduce ft_v2 101/200 and candidate 147/200 under the intended v2 quadruple.
+
+**Qualification passed before suite disclosure.** Session A's first two
+attempts are retained; its second scored 237/240 before the final automatic
+receipt reached 240/240. Session B's first two attempts are also retained; its
+second scored 219/240 before the final receipt reached 240/240. Corrections
+were made only against the synthetic qualification feedback—no suite shard
+existed publicly. Both final files pass exact decisions, category roll-ups,
+reason-code rules, evidence resolution, duplicate-reason/evidence guards, and
+all-fail detection. Only after both receipts were written may shard 0 unlock.
+
+**Paired attempt 1 quarantined at shard 0.** Session A's 22-row output passes
+both hidden sentinels and every semantic guard. Session B is rejected before
+agreement: it repeats the same normalized generic failure template at least
+three times for X1, X2, and G1. No category statistic, system score, merge, or
+adjudication is produced. Selectively retrying B would cherry-pick a judge, so
+the whole paired attempt remains evidence and ends. A fresh run with seed 1403
+and two new persistent sessions starts from qualification; the rule itself is
+unchanged, only the task reminder makes the already-pinned no-template
+requirement explicit.
+
+**Paired attempt 2 quarantined at shard 2.** Two fresh sessions each passed
+qualification 240/240 on their first attempt, and both sessions passed shards
+0 and 1. Session A's shard-2 output then labeled S1 `contradicted` while
+providing only an exact answer quote, not the mandatory context pointer paired
+with it. The validator rejected the output before a shard receipt or any
+agreement statistic was created. Session B was stopped once that paired run
+became invalid. No row was repaired or selectively retried. The signed
+qualification receipts, four valid shard receipts, rejected output hash, and
+`QUARANTINE.json` remain as evidence. A third paired attempt uses seed 1404
+and two fresh persistent sessions under the identical frozen protocol.
+
+**Pre-suite implementation audit hardened v2 before run 3 disclosure.** A
+read-only adversarial review found that the first implementation did not yet
+enforce all of the written design: qualification scored decisions/codes but
+not the frozen gold anchors; trust compared rounded kappa; a blank context
+pointer was accepted; validated shards could be overwritten; quarantine was
+manual; per-shard agreement was delayed until the final audit; repeated
+templates split across shards could evade the batch guard; the trusted receipt
+was not self-validated or bound downstream to the source/session files; and an
+agreed merge omitted the v2 qualification stamp. All were fixed before run 3
+received any suite row. The controller now validates manifest/receipt/file
+hashes, automatically quarantines a rejected shard, forbids revalidation,
+requires both sessions plus an agreement file before the next shard unlocks,
+validates per-system and combined judge batches before trust, gates on raw
+unrounded statistics, and fails closed through merge/apply. A lifecycle test
+exercises qualify -> unlock -> paired validation -> agreement -> next unlock,
+then proves revalidation and quarantine bypass fail. The full suite is 53/53
+tests green and `freeze_eval.py check` remains green at 200 cases.
+
+**Paired attempt 3 qualification passed under the hardened scorer.** Both
+fresh persistent sessions first failed the synthetic pack (A 213/240, B
+211/240), then reached 240/240 decisions after automatic case-level feedback.
+The new gold-evidence check still rejected their schema-valid but noncanonical
+anchors. Because this is the frozen non-suite calibration pack and no suite
+shard was unlocked, the sessions received the frozen cases/gold solely to
+repair codes, minimum anchor counts, and exact allowed anchors; all attempts
+are retained. Session A required one further correction when three normalized
+X1/X3/X7 explanation templates repeated across cases. Final receipts prove
+240/240 decisions, exact gold-bound evidence, and no generic-template or
+all-fail pattern: A receipt `fd9db184a9b0c3400c56809d07abffdd029d6062eaaafea45b36af444bd72dd5`,
+B receipt `00b713ca2f80ac3737ffefea6623e123675c75f84f242e16e660de37e5359621`.
+Only then did seed-1404 shard 0 unlock for both sessions.
+
+**Paired attempt 3 quarantined at shard 1.** Shard 0 passed both sessions,
+all four hidden sentinels, artifact/receipt hashes, and the new asymmetric
+constant-pattern check. Its per-system category agreement was ft_v2 10/10
+(kappa 1.0, zero pass gap) and candidate 9/10 (kappa 0.8, 10-point pass gap);
+these are diagnostics, not substitutes for the 200-case gate. At shard 1,
+session A got both sentinel decision vectors and category ANDs right (20/20)
+but used non-gold evidence for daily-decision D2/D3. Hardened sentinel scoring
+rejected the output before a session receipt or shard agreement existed;
+session B's already-written output was not validated. The controller wrote
+`QUARANTINE.json` with output SHA
+`a857e8ce67145e7a9ace090f35f23c629b9ffddcc4247855e09206c66ccc5560`.
+Nothing was repaired or selectively retried. A fresh seed-1405 run 4 starts
+from qualification with two new persistent sessions and the same frozen pack,
+gold-evidence rule, trust thresholds, and no-retry boundary.
+
+**Paired attempt 4 qualification passed before suite disclosure.** The fresh
+sessions were explicitly given public `rubric-v0.1` (`docs/eval_rubrics.md`)
+and the public v2 protocol, after an early question exposed that criterion IDs
+alone were not a self-contained semantic rubric. Neither could read gold,
+private crosswalks, system answers, or suite shards during the scored decision
+attempt. A first reached 238/240, then 240/240 after two cross-cutting boundary
+corrections; B followed the same 238 -> 240 path. Only after perfect decisions
+did each receive frozen synthetic-gold feedback to canonicalize evidence.
+Duplicate-template guards forced case-specific X1/X3/X7 rewrites. B also
+caught and rebuilt a locally truncated qualification output before any receipt
+was issued. Every attempt remains evidence. Final hardened receipts prove
+26 cases, 240/240 decisions, exact distinct gold anchors, and unique failure
+explanations: A `a445111dfeed7ba7f502f5a87edaa0466a78c6ed2cb4f63169c0bdfa2fc95301`,
+B `9969526e2b051c5d9891c4b9bb4056bc16f693b4edd229d7377bf85c369d9135`.
+Only then did seed-1405 shard 0 unlock.
+
+**Paired attempt 4 quarantined at shard 0.** Both sessions passed hidden
+sentinels and individual schema/evidence validation. When session B completed,
+the new per-system shard-scale semantic audit found that session A had failed
+qualitative X1 on all ten candidate answers. This is precisely the blanket
+criterion pattern that v1 missed; mixing systems would also have hidden it.
+The controller rejected the shard before writing agreement statistics and
+recorded B as the triggering validation call while explicitly identifying A
+as the implicated session. No selective retry or model verdict exists. Run 5
+uses seed 1406, two fresh identities, the public rubric from the outset, and
+the unchanged qualification/evidence/trust rules.
+
+**Paired attempt 5 qualification passed before suite disclosure.** Two fresh
+sessions read the complete public rubric and v1 failure requirements before
+the synthetic pack, with an explicit reminder that X1 is qualitative
+grounding rather than a catch-all quality score. A scored 237/240 and B
+238/240 before bounded synthetic decision feedback brought each to 240/240;
+only then were gold codes/anchors disclosed for calibration repair. Final
+outputs pass exact distinct evidence and duplicate-template guards without
+changing decisions. Receipts are A
+`3ca636cac937594614763a99f2999c333b938df551373f6519a73382aacd9f74`
+and B `bdcf97a26c33deb130eb824d6f33be8af155b3d7448c53a2ab3b7670241283f7`.
+Seed-1406 shard 0 unlocks only after both receipts.
+
+Run-5 shard 0 passes both hidden sentinels, per-session and per-system semantic
+guards, constant-pattern checks, and artifact hashes. The diagnostic agreement
+is ft_v2 8/10 (80%, kappa 0.5833, zero pass gap) and candidate 7/10 (70%,
+kappa 0.3478, 10-point pass gap). No per-shard trust threshold was declared;
+these small-n diagnostics therefore cannot be promoted into a post-hoc stop or
+admission rule. The frozen final gate remains 200 rows independently per
+system. Shard 1 unlocks through both chained receipts and the shard-0 report.
+
+**Paired attempt 5 quarantined at shard 1.** Shard 0 passed every hard check;
+its diagnostic agreement was ft_v2 8/10 (kappa 0.5833) and candidate 7/10
+(kappa 0.3478). No post-hoc shard threshold was invented, so shard 1 correctly
+continued. Session A's next output then repeated one normalized X1
+contradiction template three times. The controller rejected it before a shard
+receipt or agreement file; session B was not validated. Run 5 therefore has
+no model statistics beyond the recorded shard-0 diagnostics.
+
+Five full-attempt quarantines are enough to make unlimited fresh-session
+retries look like judge shopping. Before seeing another output, iteration 14
+predeclares seed-1407 run 6 as the final operational attempt. Its fresh judges
+must run the exact public `validate_batch` implementation locally—not a
+hand-rolled approximation—before every submission. Any run-6 shard failure
+ends the iteration as measurement-blocked and becomes iteration 15's executor
+work; thresholds and evidence rules remain unchanged.
+
+**Final paired attempt 6 stops at shard 1.** Both new sessions used the exact
+public `validate_batch` implementation before submission and earned hardened
+240/240 receipts: A
+`abdf637c770bae1faaa2f684d1b8554e80a9029286def6980f9db0022bfc78da`,
+B `c83cb99133f0f0c20aa87f25922e7481149378264d25fc25632060f470f90973`.
+Shard 0 then passed every guard with identical per-system diagnostics: 9/10
+category agreement, kappa 0.7368, and a 10-point pass-rate gap for both ft_v2
+and candidate. At shard 1, session A passed. Session B's hidden daily-decision
+sentinel had the complete correct 19-decision/category vector but used a D3
+quote outside the frozen canonical set. The controller quarantined run 6
+before B's receipt or shard agreement. Per the attempt cap declared before
+run-6 output existed, no run 7 starts.
+
+The iteration is therefore **measurement-blocked, not model-blocked**. No
+paired run reached exact 200/system coverage, so v2 has no legitimate final
+agreement/kappa/pass-gap, no merged or adjudicated verdict, no v2 scorecard,
+no sanctioned ft_v2 re-pin, and no regression result. The quarantined
+candidate 147 deterministic result remains measurement input only; ft_v2's
+historical 101/46/30 file stays the sole pinned baseline. No serving default,
+adapter, fused model, or quantized artifact changes.
+
+Iteration 15 should first replace free-form JSON/evidence emission with a
+deterministic judge-executor: the judge returns decisions plus evidence
+selections from controller-provided candidate anchors, while code emits all
+provenance, canonical sentinel payloads, and normalized explanation checks.
+Calibrate that executor entirely on the frozen synthetic pack, predeclare one
+paired run, then reuse the unchanged 200-case trust gates. Do not change model
+data, wrapper wording, or candidate answers until the measurement instrument
+can complete its own protocol.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -2622,3 +2834,23 @@ all-pass/all-fail criterion patterns; then >=80% agreement, kappa >=0.60, and
   change, fusion, quantization, or training. The provisional candidate report
   and every disagreement remain evidence; iteration 14 must qualify and pair
   judges before suite scoring.
+- **2026-07-12 (iteration 14 — judge-protocol-v2 measurement blocked):** Built
+  the frozen 26-case/37-criterion qualification pack and a paired, blinded,
+  receipt-chained 20-shard controller with exact evidence, semantic
+  degeneration, per-system trust, immutable-artifact, and downstream receipt
+  enforcement. Fifty-three tests and frozen-suite checks pass. Six complete
+  paired attempts were quarantined without selective retry: repeated generic
+  reasons; missing contradiction evidence; noncanonical hidden-sentinel
+  evidence; candidate-only X1 all-fail; another repeated X1 template; and the
+  final run-6 shard-1 noncanonical D3 sentinel quote. Run 6's accepted shard 0
+  reached 90% agreement, kappa 0.7368, 10-point gap on each system, but this
+  ten-case diagnostic is not a 200-case trust result. No merge, adjudication,
+  scorecard, baseline re-pin, regression, promotion, serving, fusion,
+  quantization, or training ran. Housekeeping removed 18 generated bytecode
+  files (347,508 apparent / 380,928 allocated bytes), then the 18 recreated by
+  final verification (347,549 apparent / 380,928 allocated): 36 deletions,
+  695,057 apparent / 761,856 allocated bytes total. All 169,596 KiB of v2
+  manifests, qualifications, inputs, outputs, receipts, quarantine records,
+  and diagnostics remain as verdict evidence. Iteration 15 must first build a
+  deterministic judge executor with controller-emitted provenance and
+  canonical sentinel payloads, then rerun the unchanged trust gates once.

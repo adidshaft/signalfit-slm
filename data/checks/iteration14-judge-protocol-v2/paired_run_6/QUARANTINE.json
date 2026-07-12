@@ -1,0 +1,10 @@
+{
+  "downstream_scoring_permitted": false,
+  "failed_session": "session-b",
+  "failed_shard": "01",
+  "failure": "sentinel:01:session-b qualification score 19/19; perfect required; jqv2-daily-compound-fail:D3 answer quote misses gold",
+  "output_sha256": "719680baedb8e869a6a40f147ccea1277c63dfa8b34b5d674ea7fa6fc39c1e4d",
+  "run_id": "iteration14-paired-v2-run6",
+  "selective_retry_permitted": false,
+  "status": "quarantined"
+}
