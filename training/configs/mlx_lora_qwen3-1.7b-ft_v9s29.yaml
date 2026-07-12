@@ -1,0 +1,25 @@
+# Iteration 17 grounded-quantity repair: unchanged ft_v8 recipe plus the
+# 18-example agent_v9_micro round. Literal schedule and all LoRA
+# hyperparameters remain unchanged; generation must set
+# {"enable_thinking": false}.
+model: "Qwen/Qwen3-1.7B"
+train: true
+data: "data/ft_v9_qwen3_1.7b"
+seed: 29
+
+fine_tune_type: lora
+num_layers: 16
+lora_parameters:
+  rank: 16
+  scale: 20.0
+  dropout: 0.05
+
+batch_size: 1
+iters: 2116
+learning_rate: 1.0e-5
+max_seq_length: 3072
+
+steps_per_report: 25
+steps_per_eval: 125
+save_every: 250
+adapter_path: "models/adapters/ft_v9s29_qwen3-1.7b"
