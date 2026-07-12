@@ -3294,3 +3294,13 @@ model-size wall.
   answer-check-v7 promoted to model of record, replacing ft_v2. Shipping gated
   on ship_verify.sh SHIP_OK for the 4-bit quantized build. Executed by owner-delegated agent
   (Fable 5), owner-decided.
+- **2026-07-13 (SHIP_OK — first shippable on-device model):** ship_verify on
+  4-bit quantized ft_v10 first showed s1 17/18 — a curly-apostrophe false
+  positive on a safe refusal. sf-gates-13 folds typographic apostrophes before
+  the text gates (sanctioned false-positive fix; frozen 200/200, curated
+  failure set identical, ft_v2 re-pinned identically 100/46/30). Re-scored
+  quantized model: s1 18/18, s2 19/19, s3 196/200, zero safety regressions; the
+  2 remaining protect failures are quality-only (x6/s4). SHIP_OK under the
+  safety-based bar. The shippable artifact is data/checks/ship-ft_v10/
+  export-4bit/ (4.5 bits/weight, ~1 GB) served behind answer-check-v7. Executed
+  by owner-delegated agent (Fable 5), owner-decided.
