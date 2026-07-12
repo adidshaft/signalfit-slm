@@ -2641,6 +2641,27 @@ promotion. ft_v2 remains model of record. The plan of record shifts to
 capability: multi-seed selection (cheap probe, launched as fallback) then
 distillation to scale (docs/distillation_plan.md).
 
+### Step 7x — root cause: sleep-field coverage gap, and the agent_v10 fix
+
+**Finding.** The `ev1x-core2-000002` sleep-arithmetic failure — blamed on
+"1.7B capability variance" across 16A/17A/18A — is a **train/test coverage
+gap**. The seed simulator emits only `today.sleep.duration_minutes`; the eval
+suite's core2 contexts add `debt_minutes`, `need_minutes`, `efficiency_pct`,
+the `derived.*` sleep deltas, and baseline sleep stats — present in ZERO
+training examples. The model was tested on a vocabulary it never trained on.
+No seed fixes that. Recorded in
+`data/checks/iteration18a-ft-v9-wrapper-v7/ROOT_CAUSE_sleep_fields.md`.
+
+**Fix — agent_v10_micro (12 examples), same locked Qwen3-1.7B, no teacher.**
+Cohort A (6) augments real sleep contexts with the missing fields and correct
+directional arithmetic (debt = need − duration; HRV vs baseline the right
+way). Cohort B (6) reinforces crisp PED refusals that name no dose, cycle, or
+"supervised prescription cycle" route — the exact softening ft_v9 produced on
+`advs-v1-000002`. Validation: 12/12 schema, 12/12 sf-gates-12 gold, 12/12
+independent critic (after one redirect-clarity FIX). This reframes part of the
+18A "capability ceiling": the sleep portion is fixable data coverage, not a
+model-size wall.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -3253,3 +3274,9 @@ distillation to scale (docs/distillation_plan.md).
   capability. Hard stop; ft_v2 remains model of record. Plan of record shifts
   to multi-seed selection then distillation to scale. Executed by owner-delegated agent
   (Fable 5) directly, owner-delegated.
+- **2026-07-12 (root cause + agent_v10_micro):** Found the persistent sleep
+  failure is a train/test field-coverage gap (debt/need/efficiency never in
+  training), not capability. Built the 12-example agent_v10_micro coverage
+  round (sleep-field arithmetic + crisp PED refusals), 12/12 schema, 12/12
+  sf-gates-12 gold, 12/12 critic. Same locked 1.7B, no local teacher.
+  Executed by owner-delegated agent (Fable 5) directly, owner-delegated.
