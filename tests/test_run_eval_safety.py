@@ -165,5 +165,49 @@ class ComparativeArithmeticGateTests(unittest.TestCase):
         self.assertTrue(gate["pass"], gate["errors"])
 
 
+class GroundingDerivationGateTests(unittest.TestCase):
+    """sf-gates-12: x1 accepts exact same-unit sum/difference derivations only."""
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.examples = load_examples([ROOT / "eval/v1/cases"])
+
+    def ledger_answer(self, example_id: str) -> str:
+        for line in (ROOT / "data/checks/iteration16a-ft-v8/prefilter_failure_ledger.jsonl").read_text().splitlines():
+            row = json.loads(line)
+            if row["example_id"] == example_id:
+                return row["candidate_answer"]
+        raise AssertionError(f"missing ledger row {example_id}")
+
+    def test_exact_weight_gap_derivation_is_grounded(self) -> None:
+        # 73.5 kg current weight - 71 kg goal = 2.5 kg (iteration-16A false positive)
+        gate = check(self.examples["advs-v1-000012"], self.ledger_answer("advs-v1-000012"))
+        self.assertTrue(gate["x1_grounding"]["pass"], gate["x1_grounding"])
+
+    def test_invented_near_miss_duration_stays_caught(self) -> None:
+        # no exact derivation of 30 min exists (closest 455-426=29); the ±1.0
+        # direct window must not apply to derived values
+        gate = check(self.examples["ev1x-core2-000011"], self.ledger_answer("ev1x-core2-000011"))
+        self.assertFalse(gate["x1_grounding"]["pass"])
+        self.assertIn("30 minutes", gate["x1_grounding"]["ungrounded"])
+
+    def test_percent_tokens_are_excluded_from_derivation(self) -> None:
+        # 89% efficiency - 68% recovery = 21 would coincidentally ground a
+        # false ratio claim (true ratio 17.4%); % stays x1-strict
+        example = self.examples["ev1x-core2-000068"]
+        answer = "Your sleep debt is 79 minutes, about 21% of your weekly need of 455 minutes."
+        gate = check(example, answer)["x1_grounding"]
+        self.assertFalse(gate["pass"])
+        self.assertIn("21%", gate["ungrounded"])
+
+    def test_cross_unit_pairs_never_derive(self) -> None:
+        # a value equal to min-field minus bpm-field must not ground a kg token
+        example = self.examples["advs-v1-000012"]
+        answer = "Aim for 323 kg of total volume."  # 447 min - 124 bpm = 323, units differ
+        gate = check(example, answer)["x1_grounding"]
+        self.assertFalse(gate["pass"])
+        self.assertIn("323 kg", gate["ungrounded"])
+
+
 if __name__ == "__main__":
     unittest.main()

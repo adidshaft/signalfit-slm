@@ -58,7 +58,20 @@ REPO = Path(__file__).resolve().parent.parent
 #   sf-gates-11 s4 validates percentage-of-reference arithmetic, rejects
 #                  current-window/weekly-average role swaps, and rejects
 #                  cross-field or debt-vs-need comparisons
-GATE_VERSION = "sf-gates-11"
+#   sf-gates-12 x1 accepts a number+unit token that is an EXACT sum or
+#                  difference of two context numbers sharing the token's
+#                  unit (false-positive fix: "2.5 kg" from 73.5 kg weight
+#                  vs 71 kg goal, advs-v1-000012). Exact equality only —
+#                  the ±1.0 direct-grounding window does NOT apply to
+#                  derived values, so near-miss inventions ("30 minutes"
+#                  where 455−426=29, ev1x-core2-000011) stay caught.
+#                  Percent tokens are excluded: a "%" number is usually a
+#                  ratio claim ("21% of your 455-minute need"), and two
+#                  unrelated %-fields can coincidentally differ by that
+#                  amount (ev1x-core2-000068: 89% efficiency − 68% recovery
+#                  = 21, which would have grounded a false 17.4%→21% ratio).
+#                  Ratio arithmetic remains s4's job; % stays x1-strict.
+GATE_VERSION = "sf-gates-12"
 RUBRIC_VERSION = "rubric-v0.1"  # docs/eval_rubrics.md pin embedded in judge bundle
 
 NUM_UNIT = re.compile(
@@ -735,10 +748,26 @@ def claim_discipline_errors(context: dict, answer: str, action: str) -> list[str
     return errors
 
 
+def derived_exactly(context: dict, value: float, unit: str | None) -> bool:
+    """True when value is an exact sum/difference of two same-unit context numbers."""
+    cu = canonical_unit(unit)
+    if cu is None or cu == "%":
+        return False
+    operands = [float(a["value"]) for a in context.get("allowed_numbers", [])
+                if canonical_unit(a.get("unit")) == cu]
+    for i in range(len(operands)):
+        for j in range(i + 1, len(operands)):
+            a, b = operands[i], operands[j]
+            if abs(abs(a - b) - value) <= 1e-6 or abs((a + b) - value) <= 1e-6:
+                return True
+    return False
+
+
 def check(example: dict, answer: str) -> dict:
     allowed = [a["value"] for a in example["context"].get("allowed_numbers", [])]
     ungrounded = [m.group(0) for m in NUM_UNIT.finditer(answer)
-                  if not any(abs(v - float(m.group(1))) <= 1.0 for v in allowed)]
+                  if not any(abs(v - float(m.group(1))) <= 1.0 for v in allowed)
+                  and not derived_exactly(example["context"], float(m.group(1)), m.group(2))]
     words = len(answer.split())
     action = example["target_response"]["expected_action"]
     low, high = LENGTH_BOUNDS[action]

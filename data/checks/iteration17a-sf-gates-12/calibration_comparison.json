@@ -1,0 +1,58 @@
+{
+ "change": "x1 exact same-unit sum/difference derivation allowance (non-% units only)",
+ "curated": {
+  "count": 1050,
+  "failure_set_identical_to_sf_gates_11": true,
+  "introduced_failures": [],
+  "sf_gates_12_pass": 1016
+ },
+ "false_positive_fixed": {
+  "derivation": "user_profile.weight_kg 73.5 - goals.target_metrics[0].goal 71.0",
+  "example_id": "advs-v1-000012",
+  "token": "2.5 kg"
+ },
+ "frozen_suite": {
+  "count": 200,
+  "sf_gates_12_pass": 200
+ },
+ "known_true_failure_retained": {
+  "example_id": "ev1x-core2-000011",
+  "reason": "no exact same-unit derivation exists (closest 455-426=29 min); exact-equality rule keeps it caught",
+  "token": "30 minutes"
+ },
+ "percent_exclusion_rationale": {
+  "example_id": "ev1x-core2-000068",
+  "reason": "89% efficiency - 68% recovery coincidentally equals a false '21% of 455-min need' ratio claim (true ratio 17.4%); % tokens stay x1-strict, ratio arithmetic remains s4",
+  "token": "21%"
+ },
+ "repinned_ft_v2": {
+  "deterministic": 100,
+  "identical_to_sf_gates_11": true,
+  "judge_category": 46,
+  "strict": 30,
+  "x1_row_changes": [
+   {
+    "example_id": "ev1x-core2-000014",
+    "note": "44-min sleep delta (431 vs 30d mean) now grounded; row still fails x1 on '8 hours'/'4 hours' and stays deterministic-fail"
+   }
+  ]
+ },
+ "repinned_prior_gain": {
+  "deterministic": 137,
+  "judge_category": 61,
+  "prior_deterministic": 136,
+  "strict": 31,
+  "strict_set_identical": true,
+  "x1_row_changes": [
+   {
+    "example_id": "bind-v1-000004",
+    "note": "true 6 ms / 3 bpm today-vs-7d deltas grounded; row stays deterministic-fail on other gates"
+   },
+   {
+    "example_id": "ev1x-core2-000093",
+    "note": "true 2.0/1.0 ms and 1 bpm deltas grounded; row flips deterministic-pass but judge category fails so strict set unchanged. KNOWN LIMITATION: row contains a garbled ratio sentence ('debt of 38 minutes, about 80% of its 438-minute need' - need is 455, 80% matches efficiency 81%) invisible to s3/s4; previously blocked only incidentally by x1 flagging TRUE delta statements. Effect direction is protect-report-only and cannot favor a candidate."
+   }
+  ]
+ },
+ "version": "sf-gates-12"
+}

@@ -2501,6 +2501,43 @@ fresh packet, sealed mapping, owner review, promotion, fusion, quantization,
 or serving change. The iteration-15 packet and decision remain immutable;
 ft_v2 remains model of record and serving default.
 
+### Step 7v — iteration 17A: x1 derivation allowance, grounded-quantity repair
+
+**What (Phase 1).** The two 16A prefilter failures were different defects.
+`advs-v1-000012`'s "2.5 kg" is exact, unit-consistent context arithmetic
+(73.5 kg weight − 71 kg goal): a true statement that x1 flagged only because
+it had no concept of derived values — a gate false positive, adjudicated via
+the sanctioned path (precedent: the sf-gates-7 s1 fix). `ev1x-core2-000011`'s
+"30 minutes" is a genuine invention (no exact derivation exists; closest is
+455−426=29 min). `sf-gates-12` therefore extends x1: a number+unit token also
+passes when it equals an EXACT sum or difference of two context numbers
+sharing the token's canonical unit.
+
+**Why exact-only and why % is excluded.** The ±1.0 direct-grounding window
+deliberately does not apply to derived values — with it, 455−426=29 would
+have grounded the invented "30 minutes". Percent tokens are excluded
+entirely: a "%" number is usually a ratio claim, and two unrelated %-fields
+can coincidentally differ by that amount (`ev1x-core2-000068`: 89% sleep
+efficiency − 68% avg recovery = 21, which would have grounded a false "21%
+of your 455-minute need" — the true ratio is 17.4%). Ratio arithmetic stays
+s4's job; % stays x1-strict.
+
+**How (calibration + re-pin, same commit).** Frozen suite 200/200; curated
+gold 1016/1050 with a failure set byte-identical to sf-gates-11 — zero
+introduced, zero removed. Re-pinned ft_v2 is unchanged: 100 deterministic /
+46 judge / 30 strict. Prior-gain re-pins 136→137 deterministic (three rows
+gain x1 on audited TRUE same-metric deltas; every newly accepted token was
+individually verified against its context) with a byte-identical strict set,
+so both protect sets are unchanged in membership. Known limitation recorded
+in `data/checks/iteration17a-sf-gates-12/calibration_comparison.json`:
+`ev1x-core2-000093` now passes deterministic despite one garbled ratio
+sentence invisible to s3/s4 (it was previously blocked only incidentally, by
+x1 flagging true delta statements); the row sits in a protect report, where
+passing makes the prefilter stricter for candidates, never looser. Unit
+tests (`GroundingDerivationGateTests`) pin all four behaviors: the kg
+derivation grounds, the 30-minute invention stays caught, % never derives,
+cross-unit pairs never derive.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -3060,3 +3097,15 @@ ft_v2 remains model of record and serving default.
   generated files, 321,209,617 apparent / 322,805,760 allocated bytes; no eval
   case, verdict, final adapter, or
   promotion evidence was deleted.
+- **2026-07-12 (iteration 17A Phase 1 — sf-gates-12 x1 derivation allowance):**
+  Adjudicated the 16A `advs-v1-000012` prefilter failure as a true x1 false
+  positive (2.5 kg = 73.5 − 71 kg, exact same-unit context arithmetic) and
+  extended x1 with an exact-only, same-unit, non-% sum/difference derivation
+  allowance. The invented "30 minutes" (`ev1x-core2-000011`) stays caught
+  because no exact derivation exists. Calibration: frozen suite 200/200,
+  curated 1016/1050 byte-identical failure set, ft_v2 re-pinned unchanged at
+  100/46/30, prior-gain strict set unchanged; every newly grounded token was
+  individually audited as true context arithmetic. Percent exclusion added
+  after the audit surfaced a coincidental cross-field grounding of a false
+  ratio claim ("21%" on `ev1x-core2-000068`). Executed by owner-delegated agent (Fable 5)
+  directly, owner-delegated.
