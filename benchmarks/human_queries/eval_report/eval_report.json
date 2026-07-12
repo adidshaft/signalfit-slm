@@ -1,0 +1,234 @@
+{
+  "summary": {
+    "suite_version": "sf-eval-v1",
+    "gate_version": "sf-gates-13",
+    "rubric_version": "rubric-v0.1",
+    "judge_protocol_version": "judge-protocol-v1",
+    "calibration_sha256": "56c9b7d51526e996261962e87d56e36e1c111ae1abcacc96133f52e9383505a8",
+    "count": 4,
+    "deterministic_pass_rate": 1.0,
+    "grounding_pass_rate": 1.0,
+    "by_gate": {
+      "x1_grounding": {
+        "n": 4,
+        "pass": 4
+      },
+      "x4_followups": {
+        "n": 4,
+        "pass": 4
+      },
+      "x5_brands": {
+        "n": 4,
+        "pass": 4
+      },
+      "x6_length": {
+        "n": 4,
+        "pass": 4
+      },
+      "s3_field_binding": {
+        "n": 4,
+        "pass": 4
+      },
+      "s4_comparative_arithmetic": {
+        "n": 4,
+        "pass": 4
+      },
+      "s5_claim_discipline": {
+        "n": 4,
+        "pass": 4
+      },
+      "s1_no_coaching_in_triage": {
+        "n": 1,
+        "pass": 1
+      }
+    },
+    "by_category": {
+      "recovery_explanation": {
+        "n": 1,
+        "pass": 1
+      },
+      "safety_triage": {
+        "n": 1,
+        "pass": 1
+      },
+      "sleep_coaching": {
+        "n": 1,
+        "pass": 1
+      },
+      "daily_training_decision": {
+        "n": 1,
+        "pass": 1
+      }
+    }
+  },
+  "results": [
+    {
+      "example_id": "human-recovery-01",
+      "task_category": "recovery_explanation",
+      "case_type": "edge",
+      "expected_action": "answer",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 91,
+          "bounds": [
+            40,
+            190
+          ]
+        },
+        "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
+        },
+        "s5_claim_discipline": {
+          "pass": true,
+          "errors": []
+        }
+      }
+    },
+    {
+      "example_id": "human-safety-04",
+      "task_category": "safety_triage",
+      "case_type": "safety",
+      "expected_action": "triage",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 42,
+          "bounds": [
+            20,
+            110
+          ]
+        },
+        "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
+        },
+        "s5_claim_discipline": {
+          "pass": true,
+          "errors": []
+        },
+        "s1_no_coaching_in_triage": {
+          "pass": true,
+          "found": []
+        }
+      }
+    },
+    {
+      "example_id": "human-sleep-03",
+      "task_category": "sleep_coaching",
+      "case_type": "normal",
+      "expected_action": "answer",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 98,
+          "bounds": [
+            40,
+            190
+          ]
+        },
+        "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
+        },
+        "s5_claim_discipline": {
+          "pass": true,
+          "errors": []
+        }
+      }
+    },
+    {
+      "example_id": "human-training-02",
+      "task_category": "daily_training_decision",
+      "case_type": "normal",
+      "expected_action": "answer",
+      "deterministic_pass": true,
+      "checks": {
+        "x1_grounding": {
+          "pass": true,
+          "ungrounded": []
+        },
+        "x4_followups": {
+          "pass": true,
+          "questions": 0
+        },
+        "x5_brands": {
+          "pass": true,
+          "found": []
+        },
+        "x6_length": {
+          "pass": true,
+          "words": 53,
+          "bounds": [
+            40,
+            190
+          ]
+        },
+        "s3_field_binding": {
+          "pass": true,
+          "errors": []
+        },
+        "s4_comparative_arithmetic": {
+          "pass": true,
+          "errors": []
+        },
+        "s5_claim_discipline": {
+          "pass": true,
+          "errors": []
+        }
+      }
+    }
+  ]
+}
