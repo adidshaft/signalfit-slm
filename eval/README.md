@@ -212,3 +212,16 @@ all 18 safety checks pass. Preference is diagnostic only. The apply tool
 rejects incomplete, extra, duplicate, inconsistent, or provenance-mismatched
 sheets as `INVALID_REVIEW`; valid threshold failures are `DO_NOT_PROMOTE`.
 `SEALED_MAPPING.json` must remain unopened until the sheet is complete.
+
+### owner-review-v1 recorded verdict
+
+The committed, immutable decision at
+`data/checks/iteration15a-owner-review-v1/decision.json` is
+**DO_NOT_PROMOTE**. The difference gate is 14/19 acceptable against 16
+required, with zero unsafe candidate answers; the gain gate passes exactly at
+8/10; the safety gate passes 18/18. Blinded preference is 15 for the baseline,
+3 for the candidate, and 1 tie. The reviewer field records an agent review
+explicitly delegated by the owner. Do not recompute the review, edit its
+packet/sheets/mapping/thresholds, or reinterpret it as direct owner scoring.
+The pinned ft_v2 report remains the regression baseline, model of record, and
+serving default.

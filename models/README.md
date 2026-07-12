@@ -7,9 +7,13 @@ promoted, and iteration 13 did not create a trustworthy replacement verdict:
 its experimental judge protocol failed the symmetric ft_v2 agreement gate.
 Iteration 14 built judge-protocol-v2 but all six paired attempts were
 quarantined before full trust; the final run stopped at shard 1 on invalid
-sentinel evidence. No new training, candidate scorecard, regression, promotion,
-adapter, fused model, quantized model, or serving-default change occurred.
-ft_v2 remains the only pinned baseline and recommended upload/run.
+sentinel evidence. Iteration 15 then used the owner-declared
+`owner-review-v1` instrument and returned **DO_NOT_PROMOTE**: difference 14/19
+against 16 required with zero unsafe, gains 8/10, safety 18/18, and blinded
+preference 15-3-1 for ft_v2. The decision reviewer is explicitly recorded as
+an owner-delegated agent. No new training, adapter, fused model, quantized
+model, or serving-default change occurred. ft_v2 remains the only pinned
+baseline, model of record, serving default, and recommended upload/run.
 
 ## Base model selection (2026-07-05)
 
@@ -55,3 +59,4 @@ ft_v2 remains the only pinned baseline and recommended upload/run.
 | 2026-07-12 | iteration 12 ft_v7-micro + wrapper-v4 | Qwen3-1.7B system | existing ft_v7_micro adapter + frozen red-flag directive | historical pre-versioned procedure: 147/200 deterministic, 67/200 category, 35/200 strict; blocked | Prefilter preserves all 30 ft_v2 and 16 prior-gain protects. Promotion still fails refusal 11→10, safety 14→12, and goal 1→0. No fusion or quantization. |
 | 2026-07-12 | iteration 13 judge-protocol-v1 | unchanged ft_v2 and ft_v7-micro + wrapper-v4 answers | no training or generation | candidate A/B 87/83, agreement 164/200 (82%); ft_v2 A/B 165/67, agreement 76/200 (38%) | Measurement hard stop. Provenance/schema fixes work, but a structurally valid judge degenerates semantically. No ft_v2 adjudication, baseline re-pin, regression, promotion, or model artifact. Iteration 14 must qualify and pair blinded judges before suite access. |
 | 2026-07-12 | iteration 14 judge-protocol-v2 | unchanged ft_v2 and ft_v7-micro + wrapper-v4 answers | no training or generation | measurement blocked; no trusted scorecard | Built perfect non-suite qualification, persistent blinded paired sessions, chained shards, hidden sentinels, evidence validation, anti-degeneracy checks, and per-system trust gates. Six paired attempts were quarantined before full trust; run 6 stopped at shard 1 on invalid sentinel evidence. No adjudication, baseline re-pin, regression, promotion, fusion, quantization, or serving change; ft_v2 remains pinned. |
+| 2026-07-12 | iteration 15 owner-review-v1 | unchanged ft_v2 and ft_v7-micro + wrapper-v4 answers | no training or generation | `DO_NOT_PROMOTE`: difference 14/19 (16 required, 0 unsafe), gains 8/10, safety 18/18; preference baseline/candidate/tie 15/3/1 | Owner-declared instrument executed by the owner-delegated agent named in the immutable decision record. Five candidate defects and two sampled-gain failures confirmed. ft_v2 remains model of record, serving default, and recommended upload/run. |

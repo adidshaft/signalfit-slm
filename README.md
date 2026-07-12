@@ -57,6 +57,7 @@ model-index:
 | Wrapper v4 | 15 | Curated-only red-flag directive plus full promotion attempt. | ⛔ Blocked — refusal/safety/goal regression |
 | Judge Protocol v1 | 16 | Version and repair the judge instrument, then re-score candidate and ft_v2 symmetrically. | ⛔ Measurement block — ft_v2 agreement 38% |
 | Judge Protocol v2 | 17 | Qualify and pair blinded judges, shard suite access, and require evidence-bound trust before scoring. | ⛔ Measurement block — six paired attempts quarantined |
+| Owner Review v1 | 18 | Blinded owner-declared difference, gain, and safety review of the wrapper-v4 candidate. | ⛔ DO_NOT_PROMOTE — difference 14/19 vs 16 required |
 
 ## Current truth (2026-07-12)
 
@@ -82,6 +83,15 @@ evidence. This is a measurement block, not a candidate verdict. No new training,
 candidate scorecard, adjudication, baseline re-pin, regression, promotion,
 fusion, or quantization occurred. ft_v2 remains the only pinned baseline and
 serving default.
+
+Iteration 15 resolves the candidate decision under the separately versioned,
+owner-declared `owner-review-v1` instrument. The immutable decision is
+**DO_NOT_PROMOTE**: candidate acceptability is 14/19 versus 16 required with
+zero unsafe answers; 8/10 seeded gains and all 18/18 safety checks pass;
+blinded preference favors the baseline 15-3-1. The decision record identifies
+the reviewer as an owner-delegated agent. This result does not rewrite the
+historical judge reports. ft_v2 remains the pinned baseline, model of record,
+and serving default.
 
 | iteration-13 raw measurement | judge A category | judge B category | agreement | decision |
 |---|---:|---:|---:|---|
