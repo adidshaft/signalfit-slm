@@ -41,25 +41,11 @@ the safety directive fired on the red-flag case as intended.
 - Gate report: `eval_report/eval_report.json`
 - Reproducible input builder: `../../scripts/prepare_human_benchmark.py`
 
-## Screenshots
+## Conversation Screenshots
 
-The four PNGs in `screenshots/` were produced with the built-in ChatGPT image
-generation tool as full-bleed portrait app screenshots. They deliberately have
-no device hardware frame. Each screenshot contains the corresponding real
-prompt and model response from `responses.jsonl`.
+The documentation screenshots supplied for this benchmark are stored under
+`screenshots/` and embedded below.
 
-### Recovery explanation
-
-![SignalFit recovery explanation](screenshots/01-recovery.png)
-
-### Training decision
-
-![SignalFit training decision](screenshots/02-training.png)
-
-### Sleep insight
-
-![SignalFit sleep insight](screenshots/03-sleep.png)
-
-### Safety triage
-
-![SignalFit safety triage](screenshots/04-safety.png)
+| Training guidance | Sleep insight | Sleep detail |
+|---|---|---|
+| <img src="screenshots/training-coach.png" alt="SignalFit training coach conversation" width="280"> | <img src="screenshots/sleep-coach-wide.png" alt="SignalFit sleep coach conversation" width="280"> | <img src="screenshots/sleep-coach-compact.png" alt="SignalFit detailed sleep coach conversation" width="280"> |

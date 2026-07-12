@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/adidshaft/signalfit-slm/security/advisories/new
+    about: Report security, privacy, or material safety issues privately.
+  - name: Usage documentation
+    url: https://github.com/adidshaft/signalfit-slm/blob/main/docs/README.md
+    about: Review setup, testing, architecture, and evaluation documentation.

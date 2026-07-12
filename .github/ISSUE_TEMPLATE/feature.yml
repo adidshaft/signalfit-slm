@@ -1,0 +1,32 @@
+name: Feature request
+description: Propose a scoped capability, integration, or developer-experience improvement.
+title: "feature: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user or contributor problem should this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed approach
+      description: Describe the smallest useful solution and its expected interface.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Safety and privacy
+      options:
+        - label: The proposal does not require committing real health data or secrets.
+          required: true
+        - label: I have described any effect on safety, schemas, or evaluation.
+          required: true

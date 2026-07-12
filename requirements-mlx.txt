@@ -1,0 +1,2 @@
+# Apple Silicon only: local inference, evaluation generation, and LoRA training.
+mlx-lm==0.31.3
