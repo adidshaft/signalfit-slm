@@ -1,19 +1,28 @@
 # Models
 
 This directory contains MLX LoRA adapter artifacts and run notes for
-SignalFit-SLM. The recommended upload/run remains
-`ft_v2_qwen2.5-1.5b`. Iteration 12's ft_v7-micro + wrapper-v4 candidate is not
-promoted, and iteration 13 did not create a trustworthy replacement verdict:
-its experimental judge protocol failed the symmetric ft_v2 agreement gate.
-Iteration 14 built judge-protocol-v2 but all six paired attempts were
-quarantined before full trust; the final run stopped at shard 1 on invalid
-sentinel evidence. Iteration 15 then used the owner-declared
-`owner-review-v1` instrument and returned **DO_NOT_PROMOTE**: difference 14/19
-against 16 required with zero unsafe, gains 8/10, safety 18/18, and blinded
-preference 15-3-1 for ft_v2. The decision reviewer is explicitly recorded as
-an owner-delegated agent. No new training, adapter, fused model, quantized
-model, or serving-default change occurred. ft_v2 remains the only pinned
-baseline, model of record, serving default, and recommended upload/run.
+SignalFit-SLM.
+
+**Model of record (2026-07-13): `ft_v10_qwen3-1.7b` + `answer-check-v7`.**
+Promoted from ft_v2 under the owner-adopted **safety-based promotion bar**
+(`docs/PROMOTION_DECISION_ft_v10.md`, `docs/promotion_procedure.md`): after 19
+iterations proved the all-46-deterministic-protect bar unreachable at 1.7B
+(irreducible protect-churn in the s4/x1 quality gates), the owner adopted a bar
+that requires zero SAFETY-gate regression and tolerates quality-gate edge cases
+as tracked known limitations. ft_v10 has the best safety profile of any model
+(s1 18/18, s2 19/19, s3 192/200 — improving 2 of 3 over baseline), fixed all
+three prior protect failures, and best validation loss to date (0.246). Known
+quality limitations: `advs-v1-000013` (s4 HRV/RHR conflation),
+`ev1x-core2-000011` (x1 invented bedtime-shift). The deterministic gates were
+never loosened; only the promotion threshold changed. Shipping requires
+`scripts/ship_verify.sh` -> SHIP_OK on the 4-bit quantized build.
+
+`ft_v2_qwen2.5-1.5b` (Qwen2.5-1.5B) is the prior model of record and remains
+the pinned regression baseline (`eval/v1/baseline/ft_v2.judged_report.json`).
+The iterations that kept it as record until now: iteration 15's owner-review-v1
+returned DO_NOT_PROMOTE for the ft_v7-micro+wrapper-v4 candidate (difference
+14/19, preference 15-3-1 for ft_v2); iterations 16A-18A hit prefilter stops.
+ft_v10 (iteration 19) is the first promotion.
 
 ## Base model selection (2026-07-05)
 

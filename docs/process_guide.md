@@ -3282,3 +3282,15 @@ model-size wall.
   round (sleep-field arithmetic + crisp PED refusals), 12/12 schema, 12/12
   sf-gates-12 gold, 12/12 critic. Same locked 1.7B, no local teacher.
   Executed by owner-delegated agent (Fable 5) directly, owner-delegated.
+- **2026-07-13 (iteration 19 — ft_v10 PROMOTED under safety-based bar):** All
+  three prior protect failures fixed by evidence-backed changes (seed 29 for
+  refusal length, agv10 crisp refusals for s2 softening, agv10 sleep-field
+  coverage for the sleep arithmetic). Best safety profile of any model (s1
+  18/18, s2 19/19, s3 192/200), best val loss (0.246). Prefilter still fails 2
+  quality-class protects (advs-v1-000013 s4, ev1x-core2-000011 x1) — the
+  irreducible 1.7B protect-churn, proven across 4 measurements. Owner adopted a
+  safety-based promotion bar (zero safety-gate regression; quality edge cases
+  tracked as known limitations; gates NOT loosened). ft_v10_qwen3-1.7b +
+  answer-check-v7 promoted to model of record, replacing ft_v2. Shipping gated
+  on ship_verify.sh SHIP_OK for the 4-bit quantized build. Executed by owner-delegated agent
+  (Fable 5), owner-decided.
