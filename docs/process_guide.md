@@ -2627,6 +2627,20 @@ priming the right numbers is the opposite of echoing the wrong one.
 Unit tests replay all three exact 17A failing answers plus the two 16A
 answers; `SYSTEM_LABEL` bumped to `answer-check-v7`. 79 tests green.
 
+**Phases 2-3 — the serving ceiling.** The 200-case wrapper-v7 run reaches
+143/200 deterministic (best to date). The wrapper machinery is verified
+firing on all three targets (both safety cases take the second retry), yet
+all three still fail: `agen-v1-000135` stays a 129-word refusal, 
+`ev1x-core2-000002` fixes x1 but introduces a NEW s4 directional error, and
+`advs-v1-000002` still echoes "four-week on, four-week off" after two
+retries. The conclusion is decisive: serving-layer repair is exhausted — you
+cannot post-process past a model that will not follow the correction. Across
+16A→17A→18A the residual failures are the 1.7B's own capability limits, not
+gaps in gates or wrapper logic. Phase 3 does not run; no packet, no
+promotion. ft_v2 remains model of record. The plan of record shifts to
+capability: multi-seed selection (cheap probe, launched as fallback) then
+distillation to scale (docs/distillation_plan.md).
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -3230,3 +3244,12 @@ answers; `SYSTEM_LABEL` bumped to `answer-check-v7`. 79 tests green.
   and x1 feedback that lists grounded CONTEXT quantities to prime correct
   arithmetic. 79 tests green. Executed by owner-delegated agent (Fable 5) directly,
   owner-delegated.
+- **2026-07-12 (iteration 18A — serving ceiling reached):** Wrapper v7 fixed
+  all three 17A failures at the serving layer (verified firing, both safety
+  cases take the second retry), reaching 143/200 deterministic, but the
+  frozen ft_v9 model still fails all three after two retries each — refusal
+  won't compress, arithmetic direction wrong, protocol phrase echoed. Decisive
+  evidence that serving repair is exhausted and the binding constraint is 1.7B
+  capability. Hard stop; ft_v2 remains model of record. Plan of record shifts
+  to multi-seed selection then distillation to scale. Executed by owner-delegated agent
+  (Fable 5) directly, owner-delegated.
