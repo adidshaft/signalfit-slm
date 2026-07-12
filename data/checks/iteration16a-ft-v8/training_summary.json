@@ -1,0 +1,23 @@
+{
+  "adapter_path": "models/adapters/ft_v8_qwen3-1.7b",
+  "base_model": "Qwen/Qwen3-1.7B",
+  "config": "training/configs/mlx_lora_qwen3-1.7b-ft_v8.yaml",
+  "dataset": "data/ft_v8_qwen3_1.7b",
+  "dataset_counts": {
+    "eval": 40,
+    "total": 1120,
+    "train": 972,
+    "valid": 108
+  },
+  "final_iteration": 2116,
+  "final_train_loss": 0.192,
+  "final_validation_loss": 0.323,
+  "learning_rate": 1e-05,
+  "mlx_peak_memory_gb": 15.55,
+  "macos_peak_memory_footprint_bytes": 17025437944,
+  "macos_maximum_resident_set_size_bytes": 1606336512,
+  "real_seconds": 6536.4,
+  "trainable_parameters": 9961000,
+  "trainable_percent": 0.579,
+  "trained_tokens": 2409125
+}

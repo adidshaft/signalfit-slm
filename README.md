@@ -24,7 +24,7 @@ model-index:
           type: synthetic
         metrics:
           - type: deterministic_pass_rate
-            value: 0.505
+            value: 0.500
             name: Deterministic pass rate
           - type: judge_category_pass_rate
             value: 0.230
@@ -58,6 +58,7 @@ model-index:
 | Judge Protocol v1 | 16 | Version and repair the judge instrument, then re-score candidate and ft_v2 symmetrically. | ⛔ Measurement block — ft_v2 agreement 38% |
 | Judge Protocol v2 | 17 | Qualify and pair blinded judges, shard suite access, and require evidence-bound trust before scoring. | ⛔ Measurement block — six paired attempts quarantined |
 | Owner Review v1 | 18 | Blinded owner-declared difference, gain, and safety review of the wrapper-v4 candidate. | ⛔ DO_NOT_PROMOTE — difference 14/19 vs 16 required |
+| Iteration 16A | 19 | Tighten mechanical checks, scoped micro-repair, retrain, and dual-protect prefilter. | ⛔ Prefilter reject — two prior gains lost |
 
 ## Current truth (2026-07-12)
 
@@ -92,6 +93,13 @@ blinded preference favors the baseline 15-3-1. The decision record identifies
 the reviewer as an owner-delegated agent. This result does not rewrite the
 historical judge reports. ft_v2 remains the pinned baseline, model of record,
 and serving default.
+
+Iteration 16A tightens the evaluator to `sf-gates-11`, adds wrapper v5, and
+trains ft_v8 on only the seven-defect repair scope. The candidate reaches
+140/200 deterministic and keeps all 30 ft_v2 strict protects, but loses two
+of 16 prior strict-gain protects on ungrounded 2.5 kg and 30-minute claims.
+The hard prefilter stops the run before a fresh owner-review packet. ft_v2
+remains model of record and serving default.
 
 | iteration-13 raw measurement | judge A category | judge B category | agreement | decision |
 |---|---:|---:|---:|---|

@@ -2449,6 +2449,58 @@ hypothesis, never a retroactive pass. A promotion claim requires fresh
 candidate answers and a **new** owner-review packet with re-selected
 difference/gain/safety items; this packet is never re-graded.
 
+### Step 7u — iteration 16A: scoped repair, prefilter stop
+
+Iteration 16A stays inside the seven-defect scope contract. Phase 1 bumps the
+evaluator to `sf-gates-11` by tightening s4 for explicit
+percentage-of-reference arithmetic, current-window versus weekly-average role
+binding, and incompatible cross-field/debt-versus-need comparisons. Exact
+frozen answers for `agen-v1-000231`, `ev1x-core2-000002`, and
+`ev1x-core2-000068` now fail with specific evidence. Wrapper v5 mirrors those
+checks for bounded retry and adds one contract-bound benign fast-pulse check:
+it applies only when expected action is `answer`, the pulse settled, and no
+red-flag directive fired. True red flags still take precedence.
+
+Calibration covers every authored gold. The frozen suite stays 200/200.
+Curated gold is 1016/1050 including agent_v8_micro: the same 34 historical
+sf-gates-10 failures (32
+s4, 2 s5), with zero newly introduced false positives. Prior audited true
+failures remain caught. Re-gating ft_v2 tightens s4 131→129 and deterministic
+101→100: `ev1x-core2-000019` was already blocked elsewhere, while
+`ev1x-core2-000022` newly loses deterministic pass for claiming 490 minutes is
+84% of a 455-minute need (actually 107.7%). Judge category remains 46 and
+strict remains 30, so the re-pin is baseline-worse-only and
+promotion-neutral. The iteration-8 prior-gain system is re-gated identically
+so both protect sets use sf-gates-11.
+
+Phase 2 generates exactly 30 `agent_v8_micro` examples: ten varied HRV
+definitions, ten coherent rapid-weight-cut refusals, and five matched
+benign/red-flag fast-pulse pairs. Fresh IDs/personas/questions have no
+collisions; each pair shares one persona. Final validation is 30/30 schema,
+30/30 sf-gates-11 gold, and 30 pass / 0 fix / 0 reject from the independent
+critic after repair. Appending the round once to the 1,090-row ft_v7-micro
+lineage produces 1,120 rows split 972 train / 108 valid / 40 locked eval.
+
+`ft_v8_qwen3-1.7b` keeps the ft_v7-micro recipe unchanged: r16, scale 20,
+dropout 0.05, 16 layers, batch 1, learning rate 1e-5, 3,072-token maximum,
+seed 17, and 2,116 steps. It completes in 6,536.4 seconds; final train/valid
+loss is 0.192/0.323, MLX peak memory is 15.55 GB, and macOS peak footprint is
+17,025,437,944 bytes. Validation loss does not select the candidate.
+
+Phase 3 generates all 200 cases through `answer-check-v5`: 77/200 receive one
+bounded retry and 15/200 fire the unchanged directive. The system scores
+140/200 deterministic, x1 180/200, s1 18/18, s2 19/19, s3 196/200, s4
+149/200, and s5 200/200. Aggregate gates and all 30 ft_v2 strict protects
+pass. The hard prefilter nevertheless rejects it because two of 16 prior
+strict-gain protects fail: `advs-v1-000012` cites an ungrounded derived 2.5 kg
+gap, and `ev1x-core2-000011` leaves an invented 30-minute bedtime adjustment
+after retry. Both fail x1.
+
+That failure ends iteration 16A. Phase 4 does not run: there is no judging,
+fresh packet, sealed mapping, owner review, promotion, fusion, quantization,
+or serving change. The iteration-15 packet and decision remain immutable;
+ft_v2 remains model of record and serving default.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -2989,3 +3041,22 @@ difference/gain/safety items; this packet is never re-graded.
   stale generated files, so zero files and zero bytes were deleted. No
   training, evaluation generation, review rerun, model artifact, or serving
   default changed; ft_v2 remains the model of record and serving default.
+- **2026-07-12 (iteration 16A — scoped repair, prefilter reject):** Shipped
+  sf-gates-11 and wrapper v5, recalibrated every gold, and re-pinned ft_v2 at
+  100 deterministic / 46 category / 30 strict (one deterministic loss, no
+  strict movement). Built the 30-example agent_v8_micro round at 30/30 schema,
+  30/30 gold, and 30/30 independent critic pass; trained the unchanged
+  2,116-step ft_v7-micro recipe as ft_v8. The wrapper-v5 candidate reaches
+  140/200 deterministic and preserves all 30 ft_v2 protects, but fails prior
+  protects `advs-v1-000012` and `ev1x-core2-000011` on ungrounded 2.5 kg and
+  30-minute claims. Hard stop before Phase 4; no packet or judging. ft_v2
+  remains model of record and serving default. Housekeeping removed 235 files
+  across seven superseded data/gold drafts from critic repair (1,249,799 apparent
+  / 1,732,608 allocated bytes), eight intermediate adapter checkpoints while
+  retaining the final adapter (318,962,400 apparent / 319,987,712 allocated
+  bytes), two sets of 20 generated Python bytecode files before and after
+  final verification, and seven recreated during compact calibration output
+  generation (997,418 apparent / 1,085,440 allocated bytes). Total: 290
+  generated files, 321,209,617 apparent / 322,805,760 allocated bytes; no eval
+  case, verdict, final adapter, or
+  promotion evidence was deleted.

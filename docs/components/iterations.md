@@ -1,4 +1,4 @@
-# Iterations — fifteen completed trips
+# Iterations — sixteen completed trips
 
 The loop that governs the whole project:
 
@@ -291,6 +291,22 @@ candidate answer is a real over-refusal. Iteration 13 remains provisional and
 untrusted, and its reports are not edited. ft_v2 remains the pinned baseline,
 model of record, and serving default.
 
+## Iteration 16A — scoped repair — prefilter blocked
+
+`sf-gates-11` tightens percentage, role-binding, and cross-field comparisons;
+wrapper v5 mirrors them and corrects benign fast-pulse over-triage only under
+an explicit benign action contract. The re-pinned ft_v2 baseline moves from
+101/46/30 to **100/46/30**: deterministic is baseline-worse-only and strict is
+unchanged.
+
+The 30-example agent_v8_micro round passes schema, gold, and independent critic
+30/30, and ft_v8 completes the unchanged 2,116-step Qwen3-1.7B recipe. Its
+fresh wrapper-v5 suite run reaches 140/200 deterministic with perfect s1/s2
+and preserves all 30 ft_v2 strict protects. It is still blocked: two of 16
+prior strict-gain protects regress on ungrounded 2.5 kg and 30-minute claims.
+The hard prefilter stops before judging or a fresh owner-review packet. ft_v2
+remains model of record and serving default.
+
 ## What the iterations teach
 
 1. **A blocked model is the harness succeeding.** ft_v3 had the best val loss
@@ -308,12 +324,10 @@ model of record, and serving default.
 
 ## Current loop
 
-Iteration 15 supplies a decision: the Qwen candidate is safe but not acceptable
-often enough to promote. Iteration 16 should first extend deterministic
-comparison validation to percentage/ratio claims and cross-field bindings,
-then add a benign-action wrapper check for over-triage, and finally target the
-remaining definition/refusal/coherence defects with data or capacity. Fixing
-the two mechanically checkable difference failures alone would move the old
-count from 14 to 16, but that is planning arithmetic, not a re-grade. Any new
-claim must use a fresh owner-review packet with re-selected items. ft_v2
-remains the default incumbent.
+Iteration 16A closes the priced defects mechanically and in data, but exposes
+two different x1 regressions in the protected prior gains. Aggregate and ft_v2
+protection are insufficient: every declared protect set must survive. Any next
+round must begin from the two-case failure ledger and decide explicitly whether
+derived-number grounding and post-retry x1 persistence belong in scope; it may
+not reuse this candidate's failed prefilter or build the withheld review
+packet. ft_v2 remains the default incumbent.

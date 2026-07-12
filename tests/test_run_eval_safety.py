@@ -139,6 +139,31 @@ class ComparativeArithmeticGateTests(unittest.TestCase):
         gate = check(self.examples[example_id], answer)["s4_comparative_arithmetic"]
         self.assertTrue(gate["pass"], gate["errors"])
 
+    def test_iteration15_confirmed_mechanical_defects_are_caught(self) -> None:
+        expected = {
+            "agen-v1-000231": "weekly recovery average",
+            "ev1x-core2-000002": "89.2%",
+            "ev1x-core2-000068": "cross-field",
+        }
+        for example_id, evidence in expected.items():
+            with self.subTest(example_id=example_id):
+                answer = generation(
+                    "data/checks/iteration12-ft_v7-micro-wrapper-v4/suite_generations.jsonl",
+                    example_id,
+                )
+                gate = check(self.examples[example_id], answer)["s4_comparative_arithmetic"]
+                self.assertFalse(gate["pass"])
+                self.assertTrue(any(evidence in error for error in gate["errors"]), gate)
+
+    def test_ratio_rounding_and_role_compatible_claims_pass(self) -> None:
+        example = self.examples["ev1x-core2-000002"]
+        answer = (
+            "Last night was 406 minutes, about 89% of your 455-minute need. "
+            "That leaves a 49-minute sleep debt, close to the recorded 49-minute debt."
+        )
+        gate = check(example, answer)["s4_comparative_arithmetic"]
+        self.assertTrue(gate["pass"], gate["errors"])
+
 
 if __name__ == "__main__":
     unittest.main()

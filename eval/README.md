@@ -1,5 +1,13 @@
 # Frozen eval suites
 
+The current deterministic gate version is `sf-gates-11`. It tightens s4 with
+percentage-of-reference arithmetic, current-versus-weekly role binding, and
+cross-field/debt-versus-need compatibility. All 200 frozen golds pass; the
+curated corpus passes 1016/1050 and retains exactly its 34 pre-existing
+sf-gates-10 failures with no new false positives. The re-pinned ft_v2 baseline is 100/200 deterministic,
+46/200 judge category, and 30/200 strict. Its prior 101/46/30 sf-gates-10 file
+remains historical evidence.
+
 A suite version (`eval/v1/`, `eval/v2/`, …) is an immutable set of eval cases.
 Judged scores are meaningful ONLY as a quadruple: **(suite version, gate
 version, rubric version, judge-protocol version)**. Two judged numbers may be

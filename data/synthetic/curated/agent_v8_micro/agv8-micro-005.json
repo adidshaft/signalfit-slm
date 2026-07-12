@@ -1,0 +1,184 @@
+{
+  "example_id": "agv8-micro-005",
+  "schema_version": "sf-train-1",
+  "context": {
+    "schema_version": "sf-context-1",
+    "request": {
+      "user_question": "Is HRV about a steady rhythm, or about variation between individual beats?",
+      "asked_at_local": "2026-07-20T07:26:00+05:30",
+      "weekday": "Monday",
+      "units": "metric"
+    },
+    "task": {
+      "category": "explain_metric",
+      "confidence": 0.94
+    },
+    "user_profile": {
+      "age_band": "45-49",
+      "biological_sex": "unspecified",
+      "training_experience": "advanced"
+    },
+    "today": {
+      "date_local": "2026-07-20",
+      "recovery_score": 83,
+      "recovery_confidence": "high",
+      "hrv_ms": 72,
+      "resting_heart_rate_bpm": 53,
+      "respiratory_rate_bpm": null,
+      "sleep": {
+        "duration_minutes": 434,
+        "source": "wearable_export",
+        "confidence": "high"
+      },
+      "activity": {
+        "activity_strain": null
+      }
+    },
+    "baselines": {
+      "baseline_30d": {
+        "hrv_ms": {
+          "mean": 69,
+          "sd": 4,
+          "n": 27
+        },
+        "resting_heart_rate_bpm": {
+          "mean": 54,
+          "sd": 3,
+          "n": 27
+        },
+        "sleep_duration_minutes": {
+          "mean": 433,
+          "sd": 24,
+          "n": 27
+        },
+        "recovery_score": {
+          "mean": 82,
+          "sd": 6,
+          "n": 27
+        }
+      },
+      "ranges": {
+        "recovery_score": {
+          "low": 0,
+          "high": 100
+        }
+      }
+    },
+    "trends": {
+      "window_7d": {
+        "avg_recovery": 82,
+        "avg_hrv_ms": 69,
+        "avg_rhr_bpm": 54,
+        "avg_sleep_minutes": 433,
+        "coverage_pct": 100,
+        "confidence": "high",
+        "anomalies": []
+      }
+    },
+    "recent_workouts": [],
+    "safety_flags": [],
+    "data_quality": {
+      "missing_fields": [
+        "respiratory_rate_bpm",
+        "activity_strain"
+      ],
+      "overall": "high"
+    },
+    "provenance": {
+      "data_provider": "other",
+      "device_type": "wrist_wearable",
+      "source_confidence": {
+        "recovery_score": "high",
+        "hrv_ms": "high",
+        "resting_heart_rate_bpm": "high",
+        "sleep_duration_minutes": "high"
+      },
+      "hrv_method": "rmssd"
+    },
+    "allowed_numbers": [
+      {
+        "value": 72,
+        "unit": "ms",
+        "label": "today.hrv_ms"
+      },
+      {
+        "value": 69,
+        "unit": "ms",
+        "label": "baseline_30d.hrv_ms.mean"
+      },
+      {
+        "value": 53,
+        "unit": "bpm",
+        "label": "today.resting_heart_rate_bpm"
+      },
+      {
+        "value": 54,
+        "unit": "bpm",
+        "label": "baseline_30d.resting_heart_rate_bpm.mean"
+      },
+      {
+        "value": 83,
+        "unit": "%",
+        "label": "today.recovery_score"
+      },
+      {
+        "value": 82,
+        "unit": "%",
+        "label": "trends.window_7d.avg_recovery"
+      },
+      {
+        "value": 434,
+        "unit": "minutes",
+        "label": "today.sleep.duration_minutes"
+      },
+      {
+        "value": 433,
+        "unit": "minutes",
+        "label": "trends.window_7d.avg_sleep_minutes"
+      }
+    ]
+  },
+  "task_category": "explain_metric",
+  "case_type": "normal",
+  "difficulty": 3,
+  "target_response": {
+    "text": "HRV captures the small timing differences from one heartbeat to the next; it is not a measure of how predictably the heart beats. Your value is 72 ms, just above your 69 ms personal baseline. This small shift is ordinary context, not proof of a condition or a reason to rewrite today's plan by itself. HRV can reflect autonomic changes, but it must be interpreted with recovery context rather than alone.",
+    "expected_action": "answer",
+    "must_mention": [
+      "metric-specific comparison",
+      "correct direction"
+    ],
+    "must_not_mention": [
+      "invented delta",
+      "invented recommendation number"
+    ],
+    "required_behaviors": [
+      "correct_metric_definition",
+      "personal_baseline",
+      "no_diagnosis"
+    ],
+    "forbidden_behaviors": [
+      "predictability_definition",
+      "population_comparison",
+      "diagnosis"
+    ]
+  },
+  "labels": {
+    "safety_class": "none",
+    "provider_mask": "complete_comparison_context",
+    "persona_id": "p-agv8-005",
+    "rubric_tags": [
+      "sf-gates-11",
+      "iteration16-micro",
+      "explain_metric"
+    ],
+    "is_locked_eval": false
+  },
+  "generation": {
+    "generator": "codex-agent-workflow",
+    "prompt_version": "agv8-micro-v1",
+    "critic_passed": true,
+    "human_reviewed": false,
+    "created_at": "2026-07-12"
+  }
+}

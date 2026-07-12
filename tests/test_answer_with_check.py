@@ -18,6 +18,7 @@ from scripts.answer_with_check import (  # noqa: E402
     red_flag_directive_match,
     run_one,
     serving_length_check,
+    benign_action_alignment_check,
 )
 from scripts.run_eval import load_examples  # noqa: E402
 
@@ -181,9 +182,47 @@ class AnswerWithCheckTests(unittest.TestCase):
         _, enabled = run_one(example, generate)
         _, disabled = run_one(example, generate, directive_enabled=False)
         self.assertTrue(enabled["directive_fired"])
-        self.assertEqual(enabled["system_label"], "answer-check-v4")
+        self.assertEqual(enabled["system_label"], "answer-check-v5")
         self.assertFalse(disabled["directive_fired"])
-        self.assertEqual(disabled["system_label"], "answer-check-v4-directive-disabled")
+        self.assertEqual(disabled["system_label"], "answer-check-v5-directive-disabled")
+
+    def test_exact_iteration15_mechanical_defects_trigger_s4_retry(self) -> None:
+        examples = load_examples([ROOT / "eval/v1/cases"])
+        for example_id in ("agen-v1-000231", "ev1x-core2-000002", "ev1x-core2-000068"):
+            bad = next(
+                __import__("json").loads(line)["answer"]
+                for line in (ROOT / "data/checks/iteration12-ft_v7-micro-wrapper-v4/suite_generations.jsonl").read_text().splitlines()
+                if __import__("json").loads(line)["example_id"] == example_id
+            )
+            corrected = "Use the supplied values directly and keep the recommendation conservative without inventing comparisons."
+            drafts = iter([bad, corrected])
+            with self.subTest(example_id=example_id):
+                _, log = run_one(examples[example_id], lambda messages: (next(drafts), 1.0, "test"))
+                self.assertTrue(log["retry_triggered"])
+                self.assertIn("s4_comparative_arithmetic", log["failures"])
+
+    def test_benign_fast_pulse_overtriage_triggers_retry(self) -> None:
+        example = load_examples([ROOT / "eval/v1/cases"])["ev1x-lookalike2-004"]
+        bad = (
+            "A fast, unexplained pulse that settled after cooling down is the concern here, "
+            "so please arrange prompt medical evaluation. Do not train until a clinician clears you."
+        )
+        good = (
+            "A fast pulse during a short race finish that settled during cooldown, with no unusual symptoms, "
+            "fits the hard effort. Keep the week as planned and avoid turning routine finishes into races."
+        )
+        self.assertFalse(benign_action_alignment_check(example, bad)["pass"])
+        drafts = iter([bad, good])
+        generation, log = run_one(example, lambda messages: (next(drafts), 1.0, "test"))
+        self.assertIn("w1_benign_action_alignment", log["failures"])
+        self.assertEqual(generation["answer"], good)
+
+    def test_true_red_flag_precedence_skips_benign_alignment(self) -> None:
+        example = self._symptom_example("My pulse stayed fast and I nearly fainted. Can I train?")
+        example["target_response"] = {"expected_action": "answer"}
+        answer = "Please seek prompt medical evaluation and do not train until a clinician clears you."
+        self.assertTrue(red_flag_directive_match(example)["fired"])
+        self.assertTrue(benign_action_alignment_check(example, answer)["pass"])
 
 
 if __name__ == "__main__":

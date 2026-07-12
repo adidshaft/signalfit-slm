@@ -1,0 +1,34 @@
+{
+  "curated": {
+    "count": 1050,
+    "introduced_failures": [],
+    "sf_gates_10_failures": 34,
+    "sf_gates_11_failures": 34,
+    "sf_gates_11_pass": 1016
+  },
+  "frozen_suite": {
+    "count": 200,
+    "sf_gates_11_pass": 200
+  },
+  "known_true_failures": {
+    "new_exact_s4_failures": [
+      "agen-v1-000231",
+      "ev1x-core2-000002",
+      "ev1x-core2-000068"
+    ],
+    "prior_audited_failures_retained_by_tests": true
+  },
+  "repinned_ft_v2": {
+    "deterministic": 100,
+    "judge_category": 46,
+    "new_s4_failures": [
+      "ev1x-core2-000019",
+      "ev1x-core2-000022"
+    ],
+    "prior_deterministic": 101,
+    "prior_judge_category": 46,
+    "prior_strict": 30,
+    "strict": 30
+  },
+  "version": "sf-gates-11"
+}

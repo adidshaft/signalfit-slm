@@ -55,7 +55,10 @@ REPO = Path(__file__).resolve().parent.parent
 #                  retaining the existing coaching phrase vocabulary
 #   sf-gates-10 s4 binds a comparison to the nearest preceding metric when a
 #                  sentence reports multiple metrics
-GATE_VERSION = "sf-gates-10"
+#   sf-gates-11 s4 validates percentage-of-reference arithmetic, rejects
+#                  current-window/weekly-average role swaps, and rejects
+#                  cross-field or debt-vs-need comparisons
+GATE_VERSION = "sf-gates-11"
 RUBRIC_VERSION = "rubric-v0.1"  # docs/eval_rubrics.md pin embedded in judge bundle
 
 NUM_UNIT = re.compile(
@@ -401,6 +404,9 @@ def check_comparison(subject: float, target: float, kind: str, metric: str | Non
 
 def comparative_arithmetic_errors(context: dict, answer: str) -> list[str]:
     errors = []
+    errors.extend(derived_ratio_errors(answer))
+    errors.extend(average_role_errors(context, answer))
+    errors.extend(cross_field_comparison_errors(context, answer))
     for sentence in re.split(r"(?<=[.!?])\s+|\n+", answer):
         for m in DIRECTION_RE.finditer(sentence):
             raw_direction = m.group(0).lower()
@@ -479,6 +485,129 @@ def comparative_arithmetic_errors(context: dict, answer: str) -> list[str]:
                         f"{m.group(0)!r} claims delta {claimed_delta:g}, "
                         f"but {subject:g} vs {target_label}={target:g} differs by {actual_delta:.1f}"
                     )
+    return errors
+
+
+RATIO_OF_REFERENCE_RE = re.compile(
+    r"(?P<subject>\d+(?:\.\d+)?)\s*(?P<subject_unit>minutes?|mins?|hours?|hrs?|h)"
+    r"[^.!?]{0,35}?\b(?P<pct>\d+(?:\.\d+)?)\s*%\s+of\s+(?:your\s+)?"
+    r"(?P<reference>\d+(?:\.\d+)?)\s*[- ]?(?P<reference_unit>minutes?|mins?|hours?|hrs?|h)",
+    re.I,
+)
+
+
+def duration_minutes(value: float, unit: str) -> float:
+    return value * 60.0 if unit.lower() in {"hour", "hours", "hr", "hrs", "h"} else value
+
+
+def derived_ratio_errors(answer: str) -> list[str]:
+    """Catch explicit percentage-of-reference arithmetic claims."""
+    errors = []
+    for match in RATIO_OF_REFERENCE_RE.finditer(answer):
+        subject = duration_minutes(float(match.group("subject")), match.group("subject_unit"))
+        reference = duration_minutes(float(match.group("reference")), match.group("reference_unit"))
+        if reference == 0:
+            continue
+        claimed = float(match.group("pct"))
+        actual = subject / reference * 100.0
+        if abs(claimed - actual) > 1.5:
+            errors.append(
+                f"claimed {claimed:g}% of reference, but {subject:g}/{reference:g} is {actual:.1f}%"
+            )
+    return errors
+
+
+CURRENT_AVERAGE_RE = re.compile(
+    r"\b(?P<scope>today(?:'s)?|tonight(?:'s)?|this morning(?:'s)?)\b"
+    r"[^.!?]{0,45}?\b(?:averages?|average is|avg is)\s+(?P<value>\d+(?:\.\d+)?)\s*%",
+    re.I,
+)
+
+
+def average_role_errors(context: dict, answer: str) -> list[str]:
+    """Reject a weekly aggregate relabelled as a current/tonight window."""
+    weekly = allowed_value(context, "trends.window_7d.avg_recovery")
+    if weekly is None:
+        return []
+    errors = []
+    for match in CURRENT_AVERAGE_RE.finditer(answer):
+        value = float(match.group("value"))
+        if abs(value - weekly) <= 1.0:
+            errors.append(
+                f"{match.group('scope')!r} misbinds weekly recovery average {value:g}%"
+            )
+    return errors
+
+
+def allowed_labels_for_value(context: dict, value: float) -> list[str]:
+    labels = [
+        str(item.get("label", ""))
+        for item in context.get("allowed_numbers", [])
+        if isinstance(item.get("value"), (int, float)) and abs(float(item["value"]) - value) <= 0.01
+    ]
+    def walk(node, path=""):
+        if isinstance(node, dict):
+            for key, child in node.items():
+                walk(child, f"{path}.{key}" if path else key)
+        elif isinstance(node, list):
+            for index, child in enumerate(node):
+                walk(child, f"{path}[{index}]")
+        elif isinstance(node, (int, float)) and not isinstance(node, bool):
+            if abs(float(node) - value) <= 0.01:
+                labels.append(path)
+    walk(context)
+    return sorted(set(labels))
+
+
+def label_family(label: str) -> str | None:
+    lower = label.lower()
+    if "acute_load" in lower:
+        return "acute_load"
+    if "recent_workouts" in lower and "training_load" in lower:
+        return "workout_load"
+    for family, terms in {
+        "sleep": ("sleep", "debt", "need_minutes"),
+        "strain": ("strain", "load", "monotony"),
+        "recovery": ("recovery", "readiness"),
+        "hrv": ("hrv",),
+        "rhr": ("resting_heart_rate", "rhr"),
+        "sessions": ("session", "workout_count"),
+    }.items():
+        if any(term in lower for term in terms):
+            return family
+    return None
+
+
+CROSS_AVERAGE_RE = re.compile(
+    r"(?P<subject>\d+(?:\.\d+)?)\s+(?:with|against|versus|vs\.?)\s+"
+    r"(?:a\s+)?(?:7-day|weekly)\s+(?:average|avg)\s+(?:of\s+)?(?P<average>\d+(?:\.\d+)?)",
+    re.I,
+)
+DEBT_NEED_RE = re.compile(
+    r"\b(?:sleep\s+)?debt\s+(?:is|of|at)?\s*(?P<debt>\d+(?:\.\d+)?)\s*(?:minutes?|mins?)"
+    r"[^.!?]{0,50}?\b(?:short of|below|under|against|versus|vs\.?)\s+(?:your\s+)?"
+    r"(?P<need>\d+(?:\.\d+)?)\s*[- ]?(?:minute|min)\s+need\b",
+    re.I,
+)
+
+
+def cross_field_comparison_errors(context: dict, answer: str) -> list[str]:
+    """Reject comparisons whose grounded values belong to incompatible roles."""
+    errors = []
+    for match in CROSS_AVERAGE_RE.finditer(answer):
+        subject = float(match.group("subject"))
+        average = float(match.group("average"))
+        left = {label_family(label) for label in allowed_labels_for_value(context, subject)} - {None}
+        right = {label_family(label) for label in allowed_labels_for_value(context, average)} - {None}
+        if left and right and left.isdisjoint(right):
+            errors.append(
+                f"cross-field 7-day comparison {subject:g} ({sorted(left)}) vs {average:g} ({sorted(right)})"
+            )
+    for match in DEBT_NEED_RE.finditer(answer):
+        errors.append(
+            f"sleep debt {float(match.group('debt')):g} minutes is not progress toward "
+            f"the {float(match.group('need')):g}-minute sleep need"
+        )
     return errors
 
 
