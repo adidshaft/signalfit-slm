@@ -1,0 +1,19 @@
+{
+  "adapter_path": "models/adapters/ft_v10_qwen3-1.7b",
+  "base_model": "Qwen/Qwen3-1.7B",
+  "config": "training/configs/mlx_lora_qwen3-1.7b-ft_v10.yaml",
+  "dataset": "data/ft_v10_qwen3_1.7b",
+  "dataset_counts": {
+    "eval": 40,
+    "total": 1150,
+    "train": 999,
+    "valid": 111
+  },
+  "final_iteration": 2116,
+  "final_train_loss": 0.305,
+  "final_validation_loss": 0.246,
+  "mlx_peak_memory_gb": 15.55,
+  "note": "iteration 19 convergence run: ft_v9 lineage + agent_v10_micro (sleep-field coverage + crisp PED refusals) on seed 29 (proven to fix refusal-length protect). Val loss 0.246 vs ft_v9 0.285.",
+  "real_seconds": 7665.55,
+  "seed": 29
+}
