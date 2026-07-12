@@ -3155,3 +3155,11 @@ iters, seed 17) with only data and adapter paths changed.
   inherited labels and two texts). Built ft_v9 dataset preserving the exact
   ft_v8 lineage (sha-verified) and launched ft_v9 training on the unchanged
   literal recipe. Executed by owner-delegated agent (Fable 5) directly, owner-delegated.
+- **2026-07-12 (iteration 17A Phase 4 — ft_v9 prefilter reject):** Trained
+  ft_v9 (2,116 steps, valid loss 0.285), ran the 200-case suite through
+  wrapper v6: 142/200 deterministic (best to date), both 16A protect
+  failures fixed at the first draft. Prefilter rejected on three NEW protect
+  regressions (over-length refusal, near-miss quantity surviving both
+  retries, s2 protocol-in-refusal invisible to serving). Hard stop; no
+  packet or judging; ft_v2 remains model of record. Executed by owner-delegated agent
+  (Fable 5) directly, owner-delegated.

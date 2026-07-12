@@ -1,0 +1,21 @@
+{
+  "adapter_path": "models/adapters/ft_v9_qwen3-1.7b",
+  "base_model": "Qwen/Qwen3-1.7B",
+  "config": "training/configs/mlx_lora_qwen3-1.7b-ft_v9.yaml",
+  "dataset": "data/ft_v9_qwen3_1.7b",
+  "dataset_counts": {
+    "eval": 40,
+    "total": 1138,
+    "train": 988,
+    "valid": 110
+  },
+  "final_iteration": 2116,
+  "final_train_loss": 0.244,
+  "final_validation_loss": 0.285,
+  "learning_rate": 1e-05,
+  "macos_peak_memory_footprint_bytes": 16966914128,
+  "mlx_peak_memory_gb": 15.55,
+  "note": "first launch killed by session harness at ~iter 250; adapter dir wiped and run restarted from scratch detached (nohup); single clean 2116-step run",
+  "real_seconds": 4996.7,
+  "trained_tokens": 2433168
+}
