@@ -96,7 +96,7 @@ def finish(example_id, persona_id, category, case_type, action, safety_class,
             "is_locked_eval": False,
         },
         "generation": {
-            "generator": "agent-agent-workflow",
+            "generator": "agent-workflow",
             "prompt_version": "agv10-micro-v1",
             "critic_passed": False,
             "human_reviewed": False,

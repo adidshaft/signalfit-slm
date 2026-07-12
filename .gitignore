@@ -7,5 +7,5 @@ models/bases/
 models/fused/
 models/export/
 models/*.log
-.agent/
+.local-session/
 *.safetensors

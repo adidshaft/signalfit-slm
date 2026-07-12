@@ -12,7 +12,7 @@ judge_bundle.jsonl — a frontier model, an agent, or a human):
     {"example_id": str,
      "criteria": {"<id>": {"pass": bool, "reason": str}, ...},
      "category_pass": bool,
-     "judge": str}          # who judged, e.g. "agent-fable-5-agent"
+     "judge": str}          # who judged, e.g. "judge-agent"
 
 An example's overall_pass = deterministic_pass AND category_pass AND every
 cross-cutting criterion. The judged report keeps the full score quadruple;

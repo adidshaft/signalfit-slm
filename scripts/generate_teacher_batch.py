@@ -33,7 +33,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from generate_seed_dataset import CATEGORIES, SAFETY_FLAGS, build_context, make_series  # noqa: E402
 from validate_schema import NUM_UNIT  # noqa: E402
 
-TEACHER_MODEL = "agent-opus-4-8"  # $5/$25 per MTok, 50% off via Batch API
+TEACHER_MODEL = "frontier-teacher-model"  # $5/$25 per MTok, 50% off via Batch API
 PROMPT_VERSION = "gen-1-batch-1"
 
 # data_generation_plan.md §2 distribution (weights) and §3 case mix

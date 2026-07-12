@@ -277,7 +277,7 @@
     "is_locked_eval": false
   },
   "generation": {
-    "generator": "agent-fable-5-agent",
+    "generator": "judge-agent",
     "prompt_version": "agv4-discipline-1",
     "critic_passed": true,
     "human_reviewed": false,

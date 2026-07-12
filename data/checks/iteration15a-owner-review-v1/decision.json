@@ -1533,7 +1533,7 @@
     "verdict": "DO_NOT_PROMOTE"
   },
   "reviewed_at_utc": "2026-07-12T09:12:08.206919+00:00",
-  "reviewer": "owner-delegated agent (Fable 5) agent review, owner-delegated by Aman Pandey; owner declined manual confirmation",
+  "reviewer": "owner-delegated agent agent review, owner-delegated by Aman Pandey; owner declined manual confirmation",
   "rubric_version": "rubric-v0.1",
   "selection": {
     "ab_seed": 15016,

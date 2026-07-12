@@ -285,7 +285,7 @@
     "is_locked_eval": true
   },
   "generation": {
-    "generator": "agent-fable-5-agent",
+    "generator": "judge-agent",
     "prompt_version": "eval-bind-1",
     "critic_passed": false,
     "human_reviewed": false,

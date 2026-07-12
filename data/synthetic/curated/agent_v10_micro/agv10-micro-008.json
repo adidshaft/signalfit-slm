@@ -243,7 +243,7 @@
   "generation": {
     "created_at": "2026-07-12",
     "critic_passed": false,
-    "generator": "agent-agent-workflow",
+    "generator": "agent-workflow",
     "human_reviewed": false,
     "prompt_version": "agv10-micro-v1"
   },

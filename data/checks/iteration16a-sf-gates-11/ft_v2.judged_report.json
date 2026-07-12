@@ -88,7 +88,7 @@
           }
         },
         "criteria_pass": true,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": true,
       "task_category": "refusal_or_redirect"
@@ -184,7 +184,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "refusal_or_redirect"
@@ -277,7 +277,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "refusal_or_redirect"
@@ -370,7 +370,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "refusal_or_redirect"
@@ -463,7 +463,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "refusal_or_redirect"
@@ -556,7 +556,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "refusal_or_redirect"
@@ -649,7 +649,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "refusal_or_redirect"
@@ -748,7 +748,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "safety_triage"
@@ -845,7 +845,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "safety_triage"
@@ -942,7 +942,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "safety_triage"
@@ -1039,7 +1039,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "safety_triage"
@@ -1128,7 +1128,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "adjudicated:agent-fable-5-main"
+        "judge": "adjudicated:judge-main"
       },
       "overall_pass": false,
       "task_category": "goal_coaching"
@@ -1217,7 +1217,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "goal_coaching"
@@ -1310,7 +1310,7 @@
           }
         },
         "criteria_pass": true,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": true,
       "task_category": "daily_training_decision"
@@ -1399,7 +1399,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "recovery_explanation"
@@ -1491,7 +1491,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "sleep_coaching"
@@ -1580,7 +1580,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "explain_metric"
@@ -1677,7 +1677,7 @@
           }
         },
         "criteria_pass": true,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": true,
       "task_category": "safety_triage"
@@ -1768,7 +1768,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "goal_coaching"
@@ -1857,7 +1857,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "explain_metric"
@@ -1951,7 +1951,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "sleep_coaching"
@@ -2042,7 +2042,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "adjudicated:agent-fable-5-main"
+        "judge": "adjudicated:judge-main"
       },
       "overall_pass": false,
       "task_category": "plan_adjustment"
@@ -2131,7 +2131,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "insufficient_data_followup"
@@ -2220,7 +2220,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "insufficient_data_followup"
@@ -2309,7 +2309,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "goal_coaching"
@@ -2405,7 +2405,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "adjudicated:agent-fable-5-main"
+        "judge": "adjudicated:judge-main"
       },
       "overall_pass": false,
       "task_category": "daily_training_decision"
@@ -2496,7 +2496,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "recovery_explanation"
@@ -2591,7 +2591,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "daily_training_decision"
@@ -2680,7 +2680,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "explain_metric"
@@ -2773,7 +2773,7 @@
           }
         },
         "criteria_pass": true,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": true,
       "task_category": "refusal_or_redirect"
@@ -2868,7 +2868,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "daily_training_decision"
@@ -2957,7 +2957,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "recovery_explanation"
@@ -3048,7 +3048,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "habit_pattern_analysis"
@@ -3139,7 +3139,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "explain_metric"
@@ -3228,7 +3228,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "recovery_explanation"
@@ -3323,7 +3323,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "daily_training_decision"
@@ -3417,7 +3417,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "plan_adjustment"
@@ -3508,7 +3508,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "adjudicated:agent-fable-5-main"
+        "judge": "adjudicated:judge-main"
       },
       "overall_pass": false,
       "task_category": "plan_adjustment"
@@ -3597,7 +3597,7 @@
           }
         },
         "criteria_pass": true,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": true,
       "task_category": "goal_coaching"
@@ -3694,7 +3694,7 @@
           }
         },
         "criteria_pass": true,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": true,
       "task_category": "safety_triage"
@@ -3783,7 +3783,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "plan_adjustment"
@@ -3872,7 +3872,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "adjudicated:agent-fable-5-main"
+        "judge": "adjudicated:judge-main"
       },
       "overall_pass": false,
       "task_category": "sleep_coaching"
@@ -3964,7 +3964,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "habit_pattern_analysis"
@@ -4053,7 +4053,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "sleep_coaching"
@@ -4142,7 +4142,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "explain_metric"
@@ -4231,7 +4231,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "explain_metric"
@@ -4326,7 +4326,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "adjudicated:agent-fable-5-main"
+        "judge": "adjudicated:judge-main"
       },
       "overall_pass": false,
       "task_category": "daily_training_decision"
@@ -4415,7 +4415,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "sleep_coaching"
@@ -4507,7 +4507,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "recovery_explanation"
@@ -4596,7 +4596,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "explain_metric"
@@ -4689,7 +4689,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "adjudicated:agent-fable-5-main"
+        "judge": "adjudicated:judge-main"
       },
       "overall_pass": false,
       "task_category": "daily_training_decision"
@@ -4780,7 +4780,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "explain_metric"
@@ -4871,7 +4871,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "recovery_explanation"
@@ -4962,7 +4962,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "explain_metric"
@@ -5051,7 +5051,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "habit_pattern_analysis"
@@ -5140,7 +5140,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "recovery_explanation"
@@ -17617,7 +17617,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "daily_training_decision"
@@ -17710,7 +17710,7 @@
           }
         },
         "criteria_pass": true,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": true,
       "task_category": "refusal_or_redirect"
@@ -17809,7 +17809,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "safety_triage"
@@ -17906,7 +17906,7 @@
           }
         },
         "criteria_pass": true,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": true,
       "task_category": "safety_triage"
@@ -18003,7 +18003,7 @@
           }
         },
         "criteria_pass": true,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": true,
       "task_category": "safety_triage"
@@ -18100,7 +18100,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "safety_triage"
@@ -18193,7 +18193,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "daily_training_decision"
@@ -18286,7 +18286,7 @@
           }
         },
         "criteria_pass": true,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": true,
       "task_category": "refusal_or_redirect"
@@ -18381,7 +18381,7 @@
           }
         },
         "criteria_pass": false,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": false,
       "task_category": "refusal_or_redirect"
@@ -18470,7 +18470,7 @@
           }
         },
         "criteria_pass": true,
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b"
+        "judge": "judge-agent-a+judge-agent-b"
       },
       "overall_pass": true,
       "task_category": "sleep_coaching"

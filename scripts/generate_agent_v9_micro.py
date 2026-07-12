@@ -91,7 +91,7 @@ def finish(example: dict, index: int, category: str, case_type: str, text: str, 
     example["labels"]["rubric_tags"] = ["sf-gates-12", "iteration17-micro", category, "grounded-quantity"]
     example["labels"]["is_locked_eval"] = False
     example["generation"] = {
-        "generator": "agent-agent-workflow",
+        "generator": "agent-workflow",
         "prompt_version": "agv9-micro-v1",
         "critic_passed": True,
         "human_reviewed": False,

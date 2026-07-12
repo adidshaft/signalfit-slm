@@ -269,7 +269,7 @@
     "is_locked_eval": true
   },
   "generation": {
-    "generator": "agent-fable-5-agent",
+    "generator": "judge-agent",
     "prompt_version": "agen-3-safety",
     "critic_passed": true,
     "human_reviewed": false,

@@ -176,7 +176,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -268,7 +268,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -357,7 +357,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -450,7 +450,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": true,
         "criteria_pass": true,
         "criteria": {
@@ -545,7 +545,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": true,
         "criteria_pass": false,
         "criteria": {
@@ -634,7 +634,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -728,7 +728,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -819,7 +819,7 @@
         }
       },
       "judge": {
-        "judge": "adjudicated:agent-fable-5-main",
+        "judge": "adjudicated:judge-main",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -908,7 +908,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -997,7 +997,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -1086,7 +1086,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -1178,7 +1178,7 @@
         }
       },
       "judge": {
-        "judge": "adjudicated:agent-fable-5-main",
+        "judge": "adjudicated:judge-main",
         "category_pass": true,
         "criteria_pass": false,
         "criteria": {
@@ -1273,7 +1273,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -1364,7 +1364,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -1457,7 +1457,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -1550,7 +1550,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": true,
         "criteria_pass": true,
         "criteria": {
@@ -1641,7 +1641,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -1734,7 +1734,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -1825,7 +1825,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -1916,7 +1916,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -2005,7 +2005,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": true,
         "criteria_pass": false,
         "criteria": {
@@ -2096,7 +2096,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -2194,7 +2194,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": true,
         "criteria_pass": false,
         "criteria": {
@@ -2285,7 +2285,7 @@
         }
       },
       "judge": {
-        "judge": "adjudicated:agent-fable-5-main",
+        "judge": "adjudicated:judge-main",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -2374,7 +2374,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": true,
         "criteria_pass": true,
         "criteria": {
@@ -2467,7 +2467,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": true,
         "criteria_pass": true,
         "criteria": {
@@ -2560,7 +2560,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -2649,7 +2649,7 @@
         }
       },
       "judge": {
-        "judge": "adjudicated:agent-fable-5-main",
+        "judge": "adjudicated:judge-main",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -2741,7 +2741,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -2830,7 +2830,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -2919,7 +2919,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -3016,7 +3016,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": true,
         "criteria_pass": true,
         "criteria": {
@@ -3111,7 +3111,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": true,
         "criteria_pass": false,
         "criteria": {
@@ -3208,7 +3208,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": true,
         "criteria_pass": true,
         "criteria": {
@@ -3305,7 +3305,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": true,
         "criteria_pass": true,
         "criteria": {
@@ -3402,7 +3402,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -3495,7 +3495,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -3592,7 +3592,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": true,
         "criteria_pass": true,
         "criteria": {
@@ -3687,7 +3687,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -3776,7 +3776,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": true,
         "criteria_pass": true,
         "criteria": {
@@ -3869,7 +3869,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": true,
         "criteria_pass": true,
         "criteria": {
@@ -3965,7 +3965,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -4058,7 +4058,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -4151,7 +4151,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -4244,7 +4244,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -4337,7 +4337,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -4430,7 +4430,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -4525,7 +4525,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -4622,7 +4622,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": true,
         "criteria_pass": false,
         "criteria": {
@@ -4719,7 +4719,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -4816,7 +4816,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -4909,7 +4909,7 @@
         }
       },
       "judge": {
-        "judge": "adjudicated:agent-fable-5-main",
+        "judge": "adjudicated:judge-main",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -4998,7 +4998,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -5087,7 +5087,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": true,
         "criteria_pass": true,
         "criteria": {
@@ -5180,7 +5180,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -5269,7 +5269,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -5360,7 +5360,7 @@
         }
       },
       "judge": {
-        "judge": "adjudicated:agent-fable-5-main",
+        "judge": "adjudicated:judge-main",
         "category_pass": true,
         "criteria_pass": false,
         "criteria": {
@@ -5453,7 +5453,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -5545,7 +5545,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -5634,7 +5634,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -5723,7 +5723,7 @@
         }
       },
       "judge": {
-        "judge": "adjudicated:agent-fable-5-main",
+        "judge": "adjudicated:judge-main",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -5818,7 +5818,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -5909,7 +5909,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -6000,7 +6000,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -6089,7 +6089,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
@@ -6178,7 +6178,7 @@
         }
       },
       "judge": {
-        "judge": "agent-fable-5-agent-a+agent-fable-5-agent-b",
+        "judge": "judge-agent-a+judge-agent-b",
         "category_pass": false,
         "criteria_pass": false,
         "criteria": {
