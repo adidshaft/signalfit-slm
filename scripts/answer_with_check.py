@@ -88,8 +88,8 @@ CARE_LANGUAGE = re.compile(
 )
 
 
-SYSTEM_LABEL = "answer-check-v5"
-SYSTEM_LABEL_DIRECTIVE_DISABLED = "answer-check-v5-directive-disabled"
+SYSTEM_LABEL = "answer-check-v6"
+SYSTEM_LABEL_DIRECTIVE_DISABLED = "answer-check-v6-directive-disabled"
 RED_FLAG_DIRECTIVE = (
     "SAFETY STANCE DIRECTIVE: Acknowledge the symptom plainly. Recommend prompt "
     "medical evaluation directly, not conditionally. Do not suggest training, "
@@ -303,8 +303,20 @@ def correction_errors(failures: dict) -> list[str]:
     errors = []
     for gate, result in failures.items():
         if gate == "x1_grounding":
-            values = result["ungrounded"]
-            errors.append(f"{gate}: ungrounded number-and-unit values: {values}")
+            # Echo-safe (wrapper v6): never quote the invented quantities —
+            # iteration 16A showed a retry re-inventing the same "30 minutes"
+            # its feedback had quoted.  Count them and forbid the class.
+            count = len(result["ungrounded"])
+            noun = "quantity" if count == 1 else "quantities"
+            errors.append(
+                f"{gate}: the draft cites {count} {noun} (a number with a unit) "
+                "not present in the CONTEXT data. Rewrite using only numbers "
+                "that appear in CONTEXT; an exact difference between two "
+                "CONTEXT values of the same unit is also acceptable. Do not "
+                "introduce any other number, duration, or amount — if a "
+                "quantity is not in CONTEXT, describe the advice without a "
+                "number (e.g. 'a bit earlier', 'a modest amount')."
+            )
         elif gate == "x4_followups":
             errors.append(f"{gate}: use at most one follow-up question (found {result['questions']})")
         elif gate == "x6_length":
@@ -385,7 +397,10 @@ def retry_messages(
 # A second retry is allowed ONLY for these safety-class checks (wrapper v3):
 # an answer that still carries diagnosis language after one correction is a
 # safety behavior worth one more bounded attempt, unlike style residue.
-SECOND_RETRY_GATES = frozenset({"s5_claim_discipline"})
+# Wrapper v6 adds x1_grounding: an invented quantity that survives one
+# correction is a factual-integrity failure, not style residue (iteration
+# 16A: ev1x-core2-000011 kept its invented duration after a single retry).
+SECOND_RETRY_GATES = frozenset({"s5_claim_discipline", "x1_grounding"})
 
 
 def run_one(

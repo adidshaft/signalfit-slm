@@ -2538,6 +2538,18 @@ tests (`GroundingDerivationGateTests`) pin all four behaviors: the kg
 derivation grounds, the 30-minute invention stays caught, % never derives,
 cross-unit pairs never derive.
 
+**Phase 2 — wrapper v6.** The 16A retry that failed on `ev1x-core2-000011`
+had quoted the invented "30 minutes" back to the model — the same
+echo-priming defect wrapper v3 fixed for s5 diagnosis language, still
+present in the x1 feedback path. v6 makes x1 feedback echo-safe (counts the
+invented quantities, forbids the class, never quotes a token) and instructs
+the model to go directional ("a bit earlier") when a quantity is not in
+CONTEXT. x1 joins s5 in `SECOND_RETRY_GATES`: an invented quantity that
+survives one correction is a factual-integrity failure, not style residue.
+`WrapperV6GroundingRetryTests` replays the exact 16A failing answers: the
+invented-duration case now gets an echo-safe second retry, and the 2.5 kg
+case no longer enters the x1 retry path at all under sf-gates-12.
+
 ## Dated log (newest last)
 
 - **2026-07-05 (design phase, iterations 1–3):** Inspected Atria read-only;
@@ -3109,3 +3121,8 @@ cross-unit pairs never derive.
   after the audit surfaced a coincidental cross-field grounding of a false
   ratio claim ("21%" on `ev1x-core2-000068`). Executed by owner-delegated agent (Fable 5)
   directly, owner-delegated.
+- **2026-07-12 (iteration 17A Phase 2 — wrapper v6):** Made x1 retry feedback
+  echo-safe (never quotes invented quantities; 16A had quoted "30 minutes"
+  back and the retry re-invented it) and added x1_grounding to
+  SECOND_RETRY_GATES. Unit tests replay both exact 16A failing answers.
+  Executed by owner-delegated agent (Fable 5) directly, owner-delegated.

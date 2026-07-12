@@ -46,10 +46,14 @@ class AnswerWithCheckTests(unittest.TestCase):
         self.assertEqual(generation["answer"], "Your resting heart rate is 62 bpm, so use a moderate session today.")
         self.assertIn("x1_grounding", log["failures"])
         self.assertIn("s3_field_binding", log["failures"])
-        self.assertTrue(any("104 bpm" in error for error in log["correction_errors"]))
+        # v6 echo-safety: the x1 line never quotes the invented quantity
+        # (s3 binding errors intentionally keep numeric specifics)
+        x1_lines = [e for e in log["correction_errors"] if e.startswith("x1_grounding")]
+        self.assertEqual(len(x1_lines), 1)
+        self.assertNotIn("104 bpm", x1_lines[0])
+        self.assertIn("not present in the CONTEXT data", x1_lines[0])
         correction_turn = calls[1][-1]["content"]
         self.assertIn("CHECK FAILURES", correction_turn)
-        self.assertIn("104 bpm", correction_turn)
         self.assertEqual(set(log["draft_checks"]), set(ANSWER_SIDE_GATES))
 
     def test_passing_draft_skips_retry(self) -> None:
@@ -78,12 +82,14 @@ class AnswerWithCheckTests(unittest.TestCase):
             "x6_length": {"pass": False, "words": 81, "bounds": [0, 80], "policy": "refusal_shaped"},
             "s3_field_binding": {"pass": False, "errors": ["wrong field"]},
         })
-        self.assertEqual(correction_errors(failures), [
-            "x1_grounding: ungrounded number-and-unit values: ['99 bpm']",
+        rendered = correction_errors(failures)
+        self.assertEqual(rendered[1:], [
             "x4_followups: use at most one follow-up question (found 2)",
             "x6_length: response is 81 words; keep it at or below 80 words (refusal_shaped serving policy)",
             "s3_field_binding: wrong field",
         ])
+        self.assertIn("cites 1 quantity", rendered[0])
+        self.assertNotIn("99 bpm", rendered[0])
 
     def test_serving_length_proxy_is_conservative_without_expected_action(self) -> None:
         refusal = "I can't help with that. " + "safe " * 76
@@ -182,9 +188,9 @@ class AnswerWithCheckTests(unittest.TestCase):
         _, enabled = run_one(example, generate)
         _, disabled = run_one(example, generate, directive_enabled=False)
         self.assertTrue(enabled["directive_fired"])
-        self.assertEqual(enabled["system_label"], "answer-check-v5")
+        self.assertEqual(enabled["system_label"], "answer-check-v6")
         self.assertFalse(disabled["directive_fired"])
-        self.assertEqual(disabled["system_label"], "answer-check-v5-directive-disabled")
+        self.assertEqual(disabled["system_label"], "answer-check-v6-directive-disabled")
 
     def test_exact_iteration15_mechanical_defects_trigger_s4_retry(self) -> None:
         examples = load_examples([ROOT / "eval/v1/cases"])
@@ -223,6 +229,53 @@ class AnswerWithCheckTests(unittest.TestCase):
         answer = "Please seek prompt medical evaluation and do not train until a clinician clears you."
         self.assertTrue(red_flag_directive_match(example)["fired"])
         self.assertTrue(benign_action_alignment_check(example, answer)["pass"])
+
+
+class WrapperV6GroundingRetryTests(unittest.TestCase):
+    """Wrapper v6: echo-safe x1 feedback plus a bounded second retry for x1."""
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        import json
+        cls.examples = load_examples([ROOT / "eval/v1/cases"])
+        cls.ledger = {}
+        ledger_path = ROOT / "data/checks/iteration16a-ft-v8/prefilter_failure_ledger.jsonl"
+        for line in ledger_path.read_text().splitlines():
+            row = json.loads(line)
+            cls.ledger[row["example_id"]] = row["candidate_answer"]
+
+    def test_iteration16a_invented_duration_gets_echo_safe_second_retry(self) -> None:
+        example = self.examples["ev1x-core2-000011"]
+        bad = self.ledger["ev1x-core2-000011"]
+        fixed = (
+            "The main driver is still accumulating minutes rather than a deep "
+            "night. Move your bedtime a bit earlier each night until the 24-minute "
+            "debt is settled, keeping your usual wake time. Last night's 431 minutes "
+            "sits under your 455-minute need, so a slightly earlier start is enough "
+            "without changing anything else about the routine."
+        )
+        drafts = iter([bad, bad, fixed])
+        calls = []
+
+        def generate(messages):
+            calls.append(messages)
+            return next(drafts), 1.0, "test"
+
+        generation, log = run_one(example, generate)
+        self.assertEqual(len(calls), 3)
+        self.assertTrue(log["retry2_triggered"])
+        self.assertEqual(generation["answer"], fixed)
+        for turn in (calls[1][-1]["content"], calls[2][-1]["content"]):
+            self.assertNotIn("30 minutes", turn)
+            self.assertIn("not present in the CONTEXT data", turn)
+
+    def test_iteration16a_derived_weight_gap_no_longer_triggers_x1(self) -> None:
+        # under sf-gates-12 the true 2.5 kg derivation is grounded; the 16A
+        # answer must not enter the x1 retry path at all
+        example = self.examples["advs-v1-000012"]
+        from scripts.answer_with_check import answer_side_checks
+        checks = answer_side_checks(example, self.ledger["advs-v1-000012"])
+        self.assertTrue(checks["x1_grounding"]["pass"], checks["x1_grounding"])
 
 
 if __name__ == "__main__":
