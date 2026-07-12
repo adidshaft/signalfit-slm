@@ -1,0 +1,49 @@
+name: Model behavior report
+description: Report a grounding, field-binding, safety, or answer-quality problem.
+title: "model: "
+labels: [model-behavior]
+body:
+  - type: markdown
+    attributes:
+      value: Use wholly synthetic data. For a material safety vulnerability, use private vulnerability reporting instead.
+  - type: dropdown
+    id: category
+    attributes:
+      label: Behavior category
+      options:
+        - Ungrounded number or claim
+        - Wrong field binding or comparison
+        - Safety triage or refusal
+        - Response quality
+        - Wrapper or retry behavior
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Synthetic context
+      description: Provide the smallest complete synthetic JSON context that reproduces the issue.
+      render: json
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Model output
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: system
+    attributes:
+      label: Model and wrapper
+      placeholder: ft_v10 4-bit + answer-check-v7
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true

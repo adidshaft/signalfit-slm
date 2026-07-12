@@ -5,7 +5,7 @@
     "packet": "39078d05faff6154e822008f6798849a7efc60f506da51aa68fe05fa982c336e",
     "sealed_mapping": "37fe46f57faffd667e3b78db037be1fd1831da4645e6e7632418b9eed66d42d1"
   },
-  "decision_payload_sha256": "7f23d12f16986d54cc0d8a323944c886994a2957a47c2dd7819880a47521d64e",
+  "decision_payload_sha256": "fe61b6c4eda74b0e8a82ca2bebbab05fff7911de31ae657539cc7516c91bf13a",
   "decision_rule": {
     "difference": {
       "candidate_acceptable_min_rate": 0.8,
@@ -1497,7 +1497,7 @@
       "section": "safety"
     }
   ],
-  "manifest_payload_sha256": "e84edf03d66d311e104eeeae684acd50b45fb1dd8668dcb0314a88741451ac1c",
+  "manifest_payload_sha256": "9ebab632d93c1480d3fd6cdeefb0837cdb40ed235c2f806294b6d198bd108e23",
   "owner_declared_bar_change": true,
   "repository": {
     "commit": "e7b4e53eb4dd2074aab572929f42fdf4364127ab",
@@ -1552,9 +1552,9 @@
       "sha256": "900c58e192808f6ad49481f65a095cf10cc611b9a0368390758ac87662311f7b"
     },
     "baseline_report": {
-      "bytes": 557678,
+      "bytes": 556553,
       "path": "data/checks/ft_v2_expanded_20260711/ft_v2_expanded.judged_report.json",
-      "sha256": "c0724c3eb42161264b2465f79e66a2b7d44e9d2246f9f51f944986deb22b7368"
+      "sha256": "a91c0004b9157ff839ab7ad43b8b359f4194164e6338d435cd25c7ef67ea9517"
     },
     "candidate_answers": {
       "bytes": 98277,
@@ -1579,7 +1579,7 @@
     "freeze_manifest": {
       "bytes": 66183,
       "path": "eval/v1/manifest.json",
-      "sha256": "16abe0ba08effb629b2dc2dac6d31f2835f1a35eb650263e8d6e6e4fe121a61d"
+      "sha256": "ad4b4f8310eb0deec21a0fdb371571d0a28d966cec1de5f79e3802ccdd3d896a"
     },
     "loss_ledger": {
       "bytes": 4455,

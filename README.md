@@ -1,5 +1,9 @@
 # SignalFit-SLM
 
+[![CI](https://github.com/adidshaft/signalfit-slm/actions/workflows/ci.yml/badge.svg)](https://github.com/adidshaft/signalfit-slm/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](CONTRIBUTING.md#development-setup)
+
 SignalFit-SLM is a small fitness assistant model for wearable data.
 
 It takes a structured snapshot of a user's recovery, HRV, sleep, training load,
@@ -9,6 +13,25 @@ grounded, portable, and safe enough to run locally.
 
 The current model is based on Qwen3-1.7B, fine-tuned with LoRA, wrapped with
 deterministic safety and grounding checks, and exported as a 4-bit MLX build.
+
+## Quick Start
+
+The deterministic tooling and tests require Python 3.10 or newer. Model
+inference and training require an Apple Silicon Mac.
+
+```bash
+git clone https://github.com/adidshaft/signalfit-slm.git
+cd signalfit-slm
+python3 -m venv .venv
+.venv/bin/pip install -r requirements-dev.txt
+make check
+```
+
+Install MLX support separately when you need to run the model:
+
+```bash
+.venv/bin/pip install -r requirements-mlx.txt
+```
 
 ## Example Conversations
 
@@ -125,11 +148,13 @@ Useful files:
 | Path | Purpose |
 |---|---|
 | `docs/` | Product notes, safety policy, eval plan, process log, promotion notes |
+| `benchmarks/` | Reproducible human-style benchmark inputs, outputs, and reports |
 | `schemas/` | JSON Schemas for context and training examples |
 | `prompts/` | Dataset generation, critique, and evaluation prompts |
 | `data/synthetic/` | Synthetic training data |
 | `eval/v1/` | Frozen evaluation suite |
 | `scripts/` | Validation, serving wrapper, gates, and dataset tools |
+| `tests/` | Deterministic unit and integration tests |
 | `training/configs/` | MLX LoRA training configs |
 | `data/checks/ship-ft_v10/export-4bit/` | Current 4-bit MLX export metadata |
 
@@ -144,6 +169,22 @@ diagnose conditions or replace professional care.
 The assistant must stop coaching and redirect when a request includes medical
 red flags, unsafe performance-enhancing drug requests, or other high-risk
 content. See [`docs/safety_policy.md`](docs/safety_policy.md).
+
+## Contributing
+
+Contributions are welcome. Start with [`CONTRIBUTING.md`](CONTRIBUTING.md) and
+the [`docs/` index](docs/README.md). Please use synthetic data only, run
+`make check`, and preserve the frozen-evaluation and safety contracts.
+
+- Report vulnerabilities privately through [`SECURITY.md`](SECURITY.md).
+- Community expectations are in [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
+- Usage and issue-routing help is in [`SUPPORT.md`](SUPPORT.md).
+
+## License
+
+SignalFit-SLM is licensed under the [Apache License 2.0](LICENSE). The Qwen3
+base model is also Apache-2.0; downstream users remain responsible for the
+licenses of any external datasets, adapters, or export formats they add.
 
 ## Maintainer
 

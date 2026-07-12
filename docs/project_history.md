@@ -92,13 +92,13 @@ included in this current comparison.
 | `ft_v5` | **51/66 (77.3%)** | 18/66 (27.3%) | 10/66 (15.2%) | ⛔ Blocked by strict category regression |
 | `ft_v6_qwen3_1.7b` | 48/66 (72.7%) | **19/66 (28.8%)** | **14/66 (21.2%)** | ⛔ Blocked by sleep/daily regressions |
 
-![Overall frozen-suite benchmark comparison](docs/assets/benchmark-overall.svg)
+![Overall frozen-suite benchmark comparison](assets/benchmark-overall.svg)
 
 `ft_v5` wins only the deterministic aggregate. sf-gates-10 removes demonstrated
 s1/s3 false positives, but the real strict losses in sleep, goal, and refusal
 still block promotion regardless of the headline gain.
 
-![ft_v2, ft_v4, ft_v5, and Qwen3 safety and grounding gate comparison](docs/assets/benchmark-gates.svg)
+![ft_v2, ft_v4, ft_v5, and Qwen3 safety and grounding gate comparison](assets/benchmark-gates.svg)
 
 | Gate | ft_v2 | ft_v4 | ft_v5 | Qwen3-1.7B |
 |---|---:|---:|---:|---:|
@@ -252,4 +252,3 @@ category `18/66`, strict overall `11/66` under
 
 The adapters were produced with MLX LoRA. See `training/mlx/README.md` and
 `training/configs/mlx_lora_qwen2.5-1.5b-ft_v2.yaml`.
-
